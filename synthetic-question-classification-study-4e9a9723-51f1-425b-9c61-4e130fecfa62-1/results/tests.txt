@@ -1,0 +1,48 @@
+test_initial_adapter_preserves_function_and_base_stays_frozen (test_adapters.AdapterTests.test_initial_adapter_preserves_function_and_base_stays_frozen) ... ok
+test_split_entities_do_not_overlap (test_adapters.AdapterTests.test_split_entities_do_not_overlap) ... ok
+test_conflicting_current_sources_abstain_regardless_of_order (test_evidence_agent.EvidenceTests.test_conflicting_current_sources_abstain_regardless_of_order) ... ok
+test_conversion_and_zero_denominator (test_evidence_agent.EvidenceTests.test_conversion_and_zero_denominator) ... ok
+test_dataset_split_has_no_shared_entities_and_covers_all_families (test_evidence_agent.EvidenceTests.test_dataset_split_has_no_shared_entities_and_covers_all_families) ... ok
+test_injected_notes_do_not_modify_tool_value (test_evidence_agent.EvidenceTests.test_injected_notes_do_not_modify_tool_value) ... ok
+test_invalid_actions_fail_without_execution (test_evidence_agent.EvidenceTests.test_invalid_actions_fail_without_execution) ... ok
+test_invalid_fact_types_are_rejected (test_evidence_agent.EvidenceTests.test_invalid_fact_types_are_rejected) ... ok
+test_removed_field_does_not_fall_back_to_old_version (test_evidence_agent.EvidenceTests.test_removed_field_does_not_fall_back_to_old_version) ... ok
+test_units_and_operands_are_checked (test_evidence_agent.EvidenceTests.test_units_and_operands_are_checked) ... ok
+test_unknown_service_abstains_instead_of_fuzzy_name_match (test_evidence_agent.EvidenceTests.test_unknown_service_abstains_instead_of_fuzzy_name_match) ... ok
+test_versioned_lookup_and_arithmetic_provenance (test_evidence_agent.EvidenceTests.test_versioned_lookup_and_arithmetic_provenance) ... ok
+test_incomplete_response_is_not_scored_as_success (test_providers.ProviderContractTests.test_incomplete_response_is_not_scored_as_success) ... ok
+test_sdk_request_usage_and_no_silent_budget_overrun (test_providers.ProviderContractTests.test_sdk_request_usage_and_no_silent_budget_overrun) ... ok
+test_auth_is_required (test_service.HttpTests.test_auth_is_required) ... ok
+test_conflict_returns_409 (test_service.HttpTests.test_conflict_returns_409) ... ok
+test_http_job_worker_result_and_receipt (test_service.HttpTests.test_http_job_worker_result_and_receipt) ... ok
+test_oversized_body_rejected (test_service.HttpTests.test_oversized_body_rejected) ... ok
+test_completed_job_is_not_repeated (test_service.StoreTests.test_completed_job_is_not_repeated) ... ok
+test_concurrent_claim_has_one_owner (test_service.StoreTests.test_concurrent_claim_has_one_owner) ... ok
+test_concurrent_idempotency (test_service.StoreTests.test_concurrent_idempotency) ... ok
+test_crashes_eventually_exhaust_attempts (test_service.StoreTests.test_crashes_eventually_exhaust_attempts) ... ok
+test_expired_lease_rejected_even_without_reclaim (test_service.StoreTests.test_expired_lease_rejected_even_without_reclaim) ... ok
+test_expired_worker_cannot_overwrite_reclaimed_job (test_service.StoreTests.test_expired_worker_cannot_overwrite_reclaimed_job) ... ok
+test_invalid_input_rejected (test_service.StoreTests.test_invalid_input_rejected) ... ok
+test_key_conflict (test_service.StoreTests.test_key_conflict) ... ok
+test_persistence_after_reopen (test_service.StoreTests.test_persistence_after_reopen) ... ok
+test_bootstrap_is_paired_and_clustered (test_statistics_retrieval.StatisticsTests.test_bootstrap_is_paired_and_clustered) ... ok
+test_mismatched_trials_rejected (test_statistics_retrieval.StatisticsTests.test_mismatched_trials_rejected) ... ok
+test_wilson_retains_uncertainty_after_zero_errors (test_statistics_retrieval.StatisticsTests.test_wilson_retains_uncertainty_after_zero_errors) ... ok
+test_ambiguous_answer_is_not_cherry_picked (test_statistics_retrieval.ToolTests.test_ambiguous_answer_is_not_cherry_picked) ... ok
+test_invalid_model_action_is_a_failure (test_statistics_retrieval.ToolTests.test_invalid_model_action_is_a_failure) ... ok
+test_numeric_dsl (test_statistics_retrieval.ToolTests.test_numeric_dsl) ... ok
+test_only_allowlisted_actions (test_statistics_retrieval.ToolTests.test_only_allowlisted_actions) ... ok
+test_repeated_tool_calls_hit_budget (test_statistics_retrieval.ToolTests.test_repeated_tool_calls_hit_budget) ... ok
+test_retrieval_is_evidence_backed (test_statistics_retrieval.ToolTests.test_retrieval_is_evidence_backed) ... ok
+test_tool_cannot_execute_python (test_statistics_retrieval.ToolTests.test_tool_cannot_execute_python) ... ok
+test_actor_and_time_splits_are_disjoint (test_telemetry.TelemetryTests.test_actor_and_time_splits_are_disjoint) ... ok
+test_alert_evidence_exists_and_is_same_actor (test_telemetry.TelemetryTests.test_alert_evidence_exists_and_is_same_actor) ... ok
+test_deduplication_and_conflict (test_telemetry.TelemetryTests.test_deduplication_and_conflict) ... ok
+test_labels_are_not_model_features (test_telemetry.TelemetryTests.test_labels_are_not_model_features) ... ok
+test_negative_controls_and_unseen_slow_behavior (test_telemetry.TelemetryTests.test_negative_controls_and_unseen_slow_behavior) ... ok
+test_order_and_duplicate_invariance (test_telemetry.TelemetryTests.test_order_and_duplicate_invariance) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 4.235s
+
+OK
