@@ -1,0 +1,99 @@
+{
+  "variant": "dynamic_int8",
+  "provenance": {
+    "utc": "2026-10-22T12:25:47.694980+00:00",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "torch": "2.14.1+cpu",
+  "load_seconds": 4.372703685003216,
+  "resident_before_load_bytes": 255234048,
+  "resident_after_load_bytes": 1615462400,
+  "serialized_state_bytes": 248141314,
+  "text_tokens_scored": 131,
+  "negative_log_likelihood": 5.555208217096693,
+  "perplexity_on_authored_texts": 258.5807998590676,
+  "prefill_p50_ms": 39.731705001031514,
+  "prefill_p95_ms": 43.00260484669707,
+  "prefill_tokens": 24,
+  "prefill_repeats": 20,
+  "cpu_threads": 1,
+  "generation_tokens_per_second_median": 47.225692272492616,
+  "generations": [
+    {
+      "prompt": "Explain why a held-out test set matters.",
+      "repeat": 0,
+      "text": "A held-out test set is a statistical test used to determine whether a particular group of data is representative of the population of interest. The purpose of a held-out test set is to ensure that the data collected from a particular group is",
+      "input_tokens": 40,
+      "output_tokens": 48,
+      "seconds": 1.1961763150029583
+    },
+    {
+      "prompt": "Explain why a held-out test set matters.",
+      "repeat": 1,
+      "text": "A held-out test set is a statistical test used to determine whether a particular group of data is representative of the population of interest. The purpose of a held-out test set is to ensure that the data collected from a particular group is",
+      "input_tokens": 40,
+      "output_tokens": 48,
+      "seconds": 0.9802707619965076
+    },
+    {
+      "prompt": "Explain why a held-out test set matters.",
+      "repeat": 2,
+      "text": "A held-out test set is a statistical test used to determine whether a particular group of data is representative of the population of interest. The purpose of a held-out test set is to ensure that the data collected from a particular group is",
+      "input_tokens": 40,
+      "output_tokens": 48,
+      "seconds": 1.115820453997003
+    },
+    {
+      "prompt": "Explain a trade-off between latency and model size.",
+      "repeat": 0,
+      "text": "The trade-off between latency and model size is a fundamental concept in computer science, particularly in the realm of machine learning and deep learning. In essence, the trade-off is between the complexity of the model and the speed at which the",
+      "input_tokens": 41,
+      "output_tokens": 48,
+      "seconds": 0.8987432629946852
+    },
+    {
+      "prompt": "Explain a trade-off between latency and model size.",
+      "repeat": 1,
+      "text": "The trade-off between latency and model size is a fundamental concept in computer science, particularly in the realm of machine learning and deep learning. In essence, the trade-off is between the complexity of the model and the speed at which the",
+      "input_tokens": 41,
+      "output_tokens": 48,
+      "seconds": 0.9025570369994966
+    },
+    {
+      "prompt": "Explain a trade-off between latency and model size.",
+      "repeat": 2,
+      "text": "The trade-off between latency and model size is a fundamental concept in computer science, particularly in the realm of machine learning and deep learning. In essence, the trade-off is between the complexity of the model and the speed at which the",
+      "input_tokens": 41,
+      "output_tokens": 48,
+      "seconds": 0.9291126640018774
+    },
+    {
+      "prompt": "What evidence should an incident report contain?",
+      "repeat": 0,
+      "text": "A typical incident report contains the following elements:\n\n- The incident itself, which is usually the most important part of the report.\n- The incident's severity, which is usually the second most important part.\n- The incident's",
+      "input_tokens": 38,
+      "output_tokens": 48,
+      "seconds": 1.0163958999910392
+    },
+    {
+      "prompt": "What evidence should an incident report contain?",
+      "repeat": 1,
+      "text": "A typical incident report contains the following elements:\n\n- The incident itself, which is usually the most important part of the report.\n- The incident's severity, which is usually the second most important part.\n- The incident's",
+      "input_tokens": 38,
+      "output_tokens": 48,
+      "seconds": 1.0787499180005398
+    },
+    {
+      "prompt": "What evidence should an incident report contain?",
+      "repeat": 2,
+      "text": "A typical incident report contains the following elements:\n\n- The incident itself, which is usually the most important part of the report.\n- The incident's severity, which is usually the second most important part.\n- The incident's",
+      "input_tokens": 38,
+      "output_tokens": 48,
+      "seconds": 1.1021191350009758
+    }
+  ],
+  "weights_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac"
+}

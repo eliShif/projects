@@ -1,0 +1,3 @@
+# Optional measured Qwen CPU runtime. Installed from the maintainer's CPU wheels:
+# pip install -r requirements-gguf.txt --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+llama-cpp-python==0.3.36
