@@ -1,0 +1,1202 @@
+[
+  {
+    "actor": "test-user-0000",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0001",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0002",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0003",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0004",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0005",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0006",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0007",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0008",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0009",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0010",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0011",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0012",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0013",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0014",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0015",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0016",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0017",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0018",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0019",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0020",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0021",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0022",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0023",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0024",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0025",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0026",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0027",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0028",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0029",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0030",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0031",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0032",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0033",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0034",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0035",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0036",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0037",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0038",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0039",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0040",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0041",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0042",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0043",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0044",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0045",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0046",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0047",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0048",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0049",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0050",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0051",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0052",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0053",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0054",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0055",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0056",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0057",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0058",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0059",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0060",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0061",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0062",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0063",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0064",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0065",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0066",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0067",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0068",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0069",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0070",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0071",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0072",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0073",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0074",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0075",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0076",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0077",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0078",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0079",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0080",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0081",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0082",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0083",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0084",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0085",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0086",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0087",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0088",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0089",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0090",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0091",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0092",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0093",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0094",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0095",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0096",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0097",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0098",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0099",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0100",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0101",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0102",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0103",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0104",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0105",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0106",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0107",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0108",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0109",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0110",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0111",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0112",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0113",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0114",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0115",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0116",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0117",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0118",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0119",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0120",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0121",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0122",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0123",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0124",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0125",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0126",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0127",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0128",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0129",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0130",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0131",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0132",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0133",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0134",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0135",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0136",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0137",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0138",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0139",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0140",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0141",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0142",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0143",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0144",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0145",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0146",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0147",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0148",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0149",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0150",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0151",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0152",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0153",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0154",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0155",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0156",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0157",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0158",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0159",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0160",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0161",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0162",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0163",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0164",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0165",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0166",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0167",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0168",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0169",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0170",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0171",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0172",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0173",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0174",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0175",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0176",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0177",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0178",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0179",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0180",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0181",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0182",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0183",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0184",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0185",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0186",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0187",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0188",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0189",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0190",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0191",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0192",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0193",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0194",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0195",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0196",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0197",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0198",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0199",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0200",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0201",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0202",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0203",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0204",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0205",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0206",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0207",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0208",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0209",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0210",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0211",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0212",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0213",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0214",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0215",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0216",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0217",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0218",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0219",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0220",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0221",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0222",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0223",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0224",
+    "label": 1,
+    "scenario": "burst_then_success"
+  },
+  {
+    "actor": "test-user-0225",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0226",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0227",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0228",
+    "label": 1,
+    "scenario": "privilege_and_secrets"
+  },
+  {
+    "actor": "test-user-0229",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0230",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0231",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0232",
+    "label": 1,
+    "scenario": "workload_exec"
+  },
+  {
+    "actor": "test-user-0233",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0234",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0235",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0236",
+    "label": 1,
+    "scenario": "slow_password_guessing"
+  },
+  {
+    "actor": "test-user-0237",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0238",
+    "label": 0,
+    "scenario": "benign"
+  },
+  {
+    "actor": "test-user-0239",
+    "label": 0,
+    "scenario": "benign"
+  }
+]

@@ -1,0 +1,157 @@
+{
+  "provenance": {
+    "utc": "2026-10-22T12:28:36.413737+00:00",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "model": "SmolLM2-135M-Instruct, actual local generation",
+  "transport": "loopback HTTP",
+  "unauthorized_status": 401,
+  "events_sha256": "21b5a92adeb4b024c339d728ec5c5b94c80cc7b61594555cd4a60e78d881f771",
+  "checks_passed": true,
+  "records": [
+    {
+      "mode": "research",
+      "create_status": 202,
+      "duplicate_status": 200,
+      "result": {
+        "id": "45fa608a-40f9-4f07-a036-f772545c38b5",
+        "status": "succeeded",
+        "attempts": 1,
+        "payload_hash": "20b5cde93a0dd831de5cebc4ccc9658ed3a9738d367df2db57e4c995ff3b83c6",
+        "result": {
+          "mode": "research",
+          "answer": "[runbook-03] The audit-log retention period is 20 days.\n[runbook-04] The session timeout is 7 minutes.\n[runbook-05] The audit-log retention period is 23 days.\n[runbook-06] The session timeout is 9 minutes.\n[runbook-07] The audit-log retention period is 20 days.\n[runbook-",
+          "evidence": [
+            {
+              "id": "runbook-00",
+              "text": "Aster service runbook. The audit-log retention period is 17 days. The session timeout is 7 minutes. These are fictional test policies.",
+              "score": 0.5359864730306582
+            },
+            {
+              "id": "runbook-01",
+              "text": "Birch service runbook. The audit-log retention period is 20 days. The session timeout is 9 minutes. These are fictional test policies.",
+              "score": 0.13394093659797934
+            },
+            {
+              "id": "runbook-02",
+              "text": "Cedar service runbook. The audit-log retention period is 23 days. The session timeout is 11 minutes. These are fictional test policies.",
+              "score": 0.12380255148661976
+            }
+          ],
+          "corpus_version": "7714b527a7af0dc3b6b80a1c36cf53e06241f9b40c88620e363cc55bd365335c",
+          "model_metrics": {
+            "input_tokens": 187,
+            "output_tokens": 96,
+            "seconds": 6.534490795005695
+          },
+          "review_required": false,
+          "groundedness_status": "evidence attached; generated claims require human review"
+        },
+        "error": null,
+        "trace": [
+          {
+            "seq": 1,
+            "event": "enqueued",
+            "detail": {
+              "payload_sha256": "20b5cde93a0dd831de5cebc4ccc9658ed3a9738d367df2db57e4c995ff3b83c6"
+            }
+          },
+          {
+            "seq": 2,
+            "event": "claimed",
+            "detail": {
+              "attempt": 1,
+              "lease_seconds": 300
+            }
+          },
+          {
+            "seq": 3,
+            "event": "completed",
+            "detail": {
+              "result_sha256": "c1ec6d5d80ae18461ed110701b5d3ebf6e25d119b5611fa24e1806fbfaa8c540"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "mode": "security_triage",
+      "create_status": 202,
+      "duplicate_status": 200,
+      "result": {
+        "id": "e80826e7-49e6-433a-93b0-5c86016271b4",
+        "status": "succeeded",
+        "attempts": 1,
+        "payload_hash": "e4bffa1be779a17e3056bc6f1ff173899691c4b87efab2a94731ea683ba316e1",
+        "result": {
+          "mode": "security_triage",
+          "answer": "Based on the evidence provided, the following evidence supports investigation:\n\n1. The test-user-0004 actor has a valid ID (test-4-0) and a valid ID (test-4-1) for the test-user-0004.\n\n2. The test-user-0004 actor has a valid ID (test-4-7) for the test-user-0004.\n\n3.",
+          "evidence": [
+            {
+              "id": "test-4-0",
+              "text": "{\"actor\": \"test-user-0004\", \"country\": \"IL\", \"id\": \"test-4-0\", \"kind\": \"login_success\", \"resource\": \"identity\", \"source_ip\": \"192.0.2.42\", \"ts\": 2014860}",
+              "score": 0.44364538623811633
+            },
+            {
+              "id": "test-4-1",
+              "text": "{\"actor\": \"test-user-0004\", \"country\": \"IL\", \"id\": \"test-4-1\", \"kind\": \"login_success\", \"resource\": \"identity\", \"source_ip\": \"192.0.2.106\", \"ts\": 2014773}",
+              "score": 0.44329798987548646
+            },
+            {
+              "id": "test-4-7",
+              "text": "{\"actor\": \"test-user-0004\", \"country\": \"IL\", \"id\": \"test-4-7\", \"kind\": \"login_success\", \"resource\": \"identity\", \"source_ip\": \"192.0.2.81\", \"ts\": 2014480}",
+              "score": 0.44091287057405504
+            },
+            {
+              "id": "test-4-5",
+              "text": "{\"actor\": \"test-user-0004\", \"country\": \"IL\", \"id\": \"test-4-5\", \"kind\": \"login_success\", \"resource\": \"identity\", \"source_ip\": \"192.0.2.84\", \"ts\": 2014905}",
+              "score": 0.43984337837782445
+            },
+            {
+              "id": "test-4-4",
+              "text": "{\"actor\": \"test-user-0004\", \"country\": \"IL\", \"id\": \"test-4-4\", \"kind\": \"login_success\", \"resource\": \"identity\", \"source_ip\": \"192.0.2.118\", \"ts\": 2014570}",
+              "score": 0.4387952568535576
+            }
+          ],
+          "corpus_version": "8f2db24a171da49cbc40b8af4f3f6b43264764398ee205303f15926b299387a5",
+          "model_metrics": {
+            "input_tokens": 476,
+            "output_tokens": 96,
+            "seconds": 7.162274611997418
+          },
+          "review_required": true,
+          "groundedness_status": "evidence attached; generated claims require human review"
+        },
+        "error": null,
+        "trace": [
+          {
+            "seq": 4,
+            "event": "enqueued",
+            "detail": {
+              "payload_sha256": "e4bffa1be779a17e3056bc6f1ff173899691c4b87efab2a94731ea683ba316e1"
+            }
+          },
+          {
+            "seq": 5,
+            "event": "claimed",
+            "detail": {
+              "attempt": 1,
+              "lease_seconds": 300
+            }
+          },
+          {
+            "seq": 6,
+            "event": "completed",
+            "detail": {
+              "result_sha256": "47a8a1d3481916dc85014a49a9de752fce4bb5dcfdfa25932df1297d0e50b334"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "limits": "Workflow and evidence attachment verified; natural-language factual correctness is not certified."
+}

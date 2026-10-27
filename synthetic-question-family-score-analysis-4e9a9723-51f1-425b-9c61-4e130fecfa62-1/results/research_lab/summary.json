@@ -1,0 +1,3387 @@
+{
+  "challenge_error_review": {
+    "evaluation_label_counts": {
+      "conflict": 2,
+      "conversion": 2,
+      "difference": 2,
+      "lookup": 2,
+      "missing_field": 2,
+      "ratio": 2,
+      "sum": 2,
+      "unknown_service": 2
+    },
+    "failures": [
+      {
+        "annotation_status": "synthetic generator label; no independent annotation audit",
+        "entity": "Garnet",
+        "expected": "lookup",
+        "id": "challenge-test-Garnet-lookup",
+        "predicted": "unknown_service",
+        "question": "State the audit log storage duration, in days, for Garnet.",
+        "training_label_count": 3,
+        "unseen_feature_fraction": 0.47368421052631576,
+        "unseen_features": [
+          "duration",
+          "duration__in",
+          "for__garnet",
+          "garnet",
+          "log__storage",
+          "state",
+          "state__the",
+          "storage",
+          "storage__duration"
+        ]
+      },
+      {
+        "annotation_status": "synthetic generator label; no independent annotation audit",
+        "entity": "Garnet",
+        "expected": "difference",
+        "id": "challenge-test-Garnet-difference",
+        "predicted": "unknown_service",
+        "question": "In days, what gap separates the log storage durations of Garnet and Helix?",
+        "training_label_count": 3,
+        "unseen_feature_fraction": 0.68,
+        "unseen_features": [
+          "and__helix",
+          "days__what",
+          "durations",
+          "durations__of",
+          "gap",
+          "gap__separates",
+          "garnet",
+          "garnet__and",
+          "helix",
+          "log__storage",
+          "of__garnet",
+          "separates",
+          "separates__the",
+          "storage",
+          "storage__durations",
+          "the__log",
+          "what__gap"
+        ]
+      },
+      {
+        "annotation_status": "synthetic generator label; no independent annotation audit",
+        "entity": "Garnet",
+        "expected": "conflict",
+        "id": "challenge-test-Garnet-conflict",
+        "predicted": "unknown_service",
+        "question": "Resolve the log storage duration for GarnetMirror despite two equally current records.",
+        "training_label_count": 3,
+        "unseen_feature_fraction": 0.8260869565217391,
+        "unseen_features": [
+          "current__records",
+          "despite",
+          "despite__two",
+          "duration",
+          "duration__for",
+          "equally",
+          "equally__current",
+          "for__garnetmirror",
+          "garnetmirror",
+          "garnetmirror__despite",
+          "log__storage",
+          "records",
+          "resolve",
+          "resolve__the",
+          "storage",
+          "storage__duration",
+          "the__log",
+          "two",
+          "two__equally"
+        ]
+      },
+      {
+        "annotation_status": "synthetic generator label; no independent annotation audit",
+        "entity": "Helix",
+        "expected": "lookup",
+        "id": "challenge-test-Helix-lookup",
+        "predicted": "unknown_service",
+        "question": "State the audit log storage duration, in days, for Helix.",
+        "training_label_count": 3,
+        "unseen_feature_fraction": 0.47368421052631576,
+        "unseen_features": [
+          "duration",
+          "duration__in",
+          "for__helix",
+          "helix",
+          "log__storage",
+          "state",
+          "state__the",
+          "storage",
+          "storage__duration"
+        ]
+      },
+      {
+        "annotation_status": "synthetic generator label; no independent annotation audit",
+        "entity": "Helix",
+        "expected": "difference",
+        "id": "challenge-test-Helix-difference",
+        "predicted": "unknown_service",
+        "question": "In days, what gap separates the log storage durations of Helix and Garnet?",
+        "training_label_count": 3,
+        "unseen_feature_fraction": 0.68,
+        "unseen_features": [
+          "and__garnet",
+          "days__what",
+          "durations",
+          "durations__of",
+          "gap",
+          "gap__separates",
+          "garnet",
+          "helix",
+          "helix__and",
+          "log__storage",
+          "of__helix",
+          "separates",
+          "separates__the",
+          "storage",
+          "storage__durations",
+          "the__log",
+          "what__gap"
+        ]
+      },
+      {
+        "annotation_status": "synthetic generator label; no independent annotation audit",
+        "entity": "Helix",
+        "expected": "conflict",
+        "id": "challenge-test-Helix-conflict",
+        "predicted": "unknown_service",
+        "question": "Resolve the log storage duration for HelixMirror despite two equally current records.",
+        "training_label_count": 3,
+        "unseen_feature_fraction": 0.8260869565217391,
+        "unseen_features": [
+          "current__records",
+          "despite",
+          "despite__two",
+          "duration",
+          "duration__for",
+          "equally",
+          "equally__current",
+          "for__helixmirror",
+          "helixmirror",
+          "helixmirror__despite",
+          "log__storage",
+          "records",
+          "resolve",
+          "resolve__the",
+          "storage",
+          "storage__duration",
+          "the__log",
+          "two",
+          "two__equally"
+        ]
+      }
+    ],
+    "interpretation": "Label counts and unseen features are clues, not proof of whether an error came from annotation, composition or model behavior.",
+    "training_label_counts": {
+      "conflict": 3,
+      "conversion": 3,
+      "difference": 3,
+      "lookup": 3,
+      "missing_field": 3,
+      "ratio": 3,
+      "sum": 3,
+      "unknown_service": 3
+    }
+  },
+  "grouped_stability": {
+    "accuracy_max": 1.0,
+    "accuracy_mean": 1.0,
+    "accuracy_min": 1.0,
+    "accuracy_population_variance": 0.0,
+    "folds": [
+      {
+        "accuracy": 1.0,
+        "held_out_cases": 8,
+        "held_out_entity": "Cobalt",
+        "macro_f1": 1.0,
+        "train_cases": 40
+      },
+      {
+        "accuracy": 1.0,
+        "held_out_cases": 8,
+        "held_out_entity": "Delta",
+        "macro_f1": 1.0,
+        "train_cases": 40
+      },
+      {
+        "accuracy": 1.0,
+        "held_out_cases": 8,
+        "held_out_entity": "Ember",
+        "macro_f1": 1.0,
+        "train_cases": 40
+      },
+      {
+        "accuracy": 1.0,
+        "held_out_cases": 8,
+        "held_out_entity": "Fjord",
+        "macro_f1": 1.0,
+        "train_cases": 40
+      },
+      {
+        "accuracy": 1.0,
+        "held_out_cases": 8,
+        "held_out_entity": "Garnet",
+        "macro_f1": 1.0,
+        "train_cases": 40
+      },
+      {
+        "accuracy": 1.0,
+        "held_out_cases": 8,
+        "held_out_entity": "Helix",
+        "macro_f1": 1.0,
+        "train_cases": 40
+      }
+    ],
+    "method": "bigram"
+  },
+  "label_audit": {
+    "matched_source_ids": 48,
+    "scope": "Generator provenance only; no independent annotation audit",
+    "unmatched_ids": []
+  },
+  "label_distribution": {
+    "per_label": {
+      "conflict": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "conversion": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "difference": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "lookup": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "missing_field": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "ratio": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "sum": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "unknown_service": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      }
+    },
+    "proportions": {
+      "test": {
+        "conflict": 0.125,
+        "conversion": 0.125,
+        "difference": 0.125,
+        "lookup": 0.125,
+        "missing_field": 0.125,
+        "ratio": 0.125,
+        "sum": 0.125,
+        "unknown_service": 0.125
+      },
+      "train": {
+        "conflict": 0.125,
+        "conversion": 0.125,
+        "difference": 0.125,
+        "lookup": 0.125,
+        "missing_field": 0.125,
+        "ratio": 0.125,
+        "sum": 0.125,
+        "unknown_service": 0.125
+      },
+      "validation": {
+        "conflict": 0.125,
+        "conversion": 0.125,
+        "difference": 0.125,
+        "lookup": 0.125,
+        "missing_field": 0.125,
+        "ratio": 0.125,
+        "sum": 0.125,
+        "unknown_service": 0.125
+      }
+    },
+    "scope": "Unweighted mean and population variance over three fixed split fractions; descriptive, not uncertainty or causality",
+    "total_variation_from_train": {
+      "test": 0.0,
+      "validation": 0.0
+    }
+  },
+  "limitations": [
+    "The alternate wording was authored after inspecting the original templates; this diagnostic is exploratory, not an independent benchmark.",
+    "One validation and two test entities; variance describes these entities, not a confidence interval.",
+    "Label-fraction statistics use three fixed synthetic splits; equal proportions do not imply equal wording or representative sampling.",
+    "English synthetic questions only; no claim about Hebrew quality or language models.",
+    "Stability folds reuse all entities after the primary selection; they are a sensitivity analysis, not a second independent test.",
+    "Seeded resamples reuse the same 24 constructed training cases and frozen evaluation sets; their spread is not population uncertainty.",
+    "The downsampling check changes training composition and is post-hoc; any score change cannot establish a general effect size.",
+    "Generated labels have no independent human audit; feature and frequency clues cannot prove error cause.",
+    "Feature-label association does not establish causality or independent human mastery."
+  ],
+  "new_template_challenge": {
+    "bigram": {
+      "accuracy": 0.625,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 0.625,
+        "Helix": 0.625
+      },
+      "entity_accuracy_mean": 0.625,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Garnet",
+          "expected": "lookup",
+          "id": "challenge-test-Garnet-lookup",
+          "predicted": "unknown_service",
+          "question": "State the audit log storage duration, in days, for Garnet."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "difference",
+          "id": "challenge-test-Garnet-difference",
+          "predicted": "unknown_service",
+          "question": "In days, what gap separates the log storage durations of Garnet and Helix?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "conflict",
+          "id": "challenge-test-Garnet-conflict",
+          "predicted": "unknown_service",
+          "question": "Resolve the log storage duration for GarnetMirror despite two equally current records."
+        },
+        {
+          "entity": "Helix",
+          "expected": "lookup",
+          "id": "challenge-test-Helix-lookup",
+          "predicted": "unknown_service",
+          "question": "State the audit log storage duration, in days, for Helix."
+        },
+        {
+          "entity": "Helix",
+          "expected": "difference",
+          "id": "challenge-test-Helix-difference",
+          "predicted": "unknown_service",
+          "question": "In days, what gap separates the log storage durations of Helix and Garnet?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "conflict",
+          "id": "challenge-test-Helix-conflict",
+          "predicted": "unknown_service",
+          "question": "Resolve the log storage duration for HelixMirror despite two equally current records."
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.55
+    },
+    "majority": {
+      "accuracy": 0.125,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 0.125,
+        "Helix": 0.125
+      },
+      "entity_accuracy_mean": 0.125,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Garnet",
+          "expected": "lookup",
+          "id": "challenge-test-Garnet-lookup",
+          "predicted": "conflict",
+          "question": "State the audit log storage duration, in days, for Garnet."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "conversion",
+          "id": "challenge-test-Garnet-conversion",
+          "predicted": "conflict",
+          "question": "Convert the Garnet session expiry interval from minutes into seconds."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "difference",
+          "id": "challenge-test-Garnet-difference",
+          "predicted": "conflict",
+          "question": "In days, what gap separates the log storage durations of Garnet and Helix?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "sum",
+          "id": "challenge-test-Garnet-sum",
+          "predicted": "conflict",
+          "question": "Add together the per-day request limits assigned to Garnet and Helix."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "ratio",
+          "id": "challenge-test-Garnet-ratio",
+          "predicted": "conflict",
+          "question": "Divide the monthly charge for Garnet by the monthly charge for Helix."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "missing_field",
+          "id": "challenge-test-Garnet-missing_field",
+          "predicted": "conflict",
+          "question": "Give the headcount of engineers assigned to Garnet on-call duty."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "unknown_service",
+          "id": "challenge-test-Garnet-unknown_service",
+          "predicted": "conflict",
+          "question": "Report the audit log storage duration for GarnetSandbox, in days."
+        },
+        {
+          "entity": "Helix",
+          "expected": "lookup",
+          "id": "challenge-test-Helix-lookup",
+          "predicted": "conflict",
+          "question": "State the audit log storage duration, in days, for Helix."
+        },
+        {
+          "entity": "Helix",
+          "expected": "conversion",
+          "id": "challenge-test-Helix-conversion",
+          "predicted": "conflict",
+          "question": "Convert the Helix session expiry interval from minutes into seconds."
+        },
+        {
+          "entity": "Helix",
+          "expected": "difference",
+          "id": "challenge-test-Helix-difference",
+          "predicted": "conflict",
+          "question": "In days, what gap separates the log storage durations of Helix and Garnet?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "sum",
+          "id": "challenge-test-Helix-sum",
+          "predicted": "conflict",
+          "question": "Add together the per-day request limits assigned to Helix and Garnet."
+        },
+        {
+          "entity": "Helix",
+          "expected": "ratio",
+          "id": "challenge-test-Helix-ratio",
+          "predicted": "conflict",
+          "question": "Divide the monthly charge for Helix by the monthly charge for Garnet."
+        },
+        {
+          "entity": "Helix",
+          "expected": "missing_field",
+          "id": "challenge-test-Helix-missing_field",
+          "predicted": "conflict",
+          "question": "Give the headcount of engineers assigned to Helix on-call duty."
+        },
+        {
+          "entity": "Helix",
+          "expected": "unknown_service",
+          "id": "challenge-test-Helix-unknown_service",
+          "predicted": "conflict",
+          "question": "Report the audit log storage duration for HelixSandbox, in days."
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.027777777777777776
+    },
+    "unigram": {
+      "accuracy": 0.625,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 0.625,
+        "Helix": 0.625
+      },
+      "entity_accuracy_mean": 0.625,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Garnet",
+          "expected": "lookup",
+          "id": "challenge-test-Garnet-lookup",
+          "predicted": "unknown_service",
+          "question": "State the audit log storage duration, in days, for Garnet."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "difference",
+          "id": "challenge-test-Garnet-difference",
+          "predicted": "unknown_service",
+          "question": "In days, what gap separates the log storage durations of Garnet and Helix?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "conflict",
+          "id": "challenge-test-Garnet-conflict",
+          "predicted": "unknown_service",
+          "question": "Resolve the log storage duration for GarnetMirror despite two equally current records."
+        },
+        {
+          "entity": "Helix",
+          "expected": "lookup",
+          "id": "challenge-test-Helix-lookup",
+          "predicted": "unknown_service",
+          "question": "State the audit log storage duration, in days, for Helix."
+        },
+        {
+          "entity": "Helix",
+          "expected": "difference",
+          "id": "challenge-test-Helix-difference",
+          "predicted": "unknown_service",
+          "question": "In days, what gap separates the log storage durations of Helix and Garnet?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "conflict",
+          "id": "challenge-test-Helix-conflict",
+          "predicted": "unknown_service",
+          "question": "Resolve the log storage duration for HelixMirror despite two equally current records."
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.55
+    }
+  },
+  "paired_wording_review": {
+    "by_label": {
+      "conflict": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 2,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "conversion": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "difference": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 2,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "lookup": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 2,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "missing_field": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "ratio": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "sum": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "unknown_service": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      }
+    },
+    "cases": 16,
+    "examples": [
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Garnet",
+        "id": "test-Garnet-conflict",
+        "label": "conflict",
+        "original_prediction": "conflict",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "conversion",
+        "entity": "Garnet",
+        "id": "test-Garnet-conversion",
+        "label": "conversion",
+        "original_prediction": "conversion",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Garnet",
+        "id": "test-Garnet-difference",
+        "label": "difference",
+        "original_prediction": "difference",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Garnet",
+        "id": "test-Garnet-lookup",
+        "label": "lookup",
+        "original_prediction": "lookup",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "missing_field",
+        "entity": "Garnet",
+        "id": "test-Garnet-missing_field",
+        "label": "missing_field",
+        "original_prediction": "missing_field",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "ratio",
+        "entity": "Garnet",
+        "id": "test-Garnet-ratio",
+        "label": "ratio",
+        "original_prediction": "ratio",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "sum",
+        "entity": "Garnet",
+        "id": "test-Garnet-sum",
+        "label": "sum",
+        "original_prediction": "sum",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Garnet",
+        "id": "test-Garnet-unknown_service",
+        "label": "unknown_service",
+        "original_prediction": "unknown_service",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Helix",
+        "id": "test-Helix-conflict",
+        "label": "conflict",
+        "original_prediction": "conflict",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "conversion",
+        "entity": "Helix",
+        "id": "test-Helix-conversion",
+        "label": "conversion",
+        "original_prediction": "conversion",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Helix",
+        "id": "test-Helix-difference",
+        "label": "difference",
+        "original_prediction": "difference",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Helix",
+        "id": "test-Helix-lookup",
+        "label": "lookup",
+        "original_prediction": "lookup",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "missing_field",
+        "entity": "Helix",
+        "id": "test-Helix-missing_field",
+        "label": "missing_field",
+        "original_prediction": "missing_field",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "ratio",
+        "entity": "Helix",
+        "id": "test-Helix-ratio",
+        "label": "ratio",
+        "original_prediction": "ratio",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "sum",
+        "entity": "Helix",
+        "id": "test-Helix-sum",
+        "label": "sum",
+        "original_prediction": "sum",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Helix",
+        "id": "test-Helix-unknown_service",
+        "label": "unknown_service",
+        "original_prediction": "unknown_service",
+        "transition": "correct_to_correct"
+      }
+    ],
+    "transitions": {
+      "correct_to_correct": 10,
+      "correct_to_wrong": 6,
+      "wrong_to_correct": 0,
+      "wrong_to_wrong": 0
+    }
+  },
+  "quality": {
+    "test": {
+      "cases": 16,
+      "entities": [
+        "Garnet",
+        "Helix"
+      ],
+      "imbalance_ratio": 1.0,
+      "label_counts": {
+        "conflict": 2,
+        "conversion": 2,
+        "difference": 2,
+        "lookup": 2,
+        "missing_field": 2,
+        "ratio": 2,
+        "sum": 2,
+        "unknown_service": 2
+      }
+    },
+    "train": {
+      "cases": 24,
+      "entities": [
+        "Cobalt",
+        "Delta",
+        "Ember"
+      ],
+      "imbalance_ratio": 1.0,
+      "label_counts": {
+        "conflict": 3,
+        "conversion": 3,
+        "difference": 3,
+        "lookup": 3,
+        "missing_field": 3,
+        "ratio": 3,
+        "sum": 3,
+        "unknown_service": 3
+      }
+    },
+    "validation": {
+      "cases": 8,
+      "entities": [
+        "Fjord"
+      ],
+      "imbalance_ratio": 1.0,
+      "label_counts": {
+        "conflict": 1,
+        "conversion": 1,
+        "difference": 1,
+        "lookup": 1,
+        "missing_field": 1,
+        "ratio": 1,
+        "sum": 1,
+        "unknown_service": 1
+      }
+    }
+  },
+  "score_margins": {
+    "bigram": {
+      "challenge": {
+        "all": {
+          "count": 16,
+          "max": 8.603499891159906,
+          "mean": 3.3781192090146694,
+          "min": 0.6189419222365373,
+          "population_variance": 7.415876300730602
+        },
+        "correct": {
+          "count": 10,
+          "max": 7.188632157595961,
+          "mean": 2.806796743609065,
+          "min": 0.6189419222365373,
+          "population_variance": 5.256181540558861
+        },
+        "examples": [
+          {
+            "correct": false,
+            "id": "challenge-test-Garnet-lookup",
+            "label": "lookup",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 8.603499891159906
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 1.8792249228156805
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Garnet-difference",
+            "label": "difference",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 3.001175701792235
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 1.6117061073244194
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 0.6189419222365373
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 2.735478608072725
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 7.188632157595961
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Garnet-conflict",
+            "label": "conflict",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 1.3862943611198908
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Helix-lookup",
+            "label": "lookup",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 8.603499891159906
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 1.8792249228156805
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Helix-difference",
+            "label": "difference",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 3.001175701792235
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 1.6117061073244194
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 0.6189419222365373
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 2.735478608072725
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 7.188632157595961
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Helix-conflict",
+            "label": "conflict",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 1.3862943611198908
+          }
+        ],
+        "scope": "Top minus runner-up unnormalized log score within one fitted model; descriptive, not a calibrated probability or causal explanation",
+        "wrong": {
+          "count": 6,
+          "max": 8.603499891159906,
+          "mean": 4.330323318024011,
+          "min": 1.3862943611198908,
+          "population_variance": 9.564659303340669
+        }
+      },
+      "test": {
+        "all": {
+          "count": 16,
+          "max": 26.55223783223424,
+          "mean": 14.845378653926021,
+          "min": 7.487063087740964,
+          "population_variance": 32.0471021199044
+        },
+        "correct": {
+          "count": 16,
+          "max": 26.55223783223424,
+          "mean": 14.845378653926021,
+          "min": 7.487063087740964,
+          "population_variance": 32.0471021199044
+        },
+        "examples": [
+          {
+            "correct": true,
+            "id": "test-Garnet-lookup",
+            "label": "lookup",
+            "predicted": "lookup",
+            "top_two_log_score_margin": 9.09291011748357
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 12.048799229703754
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-difference",
+            "label": "difference",
+            "predicted": "difference",
+            "top_two_log_score_margin": 13.110133494400898
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 13.862943611198915
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 26.025853869552392
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 20.06885439283503
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 15.79213204875586
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-conflict",
+            "label": "conflict",
+            "predicted": "conflict",
+            "top_two_log_score_margin": 7.487063087740964
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-lookup",
+            "label": "lookup",
+            "predicted": "lookup",
+            "top_two_log_score_margin": 9.09291011748357
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 12.048799229703754
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-difference",
+            "label": "difference",
+            "predicted": "difference",
+            "top_two_log_score_margin": 14.439281110632692
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 14.556090791758848
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 26.55223783223424
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 20.06885439283503
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 15.79213204875586
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-conflict",
+            "label": "conflict",
+            "predicted": "conflict",
+            "top_two_log_score_margin": 7.487063087740964
+          }
+        ],
+        "scope": "Top minus runner-up unnormalized log score within one fitted model; descriptive, not a calibrated probability or causal explanation",
+        "wrong": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "min": null,
+          "population_variance": null
+        }
+      },
+      "validation": {
+        "all": {
+          "count": 8,
+          "max": 26.55223783223424,
+          "mean": 14.880360153369336,
+          "min": 7.487063087740964,
+          "population_variance": 33.66252296787389
+        },
+        "correct": {
+          "count": 8,
+          "max": 26.55223783223424,
+          "mean": 14.880360153369336,
+          "min": 7.487063087740964,
+          "population_variance": 33.66252296787389
+        },
+        "examples": [
+          {
+            "correct": true,
+            "id": "test-Fjord-lookup",
+            "label": "lookup",
+            "predicted": "lookup",
+            "top_two_log_score_margin": 9.065130553376505
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 10.966116894319867
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-difference",
+            "label": "difference",
+            "predicted": "difference",
+            "top_two_log_score_margin": 14.439281110632692
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 14.556090791758848
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 26.55223783223424
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 20.184828908135714
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 15.79213204875586
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-conflict",
+            "label": "conflict",
+            "predicted": "conflict",
+            "top_two_log_score_margin": 7.487063087740964
+          }
+        ],
+        "scope": "Top minus runner-up unnormalized log score within one fitted model; descriptive, not a calibrated probability or causal explanation",
+        "wrong": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "min": null,
+          "population_variance": null
+        }
+      }
+    },
+    "unigram": {
+      "challenge": {
+        "all": {
+          "count": 16,
+          "max": 4.3669964312870135,
+          "mean": 2.305188043601245,
+          "min": 0.5153704211927206,
+          "population_variance": 1.7674566324634695
+        },
+        "correct": {
+          "count": 10,
+          "max": 4.3669964312870135,
+          "mean": 1.9831249668326554,
+          "min": 0.5153704211927206,
+          "population_variance": 1.6614294221984405
+        },
+        "examples": [
+          {
+            "correct": false,
+            "id": "challenge-test-Garnet-lookup",
+            "label": "lookup",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 4.3669964312870135
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 1.9950616224875937
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Garnet-difference",
+            "label": "difference",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 2.7725887222397816
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 1.6591273612260213
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 0.5153704211927206
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 1.3790689979699273
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Garnet-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 4.3669964312870135
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Garnet-conflict",
+            "label": "conflict",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 1.386294361119889
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Helix-lookup",
+            "label": "lookup",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 4.3669964312870135
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 1.9950616224875937
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Helix-difference",
+            "label": "difference",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 2.7725887222397816
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 1.6591273612260213
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 0.5153704211927206
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 1.3790689979699273
+          },
+          {
+            "correct": true,
+            "id": "challenge-test-Helix-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 4.3669964312870135
+          },
+          {
+            "correct": false,
+            "id": "challenge-test-Helix-conflict",
+            "label": "conflict",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 1.386294361119889
+          }
+        ],
+        "scope": "Top minus runner-up unnormalized log score within one fitted model; descriptive, not a calibrated probability or causal explanation",
+        "wrong": {
+          "count": 6,
+          "max": 4.3669964312870135,
+          "mean": 2.8419598382155615,
+          "min": 1.386294361119889,
+          "population_variance": 1.4831703143822927
+        }
+      },
+      "test": {
+        "all": {
+          "count": 16,
+          "max": 14.186614245352082,
+          "mean": 7.60220889861219,
+          "min": 3.1413383346648587,
+          "population_variance": 11.493860592592922
+        },
+        "correct": {
+          "count": 16,
+          "max": 14.186614245352082,
+          "mean": 7.60220889861219,
+          "min": 3.1413383346648587,
+          "population_variance": 11.493860592592922
+        },
+        "examples": [
+          {
+            "correct": true,
+            "id": "test-Garnet-lookup",
+            "label": "lookup",
+            "predicted": "lookup",
+            "top_two_log_score_margin": 3.756610778895947
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 6.106825896523031
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-difference",
+            "label": "difference",
+            "predicted": "difference",
+            "top_two_log_score_margin": 7.703847801591401
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 6.93147180559945
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 14.186614245352082
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 11.16324820978721
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 7.278327385478349
+          },
+          {
+            "correct": true,
+            "id": "test-Garnet-conflict",
+            "label": "conflict",
+            "predicted": "conflict",
+            "top_two_log_score_margin": 3.1413383346648587
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-lookup",
+            "label": "lookup",
+            "predicted": "lookup",
+            "top_two_log_score_margin": 3.756610778895947
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 6.106825896523031
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-difference",
+            "label": "difference",
+            "predicted": "difference",
+            "top_two_log_score_margin": 8.362309424163456
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 7.624618986159398
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 13.933778904230472
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 11.16324820978721
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 7.278327385478349
+          },
+          {
+            "correct": true,
+            "id": "test-Helix-conflict",
+            "label": "conflict",
+            "predicted": "conflict",
+            "top_two_log_score_margin": 3.1413383346648587
+          }
+        ],
+        "scope": "Top minus runner-up unnormalized log score within one fitted model; descriptive, not a calibrated probability or causal explanation",
+        "wrong": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "min": null,
+          "population_variance": null
+        }
+      },
+      "validation": {
+        "all": {
+          "count": 8,
+          "max": 14.525978142555616,
+          "mean": 7.662900606605405,
+          "min": 3.1413383346648587,
+          "population_variance": 12.426541399944249
+        },
+        "correct": {
+          "count": 8,
+          "max": 14.525978142555616,
+          "mean": 7.662900606605405,
+          "min": 3.1413383346648587,
+          "population_variance": 12.426541399944249
+        },
+        "examples": [
+          {
+            "correct": true,
+            "id": "test-Fjord-lookup",
+            "label": "lookup",
+            "predicted": "lookup",
+            "top_two_log_score_margin": 3.7230880868573024
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-conversion",
+            "label": "conversion",
+            "predicted": "conversion",
+            "top_two_log_score_margin": 5.600556089292905
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-difference",
+            "label": "difference",
+            "predicted": "difference",
+            "top_two_log_score_margin": 8.362309424163456
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-sum",
+            "label": "sum",
+            "predicted": "sum",
+            "top_two_log_score_margin": 7.624618986159398
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-ratio",
+            "label": "ratio",
+            "predicted": "ratio",
+            "top_two_log_score_margin": 14.525978142555616
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-missing_field",
+            "label": "missing_field",
+            "predicted": "missing_field",
+            "top_two_log_score_margin": 11.04698840367135
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-unknown_service",
+            "label": "unknown_service",
+            "predicted": "unknown_service",
+            "top_two_log_score_margin": 7.278327385478349
+          },
+          {
+            "correct": true,
+            "id": "test-Fjord-conflict",
+            "label": "conflict",
+            "predicted": "conflict",
+            "top_two_log_score_margin": 3.1413383346648587
+          }
+        ],
+        "scope": "Top minus runner-up unnormalized log score within one fitted model; descriptive, not a calibrated probability or causal explanation",
+        "wrong": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "min": null,
+          "population_variance": null
+        }
+      }
+    }
+  },
+  "selected": "bigram",
+  "template_overlap": {
+    "challenge": {
+      "by_label": {
+        "conflict": {
+          "seen": 0,
+          "total": 2
+        },
+        "conversion": {
+          "seen": 0,
+          "total": 2
+        },
+        "difference": {
+          "seen": 0,
+          "total": 2
+        },
+        "lookup": {
+          "seen": 0,
+          "total": 2
+        },
+        "missing_field": {
+          "seen": 0,
+          "total": 2
+        },
+        "ratio": {
+          "seen": 0,
+          "total": 2
+        },
+        "sum": {
+          "seen": 0,
+          "total": 2
+        },
+        "unknown_service": {
+          "seen": 0,
+          "total": 2
+        }
+      },
+      "cases": 16,
+      "definition": "Exact normalized question match after replacing known entity names, preserving Sandbox/Mirror suffixes; no semantic matching",
+      "examples": [
+        {
+          "id": "challenge-test-Garnet-lookup",
+          "label": "lookup",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Garnet-conversion",
+          "label": "conversion",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Garnet-difference",
+          "label": "difference",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Garnet-sum",
+          "label": "sum",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Garnet-ratio",
+          "label": "ratio",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Garnet-missing_field",
+          "label": "missing_field",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Garnet-unknown_service",
+          "label": "unknown_service",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Garnet-conflict",
+          "label": "conflict",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Helix-lookup",
+          "label": "lookup",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Helix-conversion",
+          "label": "conversion",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Helix-difference",
+          "label": "difference",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Helix-sum",
+          "label": "sum",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Helix-ratio",
+          "label": "ratio",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Helix-missing_field",
+          "label": "missing_field",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Helix-unknown_service",
+          "label": "unknown_service",
+          "seen_training_template": false
+        },
+        {
+          "id": "challenge-test-Helix-conflict",
+          "label": "conflict",
+          "seen_training_template": false
+        }
+      ],
+      "seen": 0,
+      "seen_fraction": 0.0
+    },
+    "test": {
+      "by_label": {
+        "conflict": {
+          "seen": 2,
+          "total": 2
+        },
+        "conversion": {
+          "seen": 2,
+          "total": 2
+        },
+        "difference": {
+          "seen": 2,
+          "total": 2
+        },
+        "lookup": {
+          "seen": 2,
+          "total": 2
+        },
+        "missing_field": {
+          "seen": 2,
+          "total": 2
+        },
+        "ratio": {
+          "seen": 2,
+          "total": 2
+        },
+        "sum": {
+          "seen": 2,
+          "total": 2
+        },
+        "unknown_service": {
+          "seen": 2,
+          "total": 2
+        }
+      },
+      "cases": 16,
+      "definition": "Exact normalized question match after replacing known entity names, preserving Sandbox/Mirror suffixes; no semantic matching",
+      "examples": [
+        {
+          "id": "test-Garnet-lookup",
+          "label": "lookup",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Garnet-conversion",
+          "label": "conversion",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Garnet-difference",
+          "label": "difference",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Garnet-sum",
+          "label": "sum",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Garnet-ratio",
+          "label": "ratio",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Garnet-missing_field",
+          "label": "missing_field",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Garnet-unknown_service",
+          "label": "unknown_service",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Garnet-conflict",
+          "label": "conflict",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Helix-lookup",
+          "label": "lookup",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Helix-conversion",
+          "label": "conversion",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Helix-difference",
+          "label": "difference",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Helix-sum",
+          "label": "sum",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Helix-ratio",
+          "label": "ratio",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Helix-missing_field",
+          "label": "missing_field",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Helix-unknown_service",
+          "label": "unknown_service",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Helix-conflict",
+          "label": "conflict",
+          "seen_training_template": true
+        }
+      ],
+      "seen": 16,
+      "seen_fraction": 1.0
+    },
+    "validation": {
+      "by_label": {
+        "conflict": {
+          "seen": 1,
+          "total": 1
+        },
+        "conversion": {
+          "seen": 1,
+          "total": 1
+        },
+        "difference": {
+          "seen": 0,
+          "total": 1
+        },
+        "lookup": {
+          "seen": 1,
+          "total": 1
+        },
+        "missing_field": {
+          "seen": 1,
+          "total": 1
+        },
+        "ratio": {
+          "seen": 0,
+          "total": 1
+        },
+        "sum": {
+          "seen": 0,
+          "total": 1
+        },
+        "unknown_service": {
+          "seen": 1,
+          "total": 1
+        }
+      },
+      "cases": 8,
+      "definition": "Exact normalized question match after replacing known entity names, preserving Sandbox/Mirror suffixes; no semantic matching",
+      "examples": [
+        {
+          "id": "test-Fjord-lookup",
+          "label": "lookup",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Fjord-conversion",
+          "label": "conversion",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Fjord-difference",
+          "label": "difference",
+          "seen_training_template": false
+        },
+        {
+          "id": "test-Fjord-sum",
+          "label": "sum",
+          "seen_training_template": false
+        },
+        {
+          "id": "test-Fjord-ratio",
+          "label": "ratio",
+          "seen_training_template": false
+        },
+        {
+          "id": "test-Fjord-missing_field",
+          "label": "missing_field",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Fjord-unknown_service",
+          "label": "unknown_service",
+          "seen_training_template": true
+        },
+        {
+          "id": "test-Fjord-conflict",
+          "label": "conflict",
+          "seen_training_template": true
+        }
+      ],
+      "seen": 5,
+      "seen_fraction": 0.625
+    }
+  },
+  "test": {
+    "bigram": {
+      "accuracy": 1.0,
+      "confusion": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 1.0,
+        "Helix": 1.0
+      },
+      "entity_accuracy_mean": 1.0,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 1.0
+    },
+    "majority": {
+      "accuracy": 0.125,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 0.125,
+        "Helix": 0.125
+      },
+      "entity_accuracy_mean": 0.125,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Garnet",
+          "expected": "lookup",
+          "id": "test-Garnet-lookup",
+          "predicted": "conflict",
+          "question": "According to the current policy, how many days does Garnet retain audit logs?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "conversion",
+          "id": "test-Garnet-conversion",
+          "predicted": "conflict",
+          "question": "Express Garnet's session timeout in seconds."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "difference",
+          "id": "test-Garnet-difference",
+          "predicted": "conflict",
+          "question": "Subtract Helix's current log-retention period from Garnet's, in days."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "sum",
+          "id": "test-Garnet-sum",
+          "predicted": "conflict",
+          "question": "What is the combined daily request quota for Garnet and Helix?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "ratio",
+          "id": "test-Garnet-ratio",
+          "predicted": "conflict",
+          "question": "What is the ratio of Garnet's monthly cost to Helix's monthly cost?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "missing_field",
+          "id": "test-Garnet-missing_field",
+          "predicted": "conflict",
+          "question": "How many engineers are on Garnet's on-call team?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "unknown_service",
+          "id": "test-Garnet-unknown_service",
+          "predicted": "conflict",
+          "question": "What is the audit-log retention period in days for GarnetSandbox?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "lookup",
+          "id": "test-Helix-lookup",
+          "predicted": "conflict",
+          "question": "According to the current policy, how many days does Helix retain audit logs?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "conversion",
+          "id": "test-Helix-conversion",
+          "predicted": "conflict",
+          "question": "Express Helix's session timeout in seconds."
+        },
+        {
+          "entity": "Helix",
+          "expected": "difference",
+          "id": "test-Helix-difference",
+          "predicted": "conflict",
+          "question": "Subtract Cobalt's current log-retention period from Helix's, in days."
+        },
+        {
+          "entity": "Helix",
+          "expected": "sum",
+          "id": "test-Helix-sum",
+          "predicted": "conflict",
+          "question": "What is the combined daily request quota for Helix and Cobalt?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "ratio",
+          "id": "test-Helix-ratio",
+          "predicted": "conflict",
+          "question": "What is the ratio of Helix's monthly cost to Cobalt's monthly cost?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "missing_field",
+          "id": "test-Helix-missing_field",
+          "predicted": "conflict",
+          "question": "How many engineers are on Helix's on-call team?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "unknown_service",
+          "id": "test-Helix-unknown_service",
+          "predicted": "conflict",
+          "question": "What is the audit-log retention period in days for HelixSandbox?"
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.027777777777777776
+    },
+    "unigram": {
+      "accuracy": 1.0,
+      "confusion": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 1.0,
+        "Helix": 1.0
+      },
+      "entity_accuracy_mean": 1.0,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 1.0
+    }
+  },
+  "training_imbalance_stress": {
+    "method": "bigram",
+    "minority_label": "lookup",
+    "original": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "minority_recall": 1.0
+    },
+    "original_training_counts": {
+      "conflict": 3,
+      "conversion": 3,
+      "difference": 3,
+      "lookup": 3,
+      "missing_field": 3,
+      "ratio": 3,
+      "sum": 3,
+      "unknown_service": 3
+    },
+    "stressed": {
+      "accuracy": 0.875,
+      "macro_f1": 0.8333333333333334,
+      "minority_recall": 0.0
+    },
+    "stressed_training_counts": {
+      "conflict": 3,
+      "conversion": 3,
+      "difference": 3,
+      "lookup": 1,
+      "missing_field": 3,
+      "ratio": 3,
+      "sum": 3,
+      "unknown_service": 3
+    }
+  },
+  "training_resample_stability": {
+    "challenge_error_counts": {
+      "challenge-test-Garnet-conflict": 12,
+      "challenge-test-Garnet-conversion": 0,
+      "challenge-test-Garnet-difference": 12,
+      "challenge-test-Garnet-lookup": 12,
+      "challenge-test-Garnet-missing_field": 0,
+      "challenge-test-Garnet-ratio": 0,
+      "challenge-test-Garnet-sum": 0,
+      "challenge-test-Garnet-unknown_service": 0,
+      "challenge-test-Helix-conflict": 12,
+      "challenge-test-Helix-conversion": 0,
+      "challenge-test-Helix-difference": 12,
+      "challenge-test-Helix-lookup": 12,
+      "challenge-test-Helix-missing_field": 0,
+      "challenge-test-Helix-ratio": 0,
+      "challenge-test-Helix-sum": 0,
+      "challenge-test-Helix-unknown_service": 0
+    },
+    "method": "bigram",
+    "metrics": {
+      "challenge_accuracy": {
+        "max": 0.625,
+        "mean": 0.625,
+        "min": 0.625,
+        "population_variance": 0.0
+      },
+      "challenge_macro_f1": {
+        "max": 0.55,
+        "mean": 0.55,
+        "min": 0.55,
+        "population_variance": 0.0
+      },
+      "test_accuracy": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "population_variance": 0.0
+      },
+      "test_macro_f1": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "population_variance": 0.0
+      }
+    },
+    "runs": [
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Delta-lookup",
+          "test-Delta-lookup",
+          "test-Cobalt-lookup",
+          "test-Delta-conversion",
+          "test-Ember-conversion",
+          "test-Delta-conversion",
+          "test-Delta-difference",
+          "test-Delta-difference",
+          "test-Delta-difference",
+          "test-Delta-sum",
+          "test-Ember-sum",
+          "test-Cobalt-sum",
+          "test-Ember-ratio",
+          "test-Cobalt-ratio",
+          "test-Delta-ratio",
+          "test-Cobalt-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Ember-missing_field",
+          "test-Delta-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Ember-conflict",
+          "test-Cobalt-conflict",
+          "test-Delta-conflict"
+        ],
+        "seed": 0,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Cobalt-lookup",
+          "test-Ember-lookup",
+          "test-Cobalt-lookup",
+          "test-Delta-conversion",
+          "test-Cobalt-conversion",
+          "test-Delta-conversion",
+          "test-Delta-difference",
+          "test-Delta-difference",
+          "test-Ember-difference",
+          "test-Delta-sum",
+          "test-Cobalt-sum",
+          "test-Cobalt-sum",
+          "test-Delta-ratio",
+          "test-Cobalt-ratio",
+          "test-Delta-ratio",
+          "test-Delta-missing_field",
+          "test-Ember-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Ember-unknown_service",
+          "test-Delta-unknown_service",
+          "test-Delta-unknown_service",
+          "test-Ember-conflict",
+          "test-Cobalt-conflict",
+          "test-Ember-conflict"
+        ],
+        "seed": 1,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Cobalt-lookup",
+          "test-Cobalt-lookup",
+          "test-Cobalt-lookup",
+          "test-Delta-conversion",
+          "test-Cobalt-conversion",
+          "test-Ember-conversion",
+          "test-Ember-difference",
+          "test-Delta-difference",
+          "test-Delta-difference",
+          "test-Ember-sum",
+          "test-Cobalt-sum",
+          "test-Ember-sum",
+          "test-Cobalt-ratio",
+          "test-Ember-ratio",
+          "test-Ember-ratio",
+          "test-Cobalt-missing_field",
+          "test-Delta-missing_field",
+          "test-Ember-missing_field",
+          "test-Delta-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Delta-conflict",
+          "test-Ember-conflict",
+          "test-Delta-conflict"
+        ],
+        "seed": 2,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Cobalt-lookup",
+          "test-Ember-lookup",
+          "test-Ember-lookup",
+          "test-Cobalt-conversion",
+          "test-Delta-conversion",
+          "test-Ember-conversion",
+          "test-Delta-difference",
+          "test-Ember-difference",
+          "test-Ember-difference",
+          "test-Cobalt-sum",
+          "test-Ember-sum",
+          "test-Cobalt-sum",
+          "test-Delta-ratio",
+          "test-Delta-ratio",
+          "test-Ember-ratio",
+          "test-Cobalt-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Ember-missing_field",
+          "test-Delta-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Delta-conflict",
+          "test-Delta-conflict",
+          "test-Ember-conflict"
+        ],
+        "seed": 3,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Cobalt-lookup",
+          "test-Delta-lookup",
+          "test-Cobalt-lookup",
+          "test-Ember-conversion",
+          "test-Delta-conversion",
+          "test-Delta-conversion",
+          "test-Cobalt-difference",
+          "test-Cobalt-difference",
+          "test-Cobalt-difference",
+          "test-Cobalt-sum",
+          "test-Delta-sum",
+          "test-Ember-sum",
+          "test-Delta-ratio",
+          "test-Cobalt-ratio",
+          "test-Cobalt-ratio",
+          "test-Ember-missing_field",
+          "test-Ember-missing_field",
+          "test-Delta-missing_field",
+          "test-Delta-unknown_service",
+          "test-Cobalt-unknown_service",
+          "test-Cobalt-unknown_service",
+          "test-Delta-conflict",
+          "test-Cobalt-conflict",
+          "test-Cobalt-conflict"
+        ],
+        "seed": 4,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Ember-lookup",
+          "test-Delta-lookup",
+          "test-Ember-lookup",
+          "test-Delta-conversion",
+          "test-Ember-conversion",
+          "test-Ember-conversion",
+          "test-Ember-difference",
+          "test-Ember-difference",
+          "test-Cobalt-difference",
+          "test-Delta-sum",
+          "test-Cobalt-sum",
+          "test-Ember-sum",
+          "test-Cobalt-ratio",
+          "test-Cobalt-ratio",
+          "test-Cobalt-ratio",
+          "test-Delta-missing_field",
+          "test-Delta-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Delta-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Cobalt-unknown_service",
+          "test-Ember-conflict",
+          "test-Cobalt-conflict",
+          "test-Cobalt-conflict"
+        ],
+        "seed": 5,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Ember-lookup",
+          "test-Cobalt-lookup",
+          "test-Delta-lookup",
+          "test-Delta-conversion",
+          "test-Cobalt-conversion",
+          "test-Cobalt-conversion",
+          "test-Cobalt-difference",
+          "test-Ember-difference",
+          "test-Ember-difference",
+          "test-Delta-sum",
+          "test-Ember-sum",
+          "test-Delta-sum",
+          "test-Delta-ratio",
+          "test-Cobalt-ratio",
+          "test-Delta-ratio",
+          "test-Delta-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Ember-missing_field",
+          "test-Delta-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Ember-conflict",
+          "test-Cobalt-conflict",
+          "test-Cobalt-conflict"
+        ],
+        "seed": 6,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Delta-lookup",
+          "test-Cobalt-lookup",
+          "test-Delta-lookup",
+          "test-Ember-conversion",
+          "test-Cobalt-conversion",
+          "test-Cobalt-conversion",
+          "test-Ember-difference",
+          "test-Cobalt-difference",
+          "test-Delta-difference",
+          "test-Ember-sum",
+          "test-Cobalt-sum",
+          "test-Ember-sum",
+          "test-Cobalt-ratio",
+          "test-Cobalt-ratio",
+          "test-Cobalt-ratio",
+          "test-Delta-missing_field",
+          "test-Delta-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Cobalt-unknown_service",
+          "test-Cobalt-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Delta-conflict",
+          "test-Cobalt-conflict",
+          "test-Ember-conflict"
+        ],
+        "seed": 7,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Cobalt-lookup",
+          "test-Delta-lookup",
+          "test-Delta-lookup",
+          "test-Cobalt-conversion",
+          "test-Cobalt-conversion",
+          "test-Ember-conversion",
+          "test-Cobalt-difference",
+          "test-Cobalt-difference",
+          "test-Cobalt-difference",
+          "test-Cobalt-sum",
+          "test-Ember-sum",
+          "test-Cobalt-sum",
+          "test-Delta-ratio",
+          "test-Ember-ratio",
+          "test-Cobalt-ratio",
+          "test-Delta-missing_field",
+          "test-Delta-missing_field",
+          "test-Delta-missing_field",
+          "test-Delta-unknown_service",
+          "test-Delta-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Cobalt-conflict",
+          "test-Delta-conflict",
+          "test-Cobalt-conflict"
+        ],
+        "seed": 8,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Delta-lookup",
+          "test-Ember-lookup",
+          "test-Delta-lookup",
+          "test-Delta-conversion",
+          "test-Cobalt-conversion",
+          "test-Cobalt-conversion",
+          "test-Ember-difference",
+          "test-Cobalt-difference",
+          "test-Delta-difference",
+          "test-Ember-sum",
+          "test-Delta-sum",
+          "test-Ember-sum",
+          "test-Cobalt-ratio",
+          "test-Delta-ratio",
+          "test-Ember-ratio",
+          "test-Ember-missing_field",
+          "test-Ember-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Ember-unknown_service",
+          "test-Delta-unknown_service",
+          "test-Cobalt-unknown_service",
+          "test-Ember-conflict",
+          "test-Delta-conflict",
+          "test-Ember-conflict"
+        ],
+        "seed": 9,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Ember-lookup",
+          "test-Cobalt-lookup",
+          "test-Delta-lookup",
+          "test-Delta-conversion",
+          "test-Ember-conversion",
+          "test-Cobalt-conversion",
+          "test-Cobalt-difference",
+          "test-Delta-difference",
+          "test-Delta-difference",
+          "test-Delta-sum",
+          "test-Ember-sum",
+          "test-Cobalt-sum",
+          "test-Cobalt-ratio",
+          "test-Ember-ratio",
+          "test-Delta-ratio",
+          "test-Delta-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Ember-unknown_service",
+          "test-Delta-unknown_service",
+          "test-Cobalt-unknown_service",
+          "test-Delta-conflict",
+          "test-Cobalt-conflict",
+          "test-Ember-conflict"
+        ],
+        "seed": 10,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      },
+      {
+        "challenge_accuracy": 0.625,
+        "challenge_macro_f1": 0.55,
+        "sample_ids": [
+          "test-Delta-lookup",
+          "test-Ember-lookup",
+          "test-Delta-lookup",
+          "test-Delta-conversion",
+          "test-Ember-conversion",
+          "test-Ember-conversion",
+          "test-Cobalt-difference",
+          "test-Cobalt-difference",
+          "test-Ember-difference",
+          "test-Delta-sum",
+          "test-Ember-sum",
+          "test-Ember-sum",
+          "test-Cobalt-ratio",
+          "test-Cobalt-ratio",
+          "test-Delta-ratio",
+          "test-Delta-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Cobalt-missing_field",
+          "test-Ember-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Ember-unknown_service",
+          "test-Cobalt-conflict",
+          "test-Ember-conflict",
+          "test-Delta-conflict"
+        ],
+        "seed": 11,
+        "test_accuracy": 1.0,
+        "test_macro_f1": 1.0
+      }
+    ],
+    "scope": "Stratified resampling with replacement of fixed synthetic training cases; frozen evaluation sets; descriptive sensitivity, not independent trials or a confidence interval",
+    "test_error_counts": {
+      "test-Garnet-conflict": 0,
+      "test-Garnet-conversion": 0,
+      "test-Garnet-difference": 0,
+      "test-Garnet-lookup": 0,
+      "test-Garnet-missing_field": 0,
+      "test-Garnet-ratio": 0,
+      "test-Garnet-sum": 0,
+      "test-Garnet-unknown_service": 0,
+      "test-Helix-conflict": 0,
+      "test-Helix-conversion": 0,
+      "test-Helix-difference": 0,
+      "test-Helix-lookup": 0,
+      "test-Helix-missing_field": 0,
+      "test-Helix-ratio": 0,
+      "test-Helix-sum": 0,
+      "test-Helix-unknown_service": 0
+    }
+  },
+  "validation": {
+    "bigram": {
+      "accuracy": 1.0,
+      "confusion": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "entity_accuracy": {
+        "Fjord": 1.0
+      },
+      "entity_accuracy_mean": 1.0,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 1.0
+    },
+    "majority": {
+      "accuracy": 0.125,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "entity_accuracy": {
+        "Fjord": 0.125
+      },
+      "entity_accuracy_mean": 0.125,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Fjord",
+          "expected": "lookup",
+          "id": "test-Fjord-lookup",
+          "predicted": "conflict",
+          "question": "According to the current policy, how many days does Fjord retain audit logs?"
+        },
+        {
+          "entity": "Fjord",
+          "expected": "conversion",
+          "id": "test-Fjord-conversion",
+          "predicted": "conflict",
+          "question": "Express Fjord's session timeout in seconds."
+        },
+        {
+          "entity": "Fjord",
+          "expected": "difference",
+          "id": "test-Fjord-difference",
+          "predicted": "conflict",
+          "question": "Subtract Garnet's current log-retention period from Fjord's, in days."
+        },
+        {
+          "entity": "Fjord",
+          "expected": "sum",
+          "id": "test-Fjord-sum",
+          "predicted": "conflict",
+          "question": "What is the combined daily request quota for Fjord and Garnet?"
+        },
+        {
+          "entity": "Fjord",
+          "expected": "ratio",
+          "id": "test-Fjord-ratio",
+          "predicted": "conflict",
+          "question": "What is the ratio of Fjord's monthly cost to Garnet's monthly cost?"
+        },
+        {
+          "entity": "Fjord",
+          "expected": "missing_field",
+          "id": "test-Fjord-missing_field",
+          "predicted": "conflict",
+          "question": "How many engineers are on Fjord's on-call team?"
+        },
+        {
+          "entity": "Fjord",
+          "expected": "unknown_service",
+          "id": "test-Fjord-unknown_service",
+          "predicted": "conflict",
+          "question": "What is the audit-log retention period in days for FjordSandbox?"
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.027777777777777776
+    },
+    "unigram": {
+      "accuracy": 1.0,
+      "confusion": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "entity_accuracy": {
+        "Fjord": 1.0
+      },
+      "entity_accuracy_mean": 1.0,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 1.0
+    }
+  }
+}
