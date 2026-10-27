@@ -1,0 +1,833 @@
+{
+  "limitations": [
+    "Authored templates repeat across entities; holdout does not establish new-template generalization.",
+    "One validation and two test entities; variance describes these entities, not a confidence interval.",
+    "English synthetic questions only; no claim about Hebrew quality or language models.",
+    "Feature-label association does not establish causality or independent human mastery."
+  ],
+  "quality": {
+    "test": {
+      "cases": 16,
+      "entities": [
+        "Garnet",
+        "Helix"
+      ],
+      "imbalance_ratio": 1.0,
+      "label_counts": {
+        "conflict": 2,
+        "conversion": 2,
+        "difference": 2,
+        "lookup": 2,
+        "missing_field": 2,
+        "ratio": 2,
+        "sum": 2,
+        "unknown_service": 2
+      }
+    },
+    "train": {
+      "cases": 24,
+      "entities": [
+        "Cobalt",
+        "Delta",
+        "Ember"
+      ],
+      "imbalance_ratio": 1.0,
+      "label_counts": {
+        "conflict": 3,
+        "conversion": 3,
+        "difference": 3,
+        "lookup": 3,
+        "missing_field": 3,
+        "ratio": 3,
+        "sum": 3,
+        "unknown_service": 3
+      }
+    },
+    "validation": {
+      "cases": 8,
+      "entities": [
+        "Fjord"
+      ],
+      "imbalance_ratio": 1.0,
+      "label_counts": {
+        "conflict": 1,
+        "conversion": 1,
+        "difference": 1,
+        "lookup": 1,
+        "missing_field": 1,
+        "ratio": 1,
+        "sum": 1,
+        "unknown_service": 1
+      }
+    }
+  },
+  "selected": "bigram",
+  "test": {
+    "bigram": {
+      "accuracy": 1.0,
+      "confusion": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 1.0,
+        "Helix": 1.0
+      },
+      "entity_accuracy_mean": 1.0,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 1.0
+    },
+    "majority": {
+      "accuracy": 0.125,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 0.125,
+        "Helix": 0.125
+      },
+      "entity_accuracy_mean": 0.125,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Garnet",
+          "expected": "lookup",
+          "id": "test-Garnet-lookup",
+          "predicted": "conflict",
+          "question": "According to the current policy, how many days does Garnet retain audit logs?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "conversion",
+          "id": "test-Garnet-conversion",
+          "predicted": "conflict",
+          "question": "Express Garnet's session timeout in seconds."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "difference",
+          "id": "test-Garnet-difference",
+          "predicted": "conflict",
+          "question": "Subtract Helix's current log-retention period from Garnet's, in days."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "sum",
+          "id": "test-Garnet-sum",
+          "predicted": "conflict",
+          "question": "What is the combined daily request quota for Garnet and Helix?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "ratio",
+          "id": "test-Garnet-ratio",
+          "predicted": "conflict",
+          "question": "What is the ratio of Garnet's monthly cost to Helix's monthly cost?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "missing_field",
+          "id": "test-Garnet-missing_field",
+          "predicted": "conflict",
+          "question": "How many engineers are on Garnet's on-call team?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "unknown_service",
+          "id": "test-Garnet-unknown_service",
+          "predicted": "conflict",
+          "question": "What is the audit-log retention period in days for GarnetSandbox?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "lookup",
+          "id": "test-Helix-lookup",
+          "predicted": "conflict",
+          "question": "According to the current policy, how many days does Helix retain audit logs?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "conversion",
+          "id": "test-Helix-conversion",
+          "predicted": "conflict",
+          "question": "Express Helix's session timeout in seconds."
+        },
+        {
+          "entity": "Helix",
+          "expected": "difference",
+          "id": "test-Helix-difference",
+          "predicted": "conflict",
+          "question": "Subtract Cobalt's current log-retention period from Helix's, in days."
+        },
+        {
+          "entity": "Helix",
+          "expected": "sum",
+          "id": "test-Helix-sum",
+          "predicted": "conflict",
+          "question": "What is the combined daily request quota for Helix and Cobalt?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "ratio",
+          "id": "test-Helix-ratio",
+          "predicted": "conflict",
+          "question": "What is the ratio of Helix's monthly cost to Cobalt's monthly cost?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "missing_field",
+          "id": "test-Helix-missing_field",
+          "predicted": "conflict",
+          "question": "How many engineers are on Helix's on-call team?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "unknown_service",
+          "id": "test-Helix-unknown_service",
+          "predicted": "conflict",
+          "question": "What is the audit-log retention period in days for HelixSandbox?"
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.027777777777777776
+    },
+    "unigram": {
+      "accuracy": 1.0,
+      "confusion": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 1.0,
+        "Helix": 1.0
+      },
+      "entity_accuracy_mean": 1.0,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 1.0
+    }
+  },
+  "validation": {
+    "bigram": {
+      "accuracy": 1.0,
+      "confusion": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "entity_accuracy": {
+        "Fjord": 1.0
+      },
+      "entity_accuracy_mean": 1.0,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 1.0
+    },
+    "majority": {
+      "accuracy": 0.125,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "entity_accuracy": {
+        "Fjord": 0.125
+      },
+      "entity_accuracy_mean": 0.125,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Fjord",
+          "expected": "lookup",
+          "id": "test-Fjord-lookup",
+          "predicted": "conflict",
+          "question": "According to the current policy, how many days does Fjord retain audit logs?"
+        },
+        {
+          "entity": "Fjord",
+          "expected": "conversion",
+          "id": "test-Fjord-conversion",
+          "predicted": "conflict",
+          "question": "Express Fjord's session timeout in seconds."
+        },
+        {
+          "entity": "Fjord",
+          "expected": "difference",
+          "id": "test-Fjord-difference",
+          "predicted": "conflict",
+          "question": "Subtract Garnet's current log-retention period from Fjord's, in days."
+        },
+        {
+          "entity": "Fjord",
+          "expected": "sum",
+          "id": "test-Fjord-sum",
+          "predicted": "conflict",
+          "question": "What is the combined daily request quota for Fjord and Garnet?"
+        },
+        {
+          "entity": "Fjord",
+          "expected": "ratio",
+          "id": "test-Fjord-ratio",
+          "predicted": "conflict",
+          "question": "What is the ratio of Fjord's monthly cost to Garnet's monthly cost?"
+        },
+        {
+          "entity": "Fjord",
+          "expected": "missing_field",
+          "id": "test-Fjord-missing_field",
+          "predicted": "conflict",
+          "question": "How many engineers are on Fjord's on-call team?"
+        },
+        {
+          "entity": "Fjord",
+          "expected": "unknown_service",
+          "id": "test-Fjord-unknown_service",
+          "predicted": "conflict",
+          "question": "What is the audit-log retention period in days for FjordSandbox?"
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.027777777777777776
+    },
+    "unigram": {
+      "accuracy": 1.0,
+      "confusion": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "entity_accuracy": {
+        "Fjord": 1.0
+      },
+      "entity_accuracy_mean": 1.0,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 1.0
+    }
+  }
+}

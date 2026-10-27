@@ -1,0 +1,659 @@
+[
+  {
+    "task_id": "dev-Alder-lookup",
+    "entity": "Alder",
+    "family": "lookup",
+    "repeat": 0,
+    "seed": 4200,
+    "policy": "rag",
+    "result": {
+      "value": 71,
+      "citations": [
+        "Alder-r2"
+      ],
+      "status": "answered",
+      "model_response": {
+        "text": "{ \"value\": 71, \"citations\": [\"Alder-r2\"] }",
+        "seconds": 12.080532420000054,
+        "usage": {
+          "prompt_tokens": 462,
+          "completion_tokens": 19,
+          "total_tokens": 481
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4200
+      },
+      "retrieved_ids": [
+        "Birch-r2",
+        "Alder-r2",
+        "Alder-r1"
+      ]
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-lookup",
+    "entity": "Alder",
+    "family": "lookup",
+    "repeat": 0,
+    "seed": 4200,
+    "policy": "typed_agent",
+    "result": {
+      "status": "answered",
+      "value": 71.0,
+      "unit": "days",
+      "reason": null,
+      "evidence": [
+        {
+          "value": 71.0,
+          "unit": "days",
+          "source_id": "Alder-r2",
+          "service": "Alder",
+          "revision": 2,
+          "field": "retention_days"
+        }
+      ],
+      "operation": "lookup",
+      "plan": {
+        "operation": "lookup",
+        "operands": [
+          {
+            "service": "Alder",
+            "field": "retention_days"
+          }
+        ]
+      },
+      "model_response": {
+        "text": "{\"operation\": \"lookup\", \"operands\": [{\"service\": \"Alder\", \"field\": \"retention_days\"}]}",
+        "seconds": 8.597207815000274,
+        "usage": {
+          "prompt_tokens": 215,
+          "completion_tokens": 25,
+          "total_tokens": 240
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4200
+      }
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-conversion",
+    "entity": "Alder",
+    "family": "conversion",
+    "repeat": 0,
+    "seed": 4201,
+    "policy": "typed_agent",
+    "result": {
+      "status": "answered",
+      "value": 1800.0,
+      "unit": "seconds",
+      "reason": null,
+      "evidence": [
+        {
+          "value": 30.0,
+          "unit": "minutes",
+          "source_id": "Alder-r2",
+          "service": "Alder",
+          "revision": 2,
+          "field": "timeout_minutes"
+        }
+      ],
+      "operation": "minutes_to_seconds",
+      "plan": {
+        "operation": "minutes_to_seconds",
+        "operands": [
+          {
+            "service": "Alder",
+            "field": "timeout_minutes"
+          }
+        ]
+      },
+      "model_response": {
+        "text": "{\"operation\": \"minutes_to_seconds\", \"operands\": [{\"service\": \"Alder\", \"field\": \"timeout_minutes\"}]}",
+        "seconds": 3.471909566999784,
+        "usage": {
+          "prompt_tokens": 208,
+          "completion_tokens": 26,
+          "total_tokens": 234
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4201
+      }
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-conversion",
+    "entity": "Alder",
+    "family": "conversion",
+    "repeat": 0,
+    "seed": 4201,
+    "policy": "rag",
+    "result": {
+      "value": 2220,
+      "citations": [
+        "Alder-r2"
+      ],
+      "status": "answered",
+      "model_response": {
+        "text": "{ \"value\": 2220, \"citations\": [\"Alder-r2\"] }",
+        "seconds": 9.645807679999962,
+        "usage": {
+          "prompt_tokens": 347,
+          "completion_tokens": 21,
+          "total_tokens": 368
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4201
+      },
+      "retrieved_ids": [
+        "Alder-r1",
+        "Alder-r2"
+      ]
+    },
+    "correct": false,
+    "grounded_correct": false
+  },
+  {
+    "task_id": "dev-Alder-difference",
+    "entity": "Alder",
+    "family": "difference",
+    "repeat": 0,
+    "seed": 4202,
+    "policy": "rag",
+    "result": {
+      "value": 10,
+      "citations": [
+        "Birch-r2",
+        "Alder-r2"
+      ],
+      "status": "answered",
+      "model_response": {
+        "text": "{ \"value\": 10, \"citations\": [\"Birch-r2\", \"Alder-r2\"] }",
+        "seconds": 13.779014648000157,
+        "usage": {
+          "prompt_tokens": 573,
+          "completion_tokens": 26,
+          "total_tokens": 599
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4202
+      },
+      "retrieved_ids": [
+        "Birch-r2",
+        "Alder-r1",
+        "Birch-r1",
+        "Alder-r2"
+      ]
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-difference",
+    "entity": "Alder",
+    "family": "difference",
+    "repeat": 0,
+    "seed": 4202,
+    "policy": "typed_agent",
+    "result": {
+      "status": "answered",
+      "value": 10.0,
+      "unit": "days",
+      "reason": null,
+      "evidence": [
+        {
+          "value": 71.0,
+          "unit": "days",
+          "source_id": "Alder-r2",
+          "service": "Alder",
+          "revision": 2,
+          "field": "retention_days"
+        },
+        {
+          "value": 61.0,
+          "unit": "days",
+          "source_id": "Birch-r2",
+          "service": "Birch",
+          "revision": 2,
+          "field": "retention_days"
+        }
+      ],
+      "operation": "difference",
+      "plan": {
+        "operation": "difference",
+        "operands": [
+          {
+            "service": "Alder",
+            "field": "retention_days"
+          },
+          {
+            "service": "Birch",
+            "field": "retention_days"
+          }
+        ]
+      },
+      "model_response": {
+        "text": "{\"operation\": \"difference\", \"operands\": [{\"service\": \"Alder\", \"field\": \"retention_days\"}, {\"service\": \"Birch\", \"field\": \"retention_days\"}]}",
+        "seconds": 8.819565757999953,
+        "usage": {
+          "prompt_tokens": 216,
+          "completion_tokens": 41,
+          "total_tokens": 257
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4202
+      }
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-sum",
+    "entity": "Alder",
+    "family": "sum",
+    "repeat": 0,
+    "seed": 4203,
+    "policy": "typed_agent",
+    "result": {
+      "status": "answered",
+      "value": 3900.0,
+      "unit": "requests/day",
+      "reason": null,
+      "evidence": [
+        {
+          "value": 2300.0,
+          "unit": "requests/day",
+          "source_id": "Alder-r2",
+          "service": "Alder",
+          "revision": 2,
+          "field": "daily_quota"
+        },
+        {
+          "value": 1600.0,
+          "unit": "requests/day",
+          "source_id": "Birch-r2",
+          "service": "Birch",
+          "revision": 2,
+          "field": "daily_quota"
+        }
+      ],
+      "operation": "sum",
+      "plan": {
+        "operation": "sum",
+        "operands": [
+          {
+            "service": "Alder",
+            "field": "daily_quota"
+          },
+          {
+            "service": "Birch",
+            "field": "daily_quota"
+          }
+        ]
+      },
+      "model_response": {
+        "text": "{\"operation\": \"sum\", \"operands\": [{\"service\": \"Alder\", \"field\": \"daily_quota\"}, {\"service\": \"Birch\", \"field\": \"daily_quota\"}]}",
+        "seconds": 4.400483933000032,
+        "usage": {
+          "prompt_tokens": 212,
+          "completion_tokens": 39,
+          "total_tokens": 251
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4203
+      }
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-sum",
+    "entity": "Alder",
+    "family": "sum",
+    "repeat": 0,
+    "seed": 4203,
+    "policy": "rag",
+    "result": {
+      "value": 3900,
+      "citations": [
+        "Alder-r2",
+        "Birch-r2"
+      ],
+      "status": "answered",
+      "model_response": {
+        "text": "{ \"value\": 3900, \"citations\": [\"Alder-r2\", \"Birch-r2\"] }",
+        "seconds": 15.090758234000077,
+        "usage": {
+          "prompt_tokens": 568,
+          "completion_tokens": 28,
+          "total_tokens": 596
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4203
+      },
+      "retrieved_ids": [
+        "Alder-r2",
+        "Alder-r1",
+        "Birch-r1",
+        "Birch-r2"
+      ]
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-ratio",
+    "entity": "Alder",
+    "family": "ratio",
+    "repeat": 0,
+    "seed": 4204,
+    "policy": "rag",
+    "result": {
+      "value": 0.8162,
+      "citations": [
+        "Alder-r2",
+        "Birch-r2"
+      ],
+      "status": "answered",
+      "model_response": {
+        "text": "{ \"value\": 0.8162, \"citations\": [\"Alder-r2\", \"Birch-r2\"] }",
+        "seconds": 14.0797701030001,
+        "usage": {
+          "prompt_tokens": 573,
+          "completion_tokens": 30,
+          "total_tokens": 603
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4204
+      },
+      "retrieved_ids": [
+        "Alder-r2",
+        "Alder-r1",
+        "Birch-r1",
+        "Birch-r2"
+      ]
+    },
+    "correct": false,
+    "grounded_correct": false
+  },
+  {
+    "task_id": "dev-Alder-ratio",
+    "entity": "Alder",
+    "family": "ratio",
+    "repeat": 0,
+    "seed": 4204,
+    "policy": "typed_agent",
+    "result": {
+      "status": "answered",
+      "value": 0.8571428571428571,
+      "unit": "ratio",
+      "reason": null,
+      "evidence": [
+        {
+          "value": 120.0,
+          "unit": "USD/month",
+          "source_id": "Alder-r2",
+          "service": "Alder",
+          "revision": 2,
+          "field": "monthly_cost"
+        },
+        {
+          "value": 140.0,
+          "unit": "USD/month",
+          "source_id": "Birch-r2",
+          "service": "Birch",
+          "revision": 2,
+          "field": "monthly_cost"
+        }
+      ],
+      "operation": "ratio",
+      "plan": {
+        "operation": "ratio",
+        "operands": [
+          {
+            "service": "Alder",
+            "field": "monthly_cost"
+          },
+          {
+            "service": "Birch",
+            "field": "monthly_cost"
+          }
+        ]
+      },
+      "model_response": {
+        "text": "{\"operation\": \"ratio\", \"operands\": [{\"service\": \"Alder\", \"field\": \"monthly_cost\"}, {\"service\": \"Birch\", \"field\": \"monthly_cost\"}]}",
+        "seconds": 8.94147692100023,
+        "usage": {
+          "prompt_tokens": 215,
+          "completion_tokens": 39,
+          "total_tokens": 254
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4204
+      }
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-missing_field",
+    "entity": "Alder",
+    "family": "missing_field",
+    "repeat": 0,
+    "seed": 4205,
+    "policy": "typed_agent",
+    "result": {
+      "status": "abstained",
+      "value": null,
+      "reason": "unsupported_question",
+      "evidence": [],
+      "operation": "abstain",
+      "plan": {
+        "operation": "abstain",
+        "operands": []
+      },
+      "model_response": {
+        "text": "{ \"operation\": \"abstain\", \"operands\": [] }",
+        "seconds": 2.170570862000204,
+        "usage": {
+          "prompt_tokens": 211,
+          "completion_tokens": 14,
+          "total_tokens": 225
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4205
+      }
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-missing_field",
+    "entity": "Alder",
+    "family": "missing_field",
+    "repeat": 0,
+    "seed": 4205,
+    "policy": "rag",
+    "result": {
+      "value": null,
+      "citations": [],
+      "status": "abstained",
+      "model_response": {
+        "text": "{ \"value\": null, \"citations\": [] }",
+        "seconds": 9.118599384999925,
+        "usage": {
+          "prompt_tokens": 350,
+          "completion_tokens": 12,
+          "total_tokens": 362
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4205
+      },
+      "retrieved_ids": [
+        "Alder-r1",
+        "Alder-r2"
+      ]
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-unknown_service",
+    "entity": "Alder",
+    "family": "unknown_service",
+    "repeat": 0,
+    "seed": 4206,
+    "policy": "rag",
+    "result": {
+      "value": 71,
+      "citations": [
+        "Alder-r2"
+      ],
+      "status": "answered",
+      "model_response": {
+        "text": "{ \"value\": 71, \"citations\": [\"Alder-r2\"] }",
+        "seconds": 4.9670440289996804,
+        "usage": {
+          "prompt_tokens": 245,
+          "completion_tokens": 19,
+          "total_tokens": 264
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4206
+      },
+      "retrieved_ids": [
+        "Alder-r2"
+      ]
+    },
+    "correct": false,
+    "grounded_correct": false
+  },
+  {
+    "task_id": "dev-Alder-unknown_service",
+    "entity": "Alder",
+    "family": "unknown_service",
+    "repeat": 0,
+    "seed": 4206,
+    "policy": "typed_agent",
+    "result": {
+      "status": "abstained",
+      "value": null,
+      "reason": "unknown_service",
+      "evidence": [],
+      "operation": "lookup",
+      "plan": {
+        "operation": "lookup",
+        "operands": [
+          {
+            "service": "AlderSandbox",
+            "field": "retention_days"
+          }
+        ]
+      },
+      "model_response": {
+        "text": "{\"operation\": \"lookup\", \"operands\": [{\"service\": \"AlderSandbox\", \"field\": \"retention_days\"}]}",
+        "seconds": 7.0392537679999805,
+        "usage": {
+          "prompt_tokens": 214,
+          "completion_tokens": 27,
+          "total_tokens": 241
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4206
+      }
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-conflict",
+    "entity": "Alder",
+    "family": "conflict",
+    "repeat": 0,
+    "seed": 4207,
+    "policy": "typed_agent",
+    "result": {
+      "status": "abstained",
+      "value": null,
+      "reason": "conflicting_current_evidence",
+      "evidence": [],
+      "operation": "lookup",
+      "plan": {
+        "operation": "lookup",
+        "operands": [
+          {
+            "service": "AlderMirror",
+            "field": "retention_days"
+          }
+        ]
+      },
+      "model_response": {
+        "text": "{\"operation\": \"lookup\", \"operands\": [{\"service\": \"AlderMirror\", \"field\": \"retention_days\"}]}",
+        "seconds": 3.3131633930001954,
+        "usage": {
+          "prompt_tokens": 214,
+          "completion_tokens": 26,
+          "total_tokens": 240
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4207
+      }
+    },
+    "correct": true,
+    "grounded_correct": true
+  },
+  {
+    "task_id": "dev-Alder-conflict",
+    "entity": "Alder",
+    "family": "conflict",
+    "repeat": 0,
+    "seed": 4207,
+    "policy": "rag",
+    "result": {
+      "value": 11,
+      "citations": [
+        "AlderMirror-a"
+      ],
+      "status": "answered",
+      "model_response": {
+        "text": "{\"value\": 11, \"citations\": [\"AlderMirror-a\"]}",
+        "seconds": 10.405392070000289,
+        "usage": {
+          "prompt_tokens": 386,
+          "completion_tokens": 17,
+          "total_tokens": 403
+        },
+        "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+        "seed": 4207
+      },
+      "retrieved_ids": [
+        "AlderMirror-a",
+        "AlderMirror-b",
+        "Birch-r2"
+      ]
+    },
+    "correct": false,
+    "grounded_correct": false
+  }
+]

@@ -1,0 +1,464 @@
+[
+  {
+    "id": "test-Cobalt-lookup",
+    "entity": "Cobalt",
+    "family": "lookup",
+    "question": "According to the current policy, how many days does Cobalt retain audit logs?",
+    "expected": 82,
+    "evidence_ids": [
+      "Cobalt-r2"
+    ]
+  },
+  {
+    "id": "test-Cobalt-conversion",
+    "entity": "Cobalt",
+    "family": "conversion",
+    "question": "Express Cobalt's session timeout in seconds.",
+    "expected": 840,
+    "evidence_ids": [
+      "Cobalt-r2"
+    ]
+  },
+  {
+    "id": "test-Cobalt-difference",
+    "entity": "Cobalt",
+    "family": "difference",
+    "question": "Subtract Delta's current log-retention period from Cobalt's, in days.",
+    "expected": 47,
+    "evidence_ids": [
+      "Cobalt-r2",
+      "Delta-r2"
+    ]
+  },
+  {
+    "id": "test-Cobalt-sum",
+    "entity": "Cobalt",
+    "family": "sum",
+    "question": "What is the combined daily request quota for Cobalt and Delta?",
+    "expected": 1500,
+    "evidence_ids": [
+      "Cobalt-r2",
+      "Delta-r2"
+    ]
+  },
+  {
+    "id": "test-Cobalt-ratio",
+    "entity": "Cobalt",
+    "family": "ratio",
+    "question": "What is the ratio of Cobalt's monthly cost to Delta's monthly cost?",
+    "expected": 1.5,
+    "evidence_ids": [
+      "Cobalt-r2",
+      "Delta-r2"
+    ]
+  },
+  {
+    "id": "test-Cobalt-missing_field",
+    "entity": "Cobalt",
+    "family": "missing_field",
+    "question": "How many engineers are on Cobalt's on-call team?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Cobalt-unknown_service",
+    "entity": "Cobalt",
+    "family": "unknown_service",
+    "question": "What is the audit-log retention period in days for CobaltSandbox?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Cobalt-conflict",
+    "entity": "Cobalt",
+    "family": "conflict",
+    "question": "How many days does CobaltMirror retain audit logs under its current policy?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Delta-lookup",
+    "entity": "Delta",
+    "family": "lookup",
+    "question": "According to the current policy, how many days does Delta retain audit logs?",
+    "expected": 35,
+    "evidence_ids": [
+      "Delta-r2"
+    ]
+  },
+  {
+    "id": "test-Delta-conversion",
+    "entity": "Delta",
+    "family": "conversion",
+    "question": "Express Delta's session timeout in seconds.",
+    "expected": 2220,
+    "evidence_ids": [
+      "Delta-r2"
+    ]
+  },
+  {
+    "id": "test-Delta-difference",
+    "entity": "Delta",
+    "family": "difference",
+    "question": "Subtract Ember's current log-retention period from Delta's, in days.",
+    "expected": -22,
+    "evidence_ids": [
+      "Delta-r2",
+      "Ember-r2"
+    ]
+  },
+  {
+    "id": "test-Delta-sum",
+    "entity": "Delta",
+    "family": "sum",
+    "question": "What is the combined daily request quota for Delta and Ember?",
+    "expected": 2700,
+    "evidence_ids": [
+      "Delta-r2",
+      "Ember-r2"
+    ]
+  },
+  {
+    "id": "test-Delta-ratio",
+    "entity": "Delta",
+    "family": "ratio",
+    "question": "What is the ratio of Delta's monthly cost to Ember's monthly cost?",
+    "expected": 1.2,
+    "evidence_ids": [
+      "Delta-r2",
+      "Ember-r2"
+    ]
+  },
+  {
+    "id": "test-Delta-missing_field",
+    "entity": "Delta",
+    "family": "missing_field",
+    "question": "How many engineers are on Delta's on-call team?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Delta-unknown_service",
+    "entity": "Delta",
+    "family": "unknown_service",
+    "question": "What is the audit-log retention period in days for DeltaSandbox?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Delta-conflict",
+    "entity": "Delta",
+    "family": "conflict",
+    "question": "How many days does DeltaMirror retain audit logs under its current policy?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Ember-lookup",
+    "entity": "Ember",
+    "family": "lookup",
+    "question": "According to the current policy, how many days does Ember retain audit logs?",
+    "expected": 57,
+    "evidence_ids": [
+      "Ember-r2"
+    ]
+  },
+  {
+    "id": "test-Ember-conversion",
+    "entity": "Ember",
+    "family": "conversion",
+    "question": "Express Ember's session timeout in seconds.",
+    "expected": 780,
+    "evidence_ids": [
+      "Ember-r2"
+    ]
+  },
+  {
+    "id": "test-Ember-difference",
+    "entity": "Ember",
+    "family": "difference",
+    "question": "Subtract Fjord's current log-retention period from Ember's, in days.",
+    "expected": -37,
+    "evidence_ids": [
+      "Ember-r2",
+      "Fjord-r2"
+    ]
+  },
+  {
+    "id": "test-Ember-sum",
+    "entity": "Ember",
+    "family": "sum",
+    "question": "What is the combined daily request quota for Ember and Fjord?",
+    "expected": 3000,
+    "evidence_ids": [
+      "Ember-r2",
+      "Fjord-r2"
+    ]
+  },
+  {
+    "id": "test-Ember-ratio",
+    "entity": "Ember",
+    "family": "ratio",
+    "question": "What is the ratio of Ember's monthly cost to Fjord's monthly cost?",
+    "expected": 0.5263157894736842,
+    "evidence_ids": [
+      "Ember-r2",
+      "Fjord-r2"
+    ]
+  },
+  {
+    "id": "test-Ember-missing_field",
+    "entity": "Ember",
+    "family": "missing_field",
+    "question": "How many engineers are on Ember's on-call team?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Ember-unknown_service",
+    "entity": "Ember",
+    "family": "unknown_service",
+    "question": "What is the audit-log retention period in days for EmberSandbox?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Ember-conflict",
+    "entity": "Ember",
+    "family": "conflict",
+    "question": "How many days does EmberMirror retain audit logs under its current policy?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Fjord-lookup",
+    "entity": "Fjord",
+    "family": "lookup",
+    "question": "According to the current policy, how many days does Fjord retain audit logs?",
+    "expected": 94,
+    "evidence_ids": [
+      "Fjord-r2"
+    ]
+  },
+  {
+    "id": "test-Fjord-conversion",
+    "entity": "Fjord",
+    "family": "conversion",
+    "question": "Express Fjord's session timeout in seconds.",
+    "expected": 600,
+    "evidence_ids": [
+      "Fjord-r2"
+    ]
+  },
+  {
+    "id": "test-Fjord-difference",
+    "entity": "Fjord",
+    "family": "difference",
+    "question": "Subtract Garnet's current log-retention period from Fjord's, in days.",
+    "expected": 58,
+    "evidence_ids": [
+      "Fjord-r2",
+      "Garnet-r2"
+    ]
+  },
+  {
+    "id": "test-Fjord-sum",
+    "entity": "Fjord",
+    "family": "sum",
+    "question": "What is the combined daily request quota for Fjord and Garnet?",
+    "expected": 2400,
+    "evidence_ids": [
+      "Fjord-r2",
+      "Garnet-r2"
+    ]
+  },
+  {
+    "id": "test-Fjord-ratio",
+    "entity": "Fjord",
+    "family": "ratio",
+    "question": "What is the ratio of Fjord's monthly cost to Garnet's monthly cost?",
+    "expected": 6.333333333333333,
+    "evidence_ids": [
+      "Fjord-r2",
+      "Garnet-r2"
+    ]
+  },
+  {
+    "id": "test-Fjord-missing_field",
+    "entity": "Fjord",
+    "family": "missing_field",
+    "question": "How many engineers are on Fjord's on-call team?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Fjord-unknown_service",
+    "entity": "Fjord",
+    "family": "unknown_service",
+    "question": "What is the audit-log retention period in days for FjordSandbox?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Fjord-conflict",
+    "entity": "Fjord",
+    "family": "conflict",
+    "question": "How many days does FjordMirror retain audit logs under its current policy?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Garnet-lookup",
+    "entity": "Garnet",
+    "family": "lookup",
+    "question": "According to the current policy, how many days does Garnet retain audit logs?",
+    "expected": 36,
+    "evidence_ids": [
+      "Garnet-r2"
+    ]
+  },
+  {
+    "id": "test-Garnet-conversion",
+    "entity": "Garnet",
+    "family": "conversion",
+    "question": "Express Garnet's session timeout in seconds.",
+    "expected": 1560,
+    "evidence_ids": [
+      "Garnet-r2"
+    ]
+  },
+  {
+    "id": "test-Garnet-difference",
+    "entity": "Garnet",
+    "family": "difference",
+    "question": "Subtract Helix's current log-retention period from Garnet's, in days.",
+    "expected": 18,
+    "evidence_ids": [
+      "Garnet-r2",
+      "Helix-r2"
+    ]
+  },
+  {
+    "id": "test-Garnet-sum",
+    "entity": "Garnet",
+    "family": "sum",
+    "question": "What is the combined daily request quota for Garnet and Helix?",
+    "expected": 2800,
+    "evidence_ids": [
+      "Garnet-r2",
+      "Helix-r2"
+    ]
+  },
+  {
+    "id": "test-Garnet-ratio",
+    "entity": "Garnet",
+    "family": "ratio",
+    "question": "What is the ratio of Garnet's monthly cost to Helix's monthly cost?",
+    "expected": 0.21428571428571427,
+    "evidence_ids": [
+      "Garnet-r2",
+      "Helix-r2"
+    ]
+  },
+  {
+    "id": "test-Garnet-missing_field",
+    "entity": "Garnet",
+    "family": "missing_field",
+    "question": "How many engineers are on Garnet's on-call team?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Garnet-unknown_service",
+    "entity": "Garnet",
+    "family": "unknown_service",
+    "question": "What is the audit-log retention period in days for GarnetSandbox?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Garnet-conflict",
+    "entity": "Garnet",
+    "family": "conflict",
+    "question": "How many days does GarnetMirror retain audit logs under its current policy?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Helix-lookup",
+    "entity": "Helix",
+    "family": "lookup",
+    "question": "According to the current policy, how many days does Helix retain audit logs?",
+    "expected": 18,
+    "evidence_ids": [
+      "Helix-r2"
+    ]
+  },
+  {
+    "id": "test-Helix-conversion",
+    "entity": "Helix",
+    "family": "conversion",
+    "question": "Express Helix's session timeout in seconds.",
+    "expected": 1200,
+    "evidence_ids": [
+      "Helix-r2"
+    ]
+  },
+  {
+    "id": "test-Helix-difference",
+    "entity": "Helix",
+    "family": "difference",
+    "question": "Subtract Cobalt's current log-retention period from Helix's, in days.",
+    "expected": -64,
+    "evidence_ids": [
+      "Helix-r2",
+      "Cobalt-r2"
+    ]
+  },
+  {
+    "id": "test-Helix-sum",
+    "entity": "Helix",
+    "family": "sum",
+    "question": "What is the combined daily request quota for Helix and Cobalt?",
+    "expected": 2200,
+    "evidence_ids": [
+      "Helix-r2",
+      "Cobalt-r2"
+    ]
+  },
+  {
+    "id": "test-Helix-ratio",
+    "entity": "Helix",
+    "family": "ratio",
+    "question": "What is the ratio of Helix's monthly cost to Cobalt's monthly cost?",
+    "expected": 0.7777777777777778,
+    "evidence_ids": [
+      "Helix-r2",
+      "Cobalt-r2"
+    ]
+  },
+  {
+    "id": "test-Helix-missing_field",
+    "entity": "Helix",
+    "family": "missing_field",
+    "question": "How many engineers are on Helix's on-call team?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Helix-unknown_service",
+    "entity": "Helix",
+    "family": "unknown_service",
+    "question": "What is the audit-log retention period in days for HelixSandbox?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "test-Helix-conflict",
+    "entity": "Helix",
+    "family": "conflict",
+    "question": "How many days does HelixMirror retain audit logs under its current policy?",
+    "expected": null,
+    "evidence_ids": []
+  }
+]

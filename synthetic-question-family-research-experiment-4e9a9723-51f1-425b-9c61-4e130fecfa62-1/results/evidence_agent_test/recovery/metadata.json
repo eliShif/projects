@@ -1,0 +1,8 @@
+{
+  "resumed_utc": "2026-10-22T15:13:48.921654+00:00",
+  "preserved_rows": 130,
+  "expected_rows": 192,
+  "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+  "recovery_source_sha256": "a886faa54390c3df42ac422901d6409836957cf21134deaff1056fb88cb2e97e",
+  "scope": "Scheduling recovery only; frozen prompts, tasks, scoring and seeds unchanged"
+}

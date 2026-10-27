@@ -1,0 +1,44 @@
+{
+  "candidates": [
+    "majority",
+    "unigram",
+    "bigram"
+  ],
+  "cases_sha256": "4a0a6a310731a48db408b69e8007cb3ec114be066223448ce47a1dff5ad263f2",
+  "data": "Existing build_cases('test') generator; synthetic English templates only",
+  "label_order": [
+    "lookup",
+    "conversion",
+    "difference",
+    "sum",
+    "ratio",
+    "missing_field",
+    "unknown_service",
+    "conflict"
+  ],
+  "method": "majority versus multinomial Naive Bayes with unigram or unigram+bigram counts and Laplace smoothing",
+  "metrics": {
+    "accuracy": "fraction correctly classified",
+    "entity_variance": "population variance of accuracy across test entities",
+    "macro_f1": "equal weight per family"
+  },
+  "python": "3.14.4",
+  "question": "Can lexical features classify a synthetic research question's family for unseen service entities?",
+  "selection": "highest validation macro F1, then accuracy, then fixed name order; test used after selection",
+  "source_sha256": "d4324f1074b779a02436f32928351cbc01870739e37ec57f58f1888e8d0f023a",
+  "split_unit": "service entity",
+  "splits": {
+    "test": [
+      "Garnet",
+      "Helix"
+    ],
+    "train": [
+      "Cobalt",
+      "Delta",
+      "Ember"
+    ],
+    "validation": [
+      "Fjord"
+    ]
+  }
+}
