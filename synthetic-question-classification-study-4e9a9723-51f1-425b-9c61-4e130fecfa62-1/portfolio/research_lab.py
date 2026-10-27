@@ -192,6 +192,37 @@ def diagnostic_review(model, training, evaluated, result):
             "interpretation": "Label counts and unseen features are clues, not proof of whether an error came from annotation, composition or model behavior."}
 
 
+def paired_wording_review(model, original, alternate):
+    """Compare predictions on matched cases; preserve every success and failure."""
+    original_by_id = {row["id"]: row for row in original}
+    alternate_by_id = {row["id"]: row for row in alternate}
+    if len(original_by_id) != len(original) or len(alternate_by_id) != len(alternate):
+        raise ValueError("Paired review requires unique case ids")
+    if set(alternate_by_id) != {f"challenge-{case_id}" for case_id in original_by_id}:
+        raise ValueError("Paired review requires one alternate per original case")
+    transitions = Counter()
+    by_label = {label: Counter() for label in FAMILIES}
+    examples = []
+    for case_id, row in sorted(original_by_id.items()):
+        changed = alternate_by_id[f"challenge-{case_id}"]
+        if (row["entity"], row["label"], row["split"]) != (changed["entity"], changed["label"], changed["split"]):
+            raise ValueError("Paired review entity, label and split must match")
+        if row["question"].casefold() == changed["question"].casefold():
+            raise ValueError("Paired review needs different wording")
+        before = model.predict(row["question"])
+        after = model.predict(changed["question"])
+        transition = ("correct" if before == row["label"] else "wrong") + "_to_" + ("correct" if after == row["label"] else "wrong")
+        transitions[transition] += 1
+        by_label[row["label"]][transition] += 1
+        examples.append({"id": case_id, "entity": row["entity"], "label": row["label"],
+                         "original_prediction": before, "alternate_prediction": after,
+                         "transition": transition})
+    kinds = ("correct_to_correct", "correct_to_wrong", "wrong_to_correct", "wrong_to_wrong")
+    return {"cases": len(examples), "transitions": {kind: transitions[kind] for kind in kinds},
+            "by_label": {label: {kind: by_label[label][kind] for kind in kinds} for label in FAMILIES},
+            "examples": examples}
+
+
 def grouped_stability(rows, method):
     """Exploratory leave-one-entity-out check with a fixed method, no selection."""
     entities = sorted({r["entity"] for r in rows})
@@ -243,7 +274,7 @@ def run(out, cases_path=None):
                 "split_unit": "service entity", "splits": SPLITS, "label_order": FAMILIES,
                 "selection": "highest validation macro F1, then accuracy, then fixed name order; test used after selection",
                 "challenge": "After selection, evaluate the same models on one alternate authored wording per held-out entity and label; do not tune on challenge results",
-                "diagnostics": "After original validation selection: fixed-method leave-one-entity-out folds, one-family training downsampling, and feature/label-count review; exploratory, never used to select a model",
+                "diagnostics": "After original validation selection: paired wording transitions, fixed-method leave-one-entity-out folds, one-family training downsampling, and feature/label-count review; exploratory, never used to select a model",
                 "candidates": CANDIDATES, "method": "majority versus multinomial Naive Bayes with unigram or unigram+bigram counts and Laplace smoothing",
                 "metrics": {"accuracy": "fraction correctly classified", "macro_f1": "equal weight per family",
                             "entity_variance": "population variance of accuracy across test entities"},
@@ -258,11 +289,12 @@ def run(out, cases_path=None):
                                              -validation[n]["accuracy"], n))[0]
     test = {name: evaluate(model, grouped["test"]) for name, model in models.items()}
     challenge = {name: evaluate(model, challenge_rows) for name, model in models.items()}
+    paired = paired_wording_review(models[winner], grouped["test"], challenge_rows)
     stability = grouped_stability(rows, winner)
     imbalance = imbalance_stress(grouped["train"], grouped["test"], winner)
     review = diagnostic_review(models[winner], grouped["train"], challenge_rows, challenge[winner])
     summary = {"quality": quality, "validation": validation, "selected": winner, "test": test,
-               "new_template_challenge": challenge, "grouped_stability": stability,
+               "new_template_challenge": challenge, "paired_wording_review": paired, "grouped_stability": stability,
                "training_imbalance_stress": imbalance, "challenge_error_review": review,
                "limitations": ["The alternate wording was authored after inspecting the original templates; this diagnostic is exploratory, not an independent benchmark.",
                                "One validation and two test entities; variance describes these entities, not a confidence interval.",
@@ -290,6 +322,13 @@ def run(out, cases_path=None):
     for name in CANDIDATES:
         delta = challenge[name]["accuracy"] - test[name]["accuracy"]
         lines.append(f"| {name} | {test[name]['accuracy']:.3f} | {challenge[name]['accuracy']:.3f} | {delta:+.3f} |")
+    lines += ["", "Paired outcomes for the validation-selected model:", "",
+              "| Original → alternate | Cases |", "|---|---:|"]
+    for kind, count in paired["transitions"].items():
+        lines.append(f"| {kind.replace('_to_', ' → ')} | {count} |")
+    lines += ["", "| Family | Original-correct → alternate-wrong |", "|---|---:|"]
+    for label in FAMILIES:
+        lines.append(f"| {label} | {paired['by_label'][label]['correct_to_wrong']} |")
     lines += ["", "New-template errors for selected model:", ""]
     lines += [f"- `{r['id']}`: expected {r['expected']}, predicted {r['predicted']}; {r['question']}"
               for r in challenge[winner]["failures"]] or ["- None in this small diagnostic set."]

@@ -32,6 +32,26 @@ Test errors for selected model:
 | unigram | 1.000 | 0.625 | -0.375 |
 | bigram | 1.000 | 0.625 | -0.375 |
 
+Paired outcomes for the validation-selected model:
+
+| Original → alternate | Cases |
+|---|---:|
+| correct → correct | 10 |
+| correct → wrong | 6 |
+| wrong → correct | 0 |
+| wrong → wrong | 0 |
+
+| Family | Original-correct → alternate-wrong |
+|---|---:|
+| lookup | 2 |
+| conversion | 0 |
+| difference | 2 |
+| sum | 0 |
+| ratio | 0 |
+| missing_field | 0 |
+| unknown_service | 0 |
+| conflict | 2 |
+
 New-template errors for selected model:
 
 - `challenge-test-Garnet-lookup`: expected lookup, predicted unknown_service; State the audit log storage duration, in days, for Garnet.

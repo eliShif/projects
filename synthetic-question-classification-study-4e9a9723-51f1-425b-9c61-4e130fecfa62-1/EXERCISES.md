@@ -27,6 +27,9 @@ personal mastery is not asserted by this repository.
 8. Inspect `training_imbalance_stress` and one row in
    `challenge_error_review.failures`. Separate the observed class counts and
    unseen features from hypotheses about annotation, composition and model fit.
+9. Read `paired_wording_review.examples` and group its transitions by family.
+   Find one correct-to-wrong pair, inspect both questions, and explain what the
+   transition establishes and what it cannot establish about the cause.
 
 ## Questions to discuss
 
@@ -37,6 +40,8 @@ personal mastery is not asserted by this repository.
   with strict entity separation?
 - Why does the paired 16/16 versus 10/16 comparison reveal wording sensitivity
   but not prove that one changed word caused every error?
+- Why must the paired review verify entity and label equality before comparing
+  predictions? What would a missing alternate do to the transition counts?
 - Which facts here come from constructed labels, and why does feature-label
   correlation fail to prove causality?
 - Which claims about Hebrew answers, model-generated responses or production
@@ -67,6 +72,9 @@ personal mastery is not asserted by this repository.
 7. Change the family chosen for training downsampling. Predict the affected
    recall before running the diagnostic; explain any difference without
    claiming a causal generalization from this tiny synthetic dataset.
+8. In a copied script, remove one alternate question or change its label.
+   Run the paired review and explain why each input must be rejected. Then
+   restore the pair and examine its transition in the JSON output.
 
 If using this work in an interview or review, demonstrate the run, describe one
 change you made yourself, and distinguish your work from AI-assisted code.

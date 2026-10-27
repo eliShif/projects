@@ -4,7 +4,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from portfolio.research_lab import (cases_from_generator, validate_cases, challenge_cases,
                                     TextBaseline, evaluate, grouped_stability, imbalance_stress,
-                                    diagnostic_review, run)
+                                    diagnostic_review, paired_wording_review, run)
 
 
 class ResearchLabTests(unittest.TestCase):
@@ -31,6 +31,12 @@ class ResearchLabTests(unittest.TestCase):
             self.assertEqual(a["test"][a["selected"]]["accuracy"], 1.0)
             self.assertEqual(a["new_template_challenge"][a["selected"]]["accuracy"], 0.625)
             self.assertEqual(len(a["new_template_challenge"][a["selected"]]["failures"]), 6)
+            paired_review = a["paired_wording_review"]
+            self.assertEqual(paired_review["cases"], 16)
+            self.assertEqual(paired_review["transitions"]["correct_to_wrong"], 6)
+            self.assertEqual(sum(paired_review["transitions"].values()), 16)
+            self.assertEqual(sum(row["correct_to_wrong"] for row in paired_review["by_label"].values()), 6)
+            self.assertEqual(len(paired_review["examples"]), 16)
             self.assertIn("New-template diagnostic", (Path(first) / "REPORT.md").read_text())
             self.assertEqual(len(a["grouped_stability"]["folds"]), 6)
             self.assertEqual(a["training_imbalance_stress"]["stressed_training_counts"]["lookup"], 1)
@@ -120,6 +126,23 @@ class ResearchLabTests(unittest.TestCase):
         result = evaluate(model, held)
         review = diagnostic_review(model, train, held, result)
         self.assertEqual(len(review["failures"]), len(result["failures"]))
+
+    def test_paired_review_rejects_unmatched_and_changed_truth(self):
+        rows = cases_from_generator()
+        train = [r for r in rows if r["split"] == "train"]
+        held = [r for r in rows if r["split"] == "test"]
+        alternate = challenge_cases(held)
+        model = TextBaseline("bigram").fit(train)
+        with self.assertRaisesRegex(ValueError, "one alternate"):
+            paired_wording_review(model, held, alternate[:-1])
+        changed = [dict(r) for r in alternate]
+        changed[0]["label"] = "ratio"
+        with self.assertRaisesRegex(ValueError, "must match"):
+            paired_wording_review(model, held, changed)
+        changed = [dict(r) for r in alternate]
+        changed[0]["question"] = held[0]["question"]
+        with self.assertRaisesRegex(ValueError, "different wording"):
+            paired_wording_review(model, held, changed)
 
 
 if __name__ == "__main__":

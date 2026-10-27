@@ -741,6 +741,195 @@
       "macro_f1": 0.55
     }
   },
+  "paired_wording_review": {
+    "by_label": {
+      "conflict": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 2,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "conversion": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "difference": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 2,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "lookup": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 2,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "missing_field": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "ratio": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "sum": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      },
+      "unknown_service": {
+        "correct_to_correct": 2,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 0
+      }
+    },
+    "cases": 16,
+    "examples": [
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Garnet",
+        "id": "test-Garnet-conflict",
+        "label": "conflict",
+        "original_prediction": "conflict",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "conversion",
+        "entity": "Garnet",
+        "id": "test-Garnet-conversion",
+        "label": "conversion",
+        "original_prediction": "conversion",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Garnet",
+        "id": "test-Garnet-difference",
+        "label": "difference",
+        "original_prediction": "difference",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Garnet",
+        "id": "test-Garnet-lookup",
+        "label": "lookup",
+        "original_prediction": "lookup",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "missing_field",
+        "entity": "Garnet",
+        "id": "test-Garnet-missing_field",
+        "label": "missing_field",
+        "original_prediction": "missing_field",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "ratio",
+        "entity": "Garnet",
+        "id": "test-Garnet-ratio",
+        "label": "ratio",
+        "original_prediction": "ratio",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "sum",
+        "entity": "Garnet",
+        "id": "test-Garnet-sum",
+        "label": "sum",
+        "original_prediction": "sum",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Garnet",
+        "id": "test-Garnet-unknown_service",
+        "label": "unknown_service",
+        "original_prediction": "unknown_service",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Helix",
+        "id": "test-Helix-conflict",
+        "label": "conflict",
+        "original_prediction": "conflict",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "conversion",
+        "entity": "Helix",
+        "id": "test-Helix-conversion",
+        "label": "conversion",
+        "original_prediction": "conversion",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Helix",
+        "id": "test-Helix-difference",
+        "label": "difference",
+        "original_prediction": "difference",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Helix",
+        "id": "test-Helix-lookup",
+        "label": "lookup",
+        "original_prediction": "lookup",
+        "transition": "correct_to_wrong"
+      },
+      {
+        "alternate_prediction": "missing_field",
+        "entity": "Helix",
+        "id": "test-Helix-missing_field",
+        "label": "missing_field",
+        "original_prediction": "missing_field",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "ratio",
+        "entity": "Helix",
+        "id": "test-Helix-ratio",
+        "label": "ratio",
+        "original_prediction": "ratio",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "sum",
+        "entity": "Helix",
+        "id": "test-Helix-sum",
+        "label": "sum",
+        "original_prediction": "sum",
+        "transition": "correct_to_correct"
+      },
+      {
+        "alternate_prediction": "unknown_service",
+        "entity": "Helix",
+        "id": "test-Helix-unknown_service",
+        "label": "unknown_service",
+        "original_prediction": "unknown_service",
+        "transition": "correct_to_correct"
+      }
+    ],
+    "transitions": {
+      "correct_to_correct": 10,
+      "correct_to_wrong": 6,
+      "wrong_to_correct": 0,
+      "wrong_to_wrong": 0
+    }
+  },
   "quality": {
     "test": {
       "cases": 16,

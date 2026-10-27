@@ -92,6 +92,10 @@ It also rejects conflicting labels for identical questions, checks a fixed
 method across six entity holdouts, downsamples one training label, and records
 unseen features and label counts for challenge errors. These diagnostics are
 exploratory and never affect model selection.
+The paired wording review matches each held-out question to its alternate by
+case ID, checks that its entity and label are unchanged, and records all four
+correct/wrong transitions. Its per-family counts show which labels lose correct
+predictions when wording changes; incomplete or mismatched pairs are rejected.
 
 Python 3.11+ is enough for this new experiment. From the repository root:
 
@@ -118,6 +122,9 @@ to one training example lowers held-out macro F1 from 1.000 to 0.833 and
 lookup recall from 1.000 to 0.000 in this post-hoc check. The six challenge
 errors include unseen-feature fractions. No independent annotation audit
 exists, so these clues do not establish an error's cause.
+The paired review records six correct-to-wrong transitions across the 16
+held-out pairs. `summary.json` contains every pair and per-family counts;
+`REPORT.md` shows the count table.
 
 To evaluate a modified case file, use
 `python3 -m portfolio.research_lab --cases results/research_lab/cases.json --out results/research_lab_custom`.

@@ -3,8 +3,8 @@
 | Path | Role |
 |---|---|
 | `portfolio/research_cases.py` | Existing deterministic synthetic service records and eight question families; source reused by the new experiment. |
-| `portfolio/research_lab.py` | Group split, input validation, token features, majority and Naive Bayes models, validation selection, paired new-template diagnostic, group stability, imbalance stress, error review, metrics and output files. |
-| `tests/test_research_lab.py` | Checks deterministic reproduction, split separation, challenge coverage, diagnostic behavior, failure metrics, and rejection of malformed labels, repeated-question leakage or incomplete cases. |
+| `portfolio/research_lab.py` | Group split, input validation, token features, majority and Naive Bayes models, validation selection, paired wording transitions, group stability, imbalance stress, error review, metrics and output files. |
+| `tests/test_research_lab.py` | Checks deterministic reproduction, split separation, paired outcomes, diagnostic behavior, failure metrics, and rejection of malformed labels, repeated-question leakage or incomplete or mismatched pairs. |
 | `results/research_lab/cases.json` | Generated input snapshot; optional `--cases` reads this schema from disk. |
 | `results/research_lab/challenge_cases.json` | Alternate authored wording for the same held-out entity/family pairs. |
 | `results/research_lab/protocol.json` | Question, split, model selection rule, metric definitions, versions and source/input hashes. |
@@ -20,6 +20,10 @@ each entity held out in turn. `imbalance_stress` changes only the number of
 `lookup` training examples and compares the resulting held-out metrics.
 `diagnostic_review` records per-error label counts and unseen feature fractions;
 it does not assign a cause. These post-hoc checks are not inputs to selection.
+`paired_wording_review` requires one alternate for each original test case,
+with the same entity and label. It records correct-to-correct, correct-to-wrong,
+wrong-to-correct and wrong-to-wrong transitions plus per-family counts. A score
+change alone cannot show which examples changed prediction quality.
 Test and challenge results never choose the winner. The original repeated templates
 are a strong shortcut: the selected model drops from 16/16 to 10/16 on the
 alternate wording. This difference is descriptive, since the wording was authored

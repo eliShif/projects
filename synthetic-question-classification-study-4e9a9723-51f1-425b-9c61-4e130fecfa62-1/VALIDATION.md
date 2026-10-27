@@ -1,6 +1,6 @@
 # Reproducible validation
 
-Verified at 2026-10-27T17:44:58.488Z
+Verified at 2026-10-27T18:07:16.049Z
 
 ## tests
 
@@ -12,7 +12,7 @@ Output SHA-256: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b85
 
 ## build
 
-Command: `{"executable":"python3","args":["-m","compileall","-q","portfolio","tests"]}`
+Command: `{"executable":"python3","args":["-m","compileall","-q","portfolio/research_lab.py","tests/test_research_lab.py"]}`
 
 Exit code: 0
 
