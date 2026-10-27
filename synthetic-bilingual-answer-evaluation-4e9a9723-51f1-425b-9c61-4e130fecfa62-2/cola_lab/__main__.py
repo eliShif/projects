@@ -12,6 +12,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("run", "smoke", "answers", "answers-smoke"))
     parser.add_argument("--output-dir", default="artifacts")
+    parser.add_argument("--predictions", help="Offline JSON outputs from one local model (answers only)")
     args = parser.parse_args()
     if args.command == "answers-smoke":
         with tempfile.TemporaryDirectory() as directory:
@@ -21,7 +22,7 @@ def main():
                 raise RuntimeError("Answer evaluation report failed smoke checks")
             print("answers-smoke: generated dataset, read JSON, evaluated both languages, and wrote report")
     elif args.command == "answers":
-        print(run_answers(args.output_dir))
+        print(run_answers(args.output_dir, args.predictions))
     elif args.command == "smoke":
         with tempfile.TemporaryDirectory() as directory:
             path = run(directory)

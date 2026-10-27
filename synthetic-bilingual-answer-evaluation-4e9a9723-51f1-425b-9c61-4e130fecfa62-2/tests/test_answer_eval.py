@@ -3,7 +3,7 @@ import json
 import tempfile
 import unittest
 
-from cola_lab.answer_eval import (evaluate, make_dataset, predict, run, score_case,
+from cola_lab.answer_eval import (evaluate, load_model_predictions, make_dataset, predict, run, score_case,
                                   summarize, validate_dataset)
 
 
@@ -38,6 +38,9 @@ class AnswerEvaluationTests(unittest.TestCase):
         case = next(case for case in make_dataset()["cases"] if case["expected_answer"])
         self.assertEqual(score_case(case, {"answer": case["expected_answer"], "citations": []})
                          ["error_type"], "unsupported_citation")
+        self.assertEqual(score_case(case, {"answer": case["expected_answer"],
+                                            "citations": case["evidence_ids"] + ["other"]})
+                         ["error_type"], "unsupported_citation")
         self.assertEqual(score_case(case, {"answer": "wrong", "citations": case["evidence_ids"]})
                          ["error_type"], "wrong_answer")
         self.assertEqual(score_case(case, {"answer": None, "citations": []})["error_type"],
@@ -65,6 +68,46 @@ class AnswerEvaluationTests(unittest.TestCase):
         altered = evaluate(changed, "sample")
         self.assertEqual(original["protocol"]["threshold"], altered["protocol"]["threshold"])
         self.assertNotEqual(original["methods"], altered["methods"])
+
+    def test_offline_model_outputs_use_same_bilingual_scoring(self):
+        dataset = make_dataset()
+        cases = [case for case in dataset["cases"] if case["split"] == "test"]
+        payload = {"model_id": "local-test-fixture", "model_version": "fixture-1",
+                   "predictions": [{"case_id": case["id"], "answer": case["expected_answer"],
+                                    "citations": case["evidence_ids"]} for case in cases]}
+        # A plausible saved-output failure: an answer with no supporting citation.
+        payload["predictions"][0]["citations"] = []
+        with tempfile.TemporaryDirectory() as directory:
+            path = f"{directory}/predictions.json"
+            with open(path, "w", encoding="utf-8") as handle:
+                json.dump(payload, handle, ensure_ascii=False)
+            report_path = run(f"{directory}/out", path)
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+        self.assertEqual(set(report["methods"]), {"always_abstain", "lexical_retrieval", "local_model"})
+        self.assertEqual(report["protocol"]["model_outputs"]["model_id"], "local-test-fixture")
+        self.assertEqual(report["methods"]["local_model"]["overall"]["error_counts"],
+                         {"unsupported_citation": 1})
+        self.assertEqual(report["methods"]["local_model"]["by_language"]["he"]["count"], 12)
+
+    def test_rejects_incomplete_duplicate_and_mismatched_model_outputs(self):
+        dataset = make_dataset()
+        cases = [case for case in dataset["cases"] if case["split"] == "test"]
+        base = {"model_id": "local-test-fixture", "model_version": "fixture-1",
+                "predictions": [{"case_id": case["id"], "answer": None, "citations": []}
+                                for case in cases]}
+        with tempfile.TemporaryDirectory() as directory:
+            path = f"{directory}/predictions.json"
+            for change, message in ((lambda p: p["predictions"].pop(), "cover every"),
+                                    (lambda p: p["predictions"].append(p["predictions"][0]), "duplicate"),
+                                    (lambda p: p["predictions"][0].update(
+                                        {"answer": "blue", "citations": ["validation-en-Alder-color"]}),
+                                     "mismatched")):
+                payload = copy.deepcopy(base)
+                change(payload)
+                with open(path, "w", encoding="utf-8") as handle:
+                    json.dump(payload, handle)
+                with self.assertRaisesRegex(ValueError, message):
+                    load_model_predictions(path, dataset)
 
 
 if __name__ == "__main__":

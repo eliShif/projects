@@ -124,7 +124,7 @@ def score_case(case, prediction):
         error = "false_abstention"
     elif answer.casefold().strip() != expected.casefold().strip():
         error = "wrong_answer"
-    elif not set(case["evidence_ids"]).issubset(prediction["citations"]):
+    elif set(case["evidence_ids"]) != set(prediction["citations"]):
         error = "unsupported_citation"
     else:
         error = None
@@ -132,6 +132,8 @@ def score_case(case, prediction):
 
 
 def summarize(cases, predictions):
+    if not cases or len(cases) != len(predictions):
+        raise ValueError("Predictions must cover every case")
     scored = [score_case(case, prediction) for case, prediction in zip(cases, predictions)]
     answerable = [i for i, case in enumerate(cases) if case["expected_answer"] is not None]
     unanswerable = [i for i, case in enumerate(cases) if case["expected_answer"] is None]
@@ -146,7 +148,42 @@ def summarize(cases, predictions):
                        for i, case in enumerate(cases) if not scored[i]["correct"]]}
 
 
-def evaluate(dataset, dataset_sha256):
+def load_model_predictions(path, dataset):
+    """Read frozen, offline test outputs from one identified model run."""
+    raw = Path(path).read_bytes()
+    payload = json.loads(raw)
+    if set(payload) != {"model_id", "model_version", "predictions"} or any(
+            not isinstance(payload[key], str) or not payload[key].strip()
+            for key in ("model_id", "model_version")) or not isinstance(payload["predictions"], list):
+        raise ValueError("Model output needs an identifier, version, and predictions list")
+    test_cases = {case["id"]: case for case in dataset["cases"] if case["split"] == "test"}
+    docs = {doc["id"]: doc for doc in dataset["documents"]}
+    predictions = {}
+    for item in payload["predictions"]:
+        if not isinstance(item, dict) or set(item) != {"case_id", "answer", "citations"}:
+            raise ValueError("Invalid model prediction fields")
+        case_id = item["case_id"]
+        if not isinstance(case_id, str) or case_id not in test_cases or case_id in predictions:
+            raise ValueError("Unknown or duplicate test case ID")
+        answer, citations = item["answer"], item["citations"]
+        if answer is not None and (not isinstance(answer, str) or not answer.strip()):
+            raise ValueError("Answer must be text or null")
+        if not isinstance(citations, list) or any(not isinstance(doc_id, str) for doc_id in citations) or len(citations) != len(set(citations)):
+            raise ValueError("Citations must be a list of distinct IDs")
+        if answer is None and citations:
+            raise ValueError("Abstention cannot cite evidence")
+        case = test_cases[case_id]
+        if any(not isinstance(doc_id, str) or doc_id not in docs or
+               docs[doc_id]["split"] != "test" or
+               docs[doc_id]["language"] != case["language"] for doc_id in citations):
+            raise ValueError("Citation references unknown or mismatched evidence")
+        predictions[case_id] = {"answer": answer, "citations": citations}
+    if set(predictions) != set(test_cases):
+        raise ValueError("Model outputs must cover every test case exactly once")
+    return payload["model_id"], payload["model_version"], hashlib.sha256(raw).hexdigest(), predictions
+
+
+def evaluate(dataset, dataset_sha256, model_outputs=None):
     validate_dataset(dataset)
     docs = dataset["documents"]
     validation = [case for case in dataset["cases"] if case["split"] == "validation"]
@@ -164,13 +201,26 @@ def evaluate(dataset, dataset_sha256):
                                [case for case in test if case["language"] == language],
                                [prediction for case, prediction in zip(test, predictions)
                                 if case["language"] == language]) for language in VALUES}}
+    model_protocol = None
+    if model_outputs is not None:
+        model_id, model_version, output_hash, by_id = model_outputs
+        predictions = [by_id[case["id"]] for case in test]
+        methods["local_model"] = {"overall": summarize(test, predictions),
+                                  "by_language": {language: summarize(
+                                      [case for case in test if case["language"] == language],
+                                      [prediction for case, prediction in zip(test, predictions)
+                                       if case["language"] == language]) for language in VALUES}}
+        model_protocol = {"model_id": model_id, "model_version": model_version,
+                          "output_sha256": output_hash,
+                          "input": "saved test predictions; no model called by evaluator"}
     return {"protocol": {"source": dataset["source"], "dataset_sha256": dataset_sha256,
                          "code_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                          "python": platform.python_version(), "languages": list(VALUES),
                          "selection": "one overlap threshold maximizes validation exact-answer-and-evidence accuracy; highest threshold wins ties",
                          "threshold": threshold, "test_use": "held out until threshold fixed",
                          "case_counts": {split: sum(case["split"] == split for case in dataset["cases"])
-                                         for split in ENTITIES}},
+                                         for split in ENTITIES},
+                         "model_outputs": model_protocol},
             "methods": methods,
             "limitations": ["Synthetic paired templates are not natural user questions.",
                             "Document answer fields make this a rule-based retrieval baseline, not an LLM.",
@@ -178,14 +228,15 @@ def evaluate(dataset, dataset_sha256):
                             "Lexical overlap cannot resolve paraphrases or assess semantic equivalence."]}
 
 
-def run(output_dir):
+def run(output_dir, predictions_path=None):
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     data_path = output / "answer_dataset.json"
     data_path.write_text(json.dumps(make_dataset(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     raw = data_path.read_bytes()
     dataset = json.loads(raw)
-    report = evaluate(dataset, hashlib.sha256(raw).hexdigest())
+    model_outputs = load_model_predictions(predictions_path, dataset) if predictions_path else None
+    report = evaluate(dataset, hashlib.sha256(raw).hexdigest(), model_outputs)
     report_path = output / "answer_report.json"
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report_path
