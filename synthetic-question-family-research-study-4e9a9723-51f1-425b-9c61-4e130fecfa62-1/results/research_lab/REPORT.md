@@ -10,6 +10,24 @@ Can lexical features classify a synthetic research question's family for unseen 
 | validation | 8 | 1 | 1.00 |
 | test | 16 | 2 | 1.00 |
 
+## Label distribution across splits
+
+Fractions account for the different split sizes. Total variation is half the sum of absolute label-fraction differences from training; zero means identical proportions.
+
+| Family | Train | Validation | Test | Mean split fraction | Population variance |
+|---|---:|---:|---:|---:|---:|
+| lookup | 0.125 | 0.125 | 0.125 | 0.125 | 0.0000 |
+| conversion | 0.125 | 0.125 | 0.125 | 0.125 | 0.0000 |
+| difference | 0.125 | 0.125 | 0.125 | 0.125 | 0.0000 |
+| sum | 0.125 | 0.125 | 0.125 | 0.125 | 0.0000 |
+| ratio | 0.125 | 0.125 | 0.125 | 0.125 | 0.0000 |
+| missing_field | 0.125 | 0.125 | 0.125 | 0.125 | 0.0000 |
+| unknown_service | 0.125 | 0.125 | 0.125 | 0.125 | 0.0000 |
+| conflict | 0.125 | 0.125 | 0.125 | 0.125 | 0.0000 |
+
+Total variation from training: validation 0.000; test 0.000.
+The mean and variance treat each fixed split equally; they are descriptive and do not estimate population uncertainty. Even identical label proportions cannot rule out wording shift: the separate template audit checks one form of that shift.
+
 Generator label/entity ledger: 48 matching IDs; 0 custom IDs without a source match. This checks provenance, not independent annotation quality.
 
 ## Template reuse audit
@@ -108,6 +126,7 @@ Labels come from the synthetic family generator; there is no independent annotat
 
 - The alternate wording was authored after inspecting the original templates; this diagnostic is exploratory, not an independent benchmark.
 - One validation and two test entities; variance describes these entities, not a confidence interval.
+- Label-fraction statistics use three fixed synthetic splits; equal proportions do not imply equal wording or representative sampling.
 - English synthetic questions only; no claim about Hebrew quality or language models.
 - Stability folds reuse all entities after the primary selection; they are a sensitivity analysis, not a second independent test.
 - The downsampling check changes training composition and is post-hoc; any score change cannot establish a general effect size.

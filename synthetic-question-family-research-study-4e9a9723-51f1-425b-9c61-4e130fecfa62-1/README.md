@@ -88,6 +88,10 @@ baseline is compared with unigram and unigram-plus-bigram multinomial Naive Baye
 models. The script checks missing fields, duplicate IDs, label coverage and entity
 leakage, then saves the input, frozen protocol, metrics, confusion matrices,
 per-entity variance, failure examples and a readable report.
+The distribution review converts label counts to fractions so the 24/8/16
+split sizes are comparable. It reports each family's mean and population
+variance across the three fixed splits, plus total variation from training.
+These are descriptive checks of class mix, not estimates of sampling error.
 It also rejects conflicting labels for identical questions, checks a fixed
 method across six entity holdouts, downsamples one training label, and records
 unseen features and label counts for challenge errors. These diagnostics are
@@ -109,6 +113,11 @@ python3 -m unittest discover -s tests -p test_research_lab.py -v
 python3 -m compileall -q portfolio tests
 python3 -m portfolio.research_lab --out results/research_lab
 ```
+
+No package installation is needed for this standard-library experiment. To
+reproduce the repository's other research modules in an isolated environment,
+run `python3 -m venv .venv` followed by
+`.venv/bin/pip install -r requirements-research.txt`.
 
 The last command is a finite offline smoke run. Inspect
 [`results/research_lab/REPORT.md`](results/research_lab/REPORT.md) and
@@ -137,22 +146,16 @@ The template-reuse audit masks the synthetic service names while preserving
 wording cases. These counts explain why entity separation alone does not test
 new phrasing. The audit checks exact normalized strings, not semantic
 similarity; the challenge remains an exploratory diagnostic.
+In this run, each of the eight families has fraction 0.125 in every split;
+each per-family split variance and train-to-evaluation total variation is 0.
+This balance does not resolve template reuse: the original test still has
+16/16 exact normalized training-template matches.
 
 To evaluate a modified case file, use
 `python3 -m portfolio.research_lab --cases results/research_lab/cases.json --out results/research_lab_custom`.
 This reads JSON from disk and rejects malformed cases before writing results.
-For the repository's existing NumPy and scikit-learn experiments, install the
-pinned research dependencies after creating a virtual environment:
-
-```sh
-python3 -m venv .venv
-.venv/bin/pip install -r requirements-research.txt
-```
-
-The new module uses the standard library so it can run offline. The pinned
-research dependencies serve other repository experiments and are optional
-for this adaptation. The focused test and finite smoke commands above ran in
-this workspace; the full repository suite was not rerun here.
+The focused test and finite smoke commands above ran in this workspace; the
+full repository suite was not rerun here.
 
 The held-out entities share question templates with training. A perfect
 original-test score on this tiny synthetic set is not evidence of general language understanding,

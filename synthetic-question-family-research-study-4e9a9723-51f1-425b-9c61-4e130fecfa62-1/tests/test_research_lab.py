@@ -5,7 +5,7 @@ import unittest
 from portfolio.research_lab import (cases_from_generator, validate_cases, challenge_cases,
                                     TextBaseline, evaluate, grouped_stability, imbalance_stress,
                                     diagnostic_review, paired_wording_review, audit_generator_labels,
-                                    template_overlap, run)
+                                    template_overlap, label_distribution_review, run)
 
 
 class ResearchLabTests(unittest.TestCase):
@@ -45,6 +45,11 @@ class ResearchLabTests(unittest.TestCase):
             self.assertEqual(a["template_overlap"]["test"]["seen"], 16)
             self.assertEqual(a["template_overlap"]["challenge"]["seen"], 0)
             self.assertIn("Template reuse audit", (Path(first) / "REPORT.md").read_text())
+            distribution = a["label_distribution"]
+            self.assertEqual(distribution["total_variation_from_train"], {"validation": 0.0, "test": 0.0})
+            self.assertAlmostEqual(distribution["per_label"]["lookup"]["mean_split_fraction"], 1 / 8)
+            self.assertEqual(distribution["per_label"]["lookup"]["population_variance_split_fraction"], 0)
+            self.assertIn("Label distribution across splits", (Path(first) / "REPORT.md").read_text())
             fold_accuracy = [fold["accuracy"] for fold in a["grouped_stability"]["folds"]]
             mean = sum(fold_accuracy) / len(fold_accuracy)
             self.assertAlmostEqual(a["grouped_stability"]["accuracy_population_variance"],
@@ -185,6 +190,24 @@ class ResearchLabTests(unittest.TestCase):
         self.assertEqual(template_overlap(suffix_train, suffix_test)["seen"], 1)
         with self.assertRaisesRegex(ValueError, "nonempty"):
             template_overlap(training, [])
+
+    def test_label_distribution_detects_skew_and_rejects_bad_counts(self):
+        quality = validate_cases(cases_from_generator())
+        skew = json.loads(json.dumps(quality))
+        skew["validation"]["label_counts"]["lookup"] = 2
+        skew["validation"]["label_counts"]["conversion"] = 0
+        result = label_distribution_review(skew)
+        self.assertAlmostEqual(result["total_variation_from_train"]["validation"], 1 / 8)
+        self.assertEqual(result["total_variation_from_train"]["test"], 0)
+        self.assertAlmostEqual(result["per_label"]["lookup"]["mean_split_fraction"], 1 / 6)
+        self.assertAlmostEqual(result["per_label"]["lookup"]["population_variance_split_fraction"], 1 / 288)
+        skew["validation"]["label_counts"]["lookup"] = -1
+        with self.assertRaisesRegex(ValueError, "nonnegative"):
+            label_distribution_review(skew)
+        skew = json.loads(json.dumps(quality))
+        skew["test"]["label_counts"]["lookup"] += 1
+        with self.assertRaisesRegex(ValueError, "sum"):
+            label_distribution_review(skew)
 
 
 if __name__ == "__main__":

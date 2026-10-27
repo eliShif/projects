@@ -1,6 +1,6 @@
 # Reproducible validation
 
-Verified at 2026-10-27T20:03:17.436Z
+Verified at 2026-10-27T21:19:11.502Z
 
 ## tests
 
@@ -20,7 +20,7 @@ Output SHA-256: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b85
 
 ## documented_run
 
-Command: `{"executable":".venv/bin/python","args":["-m","portfolio.research_lab","--out","results/research_lab"]}`
+Command: `{"executable":"python3","args":["-m","portfolio.research_lab","--out","results/research_lab"]}`
 
 Exit code: 0
 

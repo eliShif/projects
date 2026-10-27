@@ -34,10 +34,17 @@ personal mastery is not asserted by this repository.
     `summary.json`. Trace one matched and one unmatched question through the
     masking rule. Explain why the 16/16 original-test overlap limits what its
     perfect accuracy says about new wording.
+11. Inspect `label_distribution`. Recalculate the `lookup` fraction in each
+    split from `quality.label_counts` and `quality.cases`, then its mean and
+    population variance across splits. Explain why zero total variation from
+    training does not remove the template-reuse concern.
 
 ## Questions to discuss
 
 - Why is macro F1 useful when a future dataset may have unequal family counts?
+- Why compare label fractions rather than raw counts when split sizes differ?
+  What does a total variation value of zero establish, and what does it leave
+  open about question wording?
 - Why can whole-entity separation still allow every test question to reuse a
   training template? What kind of overlap would this exact-string audit miss?
 - What does the population variance across two held-out entities describe? Why
@@ -92,6 +99,10 @@ personal mastery is not asserted by this repository.
 11. Add a new synthetic question that contains an entity name inside a longer
     word. Write a test showing the whole-name masking rule leaves it intact.
     Compare the overlap result before and after changing the wording.
+12. In a small unit test, change validation label counts from one per family
+    to two `lookup` and zero `conversion` while keeping its size eight. Predict
+    total variation from training and the mean `lookup` fraction. Then make the
+    counts sum to nine and confirm the analysis rejects the inconsistent input.
 
 If using this work in an interview or review, demonstrate the run, describe one
 change you made yourself, and distinguish your work from AI-assisted code.

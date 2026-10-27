@@ -242,9 +242,83 @@
     "scope": "Generator provenance only; no independent annotation audit",
     "unmatched_ids": []
   },
+  "label_distribution": {
+    "per_label": {
+      "conflict": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "conversion": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "difference": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "lookup": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "missing_field": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "ratio": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "sum": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      },
+      "unknown_service": {
+        "mean_split_fraction": 0.125,
+        "population_variance_split_fraction": 0.0
+      }
+    },
+    "proportions": {
+      "test": {
+        "conflict": 0.125,
+        "conversion": 0.125,
+        "difference": 0.125,
+        "lookup": 0.125,
+        "missing_field": 0.125,
+        "ratio": 0.125,
+        "sum": 0.125,
+        "unknown_service": 0.125
+      },
+      "train": {
+        "conflict": 0.125,
+        "conversion": 0.125,
+        "difference": 0.125,
+        "lookup": 0.125,
+        "missing_field": 0.125,
+        "ratio": 0.125,
+        "sum": 0.125,
+        "unknown_service": 0.125
+      },
+      "validation": {
+        "conflict": 0.125,
+        "conversion": 0.125,
+        "difference": 0.125,
+        "lookup": 0.125,
+        "missing_field": 0.125,
+        "ratio": 0.125,
+        "sum": 0.125,
+        "unknown_service": 0.125
+      }
+    },
+    "scope": "Unweighted mean and population variance over three fixed split fractions; descriptive, not uncertainty or causality",
+    "total_variation_from_train": {
+      "test": 0.0,
+      "validation": 0.0
+    }
+  },
   "limitations": [
     "The alternate wording was authored after inspecting the original templates; this diagnostic is exploratory, not an independent benchmark.",
     "One validation and two test entities; variance describes these entities, not a confidence interval.",
+    "Label-fraction statistics use three fixed synthetic splits; equal proportions do not imply equal wording or representative sampling.",
     "English synthetic questions only; no claim about Hebrew quality or language models.",
     "Stability folds reuse all entities after the primary selection; they are a sensitivity analysis, not a second independent test.",
     "The downsampling check changes training composition and is post-hoc; any score change cannot establish a general effect size.",

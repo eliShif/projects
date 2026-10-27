@@ -293,6 +293,37 @@ def grouped_stability(rows, method):
             "accuracy_population_variance": sum((value - mean) ** 2 for value in accuracies) / len(accuracies)}
 
 
+def label_distribution_review(quality):
+    """Compare label proportions, accounting for different split sizes.
+
+    Total variation is half the sum of absolute proportion differences. It is
+    descriptive here: these deterministic synthetic splits are not a random
+    sample from a population.
+    """
+    proportions = {}
+    for split in SPLITS:
+        item = quality[split]
+        counts = item["label_counts"]
+        total = item["cases"]
+        if total <= 0 or any(counts.get(label, 0) < 0 for label in FAMILIES):
+            raise ValueError("Label distribution requires nonnegative counts and nonempty splits")
+        if sum(counts.get(label, 0) for label in FAMILIES) != total:
+            raise ValueError("Label counts must sum to split size")
+        proportions[split] = {label: counts[label] / total for label in FAMILIES}
+    per_label = {}
+    for label in FAMILIES:
+        values = [proportions[split][label] for split in SPLITS]
+        mean = sum(values) / len(values)
+        per_label[label] = {"mean_split_fraction": mean,
+                            "population_variance_split_fraction": sum((x - mean) ** 2 for x in values) / len(values)}
+    train = proportions["train"]
+    distance = {split: sum(abs(train[label] - proportions[split][label]) for label in FAMILIES) / 2
+                for split in ("validation", "test")}
+    return {"proportions": proportions, "per_label": per_label,
+            "total_variation_from_train": distance,
+            "scope": "Unweighted mean and population variance over three fixed split fractions; descriptive, not uncertainty or causality"}
+
+
 def imbalance_stress(train, evaluated, method, minority="lookup"):
     """Deterministically remove all but one training example of a chosen family."""
     if minority not in FAMILIES:
@@ -317,6 +348,7 @@ def run(out, cases_path=None):
     out = Path(out)
     rows = json.loads(Path(cases_path).read_text(encoding="utf-8")) if cases_path else cases_from_generator()
     quality = validate_cases(rows)  # Reject bad input before writing results.
+    distribution = label_distribution_review(quality)
     label_audit = audit_generator_labels(rows)
     grouped = {s: [r for r in rows if r["split"] == s] for s in SPLITS}
     challenge_rows = challenge_cases(grouped["test"])
@@ -332,7 +364,8 @@ def run(out, cases_path=None):
                 "template_audit": "Exact question-template overlap with training after masking known service names; descriptive only and never used for model selection",
                 "candidates": CANDIDATES, "method": "majority versus multinomial Naive Bayes with unigram or unigram+bigram counts and Laplace smoothing",
                 "metrics": {"accuracy": "fraction correctly classified", "macro_f1": "equal weight per family",
-                            "entity_variance": "population variance of accuracy across test entities"},
+                            "entity_variance": "population variance of accuracy across test entities",
+                            "label_distribution": "split-normalized label fractions, unweighted mean and population variance across fixed splits, and total variation from train"},
                 "cases_sha256": hashlib.sha256(json.dumps(rows, sort_keys=True).encode()).hexdigest(),
                 "challenge_cases_sha256": hashlib.sha256(json.dumps(challenge_rows, sort_keys=True).encode()).hexdigest(),
                 "source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
@@ -351,12 +384,13 @@ def run(out, cases_path=None):
     stability = grouped_stability(rows, winner)
     imbalance = imbalance_stress(grouped["train"], grouped["test"], winner)
     review = diagnostic_review(models[winner], grouped["train"], challenge_rows, challenge[winner])
-    summary = {"quality": quality, "label_audit": label_audit, "template_overlap": overlap,
+    summary = {"quality": quality, "label_distribution": distribution, "label_audit": label_audit, "template_overlap": overlap,
                "validation": validation, "selected": winner, "test": test,
                "new_template_challenge": challenge, "paired_wording_review": paired, "grouped_stability": stability,
                "training_imbalance_stress": imbalance, "challenge_error_review": review,
                "limitations": ["The alternate wording was authored after inspecting the original templates; this diagnostic is exploratory, not an independent benchmark.",
                                "One validation and two test entities; variance describes these entities, not a confidence interval.",
+                               "Label-fraction statistics use three fixed synthetic splits; equal proportions do not imply equal wording or representative sampling.",
                                "English synthetic questions only; no claim about Hebrew quality or language models.",
                                "Stability folds reuse all entities after the primary selection; they are a sensitivity analysis, not a second independent test.",
                                "The downsampling check changes training composition and is post-hoc; any score change cannot establish a general effect size.",
@@ -368,6 +402,17 @@ def run(out, cases_path=None):
              "|---|---:|---:|---:|"]
     for split, q in quality.items():
         lines.append(f"| {split} | {q['cases']} | {len(q['entities'])} | {q['imbalance_ratio']:.2f} |")
+    lines += ["", "## Label distribution across splits", "",
+              "Fractions account for the different split sizes. Total variation is half the sum of absolute label-fraction differences from training; zero means identical proportions.", "",
+              "| Family | Train | Validation | Test | Mean split fraction | Population variance |",
+              "|---|---:|---:|---:|---:|---:|"]
+    for label in FAMILIES:
+        p = distribution["proportions"]
+        stat = distribution["per_label"][label]
+        lines.append(f"| {label} | {p['train'][label]:.3f} | {p['validation'][label]:.3f} | {p['test'][label]:.3f} | {stat['mean_split_fraction']:.3f} | {stat['population_variance_split_fraction']:.4f} |")
+    distance = distribution["total_variation_from_train"]
+    lines += ["", f"Total variation from training: validation {distance['validation']:.3f}; test {distance['test']:.3f}.",
+              "The mean and variance treat each fixed split equally; they are descriptive and do not estimate population uncertainty. Even identical label proportions cannot rule out wording shift: the separate template audit checks one form of that shift."]
     lines += ["", f"Generator label/entity ledger: {label_audit['matched_source_ids']} matching IDs; {len(label_audit['unmatched_ids'])} custom IDs without a source match. This checks provenance, not independent annotation quality.",
               "", "## Template reuse audit", "",
               "The audit masks known service names, retaining Sandbox/Mirror suffixes, then checks exact normalized wording against training. It detects one constructed shortcut, not semantic similarity.", "",

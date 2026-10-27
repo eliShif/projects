@@ -23,12 +23,13 @@
   "metrics": {
     "accuracy": "fraction correctly classified",
     "entity_variance": "population variance of accuracy across test entities",
+    "label_distribution": "split-normalized label fractions, unweighted mean and population variance across fixed splits, and total variation from train",
     "macro_f1": "equal weight per family"
   },
   "python": "3.14.4",
   "question": "Can lexical features classify a synthetic research question's family for unseen service entities?",
   "selection": "highest validation macro F1, then accuracy, then fixed name order; test used after selection",
-  "source_sha256": "e8bafadaf5c1a39b8d56ae14b5b814f03d7ab4803fc6a7e9572582013434b13f",
+  "source_sha256": "fc8fad2abbff3c7ed04f10db7d9034809916df07c404af95e3f6b17253770af6",
   "split_unit": "service entity",
   "splits": {
     "test": [
