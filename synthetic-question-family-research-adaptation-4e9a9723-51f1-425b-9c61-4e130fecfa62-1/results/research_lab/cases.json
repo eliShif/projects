@@ -1,0 +1,338 @@
+[
+  {
+    "entity": "Cobalt",
+    "id": "test-Cobalt-lookup",
+    "label": "lookup",
+    "question": "According to the current policy, how many days does Cobalt retain audit logs?",
+    "split": "train"
+  },
+  {
+    "entity": "Cobalt",
+    "id": "test-Cobalt-conversion",
+    "label": "conversion",
+    "question": "Express Cobalt's session timeout in seconds.",
+    "split": "train"
+  },
+  {
+    "entity": "Cobalt",
+    "id": "test-Cobalt-difference",
+    "label": "difference",
+    "question": "Subtract Delta's current log-retention period from Cobalt's, in days.",
+    "split": "train"
+  },
+  {
+    "entity": "Cobalt",
+    "id": "test-Cobalt-sum",
+    "label": "sum",
+    "question": "What is the combined daily request quota for Cobalt and Delta?",
+    "split": "train"
+  },
+  {
+    "entity": "Cobalt",
+    "id": "test-Cobalt-ratio",
+    "label": "ratio",
+    "question": "What is the ratio of Cobalt's monthly cost to Delta's monthly cost?",
+    "split": "train"
+  },
+  {
+    "entity": "Cobalt",
+    "id": "test-Cobalt-missing_field",
+    "label": "missing_field",
+    "question": "How many engineers are on Cobalt's on-call team?",
+    "split": "train"
+  },
+  {
+    "entity": "Cobalt",
+    "id": "test-Cobalt-unknown_service",
+    "label": "unknown_service",
+    "question": "What is the audit-log retention period in days for CobaltSandbox?",
+    "split": "train"
+  },
+  {
+    "entity": "Cobalt",
+    "id": "test-Cobalt-conflict",
+    "label": "conflict",
+    "question": "How many days does CobaltMirror retain audit logs under its current policy?",
+    "split": "train"
+  },
+  {
+    "entity": "Delta",
+    "id": "test-Delta-lookup",
+    "label": "lookup",
+    "question": "According to the current policy, how many days does Delta retain audit logs?",
+    "split": "train"
+  },
+  {
+    "entity": "Delta",
+    "id": "test-Delta-conversion",
+    "label": "conversion",
+    "question": "Express Delta's session timeout in seconds.",
+    "split": "train"
+  },
+  {
+    "entity": "Delta",
+    "id": "test-Delta-difference",
+    "label": "difference",
+    "question": "Subtract Ember's current log-retention period from Delta's, in days.",
+    "split": "train"
+  },
+  {
+    "entity": "Delta",
+    "id": "test-Delta-sum",
+    "label": "sum",
+    "question": "What is the combined daily request quota for Delta and Ember?",
+    "split": "train"
+  },
+  {
+    "entity": "Delta",
+    "id": "test-Delta-ratio",
+    "label": "ratio",
+    "question": "What is the ratio of Delta's monthly cost to Ember's monthly cost?",
+    "split": "train"
+  },
+  {
+    "entity": "Delta",
+    "id": "test-Delta-missing_field",
+    "label": "missing_field",
+    "question": "How many engineers are on Delta's on-call team?",
+    "split": "train"
+  },
+  {
+    "entity": "Delta",
+    "id": "test-Delta-unknown_service",
+    "label": "unknown_service",
+    "question": "What is the audit-log retention period in days for DeltaSandbox?",
+    "split": "train"
+  },
+  {
+    "entity": "Delta",
+    "id": "test-Delta-conflict",
+    "label": "conflict",
+    "question": "How many days does DeltaMirror retain audit logs under its current policy?",
+    "split": "train"
+  },
+  {
+    "entity": "Ember",
+    "id": "test-Ember-lookup",
+    "label": "lookup",
+    "question": "According to the current policy, how many days does Ember retain audit logs?",
+    "split": "train"
+  },
+  {
+    "entity": "Ember",
+    "id": "test-Ember-conversion",
+    "label": "conversion",
+    "question": "Express Ember's session timeout in seconds.",
+    "split": "train"
+  },
+  {
+    "entity": "Ember",
+    "id": "test-Ember-difference",
+    "label": "difference",
+    "question": "Subtract Fjord's current log-retention period from Ember's, in days.",
+    "split": "train"
+  },
+  {
+    "entity": "Ember",
+    "id": "test-Ember-sum",
+    "label": "sum",
+    "question": "What is the combined daily request quota for Ember and Fjord?",
+    "split": "train"
+  },
+  {
+    "entity": "Ember",
+    "id": "test-Ember-ratio",
+    "label": "ratio",
+    "question": "What is the ratio of Ember's monthly cost to Fjord's monthly cost?",
+    "split": "train"
+  },
+  {
+    "entity": "Ember",
+    "id": "test-Ember-missing_field",
+    "label": "missing_field",
+    "question": "How many engineers are on Ember's on-call team?",
+    "split": "train"
+  },
+  {
+    "entity": "Ember",
+    "id": "test-Ember-unknown_service",
+    "label": "unknown_service",
+    "question": "What is the audit-log retention period in days for EmberSandbox?",
+    "split": "train"
+  },
+  {
+    "entity": "Ember",
+    "id": "test-Ember-conflict",
+    "label": "conflict",
+    "question": "How many days does EmberMirror retain audit logs under its current policy?",
+    "split": "train"
+  },
+  {
+    "entity": "Fjord",
+    "id": "test-Fjord-lookup",
+    "label": "lookup",
+    "question": "According to the current policy, how many days does Fjord retain audit logs?",
+    "split": "validation"
+  },
+  {
+    "entity": "Fjord",
+    "id": "test-Fjord-conversion",
+    "label": "conversion",
+    "question": "Express Fjord's session timeout in seconds.",
+    "split": "validation"
+  },
+  {
+    "entity": "Fjord",
+    "id": "test-Fjord-difference",
+    "label": "difference",
+    "question": "Subtract Garnet's current log-retention period from Fjord's, in days.",
+    "split": "validation"
+  },
+  {
+    "entity": "Fjord",
+    "id": "test-Fjord-sum",
+    "label": "sum",
+    "question": "What is the combined daily request quota for Fjord and Garnet?",
+    "split": "validation"
+  },
+  {
+    "entity": "Fjord",
+    "id": "test-Fjord-ratio",
+    "label": "ratio",
+    "question": "What is the ratio of Fjord's monthly cost to Garnet's monthly cost?",
+    "split": "validation"
+  },
+  {
+    "entity": "Fjord",
+    "id": "test-Fjord-missing_field",
+    "label": "missing_field",
+    "question": "How many engineers are on Fjord's on-call team?",
+    "split": "validation"
+  },
+  {
+    "entity": "Fjord",
+    "id": "test-Fjord-unknown_service",
+    "label": "unknown_service",
+    "question": "What is the audit-log retention period in days for FjordSandbox?",
+    "split": "validation"
+  },
+  {
+    "entity": "Fjord",
+    "id": "test-Fjord-conflict",
+    "label": "conflict",
+    "question": "How many days does FjordMirror retain audit logs under its current policy?",
+    "split": "validation"
+  },
+  {
+    "entity": "Garnet",
+    "id": "test-Garnet-lookup",
+    "label": "lookup",
+    "question": "According to the current policy, how many days does Garnet retain audit logs?",
+    "split": "test"
+  },
+  {
+    "entity": "Garnet",
+    "id": "test-Garnet-conversion",
+    "label": "conversion",
+    "question": "Express Garnet's session timeout in seconds.",
+    "split": "test"
+  },
+  {
+    "entity": "Garnet",
+    "id": "test-Garnet-difference",
+    "label": "difference",
+    "question": "Subtract Helix's current log-retention period from Garnet's, in days.",
+    "split": "test"
+  },
+  {
+    "entity": "Garnet",
+    "id": "test-Garnet-sum",
+    "label": "sum",
+    "question": "What is the combined daily request quota for Garnet and Helix?",
+    "split": "test"
+  },
+  {
+    "entity": "Garnet",
+    "id": "test-Garnet-ratio",
+    "label": "ratio",
+    "question": "What is the ratio of Garnet's monthly cost to Helix's monthly cost?",
+    "split": "test"
+  },
+  {
+    "entity": "Garnet",
+    "id": "test-Garnet-missing_field",
+    "label": "missing_field",
+    "question": "How many engineers are on Garnet's on-call team?",
+    "split": "test"
+  },
+  {
+    "entity": "Garnet",
+    "id": "test-Garnet-unknown_service",
+    "label": "unknown_service",
+    "question": "What is the audit-log retention period in days for GarnetSandbox?",
+    "split": "test"
+  },
+  {
+    "entity": "Garnet",
+    "id": "test-Garnet-conflict",
+    "label": "conflict",
+    "question": "How many days does GarnetMirror retain audit logs under its current policy?",
+    "split": "test"
+  },
+  {
+    "entity": "Helix",
+    "id": "test-Helix-lookup",
+    "label": "lookup",
+    "question": "According to the current policy, how many days does Helix retain audit logs?",
+    "split": "test"
+  },
+  {
+    "entity": "Helix",
+    "id": "test-Helix-conversion",
+    "label": "conversion",
+    "question": "Express Helix's session timeout in seconds.",
+    "split": "test"
+  },
+  {
+    "entity": "Helix",
+    "id": "test-Helix-difference",
+    "label": "difference",
+    "question": "Subtract Cobalt's current log-retention period from Helix's, in days.",
+    "split": "test"
+  },
+  {
+    "entity": "Helix",
+    "id": "test-Helix-sum",
+    "label": "sum",
+    "question": "What is the combined daily request quota for Helix and Cobalt?",
+    "split": "test"
+  },
+  {
+    "entity": "Helix",
+    "id": "test-Helix-ratio",
+    "label": "ratio",
+    "question": "What is the ratio of Helix's monthly cost to Cobalt's monthly cost?",
+    "split": "test"
+  },
+  {
+    "entity": "Helix",
+    "id": "test-Helix-missing_field",
+    "label": "missing_field",
+    "question": "How many engineers are on Helix's on-call team?",
+    "split": "test"
+  },
+  {
+    "entity": "Helix",
+    "id": "test-Helix-unknown_service",
+    "label": "unknown_service",
+    "question": "What is the audit-log retention period in days for HelixSandbox?",
+    "split": "test"
+  },
+  {
+    "entity": "Helix",
+    "id": "test-Helix-conflict",
+    "label": "conflict",
+    "question": "How many days does HelixMirror retain audit logs under its current policy?",
+    "split": "test"
+  }
+]
