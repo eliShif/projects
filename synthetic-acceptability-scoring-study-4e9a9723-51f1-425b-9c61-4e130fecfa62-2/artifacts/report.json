@@ -1,0 +1,250 @@
+{
+  "protocol": {
+    "dataset": "synthetic subject-verb agreement, not CoLA",
+    "seed": 17,
+    "dataset_sha256": "062bd83a9afab81a14230a3fd17b56b40d96ae2af8120ec39ae524e5c92a90f9",
+    "python": "3.14.4",
+    "training": "Laplace-smoothed bigram model on positive train sentences",
+    "selection": "threshold chosen on validation balanced accuracy only",
+    "test_use": "held out until thresholds fixed",
+    "split_counts": {
+      "train": 48,
+      "validation": 24,
+      "test": 24
+    }
+  },
+  "baseline": {
+    "method": "train majority class",
+    "label": 1,
+    "test": {
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "confusion": {
+        "tn": 0,
+        "fp": 12,
+        "fn": 0,
+        "tp": 12
+      }
+    }
+  },
+  "methods": {
+    "sum": {
+      "validation_threshold": -8.135570703017352,
+      "test": {
+        "accuracy": 0.6666666666666666,
+        "balanced_accuracy": 0.6666666666666666,
+        "confusion": {
+          "tn": 12,
+          "fp": 0,
+          "fn": 8,
+          "tp": 4
+        },
+        "roc_auc": 0.6944444444444444
+      },
+      "by_length": {
+        "short": {
+          "accuracy": 0.8333333333333334,
+          "balanced_accuracy": 0.8333333333333333,
+          "confusion": {
+            "tn": 6,
+            "fp": 0,
+            "fn": 2,
+            "tp": 4
+          },
+          "roc_auc": 0.8888888888888888,
+          "mean_score": -8.176268090175034,
+          "mean_score_by_label": {
+            "0": -8.540566456793462,
+            "1": -7.811969723556609
+          }
+        },
+        "long": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "confusion": {
+            "tn": 6,
+            "fp": 0,
+            "fn": 6,
+            "tp": 0
+          },
+          "roc_auc": 0.8888888888888888,
+          "mean_score": -11.00491938252341,
+          "mean_score_by_label": {
+            "0": -11.369217749141837,
+            "1": -10.640621015904983
+          }
+        }
+      },
+      "errors": [
+        {
+          "sentence": "the artist reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -10.443841198498525,
+          "length": "long"
+        },
+        {
+          "sentence": "the singer reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -10.443841198498525,
+          "length": "long"
+        },
+        {
+          "sentence": "the chef writes near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -10.597991878325784,
+          "length": "long"
+        },
+        {
+          "sentence": "the chef reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -8.251178672870148,
+          "length": "short"
+        },
+        {
+          "sentence": "the chef reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -11.079829965218522,
+          "length": "long"
+        },
+        {
+          "sentence": "the teacher reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -8.251178672870148,
+          "length": "short"
+        },
+        {
+          "sentence": "the teacher reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -11.079829965218522,
+          "length": "long"
+        },
+        {
+          "sentence": "the farmer walks near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -10.198391889670019,
+          "length": "long"
+        }
+      ]
+    },
+    "mean": {
+      "validation_threshold": -1.5663174279093894,
+      "test": {
+        "accuracy": 0.6666666666666666,
+        "balanced_accuracy": 0.6666666666666666,
+        "confusion": {
+          "tn": 12,
+          "fp": 0,
+          "fn": 8,
+          "tp": 4
+        },
+        "roc_auc": 0.6944444444444444
+      },
+      "by_length": {
+        "short": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "confusion": {
+            "tn": 6,
+            "fp": 0,
+            "fn": 6,
+            "tp": 0
+          },
+          "roc_auc": 0.8888888888888888,
+          "mean_score": -2.0440670225437585,
+          "mean_score_by_label": {
+            "0": -2.1351416141983655,
+            "1": -1.9529924308891522
+          }
+        },
+        "long": {
+          "accuracy": 0.8333333333333334,
+          "balanced_accuracy": 0.8333333333333333,
+          "confusion": {
+            "tn": 6,
+            "fp": 0,
+            "fn": 2,
+            "tp": 4
+          },
+          "roc_auc": 0.8888888888888888,
+          "mean_score": -1.572131340360487,
+          "mean_score_by_label": {
+            "0": -1.6241739641631192,
+            "1": -1.520088716557855
+          }
+        }
+      },
+      "errors": [
+        {
+          "sentence": "the artist reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.9037974765375378,
+          "length": "short"
+        },
+        {
+          "sentence": "the singer reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.9037974765375378,
+          "length": "short"
+        },
+        {
+          "sentence": "the chef writes",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.9423351464943526,
+          "length": "short"
+        },
+        {
+          "sentence": "the chef reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -2.062794668217537,
+          "length": "short"
+        },
+        {
+          "sentence": "the chef reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.5828328521740747,
+          "length": "long"
+        },
+        {
+          "sentence": "the teacher reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -2.062794668217537,
+          "length": "short"
+        },
+        {
+          "sentence": "the teacher reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.5828328521740747,
+          "length": "long"
+        },
+        {
+          "sentence": "the farmer walks",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.842435149330411,
+          "length": "short"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Synthetic templated sentences do not represent CoLA or natural language.",
+    "A bigram model is not GPT-2 and this does not verify earlier project claims.",
+    "One deterministic split and a small test set limit stability claims.",
+    "The grammatical label follows the generation rule, not human annotation."
+  ]
+}
