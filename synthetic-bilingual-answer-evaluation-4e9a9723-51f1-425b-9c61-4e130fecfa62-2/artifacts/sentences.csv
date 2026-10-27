@@ -1,0 +1,97 @@
+group_id,split,sentence,label,length
+farmer:writes,train,the farmer writes,1,short
+farmer:writes,train,the farmer write,0,short
+farmer:writes,train,the farmer writes near the trees,1,long
+farmer:writes,train,the farmer write near the trees,0,long
+singer:sings,train,the singer sings,1,short
+singer:sings,train,the singer sing,0,short
+singer:sings,train,the singer sings near the trees,1,long
+singer:sings,train,the singer sing near the trees,0,long
+pilot:sings,train,the pilot sings,1,short
+pilot:sings,train,the pilot sing,0,short
+pilot:sings,train,the pilot sings near the trees,1,long
+pilot:sings,train,the pilot sing near the trees,0,long
+pilot:reads,train,the pilot reads,1,short
+pilot:reads,train,the pilot read,0,short
+pilot:reads,train,the pilot reads near the trees,1,long
+pilot:reads,train,the pilot read near the trees,0,long
+teacher:walks,train,the teacher walks,1,short
+teacher:walks,train,the teacher walk,0,short
+teacher:walks,train,the teacher walks near the trees,1,long
+teacher:walks,train,the teacher walk near the trees,0,long
+chef:sings,train,the chef sings,1,short
+chef:sings,train,the chef sing,0,short
+chef:sings,train,the chef sings near the trees,1,long
+chef:sings,train,the chef sing near the trees,0,long
+artist:writes,train,the artist writes,1,short
+artist:writes,train,the artist write,0,short
+artist:writes,train,the artist writes near the trees,1,long
+artist:writes,train,the artist write near the trees,0,long
+farmer:sings,train,the farmer sings,1,short
+farmer:sings,train,the farmer sing,0,short
+farmer:sings,train,the farmer sings near the trees,1,long
+farmer:sings,train,the farmer sing near the trees,0,long
+singer:writes,train,the singer writes,1,short
+singer:writes,train,the singer write,0,short
+singer:writes,train,the singer writes near the trees,1,long
+singer:writes,train,the singer write near the trees,0,long
+artist:walks,train,the artist walks,1,short
+artist:walks,train,the artist walk,0,short
+artist:walks,train,the artist walks near the trees,1,long
+artist:walks,train,the artist walk near the trees,0,long
+singer:walks,train,the singer walks,1,short
+singer:walks,train,the singer walk,0,short
+singer:walks,train,the singer walks near the trees,1,long
+singer:walks,train,the singer walk near the trees,0,long
+artist:sings,train,the artist sings,1,short
+artist:sings,train,the artist sing,0,short
+artist:sings,train,the artist sings near the trees,1,long
+artist:sings,train,the artist sing near the trees,0,long
+teacher:writes,validation,the teacher writes,1,short
+teacher:writes,validation,the teacher write,0,short
+teacher:writes,validation,the teacher writes near the trees,1,long
+teacher:writes,validation,the teacher write near the trees,0,long
+pilot:walks,validation,the pilot walks,1,short
+pilot:walks,validation,the pilot walk,0,short
+pilot:walks,validation,the pilot walks near the trees,1,long
+pilot:walks,validation,the pilot walk near the trees,0,long
+teacher:sings,validation,the teacher sings,1,short
+teacher:sings,validation,the teacher sing,0,short
+teacher:sings,validation,the teacher sings near the trees,1,long
+teacher:sings,validation,the teacher sing near the trees,0,long
+pilot:writes,validation,the pilot writes,1,short
+pilot:writes,validation,the pilot write,0,short
+pilot:writes,validation,the pilot writes near the trees,1,long
+pilot:writes,validation,the pilot write near the trees,0,long
+chef:walks,validation,the chef walks,1,short
+chef:walks,validation,the chef walk,0,short
+chef:walks,validation,the chef walks near the trees,1,long
+chef:walks,validation,the chef walk near the trees,0,long
+farmer:reads,validation,the farmer reads,1,short
+farmer:reads,validation,the farmer read,0,short
+farmer:reads,validation,the farmer reads near the trees,1,long
+farmer:reads,validation,the farmer read near the trees,0,long
+artist:reads,test,the artist reads,1,short
+artist:reads,test,the artist read,0,short
+artist:reads,test,the artist reads near the trees,1,long
+artist:reads,test,the artist read near the trees,0,long
+singer:reads,test,the singer reads,1,short
+singer:reads,test,the singer read,0,short
+singer:reads,test,the singer reads near the trees,1,long
+singer:reads,test,the singer read near the trees,0,long
+chef:writes,test,the chef writes,1,short
+chef:writes,test,the chef write,0,short
+chef:writes,test,the chef writes near the trees,1,long
+chef:writes,test,the chef write near the trees,0,long
+chef:reads,test,the chef reads,1,short
+chef:reads,test,the chef read,0,short
+chef:reads,test,the chef reads near the trees,1,long
+chef:reads,test,the chef read near the trees,0,long
+teacher:reads,test,the teacher reads,1,short
+teacher:reads,test,the teacher read,0,short
+teacher:reads,test,the teacher reads near the trees,1,long
+teacher:reads,test,the teacher read near the trees,0,long
+farmer:walks,test,the farmer walks,1,short
+farmer:walks,test,the farmer walk,0,short
+farmer:walks,test,the farmer walks near the trees,1,long
+farmer:walks,test,the farmer walk near the trees,0,long
