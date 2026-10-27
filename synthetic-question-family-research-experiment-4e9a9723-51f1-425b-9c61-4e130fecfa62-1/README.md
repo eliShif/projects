@@ -88,6 +88,29 @@ baseline is compared with unigram and unigram-plus-bigram multinomial Naive Baye
 models. The script checks missing fields, duplicate IDs, label coverage and entity
 leakage, then saves the input, frozen protocol, metrics, confusion matrices,
 per-entity variance, failure examples and a readable report.
+The distribution review converts label counts to fractions so the 24/8/16
+split sizes are comparable. It reports each family's mean and population
+variance across the three fixed splits, plus total variation from training.
+These are descriptive checks of class mix, not estimates of sampling error.
+It also rejects conflicting labels for identical questions, checks a fixed
+method across six entity holdouts, downsamples one training label, and records
+unseen features and label counts for challenge errors. These diagnostics are
+exploratory and never affect model selection.
+For generated case IDs, a source-ledger audit checks that the entity and family
+label still match the generator. Custom IDs are listed as unmatched, and this
+provenance check does not replace an independent annotation review. The grouped
+fold report includes the mean and population variance of accuracy across its
+six holdouts; it is descriptive, not a confidence interval.
+The validation-selected method is also refit on 12 fixed-seed, label-stratified
+resamples of the 24 training cases. Original test and alternate wording sets
+stay frozen. The report gives the range, mean and population variance of
+accuracy; `summary.json` records sampled case IDs and per-case error counts.
+These fits probe sensitivity to training composition, not uncertainty over
+new data or independent test performance.
+The paired wording review matches each held-out question to its alternate by
+case ID, checks that its entity and label are unchanged, and records all four
+correct/wrong transitions. Its per-family counts show which labels lose correct
+predictions when wording changes; incomplete or mismatched pairs are rejected.
 
 Python 3.11+ is enough for this new experiment. From the repository root:
 
@@ -96,6 +119,11 @@ python3 -m unittest discover -s tests -p test_research_lab.py -v
 python3 -m compileall -q portfolio tests
 python3 -m portfolio.research_lab --out results/research_lab
 ```
+
+No package installation is needed for this standard-library experiment. To
+reproduce the repository's other research modules in an isolated environment,
+run `python3 -m venv .venv` followed by
+`.venv/bin/pip install -r requirements-research.txt`.
 
 The last command is a finite offline smoke run. Inspect
 [`results/research_lab/REPORT.md`](results/research_lab/REPORT.md) and
@@ -107,20 +135,38 @@ the six failures are listed in `REPORT.md`. The model is still selected only
 on the original validation split. Since the alternate wording was authored
 after seeing the original templates, this is an exploratory sensitivity check,
 not an independent estimate of performance on unseen writing styles.
+
+The regenerated report shows all six original-template entity folds at 1.0
+accuracy, reflecting their shared wording. Downsampling `lookup` from three
+to one training example lowers held-out macro F1 from 1.000 to 0.833 and
+lookup recall from 1.000 to 0.000 in this post-hoc check. The six challenge
+errors include unseen-feature fractions. No independent annotation audit
+exists, so these clues do not establish an error's cause.
+The paired review records six correct-to-wrong transitions across the 16
+held-out pairs. `summary.json` contains every pair and per-family counts;
+`REPORT.md` shows the count table.
+
+The template-reuse audit masks the synthetic service names while preserving
+`Sandbox` and `Mirror` suffixes. It finds exact training-template matches for
+5/8 validation cases and 16/16 original test cases, versus 0/16 alternate
+wording cases. These counts explain why entity separation alone does not test
+new phrasing. The audit checks exact normalized strings, not semantic
+similarity; the challenge remains an exploratory diagnostic.
+In this run, each of the eight families has fraction 0.125 in every split;
+each per-family split variance and train-to-evaluation total variation is 0.
+This balance does not resolve template reuse: the original test still has
+16/16 exact normalized training-template matches.
+
+The input workspace is the pinned Applied AI Portfolio named in `UPSTREAM.md`,
+not the separately described GPT-2/CoLA project. This adaptation reuses its
+existing synthetic question-family classifier and makes no claim that the
+GPT-2/CoLA code or results were available or reproduced.
+
 To evaluate a modified case file, use
 `python3 -m portfolio.research_lab --cases results/research_lab/cases.json --out results/research_lab_custom`.
 This reads JSON from disk and rejects malformed cases before writing results.
-For the repository's existing NumPy and scikit-learn experiments, create a
-virtual environment and install the pinned research dependencies:
-
-```sh
-python3 -m venv .venv
-.venv/bin/pip install -r requirements-research.txt
-```
-
-The new module uses the standard library so it can run offline. The pinned
-installation was attempted here but the package index was unreachable; other
-repository experiments and their full test suite were not rerun in this environment.
+The focused test and finite smoke commands above ran in this workspace; the
+full repository suite was not rerun here.
 
 The held-out entities share question templates with training. A perfect
 original-test score on this tiny synthetic set is not evidence of general language understanding,
