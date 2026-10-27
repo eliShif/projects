@@ -1,10 +1,506 @@
 {
   "limitations": [
-    "Authored templates repeat across entities; holdout does not establish new-template generalization.",
+    "The alternate wording was authored after inspecting the original templates; this diagnostic is exploratory, not an independent benchmark.",
     "One validation and two test entities; variance describes these entities, not a confidence interval.",
     "English synthetic questions only; no claim about Hebrew quality or language models.",
     "Feature-label association does not establish causality or independent human mastery."
   ],
+  "new_template_challenge": {
+    "bigram": {
+      "accuracy": 0.625,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 0.625,
+        "Helix": 0.625
+      },
+      "entity_accuracy_mean": 0.625,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Garnet",
+          "expected": "lookup",
+          "id": "challenge-test-Garnet-lookup",
+          "predicted": "unknown_service",
+          "question": "State the audit log storage duration, in days, for Garnet."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "difference",
+          "id": "challenge-test-Garnet-difference",
+          "predicted": "unknown_service",
+          "question": "In days, what gap separates the log storage durations of Garnet and Helix?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "conflict",
+          "id": "challenge-test-Garnet-conflict",
+          "predicted": "unknown_service",
+          "question": "Resolve the log storage duration for GarnetMirror despite two equally current records."
+        },
+        {
+          "entity": "Helix",
+          "expected": "lookup",
+          "id": "challenge-test-Helix-lookup",
+          "predicted": "unknown_service",
+          "question": "State the audit log storage duration, in days, for Helix."
+        },
+        {
+          "entity": "Helix",
+          "expected": "difference",
+          "id": "challenge-test-Helix-difference",
+          "predicted": "unknown_service",
+          "question": "In days, what gap separates the log storage durations of Helix and Garnet?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "conflict",
+          "id": "challenge-test-Helix-conflict",
+          "predicted": "unknown_service",
+          "question": "Resolve the log storage duration for HelixMirror despite two equally current records."
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.55
+    },
+    "majority": {
+      "accuracy": 0.125,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 0.125,
+        "Helix": 0.125
+      },
+      "entity_accuracy_mean": 0.125,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Garnet",
+          "expected": "lookup",
+          "id": "challenge-test-Garnet-lookup",
+          "predicted": "conflict",
+          "question": "State the audit log storage duration, in days, for Garnet."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "conversion",
+          "id": "challenge-test-Garnet-conversion",
+          "predicted": "conflict",
+          "question": "Convert the Garnet session expiry interval from minutes into seconds."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "difference",
+          "id": "challenge-test-Garnet-difference",
+          "predicted": "conflict",
+          "question": "In days, what gap separates the log storage durations of Garnet and Helix?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "sum",
+          "id": "challenge-test-Garnet-sum",
+          "predicted": "conflict",
+          "question": "Add together the per-day request limits assigned to Garnet and Helix."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "ratio",
+          "id": "challenge-test-Garnet-ratio",
+          "predicted": "conflict",
+          "question": "Divide the monthly charge for Garnet by the monthly charge for Helix."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "missing_field",
+          "id": "challenge-test-Garnet-missing_field",
+          "predicted": "conflict",
+          "question": "Give the headcount of engineers assigned to Garnet on-call duty."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "unknown_service",
+          "id": "challenge-test-Garnet-unknown_service",
+          "predicted": "conflict",
+          "question": "Report the audit log storage duration for GarnetSandbox, in days."
+        },
+        {
+          "entity": "Helix",
+          "expected": "lookup",
+          "id": "challenge-test-Helix-lookup",
+          "predicted": "conflict",
+          "question": "State the audit log storage duration, in days, for Helix."
+        },
+        {
+          "entity": "Helix",
+          "expected": "conversion",
+          "id": "challenge-test-Helix-conversion",
+          "predicted": "conflict",
+          "question": "Convert the Helix session expiry interval from minutes into seconds."
+        },
+        {
+          "entity": "Helix",
+          "expected": "difference",
+          "id": "challenge-test-Helix-difference",
+          "predicted": "conflict",
+          "question": "In days, what gap separates the log storage durations of Helix and Garnet?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "sum",
+          "id": "challenge-test-Helix-sum",
+          "predicted": "conflict",
+          "question": "Add together the per-day request limits assigned to Helix and Garnet."
+        },
+        {
+          "entity": "Helix",
+          "expected": "ratio",
+          "id": "challenge-test-Helix-ratio",
+          "predicted": "conflict",
+          "question": "Divide the monthly charge for Helix by the monthly charge for Garnet."
+        },
+        {
+          "entity": "Helix",
+          "expected": "missing_field",
+          "id": "challenge-test-Helix-missing_field",
+          "predicted": "conflict",
+          "question": "Give the headcount of engineers assigned to Helix on-call duty."
+        },
+        {
+          "entity": "Helix",
+          "expected": "unknown_service",
+          "id": "challenge-test-Helix-unknown_service",
+          "predicted": "conflict",
+          "question": "Report the audit log storage duration for HelixSandbox, in days."
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.027777777777777776
+    },
+    "unigram": {
+      "accuracy": 0.625,
+      "confusion": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ]
+      ],
+      "entity_accuracy": {
+        "Garnet": 0.625,
+        "Helix": 0.625
+      },
+      "entity_accuracy_mean": 0.625,
+      "entity_accuracy_population_variance": 0.0,
+      "failures": [
+        {
+          "entity": "Garnet",
+          "expected": "lookup",
+          "id": "challenge-test-Garnet-lookup",
+          "predicted": "unknown_service",
+          "question": "State the audit log storage duration, in days, for Garnet."
+        },
+        {
+          "entity": "Garnet",
+          "expected": "difference",
+          "id": "challenge-test-Garnet-difference",
+          "predicted": "unknown_service",
+          "question": "In days, what gap separates the log storage durations of Garnet and Helix?"
+        },
+        {
+          "entity": "Garnet",
+          "expected": "conflict",
+          "id": "challenge-test-Garnet-conflict",
+          "predicted": "unknown_service",
+          "question": "Resolve the log storage duration for GarnetMirror despite two equally current records."
+        },
+        {
+          "entity": "Helix",
+          "expected": "lookup",
+          "id": "challenge-test-Helix-lookup",
+          "predicted": "unknown_service",
+          "question": "State the audit log storage duration, in days, for Helix."
+        },
+        {
+          "entity": "Helix",
+          "expected": "difference",
+          "id": "challenge-test-Helix-difference",
+          "predicted": "unknown_service",
+          "question": "In days, what gap separates the log storage durations of Helix and Garnet?"
+        },
+        {
+          "entity": "Helix",
+          "expected": "conflict",
+          "id": "challenge-test-Helix-conflict",
+          "predicted": "unknown_service",
+          "question": "Resolve the log storage duration for HelixMirror despite two equally current records."
+        }
+      ],
+      "labels": [
+        "lookup",
+        "conversion",
+        "difference",
+        "sum",
+        "ratio",
+        "missing_field",
+        "unknown_service",
+        "conflict"
+      ],
+      "macro_f1": 0.55
+    }
+  },
   "quality": {
     "test": {
       "cases": 16,

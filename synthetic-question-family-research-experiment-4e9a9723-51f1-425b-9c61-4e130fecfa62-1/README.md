@@ -100,6 +100,13 @@ python3 -m portfolio.research_lab --out results/research_lab
 The last command is a finite offline smoke run. Inspect
 [`results/research_lab/REPORT.md`](results/research_lab/REPORT.md) and
 [`results/research_lab/summary.json`](results/research_lab/summary.json).
+The run also writes `challenge_cases.json`: one alternate question wording for
+each of the 16 held-out entity/family pairs. The selected bigram model scores
+16/16 on the repeated templates and 10/16 on this paired wording diagnostic;
+the six failures are listed in `REPORT.md`. The model is still selected only
+on the original validation split. Since the alternate wording was authored
+after seeing the original templates, this is an exploratory sensitivity check,
+not an independent estimate of performance on unseen writing styles.
 To evaluate a modified case file, use
 `python3 -m portfolio.research_lab --cases results/research_lab/cases.json --out results/research_lab_custom`.
 This reads JSON from disk and rejects malformed cases before writing results.
@@ -115,8 +122,8 @@ The new module uses the standard library so it can run offline. The pinned
 installation was attempted here but the package index was unreachable; other
 repository experiments and their full test suite were not rerun in this environment.
 
-The held-out entities share question templates with training. Even a perfect
-score on this tiny synthetic set is not evidence of general language understanding,
+The held-out entities share question templates with training. A perfect
+original-test score on this tiny synthetic set is not evidence of general language understanding,
 Hebrew performance, or a person's independent mastery. See
 [`CODE_MAP.md`](CODE_MAP.md) and [`EXERCISES.md`](EXERCISES.md) for a code guide and
 learning exercises. This adaptation is AI-assisted; individual contribution and

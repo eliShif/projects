@@ -5,6 +5,8 @@
     "bigram"
   ],
   "cases_sha256": "4a0a6a310731a48db408b69e8007cb3ec114be066223448ce47a1dff5ad263f2",
+  "challenge": "After selection, evaluate the same models on one alternate authored wording per held-out entity and label; do not tune on challenge results",
+  "challenge_cases_sha256": "c46649dff94132b2465e2fdec0aafee940bafb49235c380bbbafcc5207cff412",
   "data": "Existing build_cases('test') generator; synthetic English templates only",
   "label_order": [
     "lookup",
@@ -25,7 +27,7 @@
   "python": "3.14.4",
   "question": "Can lexical features classify a synthetic research question's family for unseen service entities?",
   "selection": "highest validation macro F1, then accuracy, then fixed name order; test used after selection",
-  "source_sha256": "d4324f1074b779a02436f32928351cbc01870739e37ec57f58f1888e8d0f023a",
+  "source_sha256": "b67b97dc59e7bd1314392f85da09fac4a1e923e4374e6bdcc7717c12acd2e70a",
   "split_unit": "service entity",
   "splits": {
     "test": [

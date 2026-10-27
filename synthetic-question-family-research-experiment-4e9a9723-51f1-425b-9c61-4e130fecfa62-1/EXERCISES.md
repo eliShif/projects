@@ -19,6 +19,9 @@ personal mastery is not asserted by this repository.
 5. Run the same command into another output directory and compare `summary.json`
    and `protocol.json`. Explain what the hashes and Python version do and do not
    establish about reproduction.
+6. Pair each original test question with its row in `challenge_cases.json` by
+   entity and label. Read the six new-template failures in `REPORT.md`. Explain
+   why model selection remains based on validation, despite the diagnostic drop.
 
 ## Questions to discuss
 
@@ -27,6 +30,8 @@ personal mastery is not asserted by this repository.
   should it not be reported as a confidence interval?
 - How could the current repeated templates make test accuracy optimistic even
   with strict entity separation?
+- Why does the paired 16/16 versus 10/16 comparison reveal wording sensitivity
+  but not prove that one changed word caused every error?
 - Which facts here come from constructed labels, and why does feature-label
   correlation fail to prove causality?
 - Which claims about Hebrew answers, model-generated responses or production
@@ -38,10 +43,10 @@ personal mastery is not asserted by this repository.
    Predict the failure and verify that no output directory is created.
 2. Change one entity's split in the copied file. Verify that the leakage check
    rejects it. Restore the split and rerun.
-3. Add a genuinely new question template for one family to the generator. Keep
-   that template exclusive to held-out entities, then rerun. Record how accuracy,
-   macro F1 and failure examples change. Discuss whether the original result was
-   mainly template recognition.
+3. Change one challenge template without changing the original cases or model
+   selection rule. Predict which labels may be confused, rerun, and record
+   accuracy, macro F1 and failure examples. Treat this as exploration of the
+   diagnostic set, not a fresh held-out score.
 4. Add a fourth candidate with a documented smoothing value. Select it using
    validation only, add a failure-path unit test, and explain whether test
    inspection influenced your design.

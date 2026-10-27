@@ -16,6 +16,19 @@ FAMILIES = ("lookup", "conversion", "difference", "sum", "ratio",
             "missing_field", "unknown_service", "conflict")
 CANDIDATES = ("majority", "unigram", "bigram")
 
+# Authored alternative wording for the eight existing families. This is a
+# diagnostic set, not another source for model selection or tuning.
+CHALLENGE_TEMPLATES = {
+    "lookup": "State the audit log storage duration, in days, for {entity}.",
+    "conversion": "Convert the {entity} session expiry interval from minutes into seconds.",
+    "difference": "In days, what gap separates the log storage durations of {entity} and {other}?",
+    "sum": "Add together the per-day request limits assigned to {entity} and {other}.",
+    "ratio": "Divide the monthly charge for {entity} by the monthly charge for {other}.",
+    "missing_field": "Give the headcount of engineers assigned to {entity} on-call duty.",
+    "unknown_service": "Report the audit log storage duration for {entity}Sandbox, in days.",
+    "conflict": "Resolve the log storage duration for {entity}Mirror despite two equally current records.",
+}
+
 
 def write_json(path, value):
     Path(path).write_text(json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
@@ -59,6 +72,26 @@ def validate_cases(rows):
                 "label_counts": {f: counts[s][f] for f in FAMILIES},
                 "imbalance_ratio": max(counts[s].values()) / min(counts[s].values())}
             for s in SPLITS}
+
+
+def challenge_cases(test_rows):
+    """Pair each held-out case with a different authored question template."""
+    expected = {(entity, label) for entity in SPLITS["test"] for label in FAMILIES}
+    pairs = [(r["entity"], r["label"]) for r in test_rows]
+    if len(pairs) != len(expected) or set(pairs) != expected:
+        raise ValueError("Challenge requires one test case per held-out entity and label")
+    if any(r["split"] != "test" for r in test_rows):
+        raise ValueError("Challenge can only use test cases")
+    entities = SPLITS["test"]
+    challenge = []
+    for row in test_rows:
+        entity = row["entity"]
+        other = entities[(entities.index(entity) + 1) % len(entities)]
+        question = CHALLENGE_TEMPLATES[row["label"]].format(entity=entity, other=other)
+        if question.casefold() == row["question"].casefold():
+            raise ValueError("Challenge wording duplicates the original question")
+        challenge.append({**row, "id": f"challenge-{row['id']}", "question": question})
+    return challenge
 
 
 def features(question, ngram):
@@ -135,27 +168,33 @@ def run(out, cases_path=None):
     out = Path(out)
     rows = json.loads(Path(cases_path).read_text(encoding="utf-8")) if cases_path else cases_from_generator()
     quality = validate_cases(rows)  # Reject bad input before writing results.
+    grouped = {s: [r for r in rows if r["split"] == s] for s in SPLITS}
+    challenge_rows = challenge_cases(grouped["test"])
     out.mkdir(parents=True, exist_ok=True)
     write_json(out / "cases.json", rows)
+    write_json(out / "challenge_cases.json", challenge_rows)
     protocol = {"question": "Can lexical features classify a synthetic research question's family for unseen service entities?",
                 "data": "Existing build_cases('test') generator; synthetic English templates only",
                 "split_unit": "service entity", "splits": SPLITS, "label_order": FAMILIES,
                 "selection": "highest validation macro F1, then accuracy, then fixed name order; test used after selection",
+                "challenge": "After selection, evaluate the same models on one alternate authored wording per held-out entity and label; do not tune on challenge results",
                 "candidates": CANDIDATES, "method": "majority versus multinomial Naive Bayes with unigram or unigram+bigram counts and Laplace smoothing",
                 "metrics": {"accuracy": "fraction correctly classified", "macro_f1": "equal weight per family",
                             "entity_variance": "population variance of accuracy across test entities"},
                 "cases_sha256": hashlib.sha256(json.dumps(rows, sort_keys=True).encode()).hexdigest(),
+                "challenge_cases_sha256": hashlib.sha256(json.dumps(challenge_rows, sort_keys=True).encode()).hexdigest(),
                 "source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                 "python": sys.version.split()[0]}
     write_json(out / "protocol.json", protocol)
-    grouped = {s: [r for r in rows if r["split"] == s] for s in SPLITS}
     models = {name: TextBaseline(name).fit(grouped["train"]) for name in CANDIDATES}
     validation = {name: evaluate(model, grouped["validation"]) for name, model in models.items()}
     winner = sorted(models, key=lambda n: (-validation[n]["macro_f1"],
                                              -validation[n]["accuracy"], n))[0]
     test = {name: evaluate(model, grouped["test"]) for name, model in models.items()}
+    challenge = {name: evaluate(model, challenge_rows) for name, model in models.items()}
     summary = {"quality": quality, "validation": validation, "selected": winner, "test": test,
-               "limitations": ["Authored templates repeat across entities; holdout does not establish new-template generalization.",
+               "new_template_challenge": challenge,
+               "limitations": ["The alternate wording was authored after inspecting the original templates; this diagnostic is exploratory, not an independent benchmark.",
                                "One validation and two test entities; variance describes these entities, not a confidence interval.",
                                "English synthetic questions only; no claim about Hebrew quality or language models.",
                                "Feature-label association does not establish causality or independent human mastery."]}
@@ -172,6 +211,15 @@ def run(out, cases_path=None):
     lines += ["", f"Selected on validation: **{winner}**.", "", "Test errors for selected model:", ""]
     lines += [f"- `{r['id']}`: expected {r['expected']}, predicted {r['predicted']}; {r['question']}"
               for r in test[winner]["failures"]] or ["- None in this small synthetic test."]
+    lines += ["", "## New-template diagnostic (same held-out entities and labels)", "",
+              "| Model | Original test accuracy | New-template accuracy | Change |",
+              "|---|---:|---:|---:|"]
+    for name in CANDIDATES:
+        delta = challenge[name]["accuracy"] - test[name]["accuracy"]
+        lines.append(f"| {name} | {test[name]['accuracy']:.3f} | {challenge[name]['accuracy']:.3f} | {delta:+.3f} |")
+    lines += ["", "New-template errors for selected model:", ""]
+    lines += [f"- `{r['id']}`: expected {r['expected']}, predicted {r['predicted']}; {r['question']}"
+              for r in challenge[winner]["failures"]] or ["- None in this small diagnostic set."]
     lines += ["", "## Limits", ""] + [f"- {item}" for item in summary["limitations"]]
     (out / "REPORT.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return summary
