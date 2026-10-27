@@ -5,6 +5,7 @@ import json
 import platform
 import re
 from collections import Counter
+from itertools import product
 from pathlib import Path
 
 
@@ -57,6 +58,8 @@ def validate_dataset(dataset):
             raise ValueError("Invalid document or missing value")
         if doc["id"] in docs or doc["split"] not in ENTITIES or doc["language"] not in VALUES:
             raise ValueError("Duplicate document or invalid split/language")
+        if doc["answer"].casefold() not in tokens(doc["text"]):
+            raise ValueError("Document answer disagrees with source text")
         docs[doc["id"]] = doc
         if doc["entity"] in entity_splits and entity_splits[doc["entity"]] != doc["split"]:
             raise ValueError("Entity leakage across splits")
@@ -195,6 +198,34 @@ def method_report(cases, predictions):
     return result
 
 
+def compare_methods(cases, reference_predictions, candidate_predictions):
+    """Compare matched test cases; resample whole entities to retain bilingual pairing.
+
+    The interval is descriptive for this tiny synthetic set, not a population CI.
+    """
+    if not cases or len(cases) != len(reference_predictions) or len(cases) != len(candidate_predictions):
+        raise ValueError("Both methods must predict every case")
+    entities = sorted({case["entity"] for case in cases})
+    deltas = {}
+    for entity in entities:
+        indices = [i for i, case in enumerate(cases) if case["entity"] == entity]
+        deltas[entity] = (sum(score_case(cases[i], candidate_predictions[i])["correct"] -
+                              score_case(cases[i], reference_predictions[i])["correct"]
+                              for i in indices) / len(indices))
+    # The fixed study has four held-out entities: enumerate every cluster resample.
+    if len(entities) != 4:
+        raise ValueError("Comparison requires the four held-out entities")
+    draws = sorted(sum(sample) / len(sample) for sample in product(deltas.values(), repeat=4))
+    return {"accuracy_delta": sum(deltas.values()) / len(deltas),
+            "entity_deltas": deltas,
+            "cluster_resampling": {"unit": "entity", "draws": len(draws),
+                                   "descriptive_95_percentile_interval":
+                                   [draws[int(0.025 * (len(draws) - 1))],
+                                    draws[int(0.975 * (len(draws) - 1))]],
+                                   "includes_zero": draws[int(0.025 * (len(draws) - 1))] <= 0 <=
+                                                    draws[int(0.975 * (len(draws) - 1))]}}
+
+
 def load_model_predictions(path, dataset):
     """Read frozen, offline test outputs from one identified model run."""
     raw = Path(path).read_bytes()
@@ -240,15 +271,18 @@ def evaluate(dataset, dataset_sha256, model_outputs=None):
     threshold = max(candidates, key=lambda value: (summarize(
         validation, [predict(case, docs, value) for case in validation])["accuracy"], value))
     methods = {}
+    method_predictions = {}
     for method in ("always_abstain", "lexical_retrieval"):
         predictions = ([{"answer": None, "citations": [], "overlap": None} for _ in test]
                        if method == "always_abstain" else [predict(case, docs, threshold) for case in test])
         methods[method] = method_report(test, predictions)
+        method_predictions[method] = predictions
     model_protocol = None
     if model_outputs is not None:
         model_id, model_version, output_hash, by_id = model_outputs
         predictions = [by_id[case["id"]] for case in test]
         methods["local_model"] = method_report(test, predictions)
+        method_predictions["local_model"] = predictions
         model_protocol = {"model_id": model_id, "model_version": model_version,
                           "output_sha256": output_hash,
                           "input": "saved test predictions; no model called by evaluator"}
@@ -262,9 +296,12 @@ def evaluate(dataset, dataset_sha256, model_outputs=None):
                          "data_quality": describe_dataset(dataset),
                          "model_outputs": model_protocol},
             "methods": methods,
+            "comparisons": {method: compare_methods(test, method_predictions["always_abstain"], predictions)
+                            for method, predictions in method_predictions.items()
+                            if method != "always_abstain"},
             "limitations": ["Synthetic paired templates are not natural user questions.",
                             "Document answer fields make this a rule-based retrieval baseline, not an LLM.",
-                            "One small entity-disjoint split cannot establish language parity or stability.",
+                            "Four test entities and their resampling interval cannot establish language parity or population stability.",
                             "Lexical overlap cannot resolve paraphrases or assess semantic equivalence."]}
 
 

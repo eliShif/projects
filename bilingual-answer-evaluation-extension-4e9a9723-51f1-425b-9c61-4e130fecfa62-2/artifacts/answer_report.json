@@ -2,7 +2,7 @@
   "protocol": {
     "source": "deterministic fictional facts generated in code",
     "dataset_sha256": "975acd94ab8f52fb4705987f824015c9e3e0a661507510b9a993764ebbb3b7e5",
-    "code_sha256": "904326826948e09a8e510f0c69b31a9c1cc93fe1b4357e28c51cd57fb3c6c196",
+    "code_sha256": "39cafbfeaa5cb469ce6d9b5f55a08e8f32d3cfeee2bff723ca1776373b1a0fb2",
     "python": "3.14.4",
     "languages": [
       "en",
@@ -1046,10 +1046,30 @@
       }
     }
   },
+  "comparisons": {
+    "lexical_retrieval": {
+      "accuracy_delta": 0.5833333333333333,
+      "entity_deltas": {
+        "Ember": 0.3333333333333333,
+        "Fjord": 0.6666666666666666,
+        "Grove": 0.6666666666666666,
+        "Harbor": 0.6666666666666666
+      },
+      "cluster_resampling": {
+        "unit": "entity",
+        "draws": 256,
+        "descriptive_95_percentile_interval": [
+          0.41666666666666663,
+          0.6666666666666666
+        ],
+        "includes_zero": false
+      }
+    }
+  },
   "limitations": [
     "Synthetic paired templates are not natural user questions.",
     "Document answer fields make this a rule-based retrieval baseline, not an LLM.",
-    "One small entity-disjoint split cannot establish language parity or stability.",
+    "Four test entities and their resampling interval cannot establish language parity or population stability.",
     "Lexical overlap cannot resolve paraphrases or assess semantic equivalence."
   ]
 }

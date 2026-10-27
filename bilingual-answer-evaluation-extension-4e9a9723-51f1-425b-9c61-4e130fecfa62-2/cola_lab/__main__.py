@@ -20,6 +20,9 @@ def main():
             report = json.loads(path.read_text(encoding="utf-8"))
             if report["protocol"]["case_counts"] != {"validation": 24, "test": 24}:
                 raise RuntimeError("Answer evaluation report failed smoke checks")
+            if (report["comparisons"]["lexical_retrieval"]["cluster_resampling"]["draws"] != 256
+                    or report["methods"]["lexical_retrieval"]["overall"]["count"] != 24):
+                raise RuntimeError("Answer comparison failed smoke checks")
             print("answers-smoke: generated dataset, read JSON, evaluated both languages, and wrote report")
     elif args.command == "answers":
         print(run_answers(args.output_dir, args.predictions))

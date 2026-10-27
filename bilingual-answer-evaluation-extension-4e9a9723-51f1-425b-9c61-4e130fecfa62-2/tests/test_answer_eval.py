@@ -4,7 +4,7 @@ import tempfile
 import unittest
 
 from cola_lab.answer_eval import (evaluate, load_model_predictions, make_dataset, predict, run, score_case,
-                                  summarize, validate_dataset, paired_language_analysis)
+                                  summarize, validate_dataset, paired_language_analysis, compare_methods)
 
 
 class AnswerEvaluationTests(unittest.TestCase):
@@ -28,6 +28,30 @@ class AnswerEvaluationTests(unittest.TestCase):
                           "english_only_correct": 0, "hebrew_only_correct": 0})
         self.assertEqual(set(lexical["by_entity"]), {"Ember", "Fjord", "Grove", "Harbor"})
         self.assertEqual(one["protocol"]["data_quality"]["test"]["he"]["answerable"], 8)
+        comparison = one["comparisons"]["lexical_retrieval"]
+        self.assertAlmostEqual(comparison["accuracy_delta"], 14 / 24)
+        self.assertEqual(comparison["cluster_resampling"]["draws"], 256)
+        self.assertFalse(comparison["cluster_resampling"]["includes_zero"])
+        self.assertEqual(set(comparison["entity_deltas"]), {"Ember", "Fjord", "Grove", "Harbor"})
+
+    def test_comparison_keeps_paired_cases_and_exposes_no_gain(self):
+        cases = [case for case in make_dataset()["cases"] if case["split"] == "test"]
+        abstain = [{"answer": None, "citations": []} for _ in cases]
+        same = compare_methods(cases, abstain, abstain)
+        self.assertEqual(same["accuracy_delta"], 0)
+        self.assertEqual(same["cluster_resampling"]["descriptive_95_percentile_interval"], [0, 0])
+        self.assertTrue(same["cluster_resampling"]["includes_zero"])
+        with self.assertRaisesRegex(ValueError, "every case"):
+            compare_methods(cases, abstain, abstain[:-1])
+
+    def test_rejects_self_consistent_but_false_document_label(self):
+        broken = make_dataset()
+        doc = broken["documents"][0]
+        doc["answer"] = "incorrect"
+        case = next(case for case in broken["cases"] if doc["id"] in case["evidence_ids"])
+        case["expected_answer"] = "incorrect"
+        with self.assertRaisesRegex(ValueError, "disagrees with source text"):
+            validate_dataset(broken)
 
     def test_pair_analysis_detects_language_specific_error(self):
         cases = [case for case in make_dataset()["cases"] if case["split"] == "test"]
@@ -110,6 +134,7 @@ class AnswerEvaluationTests(unittest.TestCase):
         self.assertEqual(report["methods"]["local_model"]["overall"]["error_counts"],
                          {"unsupported_citation": 1})
         self.assertEqual(report["methods"]["local_model"]["by_language"]["he"]["count"], 12)
+        self.assertIn("local_model", report["comparisons"])
 
     def test_rejects_incomplete_duplicate_and_mismatched_model_outputs(self):
         dataset = make_dataset()

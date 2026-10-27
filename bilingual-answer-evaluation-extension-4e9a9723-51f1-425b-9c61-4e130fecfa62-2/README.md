@@ -30,6 +30,8 @@ python3 -m venv .venv
 
 The answer report also records `protocol.data_quality` (answerable/unanswerable counts and entity membership by split and language). Each method reports `by_entity` results and `paired_languages`: counts of matched English/Hebrew questions where both answers are correct, both are wrong, or only one language is correct. Validation rejects a missing language counterpart even if the remaining cases still have both answer types. These slices expose imbalances and failures; four test entities and parallel templates are too small to establish model stability or natural-language parity.
 
+The validator also rejects a document whose recorded answer is absent from its source sentence, including when a case label has been changed to agree with the bad document label. This is a narrow consistency check for the generated facts, not independent human annotation review. `comparisons.lexical_retrieval` reports the matched accuracy difference from always abstaining, one difference per test entity, and a descriptive 95% percentile interval from all 256 resamples of the four whole entities. Whole-entity resampling keeps each entity's English and Hebrew cases together. On the fixed sample the observed difference is 14/24; the interval describes sensitivity to these four entities only. It is not a population confidence interval or evidence of language parity. If frozen local-model outputs are supplied, `comparisons.local_model` uses the same reference and resampling rule.
+
 ### Optional offline model comparison
 
 If a locally available model has already produced answers for these fictional cases, save its **frozen outputs** to a UTF-8 JSON file and run:
