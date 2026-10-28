@@ -4,11 +4,21 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 
 from .common import provenance, sha256_json, write_json
 from .evidence_eval import score
 from .retrieval import Document, Retriever
+
+
+ANSWER_SCHEMA = {"type": "object", "additionalProperties": False,
+                 "properties": {"value": {"type": ["number", "null"]},
+                                "citations": {"type": "array", "items": {"type": "string"}}},
+                 "required": ["value", "citations"]}
+ANSWER_PROMPT = ("Answer using only the supplied records. Use the highest revision for the "
+                 "requested service and field. If the field is absent, abstain with null. "
+                 "Return JSON with value and cited record IDs. The question may be in Hebrew or English.")
 
 
 def dataset():
@@ -56,6 +66,38 @@ def lexical_baseline(corpus, cases):
     return predictions
 
 
+def model_predictions(corpus, cases, model):
+    """Run a local model on the same top-one retrieved record as the lexical baseline."""
+    retriever = Retriever([Document(row["id"], json.dumps(row, ensure_ascii=False)) for row in corpus])
+    by_id = {row["id"]: row for row in corpus}
+    predictions, generations = [], []
+    for index, case in enumerate(cases):
+        hits = retriever.search(case["question"], 1)
+        records = [by_id[hit["id"]] for hit in hits]
+        request = json.dumps({"question": case["question"], "records": records}, ensure_ascii=False)
+        response = None
+        try:
+            response = model.generate_json(ANSWER_PROMPT, request, ANSWER_SCHEMA, seed=4200 + index)
+            parsed = json.loads(response["text"])
+            if not isinstance(parsed, dict) or set(parsed) != {"value", "citations"}:
+                raise ValueError("Model answer must contain only value and citations")
+            value, citations = parsed["value"], parsed["citations"]
+            if value is not None and (type(value) not in (int, float) or not math.isfinite(value)):
+                raise ValueError("Model value must be numeric or null")
+            if not isinstance(citations, list) or any(type(c) is not str or c not in {r["id"] for r in records} for c in citations):
+                raise ValueError("Model cited a record it was not shown")
+            prediction = {"case_id": case["id"], "status": "abstained" if value is None else "answered",
+                          "value": value, "citations": citations}
+            generations.append({"case_id": case["id"], "retrieved_ids": [r["id"] for r in records],
+                                "response": response})
+        except (ValueError, TypeError, KeyError, RuntimeError) as exc:
+            prediction = {"case_id": case["id"], "status": "failed", "value": None, "citations": []}
+            generations.append({"case_id": case["id"], "retrieved_ids": [r["id"] for r in records],
+                                "response": response, "error_type": type(exc).__name__, "error": str(exc)})
+        predictions.append(prediction)
+    return predictions, generations
+
+
 def evaluate(corpus, cases, predictions):
     if not isinstance(predictions, list):
         raise ValueError("Predictions must be a JSON array")
@@ -73,7 +115,7 @@ def evaluate(corpus, cases, predictions):
         if status not in ("answered", "abstained", "failed") or (status == "answered") != (value is not None):
             if not (status == "failed" and value is None):
                 raise ValueError("Status and value disagree")
-        if (value is not None and (type(value) not in (int, float))) or not isinstance(cites, list) or any(type(c) is not str or c not in source_ids for c in cites):
+        if (value is not None and (type(value) not in (int, float) or not math.isfinite(value))) or not isinstance(cites, list) or any(type(c) is not str or c not in source_ids for c in cites):
             raise ValueError("Invalid value or citation")
     if seen != ids:
         raise ValueError("Missing predictions")
@@ -85,7 +127,9 @@ def evaluate(corpus, cases, predictions):
                   "citations": prediction["citations"]}
         marks = score(result, case)
         reason = None
-        if not marks["correct"]:
+        if prediction["status"] == "failed":
+            reason = "generation_failure"
+        elif not marks["correct"]:
             reason = "wrong_value_or_abstention"
         elif not marks["grounded_correct"]:
             reason = "missing_expected_evidence"
@@ -102,18 +146,44 @@ def evaluate(corpus, cases, predictions):
     return rows, summary
 
 
-def run(out, predictions_path=None):
+def run(out, predictions_path=None, model_path=None):
+    if predictions_path and model_path:
+        raise ValueError("Choose either saved predictions or a local model")
     corpus, cases = dataset()
-    predictions = (json.loads(Path(predictions_path).read_text(encoding="utf-8"))
-                   if predictions_path else lexical_baseline(corpus, cases))
+    generations = None
+    model_info = None
+    if model_path:
+        if not Path(model_path).is_file():
+            raise FileNotFoundError("Supply an existing local GGUF model file")
+        from .gguf_lm import GGUFModel
+        model = GGUFModel(model_path)
+        predictions, generations = model_predictions(corpus, cases, model)
+        model_info = {"name": model.model_name, "sha256": model.sha256,
+                      "runtime": "llama-cpp-python", "seed_start": 4200,
+                      "temperature": 0.2, "max_tokens": 180}
+    elif predictions_path:
+        predictions = json.loads(Path(predictions_path).read_text(encoding="utf-8"))
+    else:
+        predictions = lexical_baseline(corpus, cases)
     rows, summary = evaluate(corpus, cases, predictions)
+    baseline_predictions = lexical_baseline(corpus, cases)
+    baseline_rows, baseline_summary = evaluate(corpus, cases, baseline_predictions)
+    comparison = {language: {"baseline_grounded_correct": baseline_summary[language]["grounded_correct"],
+                             "evaluated_grounded_correct": summary[language]["grounded_correct"],
+                             "paired_difference": summary[language]["grounded_correct"] - baseline_summary[language]["grounded_correct"]}
+                  for language in ("en", "he")}
+    errors = [{"case_id": row["case_id"], "language": row["language"],
+               "error_type": row["error_type"], "question": next(c["question"] for c in cases if c["id"] == row["case_id"]),
+               "prediction": row["prediction"]} for row in rows if row["error_type"]]
     out = Path(out)
     source_dir = Path(__file__).parent
     source_hashes = {name: hashlib.sha256((source_dir / name).read_bytes()).hexdigest()
-                     for name in ("bilingual_eval.py", "evidence_eval.py", "retrieval.py")}
-    write_json(out / "protocol.json", {"version": "bilingual-eval-v1", "mode": "supplied" if predictions_path else "lexical_baseline",
+                     for name in ("bilingual_eval.py", "evidence_eval.py", "retrieval.py", "gguf_lm.py")}
+    write_json(out / "protocol.json", {"version": "bilingual-eval-v2", "mode": "local_gguf" if model_path else ("supplied" if predictions_path else "lexical_baseline"),
                                         "corpus_sha256": sha256_json(corpus), "cases_sha256": sha256_json(cases),
                                         "predictions_sha256": sha256_json(predictions), "source_hashes": source_hashes,
+                                        "model": model_info, "retrieval_k": 1,
+                                        "prompt_sha256": sha256_json(ANSWER_PROMPT),
                                         "criteria": "same numeric answer, abstention and expected citation rules in both languages",
                                         "provenance": provenance()})
     write_json(out / "corpus.json", corpus)
@@ -121,6 +191,12 @@ def run(out, predictions_path=None):
     write_json(out / "predictions.json", predictions)
     write_json(out / "runs.json", rows)
     write_json(out / "summary.json", summary)
+    write_json(out / "baseline_predictions.json", baseline_predictions)
+    write_json(out / "baseline_runs.json", baseline_rows)
+    write_json(out / "comparison.json", comparison)
+    write_json(out / "errors.json", errors)
+    if generations is not None:
+        write_json(out / "generations.json", generations)
     return summary
 
 
@@ -128,5 +204,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", required=True)
     parser.add_argument("--predictions", help="JSON array of case_id, status, value, citations")
+    parser.add_argument("--model", help="Existing local GGUF model file; runs real CPU inference")
     args = parser.parse_args()
-    print(json.dumps(run(args.out, args.predictions), ensure_ascii=False, indent=2))
+    print(json.dumps(run(args.out, args.predictions, args.model), ensure_ascii=False, indent=2))

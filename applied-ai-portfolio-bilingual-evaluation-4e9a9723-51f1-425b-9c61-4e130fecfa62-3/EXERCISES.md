@@ -23,3 +23,9 @@ alone does not show that a person can explain the work.
    language summaries. State the small sample size and synthetic-data limits
    when presenting findings; do not infer a causal language effect from a
    difference in these six cases.
+6. If you have an approved local GGUF model, run `--model` as documented.
+   Check its file hash, generation log, and both language error lists. Compare
+   one model failure with the baseline on the same retrieved record. Explain
+   why six paired synthetic cases cannot establish language ability. As a
+   change exercise, add a new paired question and a test that rejects a
+   citation to a record the model did not receive.

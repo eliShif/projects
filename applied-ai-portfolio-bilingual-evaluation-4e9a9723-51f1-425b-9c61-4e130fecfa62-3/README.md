@@ -11,6 +11,15 @@ identical in both languages. The saved runs identify errors separately by
 language. This small synthetic suite does not establish general Hebrew ability
 or semantic search; TF-IDF here matches tokens.
 
+With an existing local GGUF weight file, `--model` runs real CPU inference on
+each paired question. The model and baseline receive the same top-one TF-IDF
+record; the model must return a numeric value (or null) and record citations.
+The run saves raw model responses, retrieval IDs, failures, model file hash,
+fixed seeds, protocol, per-language comparison and concrete error cases. This
+compares two answer systems on six authored cases; it cannot isolate a language
+effect or establish general model quality. No model weights are included, and
+the baseline smoke run is not a model result.
+
 Run from the repository root with Python 3.11+:
 
 ```sh
@@ -21,13 +30,22 @@ python3 -m venv .venv
 .venv/bin/python -m portfolio.bilingual_eval --out /tmp/bilingual-eval
 ```
 
+For an optional local model run, install the existing GGUF runtime with
+`.venv/bin/pip install -r requirements-gguf.txt`, then run
+`.venv/bin/python -m portfolio.bilingual_eval --model /path/to/model.gguf --out /tmp/bilingual-model-eval`.
+The command requires real weights on disk and fails if they are absent. It
+does not download weights or call an API.
+
 The last command finishes and writes `protocol.json`, `corpus.json`,
-`cases.json`, `predictions.json`, `runs.json` and `summary.json` under the chosen
-output directory. To score a real model's answers, supply a JSON array with one
+`cases.json`, `predictions.json`, `runs.json`, `summary.json`,
+`baseline_predictions.json`, `comparison.json` and `errors.json` under the chosen
+output directory. To score externally saved structured answers, supply a JSON array with one
 entry per `case_id` from `cases.json` using `--predictions path/to/answers.json`.
 Each entry has `case_id`, `status` (`answered`, `abstained` or `failed`), numeric
 `value` or `null`, and `citations` containing corpus record IDs. Invalid or
-incomplete prediction sets fail. See `CODE_MAP.md` and `EXERCISES.md` for code
+incomplete prediction sets fail. Supplied predictions have no independently
+verified model provenance; use `--model` for a directly executed local run.
+See `CODE_MAP.md` and `EXERCISES.md` for code
 navigation and learning exercises. AI-assisted code and its tests do not prove
 personal mastery.
 
