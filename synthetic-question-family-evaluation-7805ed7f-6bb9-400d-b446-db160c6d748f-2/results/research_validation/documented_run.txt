@@ -1,0 +1,1 @@
+{"challenge_accuracy": 0.625, "experiment_version": "2.0.0", "output": "results/research_lab", "selected": "bigram", "test_accuracy": 1.0}

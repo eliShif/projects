@@ -1,0 +1,15 @@
+Processing /home/ubuntu/job-pilot/runtime/projects/7805ed7f-6bb9-400d-b446-db160c6d748f/1
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: synthetic-question-family-evaluation
+  Building wheel for synthetic-question-family-evaluation (pyproject.toml): started
+  Building wheel for synthetic-question-family-evaluation (pyproject.toml): finished with status 'done'
+  Created wheel for synthetic-question-family-evaluation: filename=synthetic_question_family_evaluation-2.0.0-py3-none-any.whl size=51652 sha256=a4c61e665016504f634c9b0d25538f67de1ffb3def8a360b9db4288dd4a5d6cf
+  Stored in directory: /tmp/pip-ephem-wheel-cache-6bmqb55g/wheels/81/92/2e/46d26ab32b5434639cee56958fdc0fca1e99144ad24da73708
+Successfully built synthetic-question-family-evaluation
+Installing collected packages: synthetic-question-family-evaluation
+  Attempting uninstall: synthetic-question-family-evaluation
+    Found existing installation: synthetic-question-family-evaluation 2.0.0
+    Uninstalling synthetic-question-family-evaluation-2.0.0:
+      Successfully uninstalled synthetic-question-family-evaluation-2.0.0
+Successfully installed synthetic-question-family-evaluation-2.0.0
