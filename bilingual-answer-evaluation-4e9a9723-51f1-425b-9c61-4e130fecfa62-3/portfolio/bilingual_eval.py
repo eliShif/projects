@@ -180,6 +180,61 @@ def diagnose_cases(cases, rows, baseline_rows, trace):
     return diagnostics
 
 
+def audit_pairs(cases, rows, baseline_rows, diagnostics):
+    """Compare each translated pair and count observable failure causes.
+
+    A disagreement is descriptive: these authored questions cannot identify a
+    language effect, and source availability is unknown for abstention cases.
+    """
+    case_ids = {case["id"] for case in cases}
+    if len(case_ids) != len(cases):
+        raise ValueError("Duplicate case ID in audit")
+    by_result = {row["case_id"]: row for row in rows}
+    by_baseline = {row["case_id"]: row for row in baseline_rows}
+    by_diagnostic = {row["case_id"]: row for row in diagnostics}
+    if any(set(mapping) != case_ids for mapping in (by_result, by_baseline, by_diagnostic)):
+        raise ValueError("Audit inputs must cover exactly the same cases")
+    grouped = {}
+    for case in cases:
+        pair = grouped.setdefault(case["pair_id"], {})
+        if case["language"] in pair:
+            raise ValueError("Duplicate language in paired case")
+        pair[case["language"]] = case
+    pairs = []
+    for pair_id, languages in sorted(grouped.items()):
+        if set(languages) != {"en", "he"}:
+            raise ValueError("Each pair needs one English and one Hebrew case")
+        en, he = languages["en"], languages["he"]
+        if en["expected"] != he["expected"] or en["evidence_ids"] != he["evidence_ids"]:
+            raise ValueError("Paired cases must share an answer and expected evidence")
+        members = {}
+        for language, case in (("en", en), ("he", he)):
+            case_id = case["id"]
+            result = by_result[case_id]
+            diagnostic = by_diagnostic[case_id]
+            members[language] = {
+                "case_id": case_id,
+                "grounded_correct": result["grounded_correct"],
+                "baseline_grounded_correct": by_baseline[case_id]["grounded_correct"],
+                "error_type": result["error_type"],
+                "diagnostic_cause": diagnostic["diagnostic_cause"],
+                "expected_evidence_available": diagnostic["expected_evidence_available"],
+                "retrieved_ids": diagnostic["retrieved_ids"],
+            }
+        pairs.append({"pair_id": pair_id, "members": members,
+                      "outcome_disagrees": members["en"]["grounded_correct"] != members["he"]["grounded_correct"],
+                      "retrieval_disagrees": members["en"]["retrieved_ids"] != members["he"]["retrieved_ids"]})
+    causes = {}
+    for language in ("en", "he"):
+        selected = [pair["members"][language] for pair in pairs]
+        causes[language] = {cause: sum(member["diagnostic_cause"] == cause for member in selected)
+                            for cause in ("required_record_not_retrieved", "generation_failure",
+                                          "wrong_value_or_abstention", "missing_expected_evidence")}
+    return {"pairs": pairs, "outcome_disagreements": sum(pair["outcome_disagrees"] for pair in pairs),
+            "retrieval_disagreements": sum(pair["retrieval_disagrees"] for pair in pairs),
+            "failure_causes_by_language": causes}
+
+
 def run(out, predictions_path=None, model_path=None):
     if predictions_path and model_path:
         raise ValueError("Choose either saved predictions or a local model")
@@ -204,6 +259,7 @@ def run(out, predictions_path=None, model_path=None):
     baseline_rows, baseline_summary = evaluate(corpus, cases, baseline_predictions)
     trace = retrieval_trace(corpus, cases)
     diagnostics = diagnose_cases(cases, rows, baseline_rows, trace)
+    paired_audit = audit_pairs(cases, rows, baseline_rows, diagnostics)
     comparison = {language: {"baseline_grounded_correct": baseline_summary[language]["grounded_correct"],
                              "evaluated_grounded_correct": summary[language]["grounded_correct"],
                              "paired_difference": summary[language]["grounded_correct"] - baseline_summary[language]["grounded_correct"]}
@@ -215,7 +271,7 @@ def run(out, predictions_path=None, model_path=None):
     source_dir = Path(__file__).parent
     source_hashes = {name: hashlib.sha256((source_dir / name).read_bytes()).hexdigest()
                      for name in ("bilingual_eval.py", "evidence_eval.py", "retrieval.py", "gguf_lm.py")}
-    write_json(out / "protocol.json", {"version": "bilingual-eval-v2", "mode": "local_gguf" if model_path else ("supplied" if predictions_path else "lexical_baseline"),
+    write_json(out / "protocol.json", {"version": "bilingual-eval-v3", "mode": "local_gguf" if model_path else ("supplied" if predictions_path else "lexical_baseline"),
                                         "corpus_sha256": sha256_json(corpus), "cases_sha256": sha256_json(cases),
                                         "predictions_sha256": sha256_json(predictions),
                                         "retrieval_trace_sha256": sha256_json(trace),
@@ -237,6 +293,7 @@ def run(out, predictions_path=None, model_path=None):
     write_json(out / "errors.json", errors)
     write_json(out / "retrieval_trace.json", trace)
     write_json(out / "case_diagnostics.json", diagnostics)
+    write_json(out / "paired_audit.json", paired_audit)
     if generations is not None:
         write_json(out / "generations.json", generations)
         generation_by_id = {item["case_id"]: item for item in generations}

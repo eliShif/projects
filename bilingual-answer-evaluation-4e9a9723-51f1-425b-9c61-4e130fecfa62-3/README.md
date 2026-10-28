@@ -29,6 +29,10 @@ absent from the whole corpus. A local model run also creates
 must inspect these before claiming any human validation. For supplied answers,
 the trace describes this evaluator's retrieval, not independently verified
 context from the system that produced the supplied file.
+`paired_audit.json` joins each English/Hebrew question pair, records outcome
+and retrieval disagreements, and counts observable failure causes by language.
+It rejects unpaired or answer-inconsistent cases. A disagreement is a case
+finding, not evidence that language caused the difference.
 
 Run from the repository root with Python 3.11+:
 
@@ -50,7 +54,7 @@ The last command finishes and writes `protocol.json`, `corpus.json`,
 `cases.json`, `predictions.json`, `runs.json`, `summary.json`,
 `baseline_predictions.json`, `comparison.json`, `errors.json`,
 `retrieval_trace.json` and `case_diagnostics.json` under the chosen
-output directory. To score externally saved structured answers, supply a JSON array with one
+output directory, plus `paired_audit.json`. To score externally saved structured answers, supply a JSON array with one
 entry per `case_id` from `cases.json` using `--predictions path/to/answers.json`.
 Each entry has `case_id`, `status` (`answered`, `abstained` or `failed`), numeric
 `value` or `null`, and `citations` containing corpus record IDs. Invalid or

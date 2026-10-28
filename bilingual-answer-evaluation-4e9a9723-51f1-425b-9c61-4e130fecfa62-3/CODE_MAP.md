@@ -2,7 +2,7 @@
 
 | Path | Role |
 |---|---|
-| `portfolio/bilingual_eval.py` | Synthetic paired cases, shared retrieval trace, lexical baseline, local GGUF generation, prediction validation, per-language scoring, case diagnostics and pending human-review queue |
+| `portfolio/bilingual_eval.py` | Synthetic paired cases, shared retrieval trace, lexical baseline, local GGUF generation, prediction validation, per-language scoring, case diagnostics, paired failure audit and pending human-review queue |
 | `portfolio/gguf_lm.py` | Existing local CPU inference wrapper with model-file hash and fixed generation settings |
 | `portfolio/evidence_eval.py` | Reused numeric answer, abstention and expected evidence scorer; also holds the existing local-model experiment |
 | `portfolio/retrieval.py` | Reused NumPy/scikit-learn TF-IDF retrieval; lexical token matching only |
@@ -16,5 +16,7 @@ predictions, or `model_predictions()` with local weights → `evaluate()` valida
 coverage and calls `score()` → `diagnose_cases()` pairs outcomes and checks
 expected-source availability → `run()` saves protocol, inputs, generations and
 pending review queue when applicable, runs, comparisons and errors.
+`audit_pairs()` checks that translated cases share expected facts and records
+retrieval and outcome disagreements in `paired_audit.json`.
 The baseline copies a value from one retrieved record, so stale or irrelevant
 retrieval can yield a visible failure. It is not an LLM or a semantic retriever.

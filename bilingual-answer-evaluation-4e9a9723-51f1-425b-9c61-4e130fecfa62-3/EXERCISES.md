@@ -37,3 +37,10 @@ alone does not show that a person can explain the work.
    verify that the diagnostic changes to an answer error. Explain why the
    missing-field cases have `null` source sufficiency and why this diagnostic
    cannot establish the root cause of every model failure.
+8. Open `paired_audit.json` and choose a pair with different retrieved records
+   or outcomes. Explain the observed sequence from retrieved record to answer
+   and score for each language. Then change one Hebrew prediction in a test,
+   rerun the audit, and check the disagreement and failure-cause counts. Why
+   would a disagreement on three authored pairs be insufficient to infer a
+   language effect? Add a mismatched expected answer and confirm the audit
+   rejects the inconsistent pair.

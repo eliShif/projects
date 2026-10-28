@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from unittest.mock import patch
 
-from portfolio.bilingual_eval import (dataset, diagnose_cases, evaluate, lexical_baseline,
+from portfolio.bilingual_eval import (audit_pairs, dataset, diagnose_cases, evaluate, lexical_baseline,
                                       model_predictions, retrieval_trace, run)
 
 
@@ -23,6 +23,9 @@ class BilingualEvaluationTests(unittest.TestCase):
             self.assertEqual(summary['he']['cases'], 3)
             for name in ('protocol.json', 'corpus.json', 'cases.json', 'predictions.json', 'runs.json', 'summary.json'):
                 self.assertTrue((Path(directory) / name).is_file())
+            audit = json.loads((Path(directory) / 'paired_audit.json').read_text(encoding='utf-8'))
+            self.assertEqual(len(audit['pairs']), 3)
+            self.assertEqual(set(audit['failure_causes_by_language']), {'en', 'he'})
             protocol = json.loads((Path(directory) / 'protocol.json').read_text(encoding='utf-8'))
             self.assertIn('predictions_sha256', protocol)
             self.assertIn('retrieval_trace_sha256', protocol)
@@ -125,6 +128,33 @@ class BilingualEvaluationTests(unittest.TestCase):
         missing = diagnose_cases(self.cases, rows, baseline_rows, trace)
         self.assertEqual(missing[0]['diagnostic_cause'], 'required_record_not_retrieved')
         self.assertFalse(missing[0]['expected_evidence_available'])
+
+    def test_paired_audit_identifies_outcome_and_retrieval_differences(self):
+        predictions = [dict(p) for p in self.predictions]
+        predictions[3] = {'case_id': self.cases[3]['id'], 'status': 'abstained',
+                          'value': None, 'citations': []}
+        rows, _ = evaluate(self.corpus, self.cases, predictions)
+        baseline_rows, _ = evaluate(self.corpus, self.cases, self.predictions)
+        trace = retrieval_trace(self.corpus, self.cases)
+        trace[self.cases[3]['id']] = ['cedar-old']
+        diagnostics = diagnose_cases(self.cases, rows, baseline_rows, trace)
+        audit = audit_pairs(self.cases, rows, baseline_rows, diagnostics)
+        cedar = next(pair for pair in audit['pairs'] if pair['pair_id'] == 'cedar')
+        self.assertTrue(cedar['retrieval_disagrees'])
+        self.assertEqual(cedar['members']['he']['diagnostic_cause'], 'required_record_not_retrieved')
+        self.assertEqual(audit['failure_causes_by_language']['he']['required_record_not_retrieved'], 1)
+        self.assertEqual(audit['outcome_disagreements'], sum(p['outcome_disagrees'] for p in audit['pairs']))
+
+    def test_paired_audit_rejects_mismatched_or_incomplete_pairs(self):
+        rows, _ = evaluate(self.corpus, self.cases, self.predictions)
+        trace = retrieval_trace(self.corpus, self.cases)
+        diagnostics = diagnose_cases(self.cases, rows, rows, trace)
+        changed = [dict(case) for case in self.cases]
+        changed[3]['expected'] = 999
+        with self.assertRaisesRegex(ValueError, 'share an answer'):
+            audit_pairs(changed, rows, rows, diagnostics)
+        with self.assertRaisesRegex(ValueError, 'one English and one Hebrew'):
+            audit_pairs(self.cases[:-1], rows[:-1], rows[:-1], diagnostics[:-1])
 
     def test_model_run_writes_provenance_and_generations(self):
         class StubGGUF:
