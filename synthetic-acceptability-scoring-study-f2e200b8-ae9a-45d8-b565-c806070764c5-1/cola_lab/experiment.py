@@ -101,6 +101,39 @@ def score_histogram(values, rows, bins=5):
     return result
 
 
+def paired_comparison(rows, sum_predictions, mean_predictions):
+    """Compare correctness on the same held-out rows, including discordant cases."""
+    if not rows or len(rows) != len(sum_predictions) or len(rows) != len(mean_predictions):
+        raise ValueError("Paired comparison needs matching nonempty rows and predictions")
+    counts = {key: 0 for key in ("both_correct", "both_wrong", "sum_only", "mean_only")}
+    by_length = {length: counts.copy() for length in ("short", "long")}
+    disagreements = []
+    for row, sum_prediction, mean_prediction in zip(rows, sum_predictions, mean_predictions):
+        if row.get("label") not in (0, 1) or row.get("length") not in by_length or any(
+                prediction not in (0, 1) for prediction in (sum_prediction, mean_prediction)):
+            raise ValueError("Paired comparison needs binary labels/predictions and known lengths")
+        sum_right = sum_prediction == row["label"]
+        mean_right = mean_prediction == row["label"]
+        category = ("both_correct" if sum_right and mean_right else
+                    "both_wrong" if not sum_right and not mean_right else
+                    "sum_only" if sum_right else "mean_only")
+        counts[category] += 1
+        by_length[row["length"]][category] += 1
+        if category in ("sum_only", "mean_only"):
+            disagreements.append({"sentence": row["sentence"], "length": row["length"],
+                                  "actual": row["label"], "sum": sum_prediction,
+                                  "mean": mean_prediction, "winner": category})
+    discordant = counts["sum_only"] + counts["mean_only"]
+    # Exact two-sided binomial tail conditional on discordance, under equal win chance.
+    minority = min(counts["sum_only"], counts["mean_only"])
+    probability = (min(1.0, 2 * sum(math.comb(discordant, k) for k in range(minority + 1)) /
+                       2 ** discordant) if discordant else 1.0)
+    return {"counts": counts, "by_length": by_length,
+            "accuracy_delta_mean_minus_sum": (counts["mean_only"] - counts["sum_only"]) / len(rows),
+            "discordant_count": discordant, "exact_two_sided_p": probability,
+            "disagreements": disagreements}
+
+
 def training_sensitivity(train, validation, test, draws=24, seed=2026):
     """Refit on seeded group resamples; keep validation/test cases unchanged."""
     if draws < 1:
@@ -163,11 +196,13 @@ def evaluate(rows, dataset_sha256):
     validation = by_split["validation"]
     test = by_split["test"]
     methods = {}
+    predictions_by_method = {}
     for method in ("sum", "mean"):
         val_scores = [scores(model, row["sentence"])[method] for row in validation]
         threshold = choose_threshold([row["label"] for row in validation], val_scores)
         test_scores = [scores(model, row["sentence"])[method] for row in test]
         predictions = [int(value >= threshold) for value in test_scores]
+        predictions_by_method[method] = predictions
         labels = [row["label"] for row in test]
         by_length = {}
         for length in ("short", "long"):
@@ -208,6 +243,8 @@ def evaluate(rows, dataset_sha256):
             "data_quality": data_quality,
             "baseline": {"method": "train majority class", "label": majority_label,
                          "test": baseline}, "methods": methods,
+            "paired_comparison": paired_comparison(test, predictions_by_method["sum"],
+                                                   predictions_by_method["mean"]),
             "training_sensitivity": training_sensitivity(by_split["train"], validation, test),
             "limitations": ["Synthetic templated sentences do not represent CoLA or natural language.",
                             "A bigram model is not GPT-2 and this does not verify earlier project claims.",
@@ -241,6 +278,26 @@ def render_report(report):
         lines.append(f"| {method} | {result['accuracy']:.3f} | "
                      f"{result['balanced_accuracy']:.3f} | {result['confusion']['fp']} | "
                      f"{result['confusion']['fn']} | AUC {result['roc_auc']:.3f} |")
+    paired = report["paired_comparison"]
+    c = paired["counts"]
+    lines += ["", "## Paired held-out outcomes", "",
+              f"On the same test rows: both correct {c['both_correct']}, both wrong {c['both_wrong']}, "
+              f"sum only correct {c['sum_only']}, mean only correct {c['mean_only']}. "
+              f"Mean minus sum accuracy: {paired['accuracy_delta_mean_minus_sum']:.3f}. "
+              f"Exact two-sided conditional binomial p: {paired['exact_two_sided_p']:.3f} "
+              f"from {paired['discordant_count']} discordant rows.", "",
+              "This probability assumes independent discordant rows and equal chances that either "
+              "method wins. Shared templates and groups weaken that assumption; it is a descriptive "
+              "calculation, not evidence of population superiority.", "",
+              "| Length | Both correct | Both wrong | Sum only | Mean only |",
+              "| --- | ---: | ---: | ---: | ---: |"]
+    for length in ("short", "long"):
+        slice_counts = paired["by_length"][length]
+        lines.append(f"| {length} | {slice_counts['both_correct']} | {slice_counts['both_wrong']} | "
+                     f"{slice_counts['sum_only']} | {slice_counts['mean_only']} |")
+    for item in paired["disagreements"]:
+        lines.append(f"- `{item['sentence']}`: {item['winner']} "
+                     f"(actual {item['actual']}, sum {item['sum']}, mean {item['mean']}).")
     lines += ["", "## Score distributions and failures", "",
               "Population variance describes all scores in each fixed test slice; "
               "it is not uncertainty about future data.", "",

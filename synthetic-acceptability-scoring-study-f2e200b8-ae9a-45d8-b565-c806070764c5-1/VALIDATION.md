@@ -1,6 +1,6 @@
 # Reproducible validation
 
-Verified at 2026-10-28T12:27:56.874Z
+Verified at 2026-10-28T12:56:29.780Z
 
 ## tests
 
@@ -8,7 +8,7 @@ Command: `{"executable":".venv/bin/python","args":["-m","unittest","discover","-
 
 Exit code: 0
 
-Output SHA-256: `28bf2b4e9998fbac0574e24b9657057852e7579e3d76a645189eba83bc267019`
+Output SHA-256: `3b037854d0297c7624a0bbd57b01a2f476e72c8382df8475d31ffcb3f79ebbbb`
 
 ## build
 

@@ -38,6 +38,9 @@ def main():
                             for bucket in report["methods"][method]["score_histogram"]) != 6
                         for method in ("sum", "mean")
                         for length in ("short", "long") for label in ("0", "1")) or \
+                    sum(report["paired_comparison"]["counts"].values()) != 24 or \
+                    report["paired_comparison"]["discordant_count"] != len(
+                        report["paired_comparison"]["disagreements"]) or \
                     not (path.parent / "REPORT.md").is_file():
                 raise RuntimeError("Experiment report failed smoke checks")
             print("smoke: generated dataset, read CSV, evaluated, and wrote report")

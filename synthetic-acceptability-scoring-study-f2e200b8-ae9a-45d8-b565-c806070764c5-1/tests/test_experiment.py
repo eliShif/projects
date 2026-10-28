@@ -7,7 +7,7 @@ from pathlib import Path
 from cola_lab.data import FIELDS, generate_rows, read_rows, write_rows
 from cola_lab.experiment import (BigramModel, choose_threshold, describe, evaluate,
                                  metrics, roc_auc, run, score_histogram, scores,
-                                 training_sensitivity)
+                                 training_sensitivity, paired_comparison)
 
 
 class DatasetTests(unittest.TestCase):
@@ -60,6 +60,30 @@ class DatasetTests(unittest.TestCase):
 
 
 class ScoringTests(unittest.TestCase):
+    def test_paired_comparison_counts_exact_probability_and_zero_discordance(self):
+        rows = [{"sentence": str(i), "length": "short" if i < 2 else "long",
+                 "label": label} for i, label in enumerate((0, 1, 0, 1))]
+        result = paired_comparison(rows, [0, 1, 0, 0], [0, 0, 0, 1])
+        self.assertEqual(result["counts"], {"both_correct": 2, "both_wrong": 0,
+                                             "sum_only": 1, "mean_only": 1})
+        self.assertEqual(result["accuracy_delta_mean_minus_sum"], 0)
+        self.assertEqual(result["exact_two_sided_p"], 1)
+        self.assertEqual([item["sentence"] for item in result["disagreements"]], ["1", "3"])
+        self.assertEqual(result["by_length"]["short"]["sum_only"], 1)
+        self.assertEqual(paired_comparison(rows, [0, 1, 0, 1], [0, 1, 0, 1])
+                         ["exact_two_sided_p"], 1)
+        self.assertEqual(paired_comparison(rows, [0, 1, 0, 1], [1, 0, 1, 0])
+                         ["exact_two_sided_p"], 0.125)
+
+    def test_paired_comparison_rejects_unpaired_or_invalid_inputs(self):
+        rows = [{"sentence": "example", "length": "short", "label": 1}]
+        with self.assertRaisesRegex(ValueError, "matching nonempty"):
+            paired_comparison(rows, [1], [])
+        with self.assertRaisesRegex(ValueError, "known lengths"):
+            paired_comparison(rows, [2], [1])
+        with self.assertRaisesRegex(ValueError, "known lengths"):
+            paired_comparison([{**rows[0], "length": "other"}], [1], [1])
+
     def test_histogram_counts_boundaries_and_constant_scores(self):
         rows = [{"length": "short", "label": 0},
                 {"length": "short", "label": 1},
@@ -119,6 +143,7 @@ class ScoringTests(unittest.TestCase):
                           narrative)
             self.assertIn("pvariance", narrative)
             self.assertIn("Equal-width score bins", narrative)
+            self.assertIn("Paired held-out outcomes", narrative)
         self.assertEqual(one, two)
         self.assertEqual(one["protocol"]["split_counts"],
                          {"train": 48, "validation": 24, "test": 24})
@@ -143,6 +168,12 @@ class ScoringTests(unittest.TestCase):
                                 ["error_frequency"]))
         self.assertEqual(one["data_quality"]["test"]["label_counts"], {"0": 12, "1": 12})
         self.assertEqual(one["data_quality"]["test"]["group_count"], 6)
+        paired = one["paired_comparison"]
+        self.assertEqual(sum(paired["counts"].values()), 24)
+        self.assertEqual(paired["accuracy_delta_mean_minus_sum"],
+                         one["methods"]["mean"]["test"]["accuracy"] -
+                         one["methods"]["sum"]["test"]["accuracy"])
+        self.assertEqual(paired["discordant_count"], len(paired["disagreements"]))
 
     def test_sensitivity_resamples_only_training_groups_and_rejects_zero_draws(self):
         rows = generate_rows()
