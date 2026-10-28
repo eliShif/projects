@@ -1,0 +1,51 @@
+{
+  "candidates": [
+    "majority",
+    "unigram",
+    "bigram"
+  ],
+  "cases_sha256": "4a0a6a310731a48db408b69e8007cb3ec114be066223448ce47a1dff5ad263f2",
+  "challenge": "After selection, evaluate the same models on one alternate authored wording per held-out entity and label; do not tune on challenge results",
+  "challenge_cases_sha256": "c46649dff94132b2465e2fdec0aafee940bafb49235c380bbbafcc5207cff412",
+  "data": "Existing build_cases('test') generator; synthetic English templates only",
+  "diagnostics": "After original validation selection: paired wording transitions, fixed-method leave-one-entity-out folds, 12 seeded stratified training resamples, one-family training downsampling, and feature/label-count review; exploratory, never used to select a model",
+  "label_order": [
+    "lookup",
+    "conversion",
+    "difference",
+    "sum",
+    "ratio",
+    "missing_field",
+    "unknown_service",
+    "conflict"
+  ],
+  "method": "majority versus multinomial Naive Bayes with unigram or unigram+bigram counts and Laplace smoothing",
+  "metrics": {
+    "accuracy": "fraction correctly classified",
+    "entity_variance": "population variance of accuracy across test entities",
+    "label_distribution": "split-normalized label fractions, unweighted mean and population variance across fixed splits, and total variation from train",
+    "macro_f1": "arithmetic mean of per-family F1, including zero for absent or unpredicted families",
+    "per_label": "support, predicted count, precision=TP/(TP+FP), recall=TP/(TP+FN), F1=2TP/(2TP+FP+FN); undefined denominators reported as zero",
+    "score_margin": "top minus runner-up unnormalized class log score; descriptive mean and population variance on fixed cases"
+  },
+  "python": "3.14.4",
+  "question": "Can lexical features classify a synthetic research question's family for unseen service entities?",
+  "selection": "highest validation macro F1, then accuracy, then fixed name order; test used after selection",
+  "source_sha256": "5a714a5bad556c4537e50dbab55924626367c045a097207ffa118daa6e013c88",
+  "split_unit": "service entity",
+  "splits": {
+    "test": [
+      "Garnet",
+      "Helix"
+    ],
+    "train": [
+      "Cobalt",
+      "Delta",
+      "Ember"
+    ],
+    "validation": [
+      "Fjord"
+    ]
+  },
+  "template_audit": "Exact question-template overlap with training after masking known service names; descriptive only and never used for model selection"
+}
