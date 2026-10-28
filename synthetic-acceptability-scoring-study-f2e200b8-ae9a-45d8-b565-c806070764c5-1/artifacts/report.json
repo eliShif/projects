@@ -1,0 +1,1619 @@
+{
+  "protocol": {
+    "dataset": "synthetic subject-verb agreement, not CoLA",
+    "seed": 17,
+    "dataset_sha256": "062bd83a9afab81a14230a3fd17b56b40d96ae2af8120ec39ae524e5c92a90f9",
+    "python": "3.14.4",
+    "training": "Laplace-smoothed bigram model on positive train sentences",
+    "selection": "threshold chosen on validation balanced accuracy only",
+    "test_use": "held out until thresholds fixed",
+    "split_counts": {
+      "train": 48,
+      "validation": 24,
+      "test": 24
+    }
+  },
+  "data_quality": {
+    "train": {
+      "label_counts": {
+        "0": 24,
+        "1": 24
+      },
+      "length_counts": {
+        "short": 24,
+        "long": 24
+      },
+      "group_count": 12
+    },
+    "validation": {
+      "label_counts": {
+        "0": 12,
+        "1": 12
+      },
+      "length_counts": {
+        "short": 12,
+        "long": 12
+      },
+      "group_count": 6
+    },
+    "test": {
+      "label_counts": {
+        "0": 12,
+        "1": 12
+      },
+      "length_counts": {
+        "short": 12,
+        "long": 12
+      },
+      "group_count": 6
+    }
+  },
+  "baseline": {
+    "method": "train majority class",
+    "label": 1,
+    "test": {
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "confusion": {
+        "tn": 0,
+        "fp": 12,
+        "fn": 0,
+        "tp": 12
+      }
+    }
+  },
+  "methods": {
+    "sum": {
+      "validation_threshold": -8.135570703017352,
+      "test": {
+        "accuracy": 0.6666666666666666,
+        "balanced_accuracy": 0.6666666666666666,
+        "confusion": {
+          "tn": 12,
+          "fp": 0,
+          "fn": 8,
+          "tp": 4
+        },
+        "roc_auc": 0.6944444444444444
+      },
+      "by_length": {
+        "short": {
+          "accuracy": 0.8333333333333334,
+          "balanced_accuracy": 0.8333333333333333,
+          "confusion": {
+            "tn": 6,
+            "fp": 0,
+            "fn": 2,
+            "tp": 4
+          },
+          "roc_auc": 0.8888888888888888,
+          "mean_score": -8.176268090175034,
+          "mean_score_by_label": {
+            "0": -8.540566456793462,
+            "1": -7.811969723556609
+          }
+        },
+        "long": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "confusion": {
+            "tn": 6,
+            "fp": 0,
+            "fn": 6,
+            "tp": 0
+          },
+          "roc_auc": 0.8888888888888888,
+          "mean_score": -11.00491938252341,
+          "mean_score_by_label": {
+            "0": -11.369217749141837,
+            "1": -10.640621015904983
+          }
+        }
+      },
+      "errors": [
+        {
+          "sentence": "the artist reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -10.443841198498525,
+          "length": "long"
+        },
+        {
+          "sentence": "the singer reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -10.443841198498525,
+          "length": "long"
+        },
+        {
+          "sentence": "the chef writes near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -10.597991878325784,
+          "length": "long"
+        },
+        {
+          "sentence": "the chef reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -8.251178672870148,
+          "length": "short"
+        },
+        {
+          "sentence": "the chef reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -11.079829965218522,
+          "length": "long"
+        },
+        {
+          "sentence": "the teacher reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -8.251178672870148,
+          "length": "short"
+        },
+        {
+          "sentence": "the teacher reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -11.079829965218522,
+          "length": "long"
+        },
+        {
+          "sentence": "the farmer walks near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -10.198391889670019,
+          "length": "long"
+        }
+      ],
+      "score_histogram": [
+        {
+          "lower": -11.647814002824463,
+          "upper": -10.7921993217239,
+          "counts": {
+            "short": {
+              "0": 0,
+              "1": 0
+            },
+            "long": {
+              "0": 6,
+              "1": 2
+            }
+          }
+        },
+        {
+          "lower": -10.7921993217239,
+          "upper": -9.936584640623336,
+          "counts": {
+            "short": {
+              "0": 0,
+              "1": 0
+            },
+            "long": {
+              "0": 0,
+              "1": 4
+            }
+          }
+        },
+        {
+          "lower": -9.936584640623336,
+          "upper": -9.080969959522772,
+          "counts": {
+            "short": {
+              "0": 0,
+              "1": 0
+            },
+            "long": {
+              "0": 0,
+              "1": 0
+            }
+          }
+        },
+        {
+          "lower": -9.080969959522772,
+          "upper": -8.225355278422207,
+          "counts": {
+            "short": {
+              "0": 4,
+              "1": 2
+            },
+            "long": {
+              "0": 0,
+              "1": 0
+            }
+          }
+        },
+        {
+          "lower": -8.225355278422207,
+          "upper": -7.369740597321644,
+          "counts": {
+            "short": {
+              "0": 2,
+              "1": 4
+            },
+            "long": {
+              "0": 0,
+              "1": 0
+            }
+          }
+        }
+      ],
+      "score_distribution": {
+        "short": {
+          "0": {
+            "count": 6,
+            "mean": -8.54056645679346,
+            "population_variance": 0.08382472305429449,
+            "minimum": -8.819162710476087,
+            "maximum": -8.18317394375609
+          },
+          "1": {
+            "count": 6,
+            "mean": -7.811969723556609,
+            "population_variance": 0.11010623980875517,
+            "minimum": -8.251178672870148,
+            "maximum": -7.369740597321644
+          }
+        },
+        "long": {
+          "0": {
+            "count": 6,
+            "mean": -11.369217749141836,
+            "population_variance": 0.08382472305429456,
+            "minimum": -11.647814002824463,
+            "maximum": -11.011825236104466
+          },
+          "1": {
+            "count": 6,
+            "mean": -10.640621015904983,
+            "population_variance": 0.11010623980875504,
+            "minimum": -11.079829965218522,
+            "maximum": -10.198391889670019
+          }
+        }
+      }
+    },
+    "mean": {
+      "validation_threshold": -1.5663174279093894,
+      "test": {
+        "accuracy": 0.6666666666666666,
+        "balanced_accuracy": 0.6666666666666666,
+        "confusion": {
+          "tn": 12,
+          "fp": 0,
+          "fn": 8,
+          "tp": 4
+        },
+        "roc_auc": 0.6944444444444444
+      },
+      "by_length": {
+        "short": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "confusion": {
+            "tn": 6,
+            "fp": 0,
+            "fn": 6,
+            "tp": 0
+          },
+          "roc_auc": 0.8888888888888888,
+          "mean_score": -2.0440670225437585,
+          "mean_score_by_label": {
+            "0": -2.1351416141983655,
+            "1": -1.9529924308891522
+          }
+        },
+        "long": {
+          "accuracy": 0.8333333333333334,
+          "balanced_accuracy": 0.8333333333333333,
+          "confusion": {
+            "tn": 6,
+            "fp": 0,
+            "fn": 2,
+            "tp": 4
+          },
+          "roc_auc": 0.8888888888888888,
+          "mean_score": -1.572131340360487,
+          "mean_score_by_label": {
+            "0": -1.6241739641631192,
+            "1": -1.520088716557855
+          }
+        }
+      },
+      "errors": [
+        {
+          "sentence": "the artist reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.9037974765375378,
+          "length": "short"
+        },
+        {
+          "sentence": "the singer reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.9037974765375378,
+          "length": "short"
+        },
+        {
+          "sentence": "the chef writes",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.9423351464943526,
+          "length": "short"
+        },
+        {
+          "sentence": "the chef reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -2.062794668217537,
+          "length": "short"
+        },
+        {
+          "sentence": "the chef reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.5828328521740747,
+          "length": "long"
+        },
+        {
+          "sentence": "the teacher reads",
+          "actual": 1,
+          "predicted": 0,
+          "score": -2.062794668217537,
+          "length": "short"
+        },
+        {
+          "sentence": "the teacher reads near the trees",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.5828328521740747,
+          "length": "long"
+        },
+        {
+          "sentence": "the farmer walks",
+          "actual": 1,
+          "predicted": 0,
+          "score": -1.842435149330411,
+          "length": "short"
+        }
+      ],
+      "score_histogram": [
+        {
+          "lower": -2.204790677619022,
+          "upper": -2.055215167514361,
+          "counts": {
+            "short": {
+              "0": 4,
+              "1": 2
+            },
+            "long": {
+              "0": 0,
+              "1": 0
+            }
+          }
+        },
+        {
+          "lower": -2.055215167514361,
+          "upper": -1.9056396574096999,
+          "counts": {
+            "short": {
+              "0": 2,
+              "1": 1
+            },
+            "long": {
+              "0": 0,
+              "1": 0
+            }
+          }
+        },
+        {
+          "lower": -1.9056396574096999,
+          "upper": -1.756064147305039,
+          "counts": {
+            "short": {
+              "0": 0,
+              "1": 3
+            },
+            "long": {
+              "0": 0,
+              "1": 0
+            }
+          }
+        },
+        {
+          "lower": -1.756064147305039,
+          "upper": -1.606488637200378,
+          "counts": {
+            "short": {
+              "0": 0,
+              "1": 0
+            },
+            "long": {
+              "0": 4,
+              "1": 0
+            }
+          }
+        },
+        {
+          "lower": -1.606488637200378,
+          "upper": -1.456913127095717,
+          "counts": {
+            "short": {
+              "0": 0,
+              "1": 0
+            },
+            "long": {
+              "0": 2,
+              "1": 6
+            }
+          }
+        }
+      ],
+      "score_distribution": {
+        "short": {
+          "0": {
+            "count": 6,
+            "mean": -2.135141614198365,
+            "population_variance": 0.005239045190893406,
+            "minimum": -2.204790677619022,
+            "maximum": -2.0457934859390225
+          },
+          "1": {
+            "count": 6,
+            "mean": -1.9529924308891522,
+            "population_variance": 0.006881639988047198,
+            "minimum": -2.062794668217537,
+            "maximum": -1.842435149330411
+          }
+        },
+        "long": {
+          "0": {
+            "count": 6,
+            "mean": -1.6241739641631194,
+            "population_variance": 0.001710708633761118,
+            "minimum": -1.6639734289749233,
+            "maximum": -1.5731178908720664
+          },
+          "1": {
+            "count": 6,
+            "mean": -1.5200887165578547,
+            "population_variance": 0.0022470661185460244,
+            "minimum": -1.5828328521740747,
+            "maximum": -1.456913127095717
+          }
+        }
+      }
+    }
+  },
+  "training_sensitivity": {
+    "protocol": {
+      "draws": 24,
+      "seed": 2026,
+      "sampling_unit": "training group, with replacement",
+      "validation_and_test": "fixed; threshold selected on validation each draw"
+    },
+    "methods": {
+      "sum": {
+        "accuracy": {
+          "count": 24,
+          "mean": 0.6059027777777778,
+          "population_variance": 0.0037585599922839506,
+          "minimum": 0.5,
+          "maximum": 0.75
+        },
+        "balanced_accuracy": {
+          "count": 24,
+          "mean": 0.6059027777777778,
+          "population_variance": 0.0037585599922839515,
+          "minimum": 0.5,
+          "maximum": 0.75
+        },
+        "error_frequency": [
+          {
+            "sentence": "the artist reads",
+            "error_draws": 6
+          },
+          {
+            "sentence": "the artist read",
+            "error_draws": 12
+          },
+          {
+            "sentence": "the artist reads near the trees",
+            "error_draws": 22
+          },
+          {
+            "sentence": "the artist read near the trees",
+            "error_draws": 1
+          },
+          {
+            "sentence": "the singer reads",
+            "error_draws": 3
+          },
+          {
+            "sentence": "the singer read",
+            "error_draws": 16
+          },
+          {
+            "sentence": "the singer reads near the trees",
+            "error_draws": 20
+          },
+          {
+            "sentence": "the singer read near the trees",
+            "error_draws": 1
+          },
+          {
+            "sentence": "the chef writes",
+            "error_draws": 7
+          },
+          {
+            "sentence": "the chef write",
+            "error_draws": 5
+          },
+          {
+            "sentence": "the chef writes near the trees",
+            "error_draws": 24
+          },
+          {
+            "sentence": "the chef reads",
+            "error_draws": 12
+          },
+          {
+            "sentence": "the chef read",
+            "error_draws": 5
+          },
+          {
+            "sentence": "the chef reads near the trees",
+            "error_draws": 23
+          },
+          {
+            "sentence": "the teacher reads",
+            "error_draws": 11
+          },
+          {
+            "sentence": "the teacher read",
+            "error_draws": 3
+          },
+          {
+            "sentence": "the teacher reads near the trees",
+            "error_draws": 24
+          },
+          {
+            "sentence": "the farmer walks",
+            "error_draws": 3
+          },
+          {
+            "sentence": "the farmer walk",
+            "error_draws": 7
+          },
+          {
+            "sentence": "the farmer walks near the trees",
+            "error_draws": 22
+          }
+        ],
+        "draws": [
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "farmer:writes",
+              "singer:sings",
+              "singer:sings",
+              "singer:writes",
+              "artist:walks",
+              "chef:sings",
+              "singer:walks",
+              "singer:walks",
+              "singer:sings",
+              "pilot:reads",
+              "singer:walks"
+            ],
+            "validation_threshold": -8.547581157149533,
+            "accuracy": 0.625,
+            "balanced_accuracy": 0.625
+          },
+          {
+            "sampled_groups": [
+              "singer:sings",
+              "teacher:walks",
+              "pilot:sings",
+              "singer:walks",
+              "pilot:sings",
+              "chef:sings",
+              "artist:sings",
+              "singer:walks",
+              "artist:walks",
+              "artist:walks",
+              "farmer:sings",
+              "artist:walks"
+            ],
+            "validation_threshold": -7.619426574551971,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "pilot:sings",
+              "artist:sings",
+              "singer:writes",
+              "pilot:sings",
+              "singer:writes",
+              "farmer:writes",
+              "chef:sings",
+              "pilot:reads",
+              "farmer:sings",
+              "farmer:writes",
+              "farmer:writes",
+              "pilot:reads"
+            ],
+            "validation_threshold": -9.261689984623544,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666667
+          },
+          {
+            "sampled_groups": [
+              "teacher:walks",
+              "singer:sings",
+              "singer:writes",
+              "artist:walks",
+              "teacher:walks",
+              "farmer:writes",
+              "artist:walks",
+              "singer:sings",
+              "singer:sings",
+              "farmer:sings",
+              "farmer:sings",
+              "pilot:sings"
+            ],
+            "validation_threshold": -10.372344839046503,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "artist:writes",
+              "singer:writes",
+              "teacher:walks",
+              "teacher:walks",
+              "singer:walks",
+              "farmer:sings",
+              "artist:sings",
+              "teacher:walks",
+              "farmer:writes",
+              "farmer:writes",
+              "pilot:sings",
+              "pilot:reads"
+            ],
+            "validation_threshold": -7.7398049004325555,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666666
+          },
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "pilot:reads",
+              "singer:walks",
+              "singer:sings",
+              "pilot:sings",
+              "artist:walks",
+              "pilot:reads",
+              "singer:sings",
+              "singer:walks",
+              "pilot:sings",
+              "pilot:reads",
+              "singer:sings"
+            ],
+            "validation_threshold": -8.788473207550211,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666667
+          },
+          {
+            "sampled_groups": [
+              "farmer:sings",
+              "pilot:reads",
+              "singer:walks",
+              "pilot:sings",
+              "singer:sings",
+              "singer:sings",
+              "artist:sings",
+              "singer:walks",
+              "chef:sings",
+              "artist:writes",
+              "artist:sings",
+              "teacher:walks"
+            ],
+            "validation_threshold": -8.335370697345235,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666667
+          },
+          {
+            "sampled_groups": [
+              "singer:sings",
+              "singer:writes",
+              "artist:walks",
+              "teacher:walks",
+              "singer:walks",
+              "pilot:reads",
+              "pilot:sings",
+              "artist:writes",
+              "pilot:sings",
+              "chef:sings",
+              "artist:walks",
+              "singer:writes"
+            ],
+            "validation_threshold": -7.816880240346185,
+            "accuracy": 0.625,
+            "balanced_accuracy": 0.625
+          },
+          {
+            "sampled_groups": [
+              "teacher:walks",
+              "pilot:sings",
+              "singer:writes",
+              "pilot:sings",
+              "teacher:walks",
+              "singer:sings",
+              "farmer:sings",
+              "singer:sings",
+              "pilot:reads",
+              "singer:writes",
+              "farmer:sings",
+              "singer:sings"
+            ],
+            "validation_threshold": -7.684940705755173,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333333
+          },
+          {
+            "sampled_groups": [
+              "singer:writes",
+              "singer:sings",
+              "teacher:walks",
+              "pilot:sings",
+              "pilot:reads",
+              "pilot:reads",
+              "chef:sings",
+              "farmer:sings",
+              "farmer:sings",
+              "artist:sings",
+              "artist:sings",
+              "artist:writes"
+            ],
+            "validation_threshold": -8.070056571814149,
+            "accuracy": 0.75,
+            "balanced_accuracy": 0.75
+          },
+          {
+            "sampled_groups": [
+              "singer:writes",
+              "singer:walks",
+              "pilot:sings",
+              "singer:sings",
+              "pilot:sings",
+              "farmer:writes",
+              "chef:sings",
+              "farmer:sings",
+              "teacher:walks",
+              "pilot:sings",
+              "pilot:sings",
+              "singer:sings"
+            ],
+            "validation_threshold": -7.662005478722124,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333334
+          },
+          {
+            "sampled_groups": [
+              "pilot:sings",
+              "pilot:reads",
+              "singer:sings",
+              "singer:writes",
+              "artist:sings",
+              "farmer:sings",
+              "farmer:writes",
+              "pilot:sings",
+              "artist:walks",
+              "pilot:sings",
+              "teacher:walks",
+              "teacher:walks"
+            ],
+            "validation_threshold": -7.777358636675959,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666666
+          },
+          {
+            "sampled_groups": [
+              "singer:sings",
+              "farmer:sings",
+              "pilot:sings",
+              "artist:writes",
+              "pilot:reads",
+              "teacher:walks",
+              "pilot:sings",
+              "artist:walks",
+              "singer:writes",
+              "farmer:sings",
+              "pilot:sings",
+              "farmer:writes"
+            ],
+            "validation_threshold": -7.7388781161078946,
+            "accuracy": 0.625,
+            "balanced_accuracy": 0.625
+          },
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "chef:sings",
+              "teacher:walks",
+              "pilot:reads",
+              "artist:writes",
+              "pilot:sings",
+              "artist:sings",
+              "artist:walks",
+              "artist:sings",
+              "pilot:sings",
+              "singer:walks",
+              "singer:sings"
+            ],
+            "validation_threshold": -10.486331563677743,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "singer:walks",
+              "chef:sings",
+              "chef:sings",
+              "artist:walks",
+              "singer:walks",
+              "artist:sings",
+              "singer:sings",
+              "farmer:sings",
+              "singer:writes",
+              "singer:writes",
+              "farmer:writes"
+            ],
+            "validation_threshold": -8.715242797565939,
+            "accuracy": 0.5,
+            "balanced_accuracy": 0.5
+          },
+          {
+            "sampled_groups": [
+              "artist:writes",
+              "artist:sings",
+              "farmer:writes",
+              "singer:writes",
+              "singer:walks",
+              "singer:walks",
+              "pilot:sings",
+              "teacher:walks",
+              "teacher:walks",
+              "artist:writes",
+              "singer:sings",
+              "chef:sings"
+            ],
+            "validation_threshold": -7.868519415072936,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333333
+          },
+          {
+            "sampled_groups": [
+              "pilot:sings",
+              "singer:walks",
+              "artist:writes",
+              "singer:walks",
+              "teacher:walks",
+              "singer:sings",
+              "farmer:sings",
+              "artist:walks",
+              "pilot:reads",
+              "singer:writes",
+              "artist:writes",
+              "artist:writes"
+            ],
+            "validation_threshold": -8.167437915450746,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333334
+          },
+          {
+            "sampled_groups": [
+              "singer:walks",
+              "farmer:sings",
+              "singer:sings",
+              "pilot:reads",
+              "pilot:reads",
+              "artist:writes",
+              "singer:sings",
+              "chef:sings",
+              "pilot:reads",
+              "artist:sings",
+              "artist:walks",
+              "pilot:reads"
+            ],
+            "validation_threshold": -10.563406903591371,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666667
+          },
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "artist:sings",
+              "farmer:writes",
+              "singer:writes",
+              "farmer:writes",
+              "artist:sings",
+              "artist:sings",
+              "singer:sings",
+              "pilot:sings",
+              "farmer:writes",
+              "singer:writes",
+              "farmer:sings"
+            ],
+            "validation_threshold": -8.140614786822507,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "pilot:sings",
+              "farmer:writes",
+              "artist:walks",
+              "pilot:sings",
+              "pilot:sings",
+              "singer:walks",
+              "singer:walks",
+              "artist:writes",
+              "artist:writes",
+              "singer:walks",
+              "singer:sings",
+              "chef:sings"
+            ],
+            "validation_threshold": -7.587862698534694,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333334
+          },
+          {
+            "sampled_groups": [
+              "pilot:reads",
+              "singer:walks",
+              "farmer:writes",
+              "pilot:sings",
+              "singer:walks",
+              "chef:sings",
+              "singer:writes",
+              "teacher:walks",
+              "artist:walks",
+              "singer:sings",
+              "pilot:reads",
+              "artist:sings"
+            ],
+            "validation_threshold": -8.070056571814149,
+            "accuracy": 0.7083333333333334,
+            "balanced_accuracy": 0.7083333333333333
+          },
+          {
+            "sampled_groups": [
+              "chef:sings",
+              "singer:writes",
+              "artist:writes",
+              "artist:sings",
+              "singer:writes",
+              "singer:sings",
+              "artist:sings",
+              "pilot:sings",
+              "singer:writes",
+              "chef:sings",
+              "pilot:sings",
+              "teacher:walks"
+            ],
+            "validation_threshold": -7.797564006510667,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "singer:writes",
+              "artist:sings",
+              "artist:writes",
+              "singer:writes",
+              "singer:sings",
+              "chef:sings",
+              "singer:sings",
+              "artist:writes",
+              "artist:writes",
+              "singer:writes",
+              "artist:writes",
+              "pilot:reads"
+            ],
+            "validation_threshold": -8.184120475317322,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333334
+          },
+          {
+            "sampled_groups": [
+              "farmer:sings",
+              "pilot:reads",
+              "singer:sings",
+              "pilot:reads",
+              "artist:walks",
+              "pilot:reads",
+              "farmer:sings",
+              "artist:writes",
+              "farmer:writes",
+              "artist:writes",
+              "farmer:sings",
+              "pilot:sings"
+            ],
+            "validation_threshold": -9.368894920296274,
+            "accuracy": 0.625,
+            "balanced_accuracy": 0.625
+          }
+        ]
+      },
+      "mean": {
+        "accuracy": {
+          "count": 24,
+          "mean": 0.6024305555555556,
+          "population_variance": 0.004192587770061728,
+          "minimum": 0.5,
+          "maximum": 0.75
+        },
+        "balanced_accuracy": {
+          "count": 24,
+          "mean": 0.6024305555555556,
+          "population_variance": 0.004192587770061729,
+          "minimum": 0.5,
+          "maximum": 0.75
+        },
+        "error_frequency": [
+          {
+            "sentence": "the artist reads",
+            "error_draws": 22
+          },
+          {
+            "sentence": "the artist read",
+            "error_draws": 1
+          },
+          {
+            "sentence": "the artist reads near the trees",
+            "error_draws": 5
+          },
+          {
+            "sentence": "the artist read near the trees",
+            "error_draws": 13
+          },
+          {
+            "sentence": "the singer reads",
+            "error_draws": 20
+          },
+          {
+            "sentence": "the singer read",
+            "error_draws": 1
+          },
+          {
+            "sentence": "the singer reads near the trees",
+            "error_draws": 2
+          },
+          {
+            "sentence": "the singer read near the trees",
+            "error_draws": 17
+          },
+          {
+            "sentence": "the chef writes",
+            "error_draws": 24
+          },
+          {
+            "sentence": "the chef writes near the trees",
+            "error_draws": 7
+          },
+          {
+            "sentence": "the chef write near the trees",
+            "error_draws": 6
+          },
+          {
+            "sentence": "the chef reads",
+            "error_draws": 23
+          },
+          {
+            "sentence": "the chef reads near the trees",
+            "error_draws": 11
+          },
+          {
+            "sentence": "the chef read near the trees",
+            "error_draws": 6
+          },
+          {
+            "sentence": "the teacher reads",
+            "error_draws": 24
+          },
+          {
+            "sentence": "the teacher reads near the trees",
+            "error_draws": 11
+          },
+          {
+            "sentence": "the teacher read near the trees",
+            "error_draws": 3
+          },
+          {
+            "sentence": "the farmer walks",
+            "error_draws": 22
+          },
+          {
+            "sentence": "the farmer walks near the trees",
+            "error_draws": 3
+          },
+          {
+            "sentence": "the farmer walk near the trees",
+            "error_draws": 8
+          }
+        ],
+        "draws": [
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "farmer:writes",
+              "singer:sings",
+              "singer:sings",
+              "singer:writes",
+              "artist:walks",
+              "chef:sings",
+              "singer:walks",
+              "singer:walks",
+              "singer:sings",
+              "pilot:reads",
+              "singer:walks"
+            ],
+            "validation_threshold": -1.6115641666051477,
+            "accuracy": 0.625,
+            "balanced_accuracy": 0.625
+          },
+          {
+            "sampled_groups": [
+              "singer:sings",
+              "teacher:walks",
+              "pilot:sings",
+              "singer:walks",
+              "pilot:sings",
+              "chef:sings",
+              "artist:sings",
+              "singer:walks",
+              "artist:walks",
+              "artist:walks",
+              "farmer:sings",
+              "artist:walks"
+            ],
+            "validation_threshold": -1.464878635716341,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "pilot:sings",
+              "artist:sings",
+              "singer:writes",
+              "pilot:sings",
+              "singer:writes",
+              "farmer:writes",
+              "chef:sings",
+              "pilot:reads",
+              "farmer:sings",
+              "farmer:writes",
+              "farmer:writes",
+              "pilot:reads"
+            ],
+            "validation_threshold": -1.7188262324414696,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666667
+          },
+          {
+            "sampled_groups": [
+              "teacher:walks",
+              "singer:sings",
+              "singer:writes",
+              "artist:walks",
+              "teacher:walks",
+              "farmer:writes",
+              "artist:walks",
+              "singer:sings",
+              "singer:sings",
+              "farmer:sings",
+              "farmer:sings",
+              "pilot:sings"
+            ],
+            "validation_threshold": -1.9344052408960215,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "artist:writes",
+              "singer:writes",
+              "teacher:walks",
+              "teacher:walks",
+              "singer:walks",
+              "farmer:sings",
+              "artist:sings",
+              "teacher:walks",
+              "farmer:writes",
+              "farmer:writes",
+              "pilot:sings",
+              "pilot:reads"
+            ],
+            "validation_threshold": -1.4961675585027223,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666666
+          },
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "pilot:reads",
+              "singer:walks",
+              "singer:sings",
+              "pilot:sings",
+              "artist:walks",
+              "pilot:reads",
+              "singer:sings",
+              "singer:walks",
+              "pilot:sings",
+              "pilot:reads",
+              "singer:sings"
+            ],
+            "validation_threshold": -1.585938033399423,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666667
+          },
+          {
+            "sampled_groups": [
+              "farmer:sings",
+              "pilot:reads",
+              "singer:walks",
+              "pilot:sings",
+              "singer:sings",
+              "singer:sings",
+              "artist:sings",
+              "singer:walks",
+              "chef:sings",
+              "artist:writes",
+              "artist:sings",
+              "teacher:walks"
+            ],
+            "validation_threshold": -1.5948602842419441,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666667
+          },
+          {
+            "sampled_groups": [
+              "singer:sings",
+              "singer:writes",
+              "artist:walks",
+              "teacher:walks",
+              "singer:walks",
+              "pilot:reads",
+              "pilot:sings",
+              "artist:writes",
+              "pilot:sings",
+              "chef:sings",
+              "artist:walks",
+              "singer:writes"
+            ],
+            "validation_threshold": -1.5071783213475265,
+            "accuracy": 0.625,
+            "balanced_accuracy": 0.625
+          },
+          {
+            "sampled_groups": [
+              "teacher:walks",
+              "pilot:sings",
+              "singer:writes",
+              "pilot:sings",
+              "teacher:walks",
+              "singer:sings",
+              "farmer:sings",
+              "singer:sings",
+              "pilot:reads",
+              "singer:writes",
+              "farmer:sings",
+              "singer:sings"
+            ],
+            "validation_threshold": -1.4742377973167988,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333333
+          },
+          {
+            "sampled_groups": [
+              "singer:writes",
+              "singer:sings",
+              "teacher:walks",
+              "pilot:sings",
+              "pilot:reads",
+              "pilot:reads",
+              "chef:sings",
+              "farmer:sings",
+              "farmer:sings",
+              "artist:sings",
+              "artist:sings",
+              "artist:writes"
+            ],
+            "validation_threshold": -1.556958266308932,
+            "accuracy": 0.75,
+            "balanced_accuracy": 0.75
+          },
+          {
+            "sampled_groups": [
+              "singer:writes",
+              "singer:walks",
+              "pilot:sings",
+              "singer:sings",
+              "pilot:sings",
+              "farmer:writes",
+              "chef:sings",
+              "farmer:sings",
+              "teacher:walks",
+              "pilot:sings",
+              "pilot:sings",
+              "singer:sings"
+            ],
+            "validation_threshold": -1.4709613363120773,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333334
+          },
+          {
+            "sampled_groups": [
+              "pilot:sings",
+              "pilot:reads",
+              "singer:sings",
+              "singer:writes",
+              "artist:sings",
+              "farmer:sings",
+              "farmer:writes",
+              "pilot:sings",
+              "artist:walks",
+              "pilot:sings",
+              "teacher:walks",
+              "teacher:walks"
+            ],
+            "validation_threshold": -1.5015323779660652,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666666
+          },
+          {
+            "sampled_groups": [
+              "singer:sings",
+              "farmer:sings",
+              "pilot:sings",
+              "artist:writes",
+              "pilot:reads",
+              "teacher:walks",
+              "pilot:sings",
+              "artist:walks",
+              "singer:writes",
+              "farmer:sings",
+              "pilot:sings",
+              "farmer:writes"
+            ],
+            "validation_threshold": -1.4960351607420561,
+            "accuracy": 0.625,
+            "balanced_accuracy": 0.625
+          },
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "chef:sings",
+              "teacher:walks",
+              "pilot:reads",
+              "artist:writes",
+              "pilot:sings",
+              "artist:sings",
+              "artist:walks",
+              "artist:sings",
+              "pilot:sings",
+              "singer:walks",
+              "singer:sings"
+            ],
+            "validation_threshold": -1.9382408886478106,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "singer:walks",
+              "chef:sings",
+              "chef:sings",
+              "artist:walks",
+              "singer:walks",
+              "artist:sings",
+              "singer:sings",
+              "farmer:sings",
+              "singer:writes",
+              "singer:writes",
+              "farmer:writes"
+            ],
+            "validation_threshold": -1.6068147709693013,
+            "accuracy": 0.5,
+            "balanced_accuracy": 0.5
+          },
+          {
+            "sampled_groups": [
+              "artist:writes",
+              "artist:sings",
+              "farmer:writes",
+              "singer:writes",
+              "singer:walks",
+              "singer:walks",
+              "pilot:sings",
+              "teacher:walks",
+              "teacher:walks",
+              "artist:writes",
+              "singer:sings",
+              "chef:sings"
+            ],
+            "validation_threshold": -1.5145553463084909,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333333
+          },
+          {
+            "sampled_groups": [
+              "pilot:sings",
+              "singer:walks",
+              "artist:writes",
+              "singer:walks",
+              "teacher:walks",
+              "singer:sings",
+              "farmer:sings",
+              "artist:walks",
+              "pilot:reads",
+              "singer:writes",
+              "artist:writes",
+              "artist:writes"
+            ],
+            "validation_threshold": -1.5572579892196066,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333334
+          },
+          {
+            "sampled_groups": [
+              "singer:walks",
+              "farmer:sings",
+              "singer:sings",
+              "pilot:reads",
+              "pilot:reads",
+              "artist:writes",
+              "singer:sings",
+              "chef:sings",
+              "pilot:reads",
+              "artist:sings",
+              "artist:walks",
+              "pilot:reads"
+            ],
+            "validation_threshold": -1.957509723626218,
+            "accuracy": 0.6666666666666666,
+            "balanced_accuracy": 0.6666666666666667
+          },
+          {
+            "sampled_groups": [
+              "artist:walks",
+              "artist:sings",
+              "farmer:writes",
+              "singer:writes",
+              "farmer:writes",
+              "artist:sings",
+              "artist:sings",
+              "singer:sings",
+              "pilot:sings",
+              "farmer:writes",
+              "singer:writes",
+              "farmer:sings"
+            ],
+            "validation_threshold": -1.5247250551488112,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "pilot:sings",
+              "farmer:writes",
+              "artist:walks",
+              "pilot:sings",
+              "pilot:sings",
+              "singer:walks",
+              "singer:walks",
+              "artist:writes",
+              "artist:writes",
+              "singer:walks",
+              "singer:sings",
+              "chef:sings"
+            ],
+            "validation_threshold": -1.7156730489892653,
+            "accuracy": 0.5,
+            "balanced_accuracy": 0.5
+          },
+          {
+            "sampled_groups": [
+              "pilot:reads",
+              "singer:walks",
+              "farmer:writes",
+              "pilot:sings",
+              "singer:walks",
+              "chef:sings",
+              "singer:writes",
+              "teacher:walks",
+              "artist:walks",
+              "singer:sings",
+              "pilot:reads",
+              "artist:sings"
+            ],
+            "validation_threshold": -1.556958266308932,
+            "accuracy": 0.7083333333333334,
+            "balanced_accuracy": 0.7083333333333333
+          },
+          {
+            "sampled_groups": [
+              "chef:sings",
+              "singer:writes",
+              "artist:writes",
+              "artist:sings",
+              "singer:writes",
+              "singer:sings",
+              "artist:sings",
+              "pilot:sings",
+              "singer:writes",
+              "chef:sings",
+              "pilot:sings",
+              "teacher:walks"
+            ],
+            "validation_threshold": -1.4903268402818692,
+            "accuracy": 0.5416666666666666,
+            "balanced_accuracy": 0.5416666666666666
+          },
+          {
+            "sampled_groups": [
+              "singer:writes",
+              "artist:sings",
+              "artist:writes",
+              "singer:writes",
+              "singer:sings",
+              "chef:sings",
+              "singer:sings",
+              "artist:writes",
+              "artist:writes",
+              "singer:writes",
+              "artist:writes",
+              "pilot:reads"
+            ],
+            "validation_threshold": -1.5309401535052132,
+            "accuracy": 0.5833333333333334,
+            "balanced_accuracy": 0.5833333333333334
+          },
+          {
+            "sampled_groups": [
+              "farmer:sings",
+              "pilot:reads",
+              "singer:sings",
+              "pilot:reads",
+              "artist:walks",
+              "pilot:reads",
+              "farmer:sings",
+              "artist:writes",
+              "farmer:writes",
+              "artist:writes",
+              "farmer:sings",
+              "pilot:sings"
+            ],
+            "validation_threshold": -1.696769177773775,
+            "accuracy": 0.625,
+            "balanced_accuracy": 0.625
+          }
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Synthetic templated sentences do not represent CoLA or natural language.",
+    "A bigram model is not GPT-2 and this does not verify earlier project claims.",
+    "One deterministic split and a small test set limit stability claims.",
+    "The grammatical label follows the generation rule, not human annotation."
+  ]
+}

@@ -1,0 +1,99 @@
+# Synthetic acceptability experiment
+
+This report is generated from a fixed synthetic CSV. It is not a CoLA or GPT-2 result.
+
+## Data and protocol
+
+CSV SHA-256: `062bd83a9afab81a14230a3fd17b56b40d96ae2af8120ec39ae524e5c92a90f9`. The model trains on positive training sentences; thresholds use validation labels; test labels are used only for final evaluation.
+
+| Split | Rows | Label 0 | Label 1 | Groups |
+| --- | ---: | ---: | ---: | ---: |
+| train | 48 | 24 | 24 | 12 |
+| validation | 24 | 12 | 12 | 6 |
+| test | 24 | 12 | 12 | 6 |
+
+## Held-out comparison
+
+| Method | Accuracy | Balanced accuracy | False positives | False negatives | AUC |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Train-majority | 0.500 | 0.500 | 12 | 0 | no score |
+| sum | 0.667 | 0.667 | 0 | 8 | AUC 0.694 |
+| mean | 0.667 | 0.667 | 0 | 8 | AUC 0.694 |
+
+## Score distributions and failures
+
+Population variance describes all scores in each fixed test slice; it is not uncertainty about future data.
+
+| Method | Length | Label | Count | Mean score | Population variance |
+| --- | --- | ---: | ---: | ---: | ---: |
+| sum | short | 0 | 6 | -8.541 | 0.084 |
+| sum | short | 1 | 6 | -7.812 | 0.110 |
+| sum | long | 0 | 6 | -11.369 | 0.084 |
+| sum | long | 1 | 6 | -10.641 | 0.110 |
+| mean | short | 0 | 6 | -2.135 | 0.005 |
+| mean | short | 1 | 6 | -1.953 | 0.007 |
+| mean | long | 0 | 6 | -1.624 | 0.002 |
+| mean | long | 1 | 6 | -1.520 | 0.002 |
+
+Equal-width score bins show the observed distribution. Each method uses one range shared by all four slices; ranges differ between methods. Bins include their lower endpoint and exclude their upper endpoint, except the final bin, which includes the maximum.
+
+| Method | Score bin | Short label 0 | Short label 1 | Long label 0 | Long label 1 |
+| --- | --- | ---: | ---: | ---: | ---: |
+| sum | [-11.648, -10.792) | 0 | 0 | 6 | 2 |
+| sum | [-10.792, -9.937) | 0 | 0 | 0 | 4 |
+| sum | [-9.937, -9.081) | 0 | 0 | 0 | 0 |
+| sum | [-9.081, -8.225) | 4 | 2 | 0 | 0 |
+| sum | [-8.225, -7.370] | 2 | 4 | 0 | 0 |
+| mean | [-2.205, -2.055) | 4 | 2 | 0 | 0 |
+| mean | [-2.055, -1.906) | 2 | 1 | 0 | 0 |
+| mean | [-1.906, -1.756) | 0 | 3 | 0 | 0 |
+| mean | [-1.756, -1.606) | 0 | 0 | 4 | 0 |
+| mean | [-1.606, -1.457] | 0 | 0 | 2 | 6 |
+
+### sum errors (8)
+
+- `the artist reads near the trees`: actual 1, predicted 0, long, score -10.444.
+- `the singer reads near the trees`: actual 1, predicted 0, long, score -10.444.
+- `the chef writes near the trees`: actual 1, predicted 0, long, score -10.598.
+- `the chef reads`: actual 1, predicted 0, short, score -8.251.
+- `the chef reads near the trees`: actual 1, predicted 0, long, score -11.080.
+- `the teacher reads`: actual 1, predicted 0, short, score -8.251.
+- `the teacher reads near the trees`: actual 1, predicted 0, long, score -11.080.
+- `the farmer walks near the trees`: actual 1, predicted 0, long, score -10.198.
+
+### mean errors (8)
+
+- `the artist reads`: actual 1, predicted 0, short, score -1.904.
+- `the singer reads`: actual 1, predicted 0, short, score -1.904.
+- `the chef writes`: actual 1, predicted 0, short, score -1.942.
+- `the chef reads`: actual 1, predicted 0, short, score -2.063.
+- `the chef reads near the trees`: actual 1, predicted 0, long, score -1.583.
+- `the teacher reads`: actual 1, predicted 0, short, score -2.063.
+- `the teacher reads near the trees`: actual 1, predicted 0, long, score -1.583.
+- `the farmer walks`: actual 1, predicted 0, short, score -1.842.
+
+## Training-composition sensitivity
+
+24 seeded refits sample training groups with replacement. Validation and test cases stay fixed; each refit chooses its threshold on validation.
+
+| Method | Mean accuracy | Population variance | Minimum | Maximum |
+| --- | ---: | ---: | ---: | ---: |
+| sum | 0.606 | 0.0038 | 0.500 | 0.750 |
+| mean | 0.602 | 0.0042 | 0.500 | 0.750 |
+
+Most frequent errors across refits:
+
+- sum: `the chef writes near the trees` failed in 24/24 refits.
+- sum: `the teacher reads near the trees` failed in 24/24 refits.
+- sum: `the chef reads near the trees` failed in 23/24 refits.
+- mean: `the chef writes` failed in 24/24 refits.
+- mean: `the teacher reads` failed in 24/24 refits.
+- mean: `the chef reads` failed in 23/24 refits.
+
+## Interpretation and source note
+
+The Python `statistics.pvariance` documentation defines variance over the entire observed population. This report therefore uses it for each complete fixed slice and for the finite set of resample outcomes; the values are descriptive, not confidence intervals. Source: https://docs.python.org/3/library/statistics.html#statistics.pvariance
+
+A relationship between sentence length and score or error is observational here. Length also changes token context under the fixed templates; this comparison does not identify a causal effect of length. Resampling these training groups checks sensitivity to this small generated training set, not performance on new language.
+
+This note is generated by code for a future reader to review; it does not claim personal reading, authorship, or mastery.
