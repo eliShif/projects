@@ -1,0 +1,32 @@
+{
+  "kind": "baseline_only; no language model run",
+  "report_path": "artifacts/baseline/answer_report.json",
+  "report_sha256": "b81e453ac3d4f6e121520a852bbac6f7034b49bb42f6256b4f4ae480ffa5fa44",
+  "dataset_sha256": "975acd94ab8f52fb4705987f824015c9e3e0a661507510b9a993764ebbb3b7e5",
+  "threshold": 2,
+  "information_control": "baseline_only",
+  "pair_count": 12,
+  "methods": {
+    "always_abstain": {
+      "count": 24,
+      "accuracy": 0.3333333333333333,
+      "error_counts": {
+        "false_abstention": 16
+      }
+    },
+    "lexical_retrieval": {
+      "count": 24,
+      "accuracy": 0.9166666666666666,
+      "error_counts": {
+        "false_abstention": 2
+      }
+    }
+  },
+  "limitations": [
+    "Synthetic paired templates are not natural user questions.",
+    "The baseline extracts answers from known synthetic source templates; it is not an LLM.",
+    "Imported predictions alone do not verify evidence exposure or generation settings.",
+    "Four test entities and their resampling interval cannot establish language parity or population stability.",
+    "Lexical overlap cannot resolve paraphrases or assess semantic equivalence."
+  ]
+}

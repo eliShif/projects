@@ -1,0 +1,130 @@
+{
+  "started_utc": "2026-10-28 18:30:15 UTC",
+  "python": "3.14.4",
+  "setuptools": "78.1.1",
+  "real_model_run": false,
+  "commands": [
+    {
+      "name": "install",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "pip",
+          "install",
+          "--no-index",
+          "--no-build-isolation",
+          "--no-deps",
+          "-e",
+          "."
+        ]
+      },
+      "exit_code": 0,
+      "wall_time_seconds": 2.320587797,
+      "output_path": "validation/install.txt",
+      "output_sha256": "c24a5e242752e5f361f97cf250f44c266ad8fdc10e884a9abebc864d79df3901"
+    },
+    {
+      "name": "tests",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ]
+      },
+      "exit_code": 0,
+      "wall_time_seconds": 1.829305249,
+      "output_path": "validation/tests.txt",
+      "output_sha256": "ec370ca65093adce5079f0805b99bc3fdedbf56cb461ef0e8bfbbc61d783bcd9"
+    },
+    {
+      "name": "build",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "pip",
+          "wheel",
+          "--no-index",
+          "--no-build-isolation",
+          "--no-deps",
+          "--wheel-dir",
+          "dist",
+          "."
+        ]
+      },
+      "exit_code": 0,
+      "wall_time_seconds": 2.062834969,
+      "output_path": "validation/build.txt",
+      "output_sha256": "620693f6f01353b17c430cd51e2ee7198f7e1c2c049373a1aea5c3776180f295"
+    },
+    {
+      "name": "documented_run",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "cola_lab",
+          "answers",
+          "--output-dir",
+          "artifacts/baseline"
+        ]
+      },
+      "exit_code": 0,
+      "wall_time_seconds": 0.447706742,
+      "output_path": "validation/documented_run.txt",
+      "output_sha256": "70a9c6e1aaf1573f4cf93883697a6103fea88ef3b62f052e0afeac32aeca3569"
+    },
+    {
+      "name": "smoke",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "cola_lab",
+          "answers-smoke"
+        ]
+      },
+      "exit_code": 0,
+      "wall_time_seconds": 0.390167575,
+      "output_path": "validation/smoke.txt",
+      "output_sha256": "7d5464e7d036fab0ece4905bc0a70359ef06502b1f1beb894735c616f09bae11"
+    },
+    {
+      "name": "retained_smoke",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "cola_lab",
+          "smoke"
+        ]
+      },
+      "exit_code": 0,
+      "wall_time_seconds": 0.443962447,
+      "output_path": "validation/retained_smoke.txt",
+      "output_sha256": "813f54cabe6c42c52534852ddd4efee0a96024e078601026dcf295d9e7dd8afa"
+    }
+  ],
+  "source_sha256": {
+    "CODE_MAP.md": "65681fa830ed3969d8902953e2617ec50245a96704ad1d4cf3eaa09a8c2c73f4",
+    "EXERCISES.md": "ef6f52612348ae278b82341aecee3c47ca6e5a1e4c71ea6b91b46b88961d9c98",
+    "README.md": "0f6e5c6567e6c20f36ade3d2390a3b74895a1c16b1af0af35db700f6dcd07446",
+    "cola_lab/__init__.py": "789f8b204242108a80e361ca329cf5b0b2fbca67efe0a7877e3281ba439c596d",
+    "cola_lab/__main__.py": "0adddbcc7fe8a98198758f799153aba3dc350262695ccc25eb636485ea3ad0f2",
+    "cola_lab/answer_eval.py": "f40f6be49b91db132c074a43883cdc2c4d22f49f14c579430c8902e3394c131f",
+    "cola_lab/data.py": "0324657dceb7aeb11836803258cdd4173cb7df8d602457834c783ac11620d059",
+    "cola_lab/experiment.py": "2db6134dd6ef8e14b9a78e86fc3334c38385c5e1666562732e4494494e4131d7",
+    "cola_lab/local_gguf.py": "a1727e5d0d8ad17ffb277e5577fa153853e39461c2eaa9317eef4694cbf79f9c",
+    "pyproject.toml": "5bddbe1331fe5fc24ccb5921586593d4efbccb444bbfc2e70429de2ee220d223",
+    "tests/test_answer_eval.py": "d45fac91ac351e9b986ece0300f35531a31c82825edfcf62ade30a3ab932e2c0",
+    "tests/test_experiment.py": "6b9d95f48b607c755d2446d8b17fb675b2faca6326793fed7ac6c2b673294e4a",
+    "tests/test_local_gguf.py": "fdc4c7d803e6ae1faf18aa0fc4b4aa6691722c3fdf9b8faf4c679e9d5cdcd285",
+    "tests/test_shared_protocol.py": "7b8f31e2afe9295537d9a253fedc86d0484e9a019412b156b43252294741020e"
+  }
+}

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bilingual-answer-evaluation"
+version = "0.2.0"
+description = "Offline synthetic bilingual evaluation with audited evidence and paired generation settings"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+gguf = ["llama-cpp-python>=0.3.16,<0.4"]
+
+[tool.setuptools]
+packages = ["cola_lab"]
