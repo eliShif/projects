@@ -1,0 +1,9 @@
+Processing /home/ubuntu/job-pilot/runtime/projects/ba772b65-e5f6-422c-9e76-8a75299ef79d/2
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: bilingual-answer-evaluation
+  Building wheel for bilingual-answer-evaluation (pyproject.toml): started
+  Building wheel for bilingual-answer-evaluation (pyproject.toml): finished with status 'done'
+  Created wheel for bilingual-answer-evaluation: filename=bilingual_answer_evaluation-0.3.0-py3-none-any.whl size=26741 sha256=457ff885a31fdfa3e00221817e70066b9100be3a833d72fb809aafb91dff19fa
+  Stored in directory: /tmp/pip-ephem-wheel-cache-3papbj04/wheels/28/16/f6/656687414daeeb385578b7f95d36daaa6fc45b1e51de549a1e
+Successfully built bilingual-answer-evaluation
