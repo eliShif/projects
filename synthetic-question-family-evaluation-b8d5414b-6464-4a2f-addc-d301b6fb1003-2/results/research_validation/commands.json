@@ -1,0 +1,139 @@
+{
+  "executed_at_utc": "2026-10-30T20:00:48.269861+00:00",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "package_versions": {
+    "setuptools": "78.1.1",
+    "synthetic-question-family-evaluation": "2.1.0"
+  },
+  "verification_source_hashes": {
+    "CODE_MAP.md": "b18e8411c045426d82961203d5141ad3e8f76358fcb8c721a3a0a7807599b6a2",
+    "EXERCISES.md": "7195c55f8b83976cc708aec87aeb02c9f35da1c03e55e75bec3d2b370aa17d4e",
+    "README.md": "04d7cfd182d6c3f3ad5d16aa4135646a3dac603f2f3c9cb6b6144e047712b183",
+    "pyproject.toml": "57a13b2c8b5e26d8f2e823dc20fbff8a7d2036493210fdb217341a459d7645b9",
+    "scripts/smoke_research_lab.py": "8ea78f8009bf9abe7d099564e7e182b01a6ea45addde2620ad79323815cdf3b3",
+    "scripts/verify_research_lab.py": "1f138b6f1d8269894ad527e4812e1d3574472eac0525e6d53c21dccea12ed237",
+    "tests/test_evidence_agent.py": "3ae92bd4de207a26988595b2950e8112a43d28404e52f0fd5670c8f5dfd5feb5",
+    "tests/test_research_cases.py": "8432a0fab89c10e3c098f0770686de7044a6390b09904da30b18124c483f6246",
+    "tests/test_research_generalization.py": "24bcc91ec49f3510020f0a924d62ad57131b16a997f6ec30f961c13b12c45235",
+    "tests/test_research_integrity.py": "9b27c22bcc955915049ba89370238942c56c005c51afa7bbfb4ca966a830534e",
+    "tests/test_research_lab.py": "f758993440af9d09a0b06de8983faf0cae7798aa2037c975336841ff4c50678b"
+  },
+  "artifact_sha256": {
+    "results/research_lab/cases.json": "ef33c195d4edc7587f465393dad23b980968de1cec56cdefe8ba248a3b64637c",
+    "results/research_lab/challenge_cases.json": "c78d0cfd4796e387218bef48c42180942dd4b966f54341390c47cb4e50cbd0de",
+    "results/research_lab/protocol.json": "6630f2757e69d43fb1038eaa5ea704329c02f855d42352d674801898e6262792",
+    "results/research_lab/selection.json": "e1ef71ca47ca9f3c72b872ad8649116d880c26febacc7d4cb4a5034d26c0db05",
+    "results/research_lab/summary.json": "b7dc99cd4a2a4540b1d58555e65b89878ee628196246206e1870411a00f62814",
+    "results/research_lab/REPORT.md": "cbc0e8b9c12b9be228370c4bf4b36a8aa5907ac2116f3e139bfb9f37d20ced46"
+  },
+  "status": "passed",
+  "commands": [
+    {
+      "name": "install",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "pip",
+          "--isolated",
+          "--disable-pip-version-check",
+          "--no-cache-dir",
+          "install",
+          "--no-index",
+          "--no-build-isolation",
+          "--no-deps",
+          "."
+        ]
+      },
+      "exit_code": 0,
+      "output_path": "results/research_validation/install.txt",
+      "output_sha256": "67e9536371e8707f3c2ac87670940db1b4c78f2b9fbf1c980285472d7ac58f89"
+    },
+    {
+      "name": "tests",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_research*.py",
+          "-v"
+        ]
+      },
+      "exit_code": 0,
+      "output_path": "results/research_validation/tests.txt",
+      "output_sha256": "ad9df2241c940f3a1d2047eac376e3875027e588bb6818b5dc9878923c0f8ea2"
+    },
+    {
+      "name": "shared_generator_caller_tests",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_evidence_agent.py",
+          "-v"
+        ]
+      },
+      "exit_code": 0,
+      "output_path": "results/research_validation/shared_generator_caller_tests.txt",
+      "output_sha256": "5deae733fb070eafa9520d2748bab1b41bf85f215a13cc20956136c53aaf55ba"
+    },
+    {
+      "name": "build",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "compileall",
+          "-q",
+          "portfolio",
+          "tests",
+          "scripts"
+        ]
+      },
+      "exit_code": 0,
+      "output_path": "results/research_validation/build.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "documented_run",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "portfolio.research_lab",
+          "--out",
+          "results/research_lab"
+        ]
+      },
+      "exit_code": 0,
+      "output_path": "results/research_validation/documented_run.txt",
+      "output_sha256": "0131d6186515975ffbf9ae307dd18faac2aba0a1bb14602e4798afeefb3651b7"
+    },
+    {
+      "name": "smoke",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "scripts/smoke_research_lab.py",
+          "--out",
+          "results/research_lab",
+          "--installed"
+        ]
+      },
+      "exit_code": 0,
+      "output_path": "results/research_validation/smoke.txt",
+      "output_sha256": "550d59ab8032c87d910b4f3d075b50466b09d2a0414aae6930c64b002982048d"
+    }
+  ],
+  "scope": "Question-family lab plus shared evidence-agent caller tests; no remote APIs or models"
+}

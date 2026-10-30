@@ -1,0 +1,11 @@
+Processing /home/ubuntu/job-pilot/runtime/projects/b8d5414b-6464-4a2f-addc-d301b6fb1003/1
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: synthetic-question-family-evaluation
+  Building wheel for synthetic-question-family-evaluation (pyproject.toml): started
+  Building wheel for synthetic-question-family-evaluation (pyproject.toml): finished with status 'done'
+  Created wheel for synthetic-question-family-evaluation: filename=synthetic_question_family_evaluation-2.1.0-py3-none-any.whl size=53213 sha256=7279aca79ed33393f0b97582fee6fd23741f7f49b67e92b3e26a1cf650df5185
+  Stored in directory: /tmp/pip-ephem-wheel-cache-g25jgts9/wheels/4d/70/4b/b6c8a569f026c9ecdc05e32204feefaf5e32ba036ad0b202ee
+Successfully built synthetic-question-family-evaluation
+Installing collected packages: synthetic-question-family-evaluation
+Successfully installed synthetic-question-family-evaluation-2.1.0

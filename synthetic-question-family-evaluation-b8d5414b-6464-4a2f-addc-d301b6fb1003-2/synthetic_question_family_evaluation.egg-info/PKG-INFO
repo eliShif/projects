@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: synthetic-question-family-evaluation
+Version: 2.1.0
+Summary: Offline synthetic question classification with audited splits and train-validation gap analysis
+Requires-Python: >=3.11

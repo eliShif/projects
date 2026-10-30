@@ -1,0 +1,62 @@
+{
+  "candidates": [
+    "majority",
+    "unigram",
+    "bigram"
+  ],
+  "case_schema_version": 1,
+  "cases_sha256": "ebdeeec3d70cd1c0ab47e68fa6e7c815aa52a6e1b3dbd7af3dd56a0f01699dbb",
+  "challenge": "After selection, evaluate the same models on one alternate authored wording per held-out entity and label; do not tune on challenge results",
+  "challenge_cases_sha256": "c46649dff94132b2465e2fdec0aafee940bafb49235c380bbbafcc5207cff412",
+  "data": "Existing build_cases('test', entity_groups=SPLITS) templates; pools assigned before comparison generation",
+  "diagnostics": "After original validation selection: paired wording transitions, fixed-method entity folds purged of all held-out mentions, 12 seeded stratified training resamples, one-family training downsampling, and feature/label-count review; exploratory, never used to select a model",
+  "experiment_version": "2.1.0",
+  "label_order": [
+    "lookup",
+    "conversion",
+    "difference",
+    "sum",
+    "ratio",
+    "missing_field",
+    "unknown_service",
+    "conflict"
+  ],
+  "method": "majority versus multinomial Naive Bayes with unigram or unigram+bigram counts and Laplace smoothing",
+  "metrics": {
+    "accuracy": "fraction correctly classified",
+    "entity_variance": "population variance of accuracy across test entities",
+    "label_distribution": "split-normalized label fractions, unweighted mean and population variance across fixed splits, and total variation from train",
+    "macro_f1": "arithmetic mean of per-family F1, including zero for absent or unpredicted families",
+    "per_label": "support, predicted count, precision=TP/(TP+FP), recall=TP/(TP+FN), F1=2TP/(2TP+FP+FN); undefined denominators reported as zero",
+    "score_margin": "top minus runner-up unnormalized class log score; descriptive mean and population variance on fixed cases"
+  },
+  "missing_class_policy": "Audit includes all eight counts and null imbalance ratio if any is zero; the full run rejects missing families in any split before fitting or writing results",
+  "python": "3.14.4",
+  "question": "Can lexical features classify a synthetic research question's family for unseen service entities?",
+  "runtime_dependencies": "Python standard library only",
+  "selection": "highest validation macro F1, then accuracy, then alphabetical model name; selection.json saved before any test prediction; no refit on validation",
+  "source_hashes": {
+    "portfolio/evidence_agent.py": "4dea99bb5c6969ec332be06b964ba96e42a795fc9f974671d842589b766adcc3",
+    "portfolio/research_cases.py": "7c4e7d2abecae4d32983a727699ff95e50f02cb5539c7a12867388033d55fe53",
+    "portfolio/research_lab.py": "81d1aa39cc5031fc981d11592cb9b08d49d8c3e3104c0996a74e1a2912db491c"
+  },
+  "source_sha256": "81d1aa39cc5031fc981d11592cb9b08d49d8c3e3104c0996a74e1a2912db491c",
+  "split_unit": "all mentioned service roots, including secondary entities and Sandbox/Mirror aliases",
+  "splits": {
+    "test": [
+      "Garnet",
+      "Helix"
+    ],
+    "train": [
+      "Cobalt",
+      "Delta",
+      "Ember"
+    ],
+    "validation": [
+      "Fjord",
+      "Ibis"
+    ]
+  },
+  "template_audit": "Exact question-template overlap with training after masking known service names; descriptive only and never used for model selection",
+  "train_validation_review": "Evaluate the same train-fitted candidates on train and validation; signed train-minus-validation accuracy and macro F1 gaps are descriptive only, never ranking inputs or an automatic overfitting diagnosis"
+}
