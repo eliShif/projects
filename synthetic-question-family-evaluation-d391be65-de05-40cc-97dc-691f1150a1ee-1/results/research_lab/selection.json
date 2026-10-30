@@ -1,0 +1,73 @@
+{
+  "candidate_metrics": {
+    "bigram": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "majority": {
+      "accuracy": 0.125,
+      "macro_f1": 0.027777777777777776
+    },
+    "unigram": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    }
+  },
+  "experiment_version": "2.1.0",
+  "fit_case_ids": [
+    "test-Cobalt-lookup",
+    "test-Cobalt-conversion",
+    "test-Cobalt-difference",
+    "test-Cobalt-sum",
+    "test-Cobalt-ratio",
+    "test-Cobalt-missing_field",
+    "test-Cobalt-unknown_service",
+    "test-Cobalt-conflict",
+    "test-Delta-lookup",
+    "test-Delta-conversion",
+    "test-Delta-difference",
+    "test-Delta-sum",
+    "test-Delta-ratio",
+    "test-Delta-missing_field",
+    "test-Delta-unknown_service",
+    "test-Delta-conflict",
+    "test-Ember-lookup",
+    "test-Ember-conversion",
+    "test-Ember-difference",
+    "test-Ember-sum",
+    "test-Ember-ratio",
+    "test-Ember-missing_field",
+    "test-Ember-unknown_service",
+    "test-Ember-conflict"
+  ],
+  "fit_split": "train",
+  "model_parameters": {
+    "bigram_includes_unigrams": true,
+    "prediction_tie_break": "alphabetical label",
+    "smoothing_alpha": 1,
+    "unseen_features": "ignored"
+  },
+  "rule": "highest validation macro F1, then accuracy, then alphabetical model name; selection.json saved before any test prediction; no refit on validation",
+  "selected": "bigram",
+  "selection_split": "validation",
+  "training_sha256": "b9dee0e410391279c664006549d37724c93525403a4a3498e55558f62b319462",
+  "validation_case_ids": [
+    "test-Fjord-lookup",
+    "test-Fjord-conversion",
+    "test-Fjord-difference",
+    "test-Fjord-sum",
+    "test-Fjord-ratio",
+    "test-Fjord-missing_field",
+    "test-Fjord-unknown_service",
+    "test-Fjord-conflict",
+    "test-Ibis-lookup",
+    "test-Ibis-conversion",
+    "test-Ibis-difference",
+    "test-Ibis-sum",
+    "test-Ibis-ratio",
+    "test-Ibis-missing_field",
+    "test-Ibis-unknown_service",
+    "test-Ibis-conflict"
+  ],
+  "validation_sha256": "b9f27438ce95058c6a6dd46d59b3024c1da1eedf31d98d2ae6bc0b8231e709ac"
+}

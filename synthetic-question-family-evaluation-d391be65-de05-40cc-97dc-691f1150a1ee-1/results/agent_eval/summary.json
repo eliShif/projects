@@ -1,0 +1,74 @@
+{
+  "experiment": "local-agent-eval-v1",
+  "provenance": {
+    "utc": "2026-10-22T12:16:27.685253+00:00",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "model_path": "models/SmolLM2-135M-Instruct",
+  "dataset_kind": "authored synthetic runbook QA",
+  "dataset_sha256": "6033c9c76ca9b6449e937ec42c4ea9f91fac83544ec4448ab6cb568ae2aff148",
+  "summaries": {
+    "direct": {
+      "accuracy": 0.0,
+      "tasks": 12,
+      "runs": 36,
+      "all_repeats_correct_rate": 0.0,
+      "p50_seconds": 2.0873019179925905,
+      "p95_seconds": 2.3814426054996147,
+      "mean_output_tokens": 27.916666666666668,
+      "evidence_recall": 0.0
+    },
+    "retrieval": {
+      "accuracy": 0.19444444444444445,
+      "tasks": 12,
+      "runs": 36,
+      "all_repeats_correct_rate": 0.0,
+      "p50_seconds": 2.2971393394982442,
+      "p95_seconds": 2.5748863887456537,
+      "mean_output_tokens": 25.22222222222222,
+      "evidence_recall": 1.0
+    },
+    "tool_agent": {
+      "accuracy": 0.0,
+      "tasks": 12,
+      "runs": 36,
+      "all_repeats_correct_rate": 0.0,
+      "p50_seconds": 4.221914801004459,
+      "p95_seconds": 4.597452905742102,
+      "mean_output_tokens": 53.97222222222222,
+      "evidence_recall": 0.0
+    }
+  },
+  "paired_comparisons": {
+    "retrieval_minus_direct": {
+      "mean_difference": 0.19444444444444442,
+      "ci95": [
+        0.08333333333333333,
+        0.3062499999999963
+      ],
+      "unit": "question",
+      "questions": 12,
+      "repeats_per_question": 3
+    },
+    "agent_minus_retrieval": {
+      "mean_difference": -0.19444444444444442,
+      "ci95": [
+        -0.30625,
+        -0.08333333333333333
+      ],
+      "unit": "question",
+      "questions": 12,
+      "repeats_per_question": 3
+    }
+  },
+  "limitations": [
+    "Small authored QA suite, not evidence of general agent capability.",
+    "Retrieval is TF-IDF, not a neural embedding model.",
+    "Correctness is strict numeric exact match; retrieval evidence recall is not a full groundedness judgment.",
+    "Bootstrap resamples questions; repeated generations are clustered.",
+    "Invalid tool actions and step exhaustion count as failures; no hidden repair or mock-model fallback."
+  ]
+}
