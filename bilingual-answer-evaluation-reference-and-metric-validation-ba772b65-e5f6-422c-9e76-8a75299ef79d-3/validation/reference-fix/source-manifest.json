@@ -1,0 +1,23 @@
+{
+  "CODE_MAP.md": "eedb577c81031472b6c53cca377ab046a5856cda81c2233847b4a822df34dbd1",
+  "EXERCISES.md": "3b3770cba2c714a472f1c68649f05f23d71e28a3ce4e1075090c9f9d154e1d54",
+  "README.md": "ce4fb17f3174e172c624194d97ed22017dba8df0d44d151087b0ead5c7cff728",
+  "UPSTREAM.md": "259e5561d373509603bd601e11a17fcbf2709f06f0667707db665a3183a7cc98",
+  "cola_lab/__init__.py": "789f8b204242108a80e361ca329cf5b0b2fbca67efe0a7877e3281ba439c596d",
+  "cola_lab/__main__.py": "1027de20526b08f2029e40d5fa2e03b1c1c058f649246ff9df66aa9e8ec664f8",
+  "cola_lab/answer_eval.py": "a5c46e2fad9db656dcee385b3550aa7039509964ce4d057a5e8ce998bdb0f3cc",
+  "cola_lab/data.py": "0324657dceb7aeb11836803258cdd4173cb7df8d602457834c783ac11620d059",
+  "cola_lab/experiment.py": "2db6134dd6ef8e14b9a78e86fc3334c38385c5e1666562732e4494494e4131d7",
+  "cola_lab/gguf_audit.py": "3250943fce7f66a4774a141222f731b0f405dcf0b375533a74b14412e42c3e3d",
+  "cola_lab/local_gguf.py": "470f78aac2459606abe54ef130883d13dd882f76a3ec60136c11422d55c8166c",
+  "pyproject.toml": "f2f4de358a36ba40a73893334d0f5b21238034dd31c517a04b5d5878a73c0c9b",
+  "scripts/validate.py": "d59d2f8dae4fc9bda0e95632eb530a350be755c31961a470969bb1687773bad7",
+  "tests/fixtures/reference_cases.json": "fc5f0a8210871af6239ac400b9f62617350f82ce7736feaa3a2dfcb0c4405318",
+  "tests/test_answer_eval.py": "c58c3b39c8aad34ffe743b602022ebc4106a6c7955a8c680245e22842e84134b",
+  "tests/test_experiment.py": "6b9d95f48b607c755d2446d8b17fb675b2faca6326793fed7ac6c2b673294e4a",
+  "tests/test_gguf_audit.py": "e8f1a6300d4132e4978f9826212206aaea63770b2976da60aeaf77f5f51fe247",
+  "tests/test_local_gguf.py": "4e7abf3e00e71052abd5420616346dd970a9d4918fc4fb84dab652afaa4f47a7",
+  "tests/test_reference_validation.py": "87976fd6fd7001502a2ada78c24cdb867d3ca7696a0e5656abf0b3f2f182052c",
+  "tests/test_shared_protocol.py": "65315834cda71a6422ef3f5fdfbff3bf040729c4c24c1e9f790d047a86472eb4",
+  "tests/test_summary_subsets.py": "9ef0e04d4044227d299467d495d7ea1e9f14b426ed805de83d1a7499baea8b7c"
+}

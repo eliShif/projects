@@ -1,0 +1,1 @@
+study-smoke: 24 baseline cases, 12 pairs, 48 frozen requests; missing-model failure recorded and verified; no model quality result

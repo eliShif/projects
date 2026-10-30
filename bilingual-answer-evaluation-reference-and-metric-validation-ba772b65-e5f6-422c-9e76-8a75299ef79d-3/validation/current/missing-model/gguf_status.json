@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "phase": "model_check",
+  "protocol_sha256": "8a078f9634748cea36b7a43ef298b53a317b0ed3026d6fc5484468c495bb0af4",
+  "model_file": "not-provided.gguf",
+  "model_sha256": null,
+  "backend": "llama-cpp-python",
+  "backend_version": null,
+  "python": "3.14.4",
+  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
+  "planned_requests": 48,
+  "completed_requests": 0,
+  "attempted_requests": 0,
+  "model_quality_evidence": false,
+  "error": {
+    "type": "ValueError",
+    "message": "An existing local .gguf model file is required"
+  },
+  "attempts_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

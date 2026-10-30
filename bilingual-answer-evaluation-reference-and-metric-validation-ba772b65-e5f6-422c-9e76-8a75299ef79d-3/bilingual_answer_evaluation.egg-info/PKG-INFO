@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: bilingual-answer-evaluation
+Version: 0.3.1
+Summary: Bilingual evaluation with source-checked references, explicit undefined metrics and auditable GGUF runs
+Requires-Python: >=3.10
+Provides-Extra: gguf
+Requires-Dist: llama-cpp-python<0.4,>=0.3.16; extra == "gguf"
