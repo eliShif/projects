@@ -1,0 +1,1 @@
+{"smoke": "ok", "path": "prepare", "status": "prepared", "scope": "data/protocol preparation and tamper detection; no model scored"}

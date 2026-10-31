@@ -1,0 +1,109 @@
+{
+  "utc": "2026-10-31T04:58:53.926980+00:00",
+  "checks": [
+    {
+      "name": "core-tests",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_retrieval_study.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.7406497050542384,
+      "log": "artifacts/validation/core-tests.txt"
+    },
+    {
+      "name": "full-suite",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 0.7649343750672415,
+      "log": "artifacts/validation/full-suite.txt"
+    },
+    {
+      "name": "build",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "portfolio",
+        "tests",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.10215131903532892,
+      "log": "artifacts/validation/build.txt"
+    },
+    {
+      "name": "smoke",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.retrieval_experiment",
+        "smoke"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.2633978350786492,
+      "log": "artifacts/validation/smoke.txt"
+    },
+    {
+      "name": "prepare",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.retrieval_experiment",
+        "prepare",
+        "--out",
+        "artifacts/retrieval-plan"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.14340896194335073,
+      "log": "artifacts/validation/prepare.txt"
+    },
+    {
+      "name": "audit-plan",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.retrieval_experiment",
+        "audit",
+        "--out",
+        "artifacts/retrieval-plan"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.13261693308595568,
+      "log": "artifacts/validation/audit-plan.txt"
+    },
+    {
+      "name": "tfidf-attempt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.retrieval_experiment",
+        "run",
+        "--mode",
+        "baseline",
+        "--out",
+        "artifacts/tfidf-attempt"
+      ],
+      "exit_code": 2,
+      "elapsed_seconds": 0.14779004408046603,
+      "log": "artifacts/validation/tfidf-attempt.txt"
+    }
+  ],
+  "scope": "Command outcomes only. No new pretrained model scores."
+}

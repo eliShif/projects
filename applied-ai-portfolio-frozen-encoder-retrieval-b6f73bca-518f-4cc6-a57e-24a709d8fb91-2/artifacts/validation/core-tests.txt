@@ -1,0 +1,31 @@
+test_bad_schema_empty_text_or_missing_split_is_rejected (test_retrieval_study.DatasetTests.test_bad_schema_empty_text_or_missing_split_is_rejected) ... ok
+test_bilingual_data_has_disjoint_topic_groups (test_retrieval_study.DatasetTests.test_bilingual_data_has_disjoint_topic_groups) ... ok
+test_duplicate_ids_and_normalized_text_are_rejected (test_retrieval_study.DatasetTests.test_duplicate_ids_and_normalized_text_are_rejected) ... ok
+test_invalid_or_conflicting_relevance_labels_are_rejected (test_retrieval_study.DatasetTests.test_invalid_or_conflicting_relevance_labels_are_rejected) ... ok
+test_json_parse_error_and_file_budget (test_retrieval_study.DatasetTests.test_json_parse_error_and_file_budget) ... ok
+test_query_copy_and_unicode_equivalent_text_are_rejected (test_retrieval_study.DatasetTests.test_query_copy_and_unicode_equivalent_text_are_rejected) ... ok
+test_topic_leakage_is_rejected_even_with_different_texts (test_retrieval_study.DatasetTests.test_topic_leakage_is_rejected_even_with_different_texts) ... ok
+test_aggregate_and_language_slices_use_actual_denominators (test_retrieval_study.EvaluationTests.test_aggregate_and_language_slices_use_actual_denominators) ... ok
+test_changed_test_labels_do_not_change_selection (test_retrieval_study.EvaluationTests.test_changed_test_labels_do_not_change_selection) ... ok
+test_hand_computed_partial_relevance_and_empty_ranking (test_retrieval_study.EvaluationTests.test_hand_computed_partial_relevance_and_empty_ranking) ... ok
+test_invalid_ranks_and_k_are_rejected (test_retrieval_study.EvaluationTests.test_invalid_ranks_and_k_are_rejected) ... ok
+test_paired_effects_average_topics_not_independent_paraphrases (test_retrieval_study.EvaluationTests.test_paired_effects_average_topics_not_independent_paraphrases) ... ok
+test_retriever_failure_aborts_without_test_search (test_retrieval_study.EvaluationTests.test_retriever_failure_aborts_without_test_search) ... ok
+test_selection_precedes_every_test_query_and_uses_same_k (test_retrieval_study.EvaluationTests.test_selection_precedes_every_test_query_and_uses_same_k) ... ok
+test_selector_rejects_test_rows_or_unpaired_candidates (test_retrieval_study.EvaluationTests.test_selector_rejects_test_rows_or_unpaired_candidates) ... ok
+test_unknown_duplicate_unsorted_and_nonfinite_evidence_fails (test_retrieval_study.EvaluationTests.test_unknown_duplicate_unsorted_and_nonfinite_evidence_fails) ... ok
+test_audit_detects_changed_data_and_false_completion (test_retrieval_study.ProtocolTests.test_audit_detects_changed_data_and_false_completion) ... ok
+test_completed_artifact_audit_recomputes_metrics (test_retrieval_study.ProtocolTests.test_completed_artifact_audit_recomputes_metrics) ... ok
+test_completed_artifact_audit_rejects_test_driven_selection (test_retrieval_study.ProtocolTests.test_completed_artifact_audit_rejects_test_driven_selection) ... ok
+test_dependency_failure_is_recorded_and_cannot_pass_audit (test_retrieval_study.ProtocolTests.test_dependency_failure_is_recorded_and_cannot_pass_audit) ... ok
+test_documented_cli_preparation_and_invalid_input_exit_codes (test_retrieval_study.ProtocolTests.test_documented_cli_preparation_and_invalid_input_exit_codes) ... ok
+test_finite_smoke_exercises_cli_and_tamper_detection (test_retrieval_study.ProtocolTests.test_finite_smoke_exercises_cli_and_tamper_detection) ... ok
+test_invalid_budget_never_creates_a_run (test_retrieval_study.ProtocolTests.test_invalid_budget_never_creates_a_run) ... ok
+test_prepare_snapshots_inputs_and_budget_without_model_results (test_retrieval_study.ProtocolTests.test_prepare_snapshots_inputs_and_budget_without_model_results) ... ok
+test_prepared_protocol_with_invalid_budget_fails_audit (test_retrieval_study.ProtocolTests.test_prepared_protocol_with_invalid_budget_fails_audit) ... ok
+test_refuses_to_overwrite_previous_artifacts (test_retrieval_study.ProtocolTests.test_refuses_to_overwrite_previous_artifacts) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.495s
+
+OK

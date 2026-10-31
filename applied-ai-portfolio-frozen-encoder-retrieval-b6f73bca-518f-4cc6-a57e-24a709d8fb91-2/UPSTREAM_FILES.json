@@ -1,0 +1,33 @@
+{
+  "source": "https://github.com/eliShif/applied-ai-portfolio",
+  "pinned_commit": "f06d214375d45572c92dae6e7229d5f1d652f05b",
+  "note": "Hashes of supplied workspace files before this adaptation; remote commit not independently fetched.",
+  "files": {
+    "README.md": "31480d7084fa9f25ccdf85ec63bcb496c35927fe9cb46a0df489927eb173ef4e",
+    "portfolio/__init__.py": "1efba230c5d385f4c3c7f506e712d51f0216ecdf593f6c9ee99bc7f56ef12f2d",
+    "portfolio/acceptance.py": "9aaa7669c589324c1a3681bb1d1a639d5eecc5f347576be54c510772ed00c212",
+    "portfolio/adapter_tuning.py": "3b1695797aabd3dbb7709cd33ac01cd04331677884546f52308bfc662a0c5730",
+    "portfolio/agent_eval.py": "201bacc416a8186164fc36aa883a7bfa9b30e89f5f60a027dd954a439511848a",
+    "portfolio/common.py": "7b2b122d15dbbd1616db509e16d4e01e3d38f0b5372c921d9123e47a00a0958e",
+    "portfolio/download_model.py": "6e4d60e12ec841cce77b019b1dc03e7409114d2448de5128bf528789076f7853",
+    "portfolio/edge_vision.py": "22a26c543e45b309d6bb0e35eb92b945b3d914b1ee0f0187bb901fc31a11b4b7",
+    "portfolio/evidence_agent.py": "4dea99bb5c6969ec332be06b964ba96e42a795fc9f974671d842589b766adcc3",
+    "portfolio/evidence_eval.py": "34cdd6608146e2f6157897f371a493af2c14f43b3fb50574d60d5bc81d88e9ce",
+    "portfolio/gguf_lm.py": "5f2d74b3d310a7d35a3c05f8bbd073bd1c8f0f622407ed416f905c8a468f0cda",
+    "portfolio/local_lm.py": "66581ce95c095bcee7b5997756e970dd9e5edf17a45df37409b345cbe86d72b2",
+    "portfolio/providers.py": "3479739e310934ac71c62c7e13b1cb0e1915efd71a996ace03cb65a1d446d088",
+    "portfolio/reliable_service.py": "7a0113315207e75fcc58305d7f7e73bca89c56820ac555dec127b46eb9507d5d",
+    "portfolio/research_cases.py": "d9d398f1096beca68e956e2a1a034e90c54aeac45d4ad1c4996a57cdb72a8806",
+    "portfolio/retrieval.py": "edeb5657f7edc00e333e4b1db81f3aaad3077658355252170667d2e69a0ee9e5",
+    "portfolio/small_lm.py": "d90691fee989c1beec6b3353c42564940f5bf327a9854a5ee639c90309e7d7e8",
+    "portfolio/telemetry.py": "96239b01a3190f426c4200bc9adfa0b044f4583386aabf3ea14ef75769a3e35c",
+    "requirements-gguf.txt": "786a797d4e32d4c15a8a04ab8b80dd289a264331f315acd135547242f9bac4aa",
+    "requirements.txt": "3e97636a30de030e17bf0e103192565e1b8555dff011e7f35f623aad3681cfca",
+    "tests/test_adapters.py": "a7e1601531277474ac4411123f16ab7669086d266efc86c3690f686ed6618306",
+    "tests/test_evidence_agent.py": "3ae92bd4de207a26988595b2950e8112a43d28404e52f0fd5670c8f5dfd5feb5",
+    "tests/test_providers.py": "d48284d0a4b8922c55296888afc09acb69c090a8e1c05422d26963e766e1f651",
+    "tests/test_service.py": "879c797da30bf5381c5c7f557e8aa7ea8b40f80fe9153f2a351d66fe5c01db43",
+    "tests/test_statistics_retrieval.py": "04a08a8527b13c55029d2f3bdb11b3a399c0d5646e1effcd59caadf055c3c392",
+    "tests/test_telemetry.py": "e1167c4e5748ac17c36d15a0f633479449348dbfefbbd15876510deab8f4fd80"
+  }
+}

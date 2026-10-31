@@ -1,0 +1,161 @@
+test_adapters (unittest.loader._FailedTest.test_adapters) ... ERROR
+test_dense_retrieval (unittest.loader._FailedTest.test_dense_retrieval) ... ERROR
+test_conflicting_current_sources_abstain_regardless_of_order (test_evidence_agent.EvidenceTests.test_conflicting_current_sources_abstain_regardless_of_order) ... ok
+test_conversion_and_zero_denominator (test_evidence_agent.EvidenceTests.test_conversion_and_zero_denominator) ... ok
+test_dataset_split_has_no_shared_entities_and_covers_all_families (test_evidence_agent.EvidenceTests.test_dataset_split_has_no_shared_entities_and_covers_all_families) ... ok
+test_injected_notes_do_not_modify_tool_value (test_evidence_agent.EvidenceTests.test_injected_notes_do_not_modify_tool_value) ... ok
+test_invalid_actions_fail_without_execution (test_evidence_agent.EvidenceTests.test_invalid_actions_fail_without_execution) ... ok
+test_invalid_fact_types_are_rejected (test_evidence_agent.EvidenceTests.test_invalid_fact_types_are_rejected) ... ok
+test_removed_field_does_not_fall_back_to_old_version (test_evidence_agent.EvidenceTests.test_removed_field_does_not_fall_back_to_old_version) ... ok
+test_units_and_operands_are_checked (test_evidence_agent.EvidenceTests.test_units_and_operands_are_checked) ... ok
+test_unknown_service_abstains_instead_of_fuzzy_name_match (test_evidence_agent.EvidenceTests.test_unknown_service_abstains_instead_of_fuzzy_name_match) ... ok
+test_versioned_lookup_and_arithmetic_provenance (test_evidence_agent.EvidenceTests.test_versioned_lookup_and_arithmetic_provenance) ... ok
+test_providers (unittest.loader._FailedTest.test_providers) ... ERROR
+test_retrieval_integration (unittest.loader._FailedTest.test_retrieval_integration) ... ERROR
+test_bad_schema_empty_text_or_missing_split_is_rejected (test_retrieval_study.DatasetTests.test_bad_schema_empty_text_or_missing_split_is_rejected) ... ok
+test_bilingual_data_has_disjoint_topic_groups (test_retrieval_study.DatasetTests.test_bilingual_data_has_disjoint_topic_groups) ... ok
+test_duplicate_ids_and_normalized_text_are_rejected (test_retrieval_study.DatasetTests.test_duplicate_ids_and_normalized_text_are_rejected) ... ok
+test_invalid_or_conflicting_relevance_labels_are_rejected (test_retrieval_study.DatasetTests.test_invalid_or_conflicting_relevance_labels_are_rejected) ... ok
+test_json_parse_error_and_file_budget (test_retrieval_study.DatasetTests.test_json_parse_error_and_file_budget) ... ok
+test_query_copy_and_unicode_equivalent_text_are_rejected (test_retrieval_study.DatasetTests.test_query_copy_and_unicode_equivalent_text_are_rejected) ... ok
+test_topic_leakage_is_rejected_even_with_different_texts (test_retrieval_study.DatasetTests.test_topic_leakage_is_rejected_even_with_different_texts) ... ok
+test_aggregate_and_language_slices_use_actual_denominators (test_retrieval_study.EvaluationTests.test_aggregate_and_language_slices_use_actual_denominators) ... ok
+test_changed_test_labels_do_not_change_selection (test_retrieval_study.EvaluationTests.test_changed_test_labels_do_not_change_selection) ... ok
+test_hand_computed_partial_relevance_and_empty_ranking (test_retrieval_study.EvaluationTests.test_hand_computed_partial_relevance_and_empty_ranking) ... ok
+test_invalid_ranks_and_k_are_rejected (test_retrieval_study.EvaluationTests.test_invalid_ranks_and_k_are_rejected) ... ok
+test_paired_effects_average_topics_not_independent_paraphrases (test_retrieval_study.EvaluationTests.test_paired_effects_average_topics_not_independent_paraphrases) ... ok
+test_retriever_failure_aborts_without_test_search (test_retrieval_study.EvaluationTests.test_retriever_failure_aborts_without_test_search) ... ok
+test_selection_precedes_every_test_query_and_uses_same_k (test_retrieval_study.EvaluationTests.test_selection_precedes_every_test_query_and_uses_same_k) ... ok
+test_selector_rejects_test_rows_or_unpaired_candidates (test_retrieval_study.EvaluationTests.test_selector_rejects_test_rows_or_unpaired_candidates) ... ok
+test_unknown_duplicate_unsorted_and_nonfinite_evidence_fails (test_retrieval_study.EvaluationTests.test_unknown_duplicate_unsorted_and_nonfinite_evidence_fails) ... ok
+test_audit_detects_changed_data_and_false_completion (test_retrieval_study.ProtocolTests.test_audit_detects_changed_data_and_false_completion) ... ok
+test_completed_artifact_audit_recomputes_metrics (test_retrieval_study.ProtocolTests.test_completed_artifact_audit_recomputes_metrics) ... ok
+test_completed_artifact_audit_rejects_test_driven_selection (test_retrieval_study.ProtocolTests.test_completed_artifact_audit_rejects_test_driven_selection) ... ok
+test_dependency_failure_is_recorded_and_cannot_pass_audit (test_retrieval_study.ProtocolTests.test_dependency_failure_is_recorded_and_cannot_pass_audit) ... ok
+test_documented_cli_preparation_and_invalid_input_exit_codes (test_retrieval_study.ProtocolTests.test_documented_cli_preparation_and_invalid_input_exit_codes) ... ok
+test_finite_smoke_exercises_cli_and_tamper_detection (test_retrieval_study.ProtocolTests.test_finite_smoke_exercises_cli_and_tamper_detection) ... ok
+test_invalid_budget_never_creates_a_run (test_retrieval_study.ProtocolTests.test_invalid_budget_never_creates_a_run) ... ok
+test_prepare_snapshots_inputs_and_budget_without_model_results (test_retrieval_study.ProtocolTests.test_prepare_snapshots_inputs_and_budget_without_model_results) ... ok
+test_prepared_protocol_with_invalid_budget_fails_audit (test_retrieval_study.ProtocolTests.test_prepared_protocol_with_invalid_budget_fails_audit) ... ok
+test_refuses_to_overwrite_previous_artifacts (test_retrieval_study.ProtocolTests.test_refuses_to_overwrite_previous_artifacts) ... ok
+test_service (unittest.loader._FailedTest.test_service) ... ERROR
+test_statistics_retrieval (unittest.loader._FailedTest.test_statistics_retrieval) ... ERROR
+test_telemetry (unittest.loader._FailedTest.test_telemetry) ... ERROR
+
+======================================================================
+ERROR: test_adapters (unittest.loader._FailedTest.test_adapters)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_adapters
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/tests/test_adapters.py", line 2, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_dense_retrieval (unittest.loader._FailedTest.test_dense_retrieval)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dense_retrieval
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/tests/test_dense_retrieval.py", line 12, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_providers (unittest.loader._FailedTest.test_providers)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_providers
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/tests/test_providers.py", line 1, in <module>
+    import json,unittest,httpx
+ModuleNotFoundError: No module named 'httpx'
+
+
+======================================================================
+ERROR: test_retrieval_integration (unittest.loader._FailedTest.test_retrieval_integration)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_retrieval_integration
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/tests/test_retrieval_integration.py", line 9, in <module>
+    from portfolio.retrieval import Retriever
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/portfolio/retrieval.py", line 5, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_service (unittest.loader._FailedTest.test_service)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_service
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/tests/test_service.py", line 3, in <module>
+    from portfolio.reliable_service import JobStore,Conflict,LeaseLost,make_server,work_once
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/portfolio/reliable_service.py", line 8, in <module>
+    from .retrieval import Retriever,Document
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/portfolio/retrieval.py", line 5, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_statistics_retrieval (unittest.loader._FailedTest.test_statistics_retrieval)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_statistics_retrieval
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/tests/test_statistics_retrieval.py", line 2, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_telemetry (unittest.loader._FailedTest.test_telemetry)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_telemetry
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/tests/test_telemetry.py", line 2, in <module>
+    from portfolio.telemetry import make_dataset,normalize,analyze,features
+  File "/home/ubuntu/job-pilot/runtime/projects/b6f73bca-518f-4cc6-a57e-24a709d8fb91/1/portfolio/telemetry.py", line 5, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+----------------------------------------------------------------------
+Ran 43 tests in 0.512s
+
+FAILED (errors=7)

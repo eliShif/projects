@@ -1,0 +1,36 @@
+{
+  "version": "evidence-eval-v2",
+  "split": "test",
+  "repeats": 2,
+  "task_count": 48,
+  "dataset_sha256": "104326eda6a3d7c53b55a08000e16841b4dfdaa49a6b7c5a7fdd068ba3848332",
+  "corpus_sha256": "3209224c58b7329a36a788383bb4bace2c59584e7a677c724721e61a1b5ca6e7",
+  "source_hashes": {
+    "evidence_agent.py": "4dea99bb5c6969ec332be06b964ba96e42a795fc9f974671d842589b766adcc3",
+    "evidence_eval.py": "34cdd6608146e2f6157897f371a493af2c14f43b3fb50574d60d5bc81d88e9ce",
+    "research_cases.py": "d9d398f1096beca68e956e2a1a034e90c54aeac45d4ad1c4996a57cdb72a8806",
+    "gguf_lm.py": "93124164f8d795465229063e578ea35b44f5429012975b468aceee340a790bbf"
+  },
+  "planner_prompt_sha256": "f1efd37252360805491c76f20a7457b1ffa49b41402d02cdbe893ff1d9a39815",
+  "rag_prompt_sha256": "4f551835e9864bee76e0171c6b7199fcbae7fde91303b8bc42b1f7c8df571632",
+  "policies": [
+    "rag",
+    "typed_agent"
+  ],
+  "temperature": 0.2,
+  "max_tokens": 180,
+  "retrieval_k": 6,
+  "acceptance": {
+    "grounded_accuracy": 0.85,
+    "abstention_accuracy": 0.9
+  },
+  "cluster_unit": "service entity; all related questions and repeats retained",
+  "scope": "synthetic versioned numeric service research, eight task families",
+  "created_before_generations": {
+    "utc": "2026-10-22T14:26:48.385795+00:00",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  }
+}

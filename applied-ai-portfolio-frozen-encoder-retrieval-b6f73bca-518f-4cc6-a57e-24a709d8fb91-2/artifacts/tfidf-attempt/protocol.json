@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "experiment": "frozen-encoder-paraphrase-retrieval-v1",
+  "paper": {
+    "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+    "authors": [
+      "Nils Reimers",
+      "Iryna Gurevych"
+    ],
+    "year": 2019,
+    "venue": "EMNLP-IJCNLP",
+    "pages": "3982–3992",
+    "doi": "10.18653/v1/D19-1410",
+    "url": "https://aclanthology.org/D19-1410/"
+  },
+  "hypothesis": "Frozen masked-mean sentence embeddings improve held-out paraphrase MRR@k over TF-IDF on this corpus.",
+  "status": "planned",
+  "mode": "baseline",
+  "candidates": [
+    "tfidf"
+  ],
+  "k": 3,
+  "shared_corpus": true,
+  "data_sha256": "e02633833a92ec0e7e515de35b70f5463c6815499e2ad9a7424df76819522242",
+  "counts": {
+    "documents": 12,
+    "validation": 12,
+    "test": 12
+  },
+  "selection": "validation MRR@k, then Recall@k, then tfidf/dense_mean/dense_cls order; saved before test",
+  "model": {
+    "suggested_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "version": null,
+    "status": "not_loaded; local content version recorded by run"
+  },
+  "budget": {
+    "device": "cpu",
+    "threads": 2,
+    "batch_size": 8,
+    "max_length": 128,
+    "training_steps": 0,
+    "max_encoder_texts": 0,
+    "max_encoder_forward_calls": 0,
+    "max_padded_token_slots": 0,
+    "note": "Two pooling arms each index the corpus once and encode each query once; includes special tokens and truncation."
+  },
+  "source_sha256": {
+    "portfolio/common.py": "8eee89cfcd9796d742e1951746a07172d45475b517577bb77f33df93e9529f2c",
+    "portfolio/retrieval.py": "edeb5657f7edc00e333e4b1db81f3aaad3077658355252170667d2e69a0ee9e5",
+    "portfolio/dense_retrieval.py": "20bc1f97b6ffa575492e883768fcd5f1e9e17dafa046de23b5aaeb6e43ced4bc",
+    "portfolio/retrieval_study.py": "f9b7e57756485206ff0a7ad14aa557dc50b5844fbfc82b4a84fc924bdf81f3f9",
+    "portfolio/retrieval_experiment.py": "cd567e313e96a8b4dfc0ecb56d17c09508e79ff2749ca98340f306c416811fe5"
+  },
+  "environment": {
+    "utc": "2026-10-31T04:58:53.892901+00:00",
+    "python": "3.14.4",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "packages": {
+    "numpy": null,
+    "scipy": null,
+    "scikit-learn": null,
+    "torch": null,
+    "transformers": null,
+    "safetensors": null
+  },
+  "limits": [
+    "Authored, small, in-language English/Hebrew cases; no independently reviewed relevance labels.",
+    "Topic groups are held out, but shared writing style and authored templates limit generalization.",
+    "All arms see the same full corpus, including documents relevant to held-out queries; labels are not indexed.",
+    "No training in this experiment; the existing LoRA experiment is a separate protocol.",
+    "TF-IDF omits zero-overlap results; dense retrieval returns up to k neighbors, even for negative cosine scores.",
+    "Effects are descriptive. Paraphrases in a topic are correlated; no significance or general superiority claim.",
+    "Checkpoint hashes identify local bytes, not their pretraining history or multilingual quality.",
+    "Timings include Python/scoring overhead and fixed execution order; not a latency benchmark."
+  ]
+}

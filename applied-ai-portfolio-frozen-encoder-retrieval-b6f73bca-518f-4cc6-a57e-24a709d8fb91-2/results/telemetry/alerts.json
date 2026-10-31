@@ -1,0 +1,1170 @@
+[
+  {
+    "actor": "test-user-0000",
+    "rule": "burst_then_success",
+    "ts": 2000700,
+    "evidence_ids": [
+      "test-0-a0",
+      "test-0-a1",
+      "test-0-a2",
+      "test-0-a3",
+      "test-0-a4",
+      "test-0-a5",
+      "test-0-a6",
+      "test-0-a7",
+      "test-0-a8",
+      "test-0-a9",
+      "test-0-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0004",
+    "rule": "privilege_then_secret",
+    "ts": 2015070,
+    "evidence_ids": [
+      "test-4-a0",
+      "test-4-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0004",
+    "rule": "privilege_then_secret",
+    "ts": 2015090,
+    "evidence_ids": [
+      "test-4-a0",
+      "test-4-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0004",
+    "rule": "privilege_then_secret",
+    "ts": 2015110,
+    "evidence_ids": [
+      "test-4-a0",
+      "test-4-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0008",
+    "rule": "privilege_then_secret",
+    "ts": 2029470,
+    "evidence_ids": [
+      "test-8-a0",
+      "test-8-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0008",
+    "rule": "privilege_then_secret",
+    "ts": 2029490,
+    "evidence_ids": [
+      "test-8-a0",
+      "test-8-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0011",
+    "rule": "privilege_then_secret",
+    "ts": 2040270,
+    "evidence_ids": [
+      "test-11-maintenance0",
+      "test-11-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0016",
+    "rule": "burst_then_success",
+    "ts": 2058300,
+    "evidence_ids": [
+      "test-16-a0",
+      "test-16-a1",
+      "test-16-a2",
+      "test-16-a3",
+      "test-16-a4",
+      "test-16-a5",
+      "test-16-a6",
+      "test-16-a7",
+      "test-16-a8",
+      "test-16-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0020",
+    "rule": "privilege_then_secret",
+    "ts": 2072670,
+    "evidence_ids": [
+      "test-20-a0",
+      "test-20-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0020",
+    "rule": "privilege_then_secret",
+    "ts": 2072690,
+    "evidence_ids": [
+      "test-20-a0",
+      "test-20-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0020",
+    "rule": "privilege_then_secret",
+    "ts": 2072710,
+    "evidence_ids": [
+      "test-20-a0",
+      "test-20-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0022",
+    "rule": "privilege_then_secret",
+    "ts": 2079870,
+    "evidence_ids": [
+      "test-22-maintenance0",
+      "test-22-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0024",
+    "rule": "privilege_then_secret",
+    "ts": 2087070,
+    "evidence_ids": [
+      "test-24-a0",
+      "test-24-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0024",
+    "rule": "privilege_then_secret",
+    "ts": 2087090,
+    "evidence_ids": [
+      "test-24-a0",
+      "test-24-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0032",
+    "rule": "burst_then_success",
+    "ts": 2115900,
+    "evidence_ids": [
+      "test-32-a0",
+      "test-32-a1",
+      "test-32-a2",
+      "test-32-a3",
+      "test-32-a4",
+      "test-32-a5",
+      "test-32-a6",
+      "test-32-a7",
+      "test-32-a8",
+      "test-32-a9",
+      "test-32-a10",
+      "test-32-a11",
+      "test-32-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0033",
+    "rule": "privilege_then_secret",
+    "ts": 2119470,
+    "evidence_ids": [
+      "test-33-maintenance0",
+      "test-33-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0036",
+    "rule": "privilege_then_secret",
+    "ts": 2130270,
+    "evidence_ids": [
+      "test-36-a0",
+      "test-36-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0036",
+    "rule": "privilege_then_secret",
+    "ts": 2130290,
+    "evidence_ids": [
+      "test-36-a0",
+      "test-36-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0036",
+    "rule": "privilege_then_secret",
+    "ts": 2130310,
+    "evidence_ids": [
+      "test-36-a0",
+      "test-36-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0040",
+    "rule": "privilege_then_secret",
+    "ts": 2144670,
+    "evidence_ids": [
+      "test-40-a0",
+      "test-40-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0040",
+    "rule": "privilege_then_secret",
+    "ts": 2144690,
+    "evidence_ids": [
+      "test-40-a0",
+      "test-40-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0048",
+    "rule": "burst_then_success",
+    "ts": 2173500,
+    "evidence_ids": [
+      "test-48-a0",
+      "test-48-a1",
+      "test-48-a2",
+      "test-48-a3",
+      "test-48-a4",
+      "test-48-a5",
+      "test-48-a6",
+      "test-48-a7",
+      "test-48-a8",
+      "test-48-a9",
+      "test-48-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0052",
+    "rule": "privilege_then_secret",
+    "ts": 2187870,
+    "evidence_ids": [
+      "test-52-a0",
+      "test-52-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0052",
+    "rule": "privilege_then_secret",
+    "ts": 2187890,
+    "evidence_ids": [
+      "test-52-a0",
+      "test-52-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0052",
+    "rule": "privilege_then_secret",
+    "ts": 2187910,
+    "evidence_ids": [
+      "test-52-a0",
+      "test-52-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0055",
+    "rule": "privilege_then_secret",
+    "ts": 2198670,
+    "evidence_ids": [
+      "test-55-maintenance0",
+      "test-55-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0056",
+    "rule": "privilege_then_secret",
+    "ts": 2202270,
+    "evidence_ids": [
+      "test-56-a0",
+      "test-56-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0056",
+    "rule": "privilege_then_secret",
+    "ts": 2202290,
+    "evidence_ids": [
+      "test-56-a0",
+      "test-56-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0066",
+    "rule": "privilege_then_secret",
+    "ts": 2238270,
+    "evidence_ids": [
+      "test-66-maintenance0",
+      "test-66-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0068",
+    "rule": "privilege_then_secret",
+    "ts": 2245470,
+    "evidence_ids": [
+      "test-68-a0",
+      "test-68-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0068",
+    "rule": "privilege_then_secret",
+    "ts": 2245490,
+    "evidence_ids": [
+      "test-68-a0",
+      "test-68-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0068",
+    "rule": "privilege_then_secret",
+    "ts": 2245510,
+    "evidence_ids": [
+      "test-68-a0",
+      "test-68-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0072",
+    "rule": "privilege_then_secret",
+    "ts": 2259870,
+    "evidence_ids": [
+      "test-72-a0",
+      "test-72-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0072",
+    "rule": "privilege_then_secret",
+    "ts": 2259890,
+    "evidence_ids": [
+      "test-72-a0",
+      "test-72-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0077",
+    "rule": "privilege_then_secret",
+    "ts": 2277870,
+    "evidence_ids": [
+      "test-77-maintenance0",
+      "test-77-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0080",
+    "rule": "burst_then_success",
+    "ts": 2288700,
+    "evidence_ids": [
+      "test-80-a0",
+      "test-80-a1",
+      "test-80-a2",
+      "test-80-a3",
+      "test-80-a4",
+      "test-80-a5",
+      "test-80-a6",
+      "test-80-a7",
+      "test-80-a8",
+      "test-80-a9",
+      "test-80-a10",
+      "test-80-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0084",
+    "rule": "privilege_then_secret",
+    "ts": 2303070,
+    "evidence_ids": [
+      "test-84-a0",
+      "test-84-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0084",
+    "rule": "privilege_then_secret",
+    "ts": 2303090,
+    "evidence_ids": [
+      "test-84-a0",
+      "test-84-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0084",
+    "rule": "privilege_then_secret",
+    "ts": 2303110,
+    "evidence_ids": [
+      "test-84-a0",
+      "test-84-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0088",
+    "rule": "privilege_then_secret",
+    "ts": 2317470,
+    "evidence_ids": [
+      "test-88-a0",
+      "test-88-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0088",
+    "rule": "privilege_then_secret",
+    "ts": 2317490,
+    "evidence_ids": [
+      "test-88-a0",
+      "test-88-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0096",
+    "rule": "burst_then_success",
+    "ts": 2346300,
+    "evidence_ids": [
+      "test-96-a0",
+      "test-96-a1",
+      "test-96-a2",
+      "test-96-a3",
+      "test-96-a4",
+      "test-96-a5",
+      "test-96-a6",
+      "test-96-a7",
+      "test-96-a8",
+      "test-96-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0100",
+    "rule": "privilege_then_secret",
+    "ts": 2360670,
+    "evidence_ids": [
+      "test-100-a0",
+      "test-100-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0100",
+    "rule": "privilege_then_secret",
+    "ts": 2360690,
+    "evidence_ids": [
+      "test-100-a0",
+      "test-100-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0100",
+    "rule": "privilege_then_secret",
+    "ts": 2360710,
+    "evidence_ids": [
+      "test-100-a0",
+      "test-100-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0104",
+    "rule": "privilege_then_secret",
+    "ts": 2375070,
+    "evidence_ids": [
+      "test-104-a0",
+      "test-104-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0104",
+    "rule": "privilege_then_secret",
+    "ts": 2375090,
+    "evidence_ids": [
+      "test-104-a0",
+      "test-104-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0110",
+    "rule": "privilege_then_secret",
+    "ts": 2396670,
+    "evidence_ids": [
+      "test-110-maintenance0",
+      "test-110-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0112",
+    "rule": "burst_then_success",
+    "ts": 2403900,
+    "evidence_ids": [
+      "test-112-a0",
+      "test-112-a1",
+      "test-112-a2",
+      "test-112-a3",
+      "test-112-a4",
+      "test-112-a5",
+      "test-112-a6",
+      "test-112-a7",
+      "test-112-a8",
+      "test-112-a9",
+      "test-112-a10",
+      "test-112-a11",
+      "test-112-a12",
+      "test-112-a13",
+      "test-112-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0116",
+    "rule": "privilege_then_secret",
+    "ts": 2418270,
+    "evidence_ids": [
+      "test-116-a0",
+      "test-116-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0116",
+    "rule": "privilege_then_secret",
+    "ts": 2418290,
+    "evidence_ids": [
+      "test-116-a0",
+      "test-116-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0116",
+    "rule": "privilege_then_secret",
+    "ts": 2418310,
+    "evidence_ids": [
+      "test-116-a0",
+      "test-116-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0120",
+    "rule": "privilege_then_secret",
+    "ts": 2432670,
+    "evidence_ids": [
+      "test-120-a0",
+      "test-120-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0120",
+    "rule": "privilege_then_secret",
+    "ts": 2432690,
+    "evidence_ids": [
+      "test-120-a0",
+      "test-120-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0121",
+    "rule": "privilege_then_secret",
+    "ts": 2436270,
+    "evidence_ids": [
+      "test-121-maintenance0",
+      "test-121-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0128",
+    "rule": "burst_then_success",
+    "ts": 2461500,
+    "evidence_ids": [
+      "test-128-a0",
+      "test-128-a1",
+      "test-128-a2",
+      "test-128-a3",
+      "test-128-a4",
+      "test-128-a5",
+      "test-128-a6",
+      "test-128-a7",
+      "test-128-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0132",
+    "rule": "privilege_then_secret",
+    "ts": 2475870,
+    "evidence_ids": [
+      "test-132-a0",
+      "test-132-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0132",
+    "rule": "privilege_then_secret",
+    "ts": 2475890,
+    "evidence_ids": [
+      "test-132-a0",
+      "test-132-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0132",
+    "rule": "privilege_then_secret",
+    "ts": 2475910,
+    "evidence_ids": [
+      "test-132-a0",
+      "test-132-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0136",
+    "rule": "privilege_then_secret",
+    "ts": 2490270,
+    "evidence_ids": [
+      "test-136-a0",
+      "test-136-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0136",
+    "rule": "privilege_then_secret",
+    "ts": 2490290,
+    "evidence_ids": [
+      "test-136-a0",
+      "test-136-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0143",
+    "rule": "privilege_then_secret",
+    "ts": 2515470,
+    "evidence_ids": [
+      "test-143-maintenance0",
+      "test-143-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0144",
+    "rule": "burst_then_success",
+    "ts": 2519100,
+    "evidence_ids": [
+      "test-144-a0",
+      "test-144-a1",
+      "test-144-a2",
+      "test-144-a3",
+      "test-144-a4",
+      "test-144-a5",
+      "test-144-a6",
+      "test-144-a7",
+      "test-144-a8",
+      "test-144-a9",
+      "test-144-a10",
+      "test-144-a11",
+      "test-144-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0148",
+    "rule": "privilege_then_secret",
+    "ts": 2533470,
+    "evidence_ids": [
+      "test-148-a0",
+      "test-148-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0148",
+    "rule": "privilege_then_secret",
+    "ts": 2533490,
+    "evidence_ids": [
+      "test-148-a0",
+      "test-148-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0148",
+    "rule": "privilege_then_secret",
+    "ts": 2533510,
+    "evidence_ids": [
+      "test-148-a0",
+      "test-148-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0152",
+    "rule": "privilege_then_secret",
+    "ts": 2547870,
+    "evidence_ids": [
+      "test-152-a0",
+      "test-152-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0152",
+    "rule": "privilege_then_secret",
+    "ts": 2547890,
+    "evidence_ids": [
+      "test-152-a0",
+      "test-152-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0154",
+    "rule": "privilege_then_secret",
+    "ts": 2555070,
+    "evidence_ids": [
+      "test-154-maintenance0",
+      "test-154-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0160",
+    "rule": "burst_then_success",
+    "ts": 2576700,
+    "evidence_ids": [
+      "test-160-a0",
+      "test-160-a1",
+      "test-160-a2",
+      "test-160-a3",
+      "test-160-a4",
+      "test-160-a5",
+      "test-160-a6",
+      "test-160-a7",
+      "test-160-a8",
+      "test-160-a9",
+      "test-160-a10",
+      "test-160-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0164",
+    "rule": "privilege_then_secret",
+    "ts": 2591070,
+    "evidence_ids": [
+      "test-164-a0",
+      "test-164-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0164",
+    "rule": "privilege_then_secret",
+    "ts": 2591090,
+    "evidence_ids": [
+      "test-164-a0",
+      "test-164-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0164",
+    "rule": "privilege_then_secret",
+    "ts": 2591110,
+    "evidence_ids": [
+      "test-164-a0",
+      "test-164-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0165",
+    "rule": "privilege_then_secret",
+    "ts": 2594670,
+    "evidence_ids": [
+      "test-165-maintenance0",
+      "test-165-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0168",
+    "rule": "privilege_then_secret",
+    "ts": 2605470,
+    "evidence_ids": [
+      "test-168-a0",
+      "test-168-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0168",
+    "rule": "privilege_then_secret",
+    "ts": 2605490,
+    "evidence_ids": [
+      "test-168-a0",
+      "test-168-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0176",
+    "rule": "burst_then_success",
+    "ts": 2634300,
+    "evidence_ids": [
+      "test-176-a0",
+      "test-176-a1",
+      "test-176-a2",
+      "test-176-a3",
+      "test-176-a4",
+      "test-176-a5",
+      "test-176-a6",
+      "test-176-a7",
+      "test-176-a8",
+      "test-176-a9",
+      "test-176-a10",
+      "test-176-a11",
+      "test-176-a12",
+      "test-176-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0180",
+    "rule": "privilege_then_secret",
+    "ts": 2648670,
+    "evidence_ids": [
+      "test-180-a0",
+      "test-180-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0180",
+    "rule": "privilege_then_secret",
+    "ts": 2648690,
+    "evidence_ids": [
+      "test-180-a0",
+      "test-180-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0180",
+    "rule": "privilege_then_secret",
+    "ts": 2648710,
+    "evidence_ids": [
+      "test-180-a0",
+      "test-180-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0184",
+    "rule": "privilege_then_secret",
+    "ts": 2663070,
+    "evidence_ids": [
+      "test-184-a0",
+      "test-184-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0184",
+    "rule": "privilege_then_secret",
+    "ts": 2663090,
+    "evidence_ids": [
+      "test-184-a0",
+      "test-184-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0187",
+    "rule": "privilege_then_secret",
+    "ts": 2673870,
+    "evidence_ids": [
+      "test-187-maintenance0",
+      "test-187-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0192",
+    "rule": "burst_then_success",
+    "ts": 2691900,
+    "evidence_ids": [
+      "test-192-a0",
+      "test-192-a1",
+      "test-192-a2",
+      "test-192-a3",
+      "test-192-a4",
+      "test-192-a5",
+      "test-192-a6",
+      "test-192-a7",
+      "test-192-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0196",
+    "rule": "privilege_then_secret",
+    "ts": 2706270,
+    "evidence_ids": [
+      "test-196-a0",
+      "test-196-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0196",
+    "rule": "privilege_then_secret",
+    "ts": 2706290,
+    "evidence_ids": [
+      "test-196-a0",
+      "test-196-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0196",
+    "rule": "privilege_then_secret",
+    "ts": 2706310,
+    "evidence_ids": [
+      "test-196-a0",
+      "test-196-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0200",
+    "rule": "privilege_then_secret",
+    "ts": 2720670,
+    "evidence_ids": [
+      "test-200-a0",
+      "test-200-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0200",
+    "rule": "privilege_then_secret",
+    "ts": 2720690,
+    "evidence_ids": [
+      "test-200-a0",
+      "test-200-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0208",
+    "rule": "burst_then_success",
+    "ts": 2749500,
+    "evidence_ids": [
+      "test-208-a0",
+      "test-208-a1",
+      "test-208-a2",
+      "test-208-a3",
+      "test-208-a4",
+      "test-208-a5",
+      "test-208-a6",
+      "test-208-a7",
+      "test-208-a8",
+      "test-208-a9",
+      "test-208-a10",
+      "test-208-a11",
+      "test-208-a12",
+      "test-208-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0209",
+    "rule": "privilege_then_secret",
+    "ts": 2753070,
+    "evidence_ids": [
+      "test-209-maintenance0",
+      "test-209-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0212",
+    "rule": "privilege_then_secret",
+    "ts": 2763870,
+    "evidence_ids": [
+      "test-212-a0",
+      "test-212-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0212",
+    "rule": "privilege_then_secret",
+    "ts": 2763890,
+    "evidence_ids": [
+      "test-212-a0",
+      "test-212-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0212",
+    "rule": "privilege_then_secret",
+    "ts": 2763910,
+    "evidence_ids": [
+      "test-212-a0",
+      "test-212-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0216",
+    "rule": "privilege_then_secret",
+    "ts": 2778270,
+    "evidence_ids": [
+      "test-216-a0",
+      "test-216-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0216",
+    "rule": "privilege_then_secret",
+    "ts": 2778290,
+    "evidence_ids": [
+      "test-216-a0",
+      "test-216-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0224",
+    "rule": "burst_then_success",
+    "ts": 2807100,
+    "evidence_ids": [
+      "test-224-a0",
+      "test-224-a1",
+      "test-224-a2",
+      "test-224-a3",
+      "test-224-a4",
+      "test-224-a5",
+      "test-224-a6",
+      "test-224-a7",
+      "test-224-a8",
+      "test-224-a9",
+      "test-224-a10",
+      "test-224-a11",
+      "test-224-success"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0228",
+    "rule": "privilege_then_secret",
+    "ts": 2821470,
+    "evidence_ids": [
+      "test-228-a0",
+      "test-228-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0228",
+    "rule": "privilege_then_secret",
+    "ts": 2821490,
+    "evidence_ids": [
+      "test-228-a0",
+      "test-228-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0228",
+    "rule": "privilege_then_secret",
+    "ts": 2821510,
+    "evidence_ids": [
+      "test-228-a0",
+      "test-228-a3"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0231",
+    "rule": "privilege_then_secret",
+    "ts": 2832270,
+    "evidence_ids": [
+      "test-231-maintenance0",
+      "test-231-maintenance1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0232",
+    "rule": "privilege_then_secret",
+    "ts": 2835870,
+    "evidence_ids": [
+      "test-232-a0",
+      "test-232-a1"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  },
+  {
+    "actor": "test-user-0232",
+    "rule": "privilege_then_secret",
+    "ts": 2835890,
+    "evidence_ids": [
+      "test-232-a0",
+      "test-232-a2"
+    ],
+    "explanation": "Time-correlated synthetic events; analyst review required."
+  }
+]
