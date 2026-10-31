@@ -157,8 +157,4 @@ its own local **causal** model, not the sentence encoder:
 .venv/bin/python -m portfolio.adapter_tuning --model-path models/SmolLM2-135M-Instruct --out artifacts/lora --steps 48
 ```
 
-This is a separate experiment, not a retrieval arm. No new LoRA run is claimed.
-[CODE_MAP.md](CODE_MAP.md) links implementations and tests for the assigned
-requirements. [EXERCISES.md](EXERCISES.md) provides a walkthrough, explanation
-questions, and change exercises. AI-assisted code does not establish anyone's
-mastery, language ability, personal paper reading, or team review experience.
+The LoRA experiment is separate from the retrieval comparison; no new LoRA run is reported. [CODE_MAP.md](CODE_MAP.md) links implementations and tests to the assigned requirements. [EXERCISES.md](EXERCISES.md) provides a walkthrough, explanation questions, and change exercises.
