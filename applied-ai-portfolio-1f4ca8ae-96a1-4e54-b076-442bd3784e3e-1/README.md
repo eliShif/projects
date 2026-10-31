@@ -45,7 +45,9 @@ Use a **new, empty output directory** for each run. Failed runs keep their proto
 
 ## Current verification
 
-[VALIDATION.md](VALIDATION.md) links actual commands, exit codes and logs. The 27 new core checks and nine inherited store tests passed, as did Python compilation and the finite store smoke. The full suite did **not** pass: its recorded run has dependency-import and socket-permission errors. ML installation attempts failed in this runner, so the new training/measurement path has no completed model result. The HTTP load attempt also failed because sockets are prohibited.
+[VALIDATION.md](VALIDATION.md) records worker verification at **2026-10-31T14:15:10.319Z**. Full test discovery passed **75 tests in 139.882 seconds**, including real-model checks and concurrent HTTP retries, conflicts, receipts and fault handling. Python compilation and the documented finite store smoke also exited successfully. The isolated model integration used one seed and two epochs; a completed full three-seed benchmark and its model recommendation remain unverified. The documented smoke used direct SQLite and reported `vision_executed: false` and `power_measured: false`.
+
+Historical builder sandbox, before that worker verification (exact builder timestamp not supplied): the 27 new core checks, nine inherited store tests, compilation and finite store smoke passed. Full discovery recorded 10 dependency-import/socket-permission errors; dependency installation failed, the vision attempt stopped at missing PyTorch, and the HTTP-load attempt was blocked by prohibited sockets. The later worker successfully executed the previously blocked model and HTTP tests.
 
 The [executed SQLite load report](results/store_load_verified/REPORT.md) records 24 unique jobs, 72 submissions, four threads and 24 rejected content conflicts. These are direct queue measurements with a deterministic receipt worker, not HTTP latency or AI inference throughput.
 

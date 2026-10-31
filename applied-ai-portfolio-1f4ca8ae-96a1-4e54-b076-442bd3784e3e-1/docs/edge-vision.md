@@ -34,10 +34,14 @@ and [PyTorch dynamic quantization](https://docs.pytorch.org/docs/stable/generate
 
 ## Measurement extension
 
-The historical figures above remain unchanged and were not rerun in this workspace.
+The historical figures above remain unchanged; the full original experiment was not rerun.
 `portfolio.edge_benchmark` reuses these data/model/training functions and adds
 isolated worker processes, raw timing records, peak memory and validation-only
 resource selection. See [the protocol](edge-measurement.md) and
-[current validation](../VALIDATION.md). The new model run did not complete because
-its dependencies could not be installed; it supplies no replacement performance
-figures.
+[current validation](../VALIDATION.md). The earlier builder-sandbox run stopped at
+missing dependencies, before worker verification at 2026-10-31T14:15:10.319Z
+(exact builder timestamp unavailable). Later worker checks passed real-model
+training, distillation, quantization and isolated integration using one seed and
+two epochs. A full new three-seed experiment remains unverified; the integration
+checks supply no replacement performance table or model-quality estimate for
+the full protocol.

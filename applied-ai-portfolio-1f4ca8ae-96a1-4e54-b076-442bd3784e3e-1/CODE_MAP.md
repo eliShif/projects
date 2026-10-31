@@ -23,7 +23,7 @@
 | `tests/core/test_measurement.py` | Numerical quantiles, peak-memory units/availability, manifest correctness and failed-run cleanup | Standard-library test suite |
 | `tests/core/test_edge_protocol.py` | Balanced order, input rejection, test-independent selection, quality/resource rejection and missing trials | Standard-library test suite |
 | `tests/core/test_edge_runner.py` | Child-process failure, timeout and runtime-control contracts | Standard-library test suite |
-| `tests/test_edge_models.py` | Real gradients, unchanged teacher, selected checkpoint, qint8 kernels, isolated pipeline and corrupted artifacts | Requires installed PyTorch/NumPy/scikit-learn; not executed successfully in this runner |
+| `tests/test_edge_models.py` | Real gradients, unchanged teacher, selected checkpoint, qint8 kernels, isolated pipeline and corrupted artifacts | Requires installed PyTorch/NumPy/scikit-learn; passed in later worker validation, including one-seed, two-epoch isolated integration; full three-seed benchmark remains unverified |
 
 ## Retained components
 

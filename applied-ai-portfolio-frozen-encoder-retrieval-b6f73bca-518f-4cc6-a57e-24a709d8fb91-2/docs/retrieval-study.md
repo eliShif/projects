@@ -66,9 +66,12 @@ graph construction. These controls have distinct purposes.
 
 ## Version, budget and selection
 
-Intended model: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`.
-**Current model version: not provisioned or executed.** No upstream revision
-is invented. Real runs hash local config, tokenizer and safetensors files into
+Executed model: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`.
+The pretrained CPU comparison completed on 2026-10-31 using upstream revision
+`e8f8c211226b894fcb81acc59f3b34ba3efd5f42` and local encoder version
+`sha256:58e014cbf4b3559379c8b9da32c807fa3d57604116af6ebb86416f4e2487831d`.
+See [the executed report](../results/pretrained-minilm-20261031/REPORT.md).
+Real runs hash local config, tokenizer and safetensors files into
 a content-addressed version in `encoder.json`; installed library versions go
 into `protocol.json`. Retain those exact local assets for reproduction. A name
 alone is not an immutable version; hashes do not certify pretraining history.
@@ -108,13 +111,21 @@ include language slices and alternative-minus-TF-IDF MRR effects paired by query
 and averaged by topic. Group averaging matters if topics contain unequal
 numbers of paraphrases. There is no significance or independence claim.
 
-**Current conclusion:** the experiment is implemented, but neither new TF-IDF
-nor encoder quality has been measured here. Missing dependencies and absent
-pretrained weights are recorded in `VALIDATION.md`. Default smoke checks
-preparation and integrity only. Random BERT checkpoints and hand-built rankings
-exist only in tests and cannot answer the research hypothesis.
+**Current conclusion:** the pretrained CPU comparison completed on 2026-10-31.
+Masked mean was selected on validation MRR@3: 1.000000 versus 0.777778 for
+CLS and 0.361111 for TF-IDF. On the 12 held-out queries, MRR@3 was 1.000000
+for masked mean, 0.958333 for CLS and 0.388889 for TF-IDF; Recall@3 was
+1.000000, 1.000000 and 0.666667, respectively. Masked-mean minus TF-IDF
+MRR@3 was +0.611111. These are descriptive results on this authored corpus,
+not a significance result or general superiority claim.
 
-When a real run is available, inspect case-level errors before explaining any
+Earlier builder-sandbox dependency and weight failures are historical; see
+[VALIDATION.md](../VALIDATION.md) for their source and timing limits. Default
+smoke checks preparation and integrity only. The later worker baseline smoke
+completed a real TF-IDF run and artifact audit. Random BERT checkpoints and
+hand-built rankings remain test fixtures and cannot answer the research hypothesis.
+
+For this completed run, inspect case-level errors before explaining any
 difference. Report its exact model/data versions, budget, selected arm, positive
 or negative effects and language slices. Do not equate performance on these
 authored cases with general semantic understanding or personal language ability.

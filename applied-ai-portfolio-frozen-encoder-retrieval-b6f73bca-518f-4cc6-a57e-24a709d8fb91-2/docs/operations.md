@@ -78,5 +78,8 @@ acceptance command to isolate model/environment failures. Restore the previous
 code commit and database backup together if the schema changes. Current schema
 is initialization-only: schema migration tooling has not been implemented.
 
-The CI workflow runs tests on push/PR once published. It has not yet run on GitHub.
+The CI workflow runs tests on push/PR. The retained
+[coverage record](coverage.md) reports 43 tests passed in GitHub Actions
+(run `39810558301`). This inherited CI result is separate from the current
+worker's 90-test local validation.
 No cloud deployment or compliance certification has been performed.

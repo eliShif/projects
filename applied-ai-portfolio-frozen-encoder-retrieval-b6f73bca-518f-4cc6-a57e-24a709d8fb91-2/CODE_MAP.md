@@ -21,7 +21,7 @@ selection → test rankings → metrics/report → `retrieval_experiment.audit`.
 | `tests/test_retrieval_integration.py` | Real TF-IDF run, recomputation, tampering and failure artifacts. Requires ML dependencies. |
 | `tests/test_adapters.py` | Preserved freeze tests plus matrix arithmetic, supervised updates, token masks and weighted NLL. Requires PyTorch. |
 | `tests/test_statistics_retrieval.py` | Preserved statistics, TF-IDF and bounded-tool tests. |
-| `docs/retrieval-study.md` | Research source, hypothesis, math, budget, limits and pending measurements. |
+| `docs/retrieval-study.md` | Research source, hypothesis, math, budget, completed pretrained comparison and research limits. |
 | `UPSTREAM.md`, `UPSTREAM_FILES.json` | Supplied pinned source and pre-adaptation hashes. No independent remote-fetch claim. |
 | `VALIDATION.md`, `artifacts/validation/` | Actual local command outcomes, including failures; not model-performance evidence. |
 
@@ -36,7 +36,7 @@ marked passed merely because they exist.
 | R02 | `portfolio/retrieval_study.py:load_study`; `portfolio/retrieval_experiment.py:run` | `tests/test_retrieval_study.py`; `tests/test_retrieval_integration.py` | Python files, validation, failure handling and library run path. |
 | R04 | `portfolio/adapter_tuning.py:encode`, `answer_loss`, `run`; `portfolio/retrieval_study.py:select_on_validation` | `tests/test_adapters.py`; `tests/test_retrieval_study.py:EvaluationTests` | Preserved supervised optimization and new validation isolation; no claim of absent overfitting. |
 | R05 | `portfolio/dense_retrieval.py:masked_pool`; `portfolio/retrieval_study.py:paired_differences`; `portfolio/common.py:wilson` | `tests/test_dense_retrieval.py:PoolingTests`; `tests/test_retrieval_study.py:EvaluationTests`; `tests/test_statistics_retrieval.py` | Vector math, descriptive statistics and existing probability interval tests. |
-| R06 | `portfolio/dense_retrieval.py:FrozenEncoder.encode`, `masked_pool` | `tests/test_dense_retrieval.py:LocalEncoderContractTests`, `PoolingTests` | Tokenizer-to-learned-vector path; pretrained quality unmeasured. |
+| R06 | `portfolio/dense_retrieval.py:FrozenEncoder.encode`, `masked_pool` | `tests/test_dense_retrieval.py:LocalEncoderContractTests`, `PoolingTests` | Tokenizer-to-learned-vector contracts passed; a separate pretrained MiniLM comparison completed on the authored bilingual set (see `results/pretrained-minilm-20261031/REPORT.md`). |
 | R11 | `portfolio/retrieval_experiment.py:prepare`, `run`; `portfolio/retrieval_study.py:compare` | `tests/test_retrieval_study.py`; `tests/test_retrieval_integration.py` | Existing baseline plus two pooling arms under explicit caps. |
 | R12 | `portfolio/dense_retrieval.py:masked_pool`; `portfolio/retrieval_study.py:compare` | `tests/test_dense_retrieval.py:PoolingTests`; `tests/test_retrieval_study.py:EvaluationTests` | Focused representation ablation with common cases and k. |
 | R13 | `portfolio/adapter_tuning.py:LoRALinear`, `run` (preserved) | `tests/test_adapters.py` | Adapter optimization and contracts; no new pretrained fine-tuning run. |
