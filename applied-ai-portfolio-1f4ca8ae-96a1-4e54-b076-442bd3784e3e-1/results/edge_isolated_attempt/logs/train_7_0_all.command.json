@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python",
+    "-m",
+    "portfolio.edge_benchmark",
+    "--out",
+    "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/results/edge_isolated_attempt",
+    "--worker",
+    "train",
+    "--seed",
+    "7",
+    "--trial",
+    "0",
+    "--position",
+    "0"
+  ],
+  "runtime_controls": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTHONUTF8": "1"
+  },
+  "timeout_seconds": 600
+}

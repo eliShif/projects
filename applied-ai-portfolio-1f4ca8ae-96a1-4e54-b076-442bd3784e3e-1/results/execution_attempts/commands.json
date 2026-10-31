@@ -1,0 +1,105 @@
+{
+  "utc": "2026-10-31T13:52:50.720509+00:00",
+  "commands": [
+    {
+      "name": "install-torch",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "--isolated",
+        "install",
+        "--no-cache-dir",
+        "--disable-pip-version-check",
+        "--retries",
+        "0",
+        "torch>=2.9,<3",
+        "--index-url",
+        "https://download.pytorch.org/whl/cpu"
+      ],
+      "returncode": 1,
+      "seconds": 0.667647956055589,
+      "log": "install-torch.txt"
+    },
+    {
+      "name": "install-requirements",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "--isolated",
+        "install",
+        "--no-cache-dir",
+        "--disable-pip-version-check",
+        "--retries",
+        "0",
+        "-r",
+        "requirements.txt"
+      ],
+      "returncode": 1,
+      "seconds": 0.7707923410926014,
+      "log": "install-requirements.txt"
+    },
+    {
+      "name": "vision",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.edge_benchmark",
+        "--out",
+        "results/edge_isolated_attempt",
+        "--epochs",
+        "100",
+        "--rounds",
+        "4",
+        "--repetitions",
+        "100"
+      ],
+      "returncode": 1,
+      "seconds": 0.31853746401611716,
+      "log": "vision.txt"
+    },
+    {
+      "name": "http-load",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.service_load",
+        "--transport",
+        "http",
+        "--out",
+        "results/http_load_attempt",
+        "--jobs",
+        "24",
+        "--clients",
+        "4",
+        "--copies",
+        "3"
+      ],
+      "returncode": 1,
+      "seconds": 0.21840717399027199,
+      "log": "http-load.txt"
+    },
+    {
+      "name": "store-load",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.service_load",
+        "--transport",
+        "store",
+        "--out",
+        "results/store_load_verified",
+        "--jobs",
+        "24",
+        "--clients",
+        "4",
+        "--copies",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 0.46736747305840254,
+      "log": "store-load.txt"
+    }
+  ]
+}

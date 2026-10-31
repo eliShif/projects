@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "error_type": "CalledProcessError",
+  "elapsed_seconds": 0.16757659299764782,
+  "detail": "Inspect retained worker logs or validation output; no successful summary."
+}

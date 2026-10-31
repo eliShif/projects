@@ -1,0 +1,434 @@
+[
+  {
+    "key": "load-0",
+    "id": "87e23f7f-c179-47d2-9686-10b96907f22d",
+    "created": true,
+    "latency_ms": 4.997441
+  },
+  {
+    "key": "load-0",
+    "id": "87e23f7f-c179-47d2-9686-10b96907f22d",
+    "created": false,
+    "latency_ms": 20.228977
+  },
+  {
+    "key": "load-0",
+    "id": "87e23f7f-c179-47d2-9686-10b96907f22d",
+    "created": false,
+    "latency_ms": 2.372097
+  },
+  {
+    "key": "load-1",
+    "id": "f99d15dc-f1c0-4c15-bdaf-4fabb4ffd529",
+    "created": false,
+    "latency_ms": 10.000865
+  },
+  {
+    "key": "load-1",
+    "id": "f99d15dc-f1c0-4c15-bdaf-4fabb4ffd529",
+    "created": true,
+    "latency_ms": 1.598892
+  },
+  {
+    "key": "load-1",
+    "id": "f99d15dc-f1c0-4c15-bdaf-4fabb4ffd529",
+    "created": false,
+    "latency_ms": 3.638048
+  },
+  {
+    "key": "load-2",
+    "id": "d2f6b0fe-5f6f-4e96-a642-bccd60c06b11",
+    "created": true,
+    "latency_ms": 1.524347
+  },
+  {
+    "key": "load-2",
+    "id": "d2f6b0fe-5f6f-4e96-a642-bccd60c06b11",
+    "created": false,
+    "latency_ms": 0.390822
+  },
+  {
+    "key": "load-2",
+    "id": "d2f6b0fe-5f6f-4e96-a642-bccd60c06b11",
+    "created": false,
+    "latency_ms": 0.330749
+  },
+  {
+    "key": "load-3",
+    "id": "36938185-930c-4b06-8a9e-f8eb04a8729a",
+    "created": false,
+    "latency_ms": 2.182031
+  },
+  {
+    "key": "load-3",
+    "id": "36938185-930c-4b06-8a9e-f8eb04a8729a",
+    "created": true,
+    "latency_ms": 2.686973
+  },
+  {
+    "key": "load-3",
+    "id": "36938185-930c-4b06-8a9e-f8eb04a8729a",
+    "created": false,
+    "latency_ms": 0.395084
+  },
+  {
+    "key": "load-4",
+    "id": "22723bfa-cb11-4b2f-bf7d-4ef0f78dcd16",
+    "created": true,
+    "latency_ms": 1.383943
+  },
+  {
+    "key": "load-4",
+    "id": "22723bfa-cb11-4b2f-bf7d-4ef0f78dcd16",
+    "created": false,
+    "latency_ms": 1.408967
+  },
+  {
+    "key": "load-4",
+    "id": "22723bfa-cb11-4b2f-bf7d-4ef0f78dcd16",
+    "created": false,
+    "latency_ms": 8.695229
+  },
+  {
+    "key": "load-5",
+    "id": "21267438-125d-4249-b289-8b218484e3cb",
+    "created": false,
+    "latency_ms": 3.94289
+  },
+  {
+    "key": "load-5",
+    "id": "21267438-125d-4249-b289-8b218484e3cb",
+    "created": true,
+    "latency_ms": 1.203094
+  },
+  {
+    "key": "load-5",
+    "id": "21267438-125d-4249-b289-8b218484e3cb",
+    "created": false,
+    "latency_ms": 0.30478
+  },
+  {
+    "key": "load-6",
+    "id": "a5d2e575-ffa9-4e3b-a33d-2377046f7e8a",
+    "created": true,
+    "latency_ms": 1.63167
+  },
+  {
+    "key": "load-6",
+    "id": "a5d2e575-ffa9-4e3b-a33d-2377046f7e8a",
+    "created": false,
+    "latency_ms": 0.316902
+  },
+  {
+    "key": "load-6",
+    "id": "a5d2e575-ffa9-4e3b-a33d-2377046f7e8a",
+    "created": false,
+    "latency_ms": 18.812301
+  },
+  {
+    "key": "load-7",
+    "id": "858c3a8c-b4c5-4a95-89df-78f3ecef757d",
+    "created": true,
+    "latency_ms": 1.670871
+  },
+  {
+    "key": "load-7",
+    "id": "858c3a8c-b4c5-4a95-89df-78f3ecef757d",
+    "created": false,
+    "latency_ms": 0.347223
+  },
+  {
+    "key": "load-7",
+    "id": "858c3a8c-b4c5-4a95-89df-78f3ecef757d",
+    "created": false,
+    "latency_ms": 0.322926
+  },
+  {
+    "key": "load-8",
+    "id": "9681d036-58b1-480e-9c27-0b9064ad1b11",
+    "created": true,
+    "latency_ms": 1.55888
+  },
+  {
+    "key": "load-8",
+    "id": "9681d036-58b1-480e-9c27-0b9064ad1b11",
+    "created": false,
+    "latency_ms": 1.511683
+  },
+  {
+    "key": "load-8",
+    "id": "9681d036-58b1-480e-9c27-0b9064ad1b11",
+    "created": false,
+    "latency_ms": 0.324158
+  },
+  {
+    "key": "load-9",
+    "id": "3234dae3-1cf4-4fa6-aff9-58272b46743e",
+    "created": false,
+    "latency_ms": 8.793536
+  },
+  {
+    "key": "load-9",
+    "id": "3234dae3-1cf4-4fa6-aff9-58272b46743e",
+    "created": false,
+    "latency_ms": 2.323939
+  },
+  {
+    "key": "load-9",
+    "id": "3234dae3-1cf4-4fa6-aff9-58272b46743e",
+    "created": true,
+    "latency_ms": 1.591456
+  },
+  {
+    "key": "load-10",
+    "id": "45431467-f424-42f9-ab1e-a4a78803a27d",
+    "created": false,
+    "latency_ms": 2.12105
+  },
+  {
+    "key": "load-10",
+    "id": "45431467-f424-42f9-ab1e-a4a78803a27d",
+    "created": true,
+    "latency_ms": 1.473609
+  },
+  {
+    "key": "load-10",
+    "id": "45431467-f424-42f9-ab1e-a4a78803a27d",
+    "created": false,
+    "latency_ms": 2.207765
+  },
+  {
+    "key": "load-11",
+    "id": "8b4b856b-4efc-448a-ba5d-600d0ea2aa0d",
+    "created": true,
+    "latency_ms": 1.57596
+  },
+  {
+    "key": "load-11",
+    "id": "8b4b856b-4efc-448a-ba5d-600d0ea2aa0d",
+    "created": false,
+    "latency_ms": 2.382828
+  },
+  {
+    "key": "load-11",
+    "id": "8b4b856b-4efc-448a-ba5d-600d0ea2aa0d",
+    "created": false,
+    "latency_ms": 0.285134
+  },
+  {
+    "key": "load-12",
+    "id": "35feb396-23ee-437e-8be6-8f126d6c8fa9",
+    "created": true,
+    "latency_ms": 2.007468
+  },
+  {
+    "key": "load-12",
+    "id": "35feb396-23ee-437e-8be6-8f126d6c8fa9",
+    "created": false,
+    "latency_ms": 36.558699
+  },
+  {
+    "key": "load-12",
+    "id": "35feb396-23ee-437e-8be6-8f126d6c8fa9",
+    "created": false,
+    "latency_ms": 0.388197
+  },
+  {
+    "key": "load-13",
+    "id": "eb81394b-d70f-4c43-9af1-c0475fa71d84",
+    "created": false,
+    "latency_ms": 18.918702
+  },
+  {
+    "key": "load-13",
+    "id": "eb81394b-d70f-4c43-9af1-c0475fa71d84",
+    "created": true,
+    "latency_ms": 1.700039
+  },
+  {
+    "key": "load-13",
+    "id": "eb81394b-d70f-4c43-9af1-c0475fa71d84",
+    "created": false,
+    "latency_ms": 0.318442
+  },
+  {
+    "key": "load-14",
+    "id": "4ccb908a-365c-4d5d-888f-d5015b5719fd",
+    "created": true,
+    "latency_ms": 1.47604
+  },
+  {
+    "key": "load-14",
+    "id": "4ccb908a-365c-4d5d-888f-d5015b5719fd",
+    "created": false,
+    "latency_ms": 10.313875
+  },
+  {
+    "key": "load-14",
+    "id": "4ccb908a-365c-4d5d-888f-d5015b5719fd",
+    "created": false,
+    "latency_ms": 0.32994
+  },
+  {
+    "key": "load-15",
+    "id": "d0c21902-d10c-407b-84ab-4cc26606c728",
+    "created": true,
+    "latency_ms": 1.993237
+  },
+  {
+    "key": "load-15",
+    "id": "d0c21902-d10c-407b-84ab-4cc26606c728",
+    "created": false,
+    "latency_ms": 0.302113
+  },
+  {
+    "key": "load-15",
+    "id": "d0c21902-d10c-407b-84ab-4cc26606c728",
+    "created": false,
+    "latency_ms": 0.296924
+  },
+  {
+    "key": "load-16",
+    "id": "8f3b0a2d-a918-4a4d-b9ea-22e04287c9df",
+    "created": true,
+    "latency_ms": 1.47053
+  },
+  {
+    "key": "load-16",
+    "id": "8f3b0a2d-a918-4a4d-b9ea-22e04287c9df",
+    "created": false,
+    "latency_ms": 0.332532
+  },
+  {
+    "key": "load-16",
+    "id": "8f3b0a2d-a918-4a4d-b9ea-22e04287c9df",
+    "created": false,
+    "latency_ms": 0.380478
+  },
+  {
+    "key": "load-17",
+    "id": "57253a2f-6629-4580-9502-b48e207d5cbd",
+    "created": true,
+    "latency_ms": 1.488163
+  },
+  {
+    "key": "load-17",
+    "id": "57253a2f-6629-4580-9502-b48e207d5cbd",
+    "created": false,
+    "latency_ms": 0.31584
+  },
+  {
+    "key": "load-17",
+    "id": "57253a2f-6629-4580-9502-b48e207d5cbd",
+    "created": false,
+    "latency_ms": 0.274529
+  },
+  {
+    "key": "load-18",
+    "id": "62f3b7b2-e84f-4e38-9f9e-f56d703ce047",
+    "created": true,
+    "latency_ms": 1.571283
+  },
+  {
+    "key": "load-18",
+    "id": "62f3b7b2-e84f-4e38-9f9e-f56d703ce047",
+    "created": false,
+    "latency_ms": 18.830515
+  },
+  {
+    "key": "load-18",
+    "id": "62f3b7b2-e84f-4e38-9f9e-f56d703ce047",
+    "created": false,
+    "latency_ms": 0.311353
+  },
+  {
+    "key": "load-19",
+    "id": "80e9a9b2-72ab-4a0f-b1e1-53785e14cbe2",
+    "created": true,
+    "latency_ms": 1.506002
+  },
+  {
+    "key": "load-19",
+    "id": "80e9a9b2-72ab-4a0f-b1e1-53785e14cbe2",
+    "created": false,
+    "latency_ms": 0.323365
+  },
+  {
+    "key": "load-19",
+    "id": "80e9a9b2-72ab-4a0f-b1e1-53785e14cbe2",
+    "created": false,
+    "latency_ms": 0.345675
+  },
+  {
+    "key": "load-20",
+    "id": "06a40d9b-8d03-4739-9d09-9380819f3eb6",
+    "created": true,
+    "latency_ms": 1.400528
+  },
+  {
+    "key": "load-20",
+    "id": "06a40d9b-8d03-4739-9d09-9380819f3eb6",
+    "created": false,
+    "latency_ms": 0.448902
+  },
+  {
+    "key": "load-20",
+    "id": "06a40d9b-8d03-4739-9d09-9380819f3eb6",
+    "created": false,
+    "latency_ms": 0.586808
+  },
+  {
+    "key": "load-21",
+    "id": "9f9b86e6-aaf9-478f-9db9-770ba9853e20",
+    "created": false,
+    "latency_ms": 8.716877
+  },
+  {
+    "key": "load-21",
+    "id": "9f9b86e6-aaf9-478f-9db9-770ba9853e20",
+    "created": true,
+    "latency_ms": 1.567646
+  },
+  {
+    "key": "load-21",
+    "id": "9f9b86e6-aaf9-478f-9db9-770ba9853e20",
+    "created": false,
+    "latency_ms": 0.314763
+  },
+  {
+    "key": "load-22",
+    "id": "21c33e56-b33b-461a-938e-a3c6619ada44",
+    "created": true,
+    "latency_ms": 1.863057
+  },
+  {
+    "key": "load-22",
+    "id": "21c33e56-b33b-461a-938e-a3c6619ada44",
+    "created": false,
+    "latency_ms": 0.309533
+  },
+  {
+    "key": "load-22",
+    "id": "21c33e56-b33b-461a-938e-a3c6619ada44",
+    "created": false,
+    "latency_ms": 0.279356
+  },
+  {
+    "key": "load-23",
+    "id": "1e0fc91c-1ab9-436d-bf15-6ece261662f2",
+    "created": true,
+    "latency_ms": 1.399282
+  },
+  {
+    "key": "load-23",
+    "id": "1e0fc91c-1ab9-436d-bf15-6ece261662f2",
+    "created": false,
+    "latency_ms": 0.312228
+  },
+  {
+    "key": "load-23",
+    "id": "1e0fc91c-1ab9-436d-bf15-6ece261662f2",
+    "created": false,
+    "latency_ms": 0.258926
+  }
+]

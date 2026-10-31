@@ -1,0 +1,46 @@
+{
+  "experiment": "local-service-load-v1",
+  "jobs": 24,
+  "clients": 4,
+  "copies_per_key": 3,
+  "request_timeout_seconds": 5,
+  "environment": {
+    "utc": "2026-10-31T13:48:21.210626+00:00",
+    "device_label": "development-host",
+    "target_edge_device_verified": false,
+    "os": "Linux",
+    "os_release": "7.0.0-28-generic",
+    "machine": "x86_64",
+    "cpu": "Intel Core Processor (Haswell, no TSX)",
+    "logical_cpus": 2,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "python": "3.14.4",
+    "packages": {
+      "numpy": null,
+      "scipy": null,
+      "scikit-learn": null,
+      "torch": null,
+      "transformers": null,
+      "safetensors": null
+    },
+    "power_condition": "unknown",
+    "power": {
+      "status": "unavailable",
+      "watts": null,
+      "joules": null,
+      "reason": "No instrumented power sensor in this run; no estimates from TDP or CPU time."
+    },
+    "thermal_and_background_load": "not controlled; repeat on an idle identified target"
+  },
+  "workload": "queue-probe-no-model",
+  "arrival_model": "bounded closed-loop thread clients; no offered-rate or saturation claim",
+  "source_sha256": {
+    "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/service_load.py": "e5c664b4c84b9c48fee694b9ddd3902e91b31b4a85cc8abffbcb0a60e2bdda0c",
+    "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/reliable_service.py": "6f0e4ef44453be7efeccb73892ebcd62cb033321a5a14a84ca08761f1025ea61",
+    "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/measurement.py": "6f3116777a0e0e179fca905d8989f88b186846132012c95fc147001b8ca49bec",
+    "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/common.py": "8eee89cfcd9796d742e1951746a07172d45475b517577bb77f33df93e9529f2c"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "utc": "2026-10-31T13:52:37.397422+00:00",
+  "scope": "core",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "checks": [
+    {
+      "check": "core-tests",
+      "argv": [
+        "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/core",
+        "-v"
+      ],
+      "returncode": 0,
+      "seconds": 0.6193754420382902,
+      "log": "core-tests.txt"
+    },
+    {
+      "check": "original-store-tests",
+      "argv": [
+        "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_service.StoreTests",
+        "-v"
+      ],
+      "returncode": 0,
+      "seconds": 0.4673544029938057,
+      "log": "original-store-tests.txt"
+    },
+    {
+      "check": "build",
+      "argv": [
+        "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "portfolio",
+        "tests",
+        "scripts"
+      ],
+      "returncode": 0,
+      "seconds": 0.11553632991854101,
+      "log": "build.txt"
+    },
+    {
+      "check": "smoke",
+      "argv": [
+        "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python",
+        "-m",
+        "portfolio.smoke"
+      ],
+      "returncode": 0,
+      "seconds": 0.4800213810522109,
+      "log": "smoke.txt"
+    }
+  ],
+  "all_passed": true
+}

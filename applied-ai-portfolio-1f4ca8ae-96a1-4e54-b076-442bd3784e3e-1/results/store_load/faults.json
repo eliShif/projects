@@ -1,0 +1,104 @@
+{
+  "checks": {
+    "expired_complete_rejected": true,
+    "expired_fail_rejected": true,
+    "replaced_owner_rejected": true,
+    "recovered_once": true,
+    "processing_failure_propagated": true,
+    "failure_requeued": true,
+    "retry_completed": true
+  },
+  "lease_job": {
+    "id": "04d64b17-9f5c-4c77-9e39-16a9a1c3a41b",
+    "status": "succeeded",
+    "attempts": 2,
+    "payload_hash": "dadff3c5f5fc6e0df29ff914c1022c1bc976151966bf233043e2d43d9ca75271",
+    "result": {
+      "recovered": true
+    },
+    "error": null,
+    "trace": [
+      {
+        "seq": 1,
+        "event": "enqueued",
+        "detail": {
+          "payload_sha256": "dadff3c5f5fc6e0df29ff914c1022c1bc976151966bf233043e2d43d9ca75271"
+        }
+      },
+      {
+        "seq": 2,
+        "event": "claimed",
+        "detail": {
+          "attempt": 1,
+          "lease_seconds": 2
+        }
+      },
+      {
+        "seq": 3,
+        "event": "claimed",
+        "detail": {
+          "attempt": 2,
+          "lease_seconds": 20
+        }
+      },
+      {
+        "seq": 4,
+        "event": "completed",
+        "detail": {
+          "result_sha256": "4d110d6f61027703413400919ea285a545010db8681b4e0802a3fe6f2026e153"
+        }
+      }
+    ]
+  },
+  "retry_job": {
+    "id": "ed604045-ddd7-497f-85fc-efb46e00f75f",
+    "status": "succeeded",
+    "attempts": 2,
+    "payload_hash": "8774f89851bf8b24aa1bf8f496d1e7ee783bce279d9fa5774d76735fd7333ded",
+    "result": {
+      "workload": "queue-probe-no-model",
+      "receipt": "d4e54f76384bf5459c770669fd4358aba52e3a1e58a1eecbd8eaf8d615681aed"
+    },
+    "error": null,
+    "trace": [
+      {
+        "seq": 5,
+        "event": "enqueued",
+        "detail": {
+          "payload_sha256": "8774f89851bf8b24aa1bf8f496d1e7ee783bce279d9fa5774d76735fd7333ded"
+        }
+      },
+      {
+        "seq": 6,
+        "event": "claimed",
+        "detail": {
+          "attempt": 1,
+          "lease_seconds": 300
+        }
+      },
+      {
+        "seq": 7,
+        "event": "queued",
+        "detail": {
+          "reason": "processing_error"
+        }
+      },
+      {
+        "seq": 8,
+        "event": "claimed",
+        "detail": {
+          "attempt": 2,
+          "lease_seconds": 300
+        }
+      },
+      {
+        "seq": 9,
+        "event": "completed",
+        "detail": {
+          "result_sha256": "62684edbfc894491fb6c05c482406a6c1db556880fe642c07d86e6672017f15a"
+        }
+      }
+    ]
+  },
+  "clock": "deterministic boundary clock; not a wall-clock expiry benchmark"
+}

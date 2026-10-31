@@ -1,0 +1,14 @@
+{
+  "one_create_per_key": true,
+  "one_id_per_key": true,
+  "conflicts_rejected": true,
+  "each_job_completed_once": true,
+  "content_preserved_after_conflicts": true,
+  "expired_complete_rejected": true,
+  "expired_fail_rejected": true,
+  "replaced_owner_rejected": true,
+  "recovered_once": true,
+  "processing_failure_propagated": true,
+  "failure_requeued": true,
+  "retry_completed": true
+}

@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/edge_benchmark.py", line 239, in <module>
+    main()
+    ~~~~^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/edge_benchmark.py", line 232, in main
+    result = run(args.out, config)
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/edge_benchmark.py", line 183, in run
+    launch_worker(out, config, 'train', seed)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/edge_benchmark.py", line 147, in launch_worker
+    completed.check_returncode()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/subprocess.py", line 509, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python', '-m', 'portfolio.edge_benchmark', '--out', '/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/results/edge_isolated_attempt', '--worker', 'train', '--seed', '7', '--trial', '0', '--position', '0']' returned non-zero exit status 1.

@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "error_type": "PermissionError",
+  "elapsed_seconds": 0.008772697066888213,
+  "detail": "Inspect retained worker logs or validation output; no successful summary."
+}

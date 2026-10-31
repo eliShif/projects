@@ -1,0 +1,103 @@
+{
+  "utc": "2026-10-31T13:59:46.495355+00:00",
+  "scope": "core",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "checks": [
+    {
+      "check": "core-tests",
+      "argv": [
+        "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/core",
+        "-v"
+      ],
+      "returncode": 0,
+      "seconds": 0.6172477339860052,
+      "log": "core-tests.txt"
+    },
+    {
+      "check": "original-store-tests",
+      "argv": [
+        "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_service.StoreTests",
+        "-v"
+      ],
+      "returncode": 0,
+      "seconds": 0.47066177206579596,
+      "log": "original-store-tests.txt"
+    },
+    {
+      "check": "build",
+      "argv": [
+        "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "portfolio",
+        "tests",
+        "scripts"
+      ],
+      "returncode": 0,
+      "seconds": 0.219274956965819,
+      "log": "build.txt"
+    },
+    {
+      "check": "smoke",
+      "argv": [
+        "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/.venv/bin/python",
+        "-m",
+        "portfolio.smoke"
+      ],
+      "returncode": 0,
+      "seconds": 0.4756260479334742,
+      "log": "smoke.txt"
+    }
+  ],
+  "source_sha256": {
+    "portfolio/__init__.py": "1efba230c5d385f4c3c7f506e712d51f0216ecdf593f6c9ee99bc7f56ef12f2d",
+    "portfolio/acceptance.py": "9aaa7669c589324c1a3681bb1d1a639d5eecc5f347576be54c510772ed00c212",
+    "portfolio/adapter_tuning.py": "3b1695797aabd3dbb7709cd33ac01cd04331677884546f52308bfc662a0c5730",
+    "portfolio/agent_eval.py": "201bacc416a8186164fc36aa883a7bfa9b30e89f5f60a027dd954a439511848a",
+    "portfolio/common.py": "8eee89cfcd9796d742e1951746a07172d45475b517577bb77f33df93e9529f2c",
+    "portfolio/download_model.py": "6e4d60e12ec841cce77b019b1dc03e7409114d2448de5128bf528789076f7853",
+    "portfolio/edge_benchmark.py": "5f4241772317c13dde0ddc7283a9a328ba815ed26756dfe28d45c34786f5af6e",
+    "portfolio/edge_protocol.py": "8ca5f33173420ea0db1ce480797446e90a10c771c331f095a89d9258d652a3c8",
+    "portfolio/edge_vision.py": "1357f38b078207f646b49ff0eb23a0672938d8b6743e14dda378134728285b1b",
+    "portfolio/evidence_agent.py": "4dea99bb5c6969ec332be06b964ba96e42a795fc9f974671d842589b766adcc3",
+    "portfolio/evidence_eval.py": "acff5cf567919abd6e664c46020dc178f4006d352ef65ebef6601121f4ce54a1",
+    "portfolio/gguf_lm.py": "5f2d74b3d310a7d35a3c05f8bbd073bd1c8f0f622407ed416f905c8a468f0cda",
+    "portfolio/local_lm.py": "66581ce95c095bcee7b5997756e970dd9e5edf17a45df37409b345cbe86d72b2",
+    "portfolio/measurement.py": "021c353bf7fbed7598b5cffb4754eb44e84fe998169ecb63ba639eab0b35ef29",
+    "portfolio/providers.py": "3479739e310934ac71c62c7e13b1cb0e1915efd71a996ace03cb65a1d446d088",
+    "portfolio/reliable_service.py": "6f0e4ef44453be7efeccb73892ebcd62cb033321a5a14a84ca08761f1025ea61",
+    "portfolio/research_cases.py": "d9d398f1096beca68e956e2a1a034e90c54aeac45d4ad1c4996a57cdb72a8806",
+    "portfolio/retrieval.py": "edeb5657f7edc00e333e4b1db81f3aaad3077658355252170667d2e69a0ee9e5",
+    "portfolio/service_load.py": "2904ff0c05a4e1fae0251d3aa48441ffc9c36421f8d12dce7b4cb3a69147638e",
+    "portfolio/small_lm.py": "d90691fee989c1beec6b3353c42564940f5bf327a9854a5ee639c90309e7d7e8",
+    "portfolio/smoke.py": "934990e0c56f9119acc6ab7adb6e36105b4db07c0f6dac9c3bdc9d1f644af390",
+    "portfolio/telemetry.py": "96239b01a3190f426c4200bc9adfa0b044f4583386aabf3ea14ef75769a3e35c",
+    "scripts/resume_frozen_evaluation.py": "3024e84d5211ddf72d7454fbe3d7d2925181e2268a7775c1ccc39858b4acffa5",
+    "scripts/validate.py": "ebddb20c153c6af7c0c93b6fc40ff01848299a2b3b481eae8353284db7cc687e",
+    "tests/__init__.py": "53ab08184c0a30161f2344f25a3ea64fea84805345742b8b8f64696328223cad",
+    "tests/core/__init__.py": "352d796f635b2e5fe222bc9fd8d2bfc161582fe96bed102db1db0fd02f4be047",
+    "tests/core/test_edge_protocol.py": "f14e4f9ee774612969b504454c6d03d8be78c7f932aa5fe408422d3d553c4b6e",
+    "tests/core/test_edge_runner.py": "72bec2d6c971089d75c15c92e4bfa5e99202dde6e208fd8711f20ee5b71eea03",
+    "tests/core/test_measurement.py": "6864f1bd1c2212f19f0219f501307eb2c017486c2cda23d0e2f49e97022aa10e",
+    "tests/core/test_queue_load.py": "403fec3b1ef9592b56c070548b07eb4a93f200c2d2bbcabab393d2e83f0f98fa",
+    "tests/test_adapters.py": "a7e1601531277474ac4411123f16ab7669086d266efc86c3690f686ed6618306",
+    "tests/test_edge_models.py": "b03b49d06dfe0f17888663c262a60b820132c90061d11077eca3efa38ce4acb5",
+    "tests/test_evidence_agent.py": "3ae92bd4de207a26988595b2950e8112a43d28404e52f0fd5670c8f5dfd5feb5",
+    "tests/test_providers.py": "d48284d0a4b8922c55296888afc09acb69c090a8e1c05422d26963e766e1f651",
+    "tests/test_service.py": "879c797da30bf5381c5c7f557e8aa7ea8b40f80fe9153f2a351d66fe5c01db43",
+    "tests/test_service_load_http.py": "8108074a7e1e9250b091a15191c1858a3a723f4d2361d006b97b8ef1f14d09d1",
+    "tests/test_statistics_retrieval.py": "04a08a8527b13c55029d2f3bdb11b3a399c0d5646e1effcd59caadf055c3c392",
+    "tests/test_telemetry.py": "e1167c4e5748ac17c36d15a0f633479449348dbfefbbd15876510deab8f4fd80"
+  },
+  "source_unchanged_during_checks": true,
+  "all_passed": true
+}

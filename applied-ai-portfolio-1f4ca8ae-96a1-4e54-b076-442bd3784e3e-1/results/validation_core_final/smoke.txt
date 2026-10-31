@@ -1,0 +1,1 @@
+{"status": "passed", "service_transport": "store", "vision_executed": false, "power_measured": false}

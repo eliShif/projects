@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/edge_benchmark.py", line 239, in <module>
+    main()
+    ~~~~^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/edge_benchmark.py", line 227, in main
+    if args.worker == 'train': train_worker(out, config, args.seed)
+                               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/edge_benchmark.py", line 43, in train_worker
+    import torch
+ModuleNotFoundError: No module named 'torch'

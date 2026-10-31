@@ -1,0 +1,234 @@
+test_bad_seed_not_hidden_by_mean_quality (core.test_edge_protocol.ProtocolTests.test_bad_seed_not_hidden_by_mean_quality) ... ok
+test_balanced_positions_within_each_training_seed (core.test_edge_protocol.ProtocolTests.test_balanced_positions_within_each_training_seed) ... ok
+test_exact_budget_boundaries_are_inclusive (core.test_edge_protocol.ProtocolTests.test_exact_budget_boundaries_are_inclusive) ... ok
+test_invalid_configuration_rejected_before_execution (core.test_edge_protocol.ProtocolTests.test_invalid_configuration_rejected_before_execution) ... ok
+test_missing_duplicate_or_mutated_trials_fail (core.test_edge_protocol.ProtocolTests.test_missing_duplicate_or_mutated_trials_fail) ... ok
+test_no_candidate_when_memory_unavailable_or_budgets_fail (core.test_edge_protocol.ProtocolTests.test_no_candidate_when_memory_unavailable_or_budgets_fail) ... ok
+test_slow_quantization_is_rejected_despite_small_storage (core.test_edge_protocol.ProtocolTests.test_slow_quantization_is_rejected_despite_small_storage) ... ok
+test_smallest_feasible_model_selected_without_test_access (core.test_edge_protocol.ProtocolTests.test_smallest_feasible_model_selected_without_test_access) ... ok
+test_child_failure_keeps_command_log_and_no_success_report (core.test_edge_runner.WorkerFailureTests.test_child_failure_keeps_command_log_and_no_success_report) ... ok
+test_timeout_does_not_publish_summary (core.test_edge_runner.WorkerFailureTests.test_timeout_does_not_publish_summary) ... ok
+test_worker_command_uses_fresh_interpreter_and_bounded_runtime (core.test_edge_runner.WorkerFailureTests.test_worker_command_uses_fresh_interpreter_and_bounded_runtime) ... ok
+test_bad_samples_rejected (core.test_measurement.MeasurementTests.test_bad_samples_rejected) ... ok
+test_linux_and_macos_peak_units (core.test_measurement.MeasurementTests.test_linux_and_macos_peak_units) ... ok
+test_native_peak_memory_is_positive_or_explicitly_unavailable (core.test_measurement.MeasurementTests.test_native_peak_memory_is_positive_or_explicitly_unavailable) ... ok
+test_raw_samples_and_linear_percentiles (core.test_measurement.MeasurementTests.test_raw_samples_and_linear_percentiles) ... ok
+test_unsupported_memory_and_power_are_not_zero_estimates (core.test_measurement.MeasurementTests.test_unsupported_memory_and_power_are_not_zero_estimates) ... ok
+test_existing_run_is_preserved (core.test_measurement.RunRecordTests.test_existing_run_is_preserved) ... ok
+test_failure_keeps_partial_evidence_and_removes_success_claims (core.test_measurement.RunRecordTests.test_failure_keeps_partial_evidence_and_removes_success_claims) ... ok
+test_success_manifest_identifies_actual_contents (core.test_measurement.RunRecordTests.test_success_manifest_identifies_actual_contents) ... ok
+test_concurrent_content_conflict_has_one_winner (core.test_queue_load.QueueContracts.test_concurrent_content_conflict_has_one_winner) ... ok
+test_expired_completion_and_failure_at_exact_boundary_then_retry (core.test_queue_load.QueueContracts.test_expired_completion_and_failure_at_exact_boundary_then_retry) ... ok
+test_load_bounds_rejected (core.test_queue_load.QueueContracts.test_load_bounds_rejected) ... ok
+test_nonfinite_result_is_not_partially_committed (core.test_queue_load.QueueContracts.test_nonfinite_result_is_not_partially_committed) ... ok
+test_old_failure_cannot_requeue_replaced_lease (core.test_queue_load.QueueContracts.test_old_failure_cannot_requeue_replaced_lease) ... ok
+test_processing_failure_does_not_publish_success (core.test_queue_load.QueueContracts.test_processing_failure_does_not_publish_success) ... ok
+test_real_store_load_artifacts_and_completion (core.test_queue_load.QueueContracts.test_real_store_load_artifacts_and_completion) ... ok
+test_wrong_completed_receipt_does_not_publish_success (core.test_queue_load.QueueContracts.test_wrong_completed_receipt_does_not_publish_success) ... ok
+test_adapters (unittest.loader._FailedTest.test_adapters) ... ERROR
+test_edge_models (unittest.loader._FailedTest.test_edge_models) ... ERROR
+test_conflicting_current_sources_abstain_regardless_of_order (test_evidence_agent.EvidenceTests.test_conflicting_current_sources_abstain_regardless_of_order) ... ok
+test_conversion_and_zero_denominator (test_evidence_agent.EvidenceTests.test_conversion_and_zero_denominator) ... ok
+test_dataset_split_has_no_shared_entities_and_covers_all_families (test_evidence_agent.EvidenceTests.test_dataset_split_has_no_shared_entities_and_covers_all_families) ... ok
+test_injected_notes_do_not_modify_tool_value (test_evidence_agent.EvidenceTests.test_injected_notes_do_not_modify_tool_value) ... ok
+test_invalid_actions_fail_without_execution (test_evidence_agent.EvidenceTests.test_invalid_actions_fail_without_execution) ... ok
+test_invalid_fact_types_are_rejected (test_evidence_agent.EvidenceTests.test_invalid_fact_types_are_rejected) ... ok
+test_removed_field_does_not_fall_back_to_old_version (test_evidence_agent.EvidenceTests.test_removed_field_does_not_fall_back_to_old_version) ... ok
+test_units_and_operands_are_checked (test_evidence_agent.EvidenceTests.test_units_and_operands_are_checked) ... ok
+test_unknown_service_abstains_instead_of_fuzzy_name_match (test_evidence_agent.EvidenceTests.test_unknown_service_abstains_instead_of_fuzzy_name_match) ... ok
+test_versioned_lookup_and_arithmetic_provenance (test_evidence_agent.EvidenceTests.test_versioned_lookup_and_arithmetic_provenance) ... ok
+test_providers (unittest.loader._FailedTest.test_providers) ... ERROR
+test_auth_is_required (test_service.HttpTests.test_auth_is_required) ... ERROR
+test_conflict_returns_409 (test_service.HttpTests.test_conflict_returns_409) ... ERROR
+test_http_job_worker_result_and_receipt (test_service.HttpTests.test_http_job_worker_result_and_receipt) ... ERROR
+test_oversized_body_rejected (test_service.HttpTests.test_oversized_body_rejected) ... ERROR
+test_completed_job_is_not_repeated (test_service.StoreTests.test_completed_job_is_not_repeated) ... ok
+test_concurrent_claim_has_one_owner (test_service.StoreTests.test_concurrent_claim_has_one_owner) ... ok
+test_concurrent_idempotency (test_service.StoreTests.test_concurrent_idempotency) ... ok
+test_crashes_eventually_exhaust_attempts (test_service.StoreTests.test_crashes_eventually_exhaust_attempts) ... ok
+test_expired_lease_rejected_even_without_reclaim (test_service.StoreTests.test_expired_lease_rejected_even_without_reclaim) ... ok
+test_expired_worker_cannot_overwrite_reclaimed_job (test_service.StoreTests.test_expired_worker_cannot_overwrite_reclaimed_job) ... ok
+test_invalid_input_rejected (test_service.StoreTests.test_invalid_input_rejected) ... ok
+test_key_conflict (test_service.StoreTests.test_key_conflict) ... ok
+test_persistence_after_reopen (test_service.StoreTests.test_persistence_after_reopen) ... ok
+test_concurrent_http_retries_conflicts_receipts_and_faults (test_service_load_http.HttpLoadTests.test_concurrent_http_retries_conflicts_receipts_and_faults) ... ERROR
+test_statistics_retrieval (unittest.loader._FailedTest.test_statistics_retrieval) ... ERROR
+test_telemetry (unittest.loader._FailedTest.test_telemetry) ... ERROR
+
+======================================================================
+ERROR: test_adapters (unittest.loader._FailedTest.test_adapters)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_adapters
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_adapters.py", line 2, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_edge_models (unittest.loader._FailedTest.test_edge_models)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_edge_models
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_edge_models.py", line 9, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_providers (unittest.loader._FailedTest.test_providers)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_providers
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_providers.py", line 1, in <module>
+    import json,unittest,httpx
+ModuleNotFoundError: No module named 'httpx'
+
+
+======================================================================
+ERROR: test_auth_is_required (test_service.HttpTests.test_auth_is_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_service.py", line 60, in setUp
+    self.token='test-only-token-not-a-real-secret';self.server=make_server(self.store,self.token,port=0)
+                                                               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/reliable_service.py", line 210, in make_server
+    return ThreadingHTTPServer((host,port),Handler)
+  File "/usr/lib/python3.14/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                                self.socket_type)
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_conflict_returns_409 (test_service.HttpTests.test_conflict_returns_409)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_service.py", line 60, in setUp
+    self.token='test-only-token-not-a-real-secret';self.server=make_server(self.store,self.token,port=0)
+                                                               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/reliable_service.py", line 210, in make_server
+    return ThreadingHTTPServer((host,port),Handler)
+  File "/usr/lib/python3.14/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                                self.socket_type)
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_http_job_worker_result_and_receipt (test_service.HttpTests.test_http_job_worker_result_and_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_service.py", line 60, in setUp
+    self.token='test-only-token-not-a-real-secret';self.server=make_server(self.store,self.token,port=0)
+                                                               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/reliable_service.py", line 210, in make_server
+    return ThreadingHTTPServer((host,port),Handler)
+  File "/usr/lib/python3.14/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                                self.socket_type)
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_oversized_body_rejected (test_service.HttpTests.test_oversized_body_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_service.py", line 60, in setUp
+    self.token='test-only-token-not-a-real-secret';self.server=make_server(self.store,self.token,port=0)
+                                                               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/reliable_service.py", line 210, in make_server
+    return ThreadingHTTPServer((host,port),Handler)
+  File "/usr/lib/python3.14/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                                self.socket_type)
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_concurrent_http_retries_conflicts_receipts_and_faults (test_service_load_http.HttpLoadTests.test_concurrent_http_retries_conflicts_receipts_and_faults)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_service_load_http.py", line 14, in test_concurrent_http_retries_conflicts_receipts_and_faults
+    result = run(out, jobs=6, clients=3, copies=3)
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/service_load.py", line 101, in run
+    server = make_server(store, token, port=0)
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/reliable_service.py", line 210, in make_server
+    return ThreadingHTTPServer((host,port),Handler)
+  File "/usr/lib/python3.14/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                                self.socket_type)
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_statistics_retrieval (unittest.loader._FailedTest.test_statistics_retrieval)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_statistics_retrieval
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_statistics_retrieval.py", line 2, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_telemetry (unittest.loader._FailedTest.test_telemetry)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_telemetry
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/tests/test_telemetry.py", line 2, in <module>
+    from portfolio.telemetry import make_dataset,normalize,analyze,features
+  File "/home/ubuntu/job-pilot/runtime/projects/1f4ca8ae-96a1-4e54-b076-442bd3784e3e/0/portfolio/telemetry.py", line 5, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+----------------------------------------------------------------------
+Ran 56 tests in 0.587s
+
+FAILED (errors=10)
