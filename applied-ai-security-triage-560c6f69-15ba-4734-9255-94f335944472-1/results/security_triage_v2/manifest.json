@@ -1,0 +1,59 @@
+{
+  "protocol_sha256": "29838d6ba840f315ff1bd41d37120b229fa995a7e6447ef3458f11c17ea4f947",
+  "queue_metrics": {
+    "jobs_by_status": {
+      "succeeded": 3
+    },
+    "total_attempts": 3
+  },
+  "report_sha256": "56ed1878c38b347e94c446c3c033fa75a29480c0a41e0da574608883bdfe0ccb",
+  "run_id": "2e570ac8a238b034259fd0e73f051d48110d441ab4843834244af8b792c94e37",
+  "stages": {
+    "evaluate": {
+      "artifacts": {
+        "REPORT.md": {
+          "path": "attempts/8a494b3c-1cb8-4a0a-9231-14b478668a9e-153ace56e9ae3511b4f0ba899e5622cd/REPORT.md",
+          "sha256": "56ed1878c38b347e94c446c3c033fa75a29480c0a41e0da574608883bdfe0ccb"
+        },
+        "acceptance.json": {
+          "path": "attempts/8a494b3c-1cb8-4a0a-9231-14b478668a9e-153ace56e9ae3511b4f0ba899e5622cd/acceptance.json",
+          "sha256": "78451a5aa118b0cd876cc84e1c238ae2cbd443288c5fd882cbf8e0451bc3a841"
+        },
+        "runs.json": {
+          "path": "attempts/8a494b3c-1cb8-4a0a-9231-14b478668a9e-153ace56e9ae3511b4f0ba899e5622cd/runs.json",
+          "sha256": "6124fed612739285ed1adbd79b0f2bd19f503cb177b286bca1e36b14de564a2c"
+        },
+        "summary.json": {
+          "path": "attempts/8a494b3c-1cb8-4a0a-9231-14b478668a9e-153ace56e9ae3511b4f0ba899e5622cd/summary.json",
+          "sha256": "41d147d1e950dad833eac57f56364bacefb4f258047b6ab7ed103df2715bf40c"
+        }
+      },
+      "run_id": "2e570ac8a238b034259fd0e73f051d48110d441ab4843834244af8b792c94e37",
+      "stage": "evaluate"
+    },
+    "prepare": {
+      "artifacts": {
+        "dataset.json": {
+          "path": "attempts/f8866ddf-fd05-4196-bf6c-1ab92bfd64c4-802306596b2e7851da955478d5f6ccd7/dataset.json",
+          "sha256": "c1e2c5631133614bf642f2036aa4d7c0bbe67f3a02159bcbd5accdac008d8b21"
+        }
+      },
+      "run_id": "2e570ac8a238b034259fd0e73f051d48110d441ab4843834244af8b792c94e37",
+      "stage": "prepare"
+    },
+    "train": {
+      "artifacts": {
+        "adapter.json": {
+          "path": "attempts/282e21bd-5af3-4a12-932d-3b5cdd329eb4-7990b95443f8735d16a8d002fd998b59/adapter.json",
+          "sha256": "373c4afa678650fbba319c0adff578e2619841b3dda3acc38341fec0229c2cee"
+        },
+        "training.json": {
+          "path": "attempts/282e21bd-5af3-4a12-932d-3b5cdd329eb4-7990b95443f8735d16a8d002fd998b59/training.json",
+          "sha256": "e8d4b9102adead8e53528cf128f67b2bf0a9a29d4933cab4d9b211507ed6c513"
+        }
+      },
+      "run_id": "2e570ac8a238b034259fd0e73f051d48110d441ab4843834244af8b792c94e37",
+      "stage": "train"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "protocol_sha256": "f6be4f2d12314c78710c16b06d09bf10712c16b1034f9fd0be14ac9fcc2083a0",
+  "queue_metrics": {
+    "jobs_by_status": {
+      "succeeded": 3
+    },
+    "total_attempts": 3
+  },
+  "report_sha256": "d0e3bc057e0d268598d444b571018c2281bc27f5fba44ff4ae2cf6a468cb9ba2",
+  "run_id": "35db3716c5091a795320cf6ace9e79138f39b0277248e566c3eb4ebd7415f20f",
+  "stages": {
+    "evaluate": {
+      "artifacts": {
+        "REPORT.md": {
+          "path": "attempts/fa1cc761-4738-492d-a768-f816d02d0704-816498f702f7dd36062ff718dde44672/REPORT.md",
+          "sha256": "d0e3bc057e0d268598d444b571018c2281bc27f5fba44ff4ae2cf6a468cb9ba2"
+        },
+        "runs.json": {
+          "path": "attempts/fa1cc761-4738-492d-a768-f816d02d0704-816498f702f7dd36062ff718dde44672/runs.json",
+          "sha256": "6124fed612739285ed1adbd79b0f2bd19f503cb177b286bca1e36b14de564a2c"
+        },
+        "summary.json": {
+          "path": "attempts/fa1cc761-4738-492d-a768-f816d02d0704-816498f702f7dd36062ff718dde44672/summary.json",
+          "sha256": "41d147d1e950dad833eac57f56364bacefb4f258047b6ab7ed103df2715bf40c"
+        }
+      },
+      "run_id": "35db3716c5091a795320cf6ace9e79138f39b0277248e566c3eb4ebd7415f20f",
+      "stage": "evaluate"
+    },
+    "prepare": {
+      "artifacts": {
+        "dataset.json": {
+          "path": "attempts/c489d96f-852b-4cc3-a83c-bdee486477ae-5e57947eb2122e4b6f870839cf93b31f/dataset.json",
+          "sha256": "c1e2c5631133614bf642f2036aa4d7c0bbe67f3a02159bcbd5accdac008d8b21"
+        }
+      },
+      "run_id": "35db3716c5091a795320cf6ace9e79138f39b0277248e566c3eb4ebd7415f20f",
+      "stage": "prepare"
+    },
+    "train": {
+      "artifacts": {
+        "adapter.json": {
+          "path": "attempts/f4c37169-313b-44d2-ae34-11af51670335-cb1d5107f84982c8871a5a9ae481bae6/adapter.json",
+          "sha256": "373c4afa678650fbba319c0adff578e2619841b3dda3acc38341fec0229c2cee"
+        },
+        "training.json": {
+          "path": "attempts/f4c37169-313b-44d2-ae34-11af51670335-cb1d5107f84982c8871a5a9ae481bae6/training.json",
+          "sha256": "e8d4b9102adead8e53528cf128f67b2bf0a9a29d4933cab4d9b211507ed6c513"
+        }
+      },
+      "run_id": "35db3716c5091a795320cf6ace9e79138f39b0277248e566c3eb4ebd7415f20f",
+      "stage": "train"
+    }
+  }
+}

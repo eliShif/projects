@@ -1,0 +1,175 @@
+{
+  "ml_dependency_install": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pip",
+      "--isolated",
+      "--disable-pip-version-check",
+      "install",
+      "--index-url",
+      "https://pypi.org/simple",
+      "--retries",
+      "0",
+      "--timeout",
+      "5",
+      "-r",
+      "requirements.txt"
+    ],
+    "exit_code": 1,
+    "utc": "2026-10-31T15:18:55.692598+00:00",
+    "output": "results/security_validation_v2/ml_dependency_install.txt",
+    "output_sha256": "5794ebab5bf7bf7990725523092aea7a4952fd2ddcd120cc83c820302653f05f"
+  },
+  "experiment": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "portfolio.security_pipeline",
+      "run",
+      "--out",
+      "results/security_triage_v2",
+      "--steps",
+      "96"
+    ],
+    "exit_code": 0,
+    "utc": "2026-10-31T15:19:14.500454+00:00",
+    "output": "results/security_validation_v2/experiment.txt",
+    "output_sha256": "cf7142c7cb961c47a4ebc8bdaba0a9c53925f3758e20d71e571e13c8fa90957b"
+  },
+  "audit": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "portfolio.security_pipeline",
+      "audit",
+      "--out",
+      "results/security_triage_v2"
+    ],
+    "exit_code": 0,
+    "utc": "2026-10-31T15:19:14.773894+00:00",
+    "output": "results/security_validation_v2/audit.txt",
+    "output_sha256": "fcc3c82ca88ac776fa75904377fe80f73afcf00a497914841fda67a9554c8a66"
+  },
+  "tests": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests_security",
+      "-v"
+    ],
+    "exit_code": 0,
+    "utc": "2026-10-31T15:20:15.611482+00:00",
+    "output": "results/security_validation_v2/tests.txt",
+    "output_sha256": "d62d6d82e56fa11e713c89d200485cde058a531061864491c014f0fab174e8f9"
+  },
+  "evidence_regression": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_evidence_agent.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "utc": "2026-10-31T15:20:15.723003+00:00",
+    "output": "results/security_validation_v2/evidence_regression.txt",
+    "output_sha256": "5deae733fb070eafa9520d2748bab1b41bf85f215a13cc20956136c53aaf55ba"
+  },
+  "inherited_suite": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit_code": 1,
+    "utc": "2026-10-31T15:20:16.119595+00:00",
+    "output": "results/security_validation_v2/inherited_suite.txt",
+    "output_sha256": "7103ecdc5b499f831776cfe26303cea0b0bda7b05badc64e44ee95292f703cc6"
+  },
+  "optional_tensor_suite": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests_ml",
+      "-v"
+    ],
+    "exit_code": 1,
+    "utc": "2026-10-31T15:20:16.219424+00:00",
+    "output": "results/security_validation_v2/optional_tensor_suite.txt",
+    "output_sha256": "73256d789f56653719bdf0c7dade4f308b43be6ecb4451a467b88119658c9534"
+  },
+  "install": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--no-cache-dir",
+      "--no-build-isolation",
+      "--no-deps",
+      "."
+    ],
+    "exit_code": 0,
+    "utc": "2026-10-31T15:22:51.563126+00:00",
+    "output": "results/security_validation_v2/install.txt",
+    "output_sha256": "c159d2bd3c557be13fbd183ab86db89a914f9a00a8a1e8da9c4b0dce7101772b"
+  },
+  "build": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pip",
+      "wheel",
+      "--no-index",
+      "--no-cache-dir",
+      "--no-build-isolation",
+      "--no-deps",
+      "--wheel-dir",
+      "dist",
+      "."
+    ],
+    "exit_code": 0,
+    "utc": "2026-10-31T15:22:53.384212+00:00",
+    "output": "results/security_validation_v2/build.txt",
+    "output_sha256": "b4d38d4603cd224e4f3317f2a94df11c0f977094c206c6f3ed732bfc6b7ee360"
+  },
+  "smoke": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "portfolio.security_smoke"
+    ],
+    "exit_code": 0,
+    "utc": "2026-10-31T15:22:54.866393+00:00",
+    "output": "results/security_validation_v2/smoke.txt",
+    "output_sha256": "ceda48365c6d57deeb74e591b81cc8d0e53018e3cd27ae38166c5a3febcb8428"
+  },
+  "installed_smoke": {
+    "command": [
+      ".venv/bin/python",
+      "-I",
+      "-m",
+      "portfolio.security_smoke"
+    ],
+    "exit_code": 0,
+    "utc": "2026-10-31T15:22:56.263609+00:00",
+    "output": "results/security_validation_v2/installed_smoke.txt",
+    "output_sha256": "ceda48365c6d57deeb74e591b81cc8d0e53018e3cd27ae38166c5a3febcb8428"
+  }
+}

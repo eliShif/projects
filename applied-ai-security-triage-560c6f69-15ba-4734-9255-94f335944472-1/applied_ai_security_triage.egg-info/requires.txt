@@ -1,0 +1,10 @@
+
+[ml]
+huggingface-hub<1
+numpy==2.3.5
+openai<3,>=2
+safetensors>=0.4
+scikit-learn==1.8.0
+scipy==1.17.0
+torch<3,>=2.9
+transformers<5,>=4.48

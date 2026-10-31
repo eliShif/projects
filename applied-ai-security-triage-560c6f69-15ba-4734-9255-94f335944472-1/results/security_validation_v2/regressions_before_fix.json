@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-m",
+    "unittest",
+    "-v",
+    "tests_security.test_triage.TriageTests.test_planner_cannot_rewrite_evidence_used_by_the_executor",
+    "tests_security.test_triage.TriageTests.test_ambiguous_json_plan_is_rejected_before_execution",
+    "tests_security.test_http_contract.HttpHandlerTests.test_duplicate_json_fields_and_short_body_do_not_enqueue",
+    "tests_security.test_pipeline.EvaluationTests.test_mutating_backend_cannot_contaminate_other_arms_or_source_cases"
+  ],
+  "exit_code": 1,
+  "utc": "2026-10-31T15:12:56.630871+00:00",
+  "output_sha256": "43bca3e2c86f208f9ae446ac5b72cdee96d1d82b35dfbddefe84910cfd12312e",
+  "scope": "New regression tests executed against the recovered checkpoint before the boundary fixes."
+}

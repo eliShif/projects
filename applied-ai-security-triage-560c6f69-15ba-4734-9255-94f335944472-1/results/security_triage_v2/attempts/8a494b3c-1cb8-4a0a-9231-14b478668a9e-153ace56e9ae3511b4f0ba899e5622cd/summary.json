@@ -1,0 +1,140 @@
+{
+  "arms": {
+    "adapted": {
+      "cases": 24,
+      "correct": 24,
+      "grounded_correct": 24,
+      "failed": 0,
+      "correct_abstentions": 9,
+      "abstention_cases": 9,
+      "failure_reasons": {},
+      "by_family": {
+        "burst": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "hostile": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "incomplete": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "missing": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "privilege": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "retries": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "unsupported": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "workload": {
+          "cases": 3,
+          "grounded_correct": 3
+        }
+      }
+    },
+    "base": {
+      "cases": 24,
+      "correct": 6,
+      "grounded_correct": 6,
+      "failed": 18,
+      "correct_abstentions": 0,
+      "abstention_cases": 9,
+      "failure_reasons": {
+        "invalid_plan": 18
+      },
+      "by_family": {
+        "burst": {
+          "cases": 3,
+          "grounded_correct": 0
+        },
+        "hostile": {
+          "cases": 3,
+          "grounded_correct": 0
+        },
+        "incomplete": {
+          "cases": 3,
+          "grounded_correct": 0
+        },
+        "missing": {
+          "cases": 3,
+          "grounded_correct": 0
+        },
+        "privilege": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "retries": {
+          "cases": 3,
+          "grounded_correct": 0
+        },
+        "unsupported": {
+          "cases": 3,
+          "grounded_correct": 0
+        },
+        "workload": {
+          "cases": 3,
+          "grounded_correct": 3
+        }
+      }
+    },
+    "rule": {
+      "cases": 24,
+      "correct": 24,
+      "grounded_correct": 24,
+      "failed": 0,
+      "correct_abstentions": 9,
+      "abstention_cases": 9,
+      "failure_reasons": {},
+      "by_family": {
+        "burst": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "hostile": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "incomplete": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "missing": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "privilege": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "retries": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "unsupported": {
+          "cases": 3,
+          "grounded_correct": 3
+        },
+        "workload": {
+          "cases": 3,
+          "grounded_correct": 3
+        }
+      }
+    }
+  },
+  "paired_base_to_adapted": {
+    "improved": 18,
+    "regressed": 0,
+    "unchanged": 6
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "utc": "2026-10-31T14:26:40.890951+00:00",
+  "checks": [
+    {
+      "check": "install",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-build-isolation",
+        "--no-deps",
+        "."
+      ],
+      "exit_code": 0,
+      "seconds": 2.871,
+      "log": "install.log",
+      "required_offline_check": true
+    },
+    {
+      "check": "tests",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests_security",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 3.432,
+      "log": "tests.log",
+      "required_offline_check": true
+    },
+    {
+      "check": "evidence_regression",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_evidence_agent.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 0.317,
+      "log": "evidence_regression.log",
+      "required_offline_check": true
+    },
+    {
+      "check": "build",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-build-isolation",
+        "--no-deps",
+        "--wheel-dir",
+        "dist",
+        "."
+      ],
+      "exit_code": 0,
+      "seconds": 2.983,
+      "log": "build.log",
+      "required_offline_check": true
+    },
+    {
+      "check": "smoke",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.security_smoke"
+      ],
+      "exit_code": 0,
+      "seconds": 1.434,
+      "log": "smoke.log",
+      "required_offline_check": true
+    },
+    {
+      "check": "experiment",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.security_pipeline",
+        "run",
+        "--out",
+        "results/security_triage",
+        "--steps",
+        "96"
+      ],
+      "exit_code": 0,
+      "seconds": 0.801,
+      "log": "experiment.log",
+      "required_offline_check": true
+    },
+    {
+      "check": "audit",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.security_pipeline",
+        "audit",
+        "--out",
+        "results/security_triage"
+      ],
+      "exit_code": 0,
+      "seconds": 0.349,
+      "log": "audit.log",
+      "required_offline_check": true
+    },
+    {
+      "check": "ml_dependency_install",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--retries",
+        "0",
+        "--timeout",
+        "5",
+        "-r",
+        "requirements.txt"
+      ],
+      "exit_code": 1,
+      "seconds": 0.779,
+      "log": "ml_dependency_install.log",
+      "required_offline_check": false
+    },
+    {
+      "check": "inherited_suite",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 1,
+      "seconds": 0.478,
+      "log": "inherited_suite.log",
+      "required_offline_check": false
+    },
+    {
+      "check": "optional_tensor_suite",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests_ml",
+        "-v"
+      ],
+      "exit_code": 1,
+      "seconds": 0.104,
+      "log": "optional_tensor_suite.log",
+      "required_offline_check": false
+    }
+  ]
+}

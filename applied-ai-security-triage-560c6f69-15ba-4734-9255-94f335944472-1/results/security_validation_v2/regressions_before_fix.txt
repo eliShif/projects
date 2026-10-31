@@ -1,0 +1,50 @@
+test_planner_cannot_rewrite_evidence_used_by_the_executor (tests_security.test_triage.TriageTests.test_planner_cannot_rewrite_evidence_used_by_the_executor) ... FAIL
+test_ambiguous_json_plan_is_rejected_before_execution (tests_security.test_triage.TriageTests.test_ambiguous_json_plan_is_rejected_before_execution) ... 
+  test_ambiguous_json_plan_is_rejected_before_execution (tests_security.test_triage.TriageTests.test_ambiguous_json_plan_is_rejected_before_execution) (raw='{"operation":"shell","operation":"investigate_auth","alert_id":"test-16fa29953f6') ... FAIL
+test_duplicate_json_fields_and_short_body_do_not_enqueue (tests_security.test_http_contract.HttpHandlerTests.test_duplicate_json_fields_and_short_body_do_not_enqueue) ... FAIL
+test_mutating_backend_cannot_contaminate_other_arms_or_source_cases (tests_security.test_pipeline.EvaluationTests.test_mutating_backend_cannot_contaminate_other_arms_or_source_cases) ... FAIL
+
+======================================================================
+FAIL: test_planner_cannot_rewrite_evidence_used_by_the_executor (tests_security.test_triage.TriageTests.test_planner_cannot_rewrite_evidence_used_by_the_executor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/560c6f69-15ba-4734-9255-94f335944472/0/tests_security/test_triage.py", line 119, in test_planner_cannot_rewrite_evidence_used_by_the_executor
+    self.assertEqual(observation, original)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'ale[487 chars]d': 'secret_read', 'country': 'ZZ', 'resource'[1878 chars]None} != {'ale[487 chars]d': 'login_failure', 'country': 'ZZ', 'resourc[1880 chars]None}
+Diff is 4134 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_ambiguous_json_plan_is_rejected_before_execution (tests_security.test_triage.TriageTests.test_ambiguous_json_plan_is_rejected_before_execution) (raw='{"operation":"shell","operation":"investigate_auth","alert_id":"test-16fa29953f6')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/560c6f69-15ba-4734-9255-94f335944472/0/tests_security/test_triage.py", line 133, in test_ambiguous_json_plan_is_rejected_before_execution
+    self.assertEqual(result["status"], "failed")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'completed' != 'failed'
+- completed
++ failed
+
+
+======================================================================
+FAIL: test_duplicate_json_fields_and_short_body_do_not_enqueue (tests_security.test_http_contract.HttpHandlerTests.test_duplicate_json_fields_and_short_body_do_not_enqueue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/560c6f69-15ba-4734-9255-94f335944472/0/tests_security/test_http_contract.py", line 87, in test_duplicate_json_fields_and_short_body_do_not_enqueue
+    self.assertEqual(request(self.store, raw_body=raw)[0], 400)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 202 != 400
+
+======================================================================
+FAIL: test_mutating_backend_cannot_contaminate_other_arms_or_source_cases (tests_security.test_pipeline.EvaluationTests.test_mutating_backend_cannot_contaminate_other_arms_or_source_cases)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/560c6f69-15ba-4734-9255-94f335944472/0/tests_security/test_pipeline.py", line 160, in test_mutating_backend_cannot_contaminate_other_arms_or_source_cases
+    self.assertEqual(summary["arms"]["adapted"]["grounded_correct"], len(self.cases))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 12 != 24
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.181s
+
+FAILED (failures=4)

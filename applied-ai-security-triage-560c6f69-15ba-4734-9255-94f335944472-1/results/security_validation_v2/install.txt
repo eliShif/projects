@@ -1,0 +1,15 @@
+Processing /home/ubuntu/job-pilot/runtime/projects/560c6f69-15ba-4734-9255-94f335944472/0
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: applied-ai-security-triage
+  Building wheel for applied-ai-security-triage (pyproject.toml): started
+  Building wheel for applied-ai-security-triage (pyproject.toml): finished with status 'done'
+  Created wheel for applied-ai-security-triage: filename=applied_ai_security_triage-0.1.0-py3-none-any.whl size=65893 sha256=9377c31d9c6ff8381b5e72e98776c9bc077f0369c2a0ec5ea357d6e23c26b8ac
+  Stored in directory: /tmp/pip-ephem-wheel-cache-n1nvt85d/wheels/e4/05/da/1950289af33afd50a1467a340aa11ee86e953e8f5d98e5723e
+Successfully built applied-ai-security-triage
+Installing collected packages: applied-ai-security-triage
+  Attempting uninstall: applied-ai-security-triage
+    Found existing installation: applied-ai-security-triage 0.1.0
+    Uninstalling applied-ai-security-triage-0.1.0:
+      Successfully uninstalled applied-ai-security-triage-0.1.0
+Successfully installed applied-ai-security-triage-0.1.0

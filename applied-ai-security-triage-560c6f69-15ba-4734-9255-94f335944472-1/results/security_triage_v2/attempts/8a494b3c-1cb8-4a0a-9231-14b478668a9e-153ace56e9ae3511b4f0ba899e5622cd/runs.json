@@ -1,0 +1,5930 @@
+[
+  {
+    "case_id": "test-16fa29953f64",
+    "family": "burst",
+    "arm": "rule",
+    "observation_sha256": "2ff72e0af30c799c697d7d53a8d474776e4687b2c716072efd12c0851114fa78",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-16fa29953f64",
+        "failure-0-test-16fa29953f64",
+        "failure-1-test-16fa29953f64",
+        "failure-2-test-16fa29953f64",
+        "failure-3-test-16fa29953f64",
+        "failure-4-test-16fa29953f64",
+        "failure-5-test-16fa29953f64",
+        "failure-6-test-16fa29953f64",
+        "failure-7-test-16fa29953f64",
+        "triage-policy-v1"
+      ],
+      "finding": "8 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-16fa29953f64",
+        "failure-1-test-16fa29953f64",
+        "failure-2-test-16fa29953f64",
+        "failure-3-test-16fa29953f64",
+        "failure-4-test-16fa29953f64",
+        "failure-5-test-16fa29953f64",
+        "failure-6-test-16fa29953f64",
+        "failure-7-test-16fa29953f64",
+        "anchor-test-16fa29953f64"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-16fa29953f64"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-16fa29953f64\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-16fa29953f64",
+            "failure-1-test-16fa29953f64",
+            "failure-2-test-16fa29953f64",
+            "failure-3-test-16fa29953f64",
+            "failure-4-test-16fa29953f64",
+            "failure-5-test-16fa29953f64",
+            "failure-6-test-16fa29953f64",
+            "failure-7-test-16fa29953f64",
+            "anchor-test-16fa29953f64"
+          ],
+          "observation_sha256": "2ff72e0af30c799c697d7d53a8d474776e4687b2c716072efd12c0851114fa78"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "2ff72e0af30c799c697d7d53a8d474776e4687b2c716072efd12c0851114fa78",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-16fa29953f64",
+    "family": "burst",
+    "arm": "base",
+    "observation_sha256": "2ff72e0af30c799c697d7d53a8d474776e4687b2c716072efd12c0851114fa78",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-16fa29953f64"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-16fa29953f64\"}",
+        "logits": {
+          "investigate_auth": -0.12303916095543442,
+          "investigate_access": 0.16352693916984096,
+          "abstain": -0.14469546272960793
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-16fa29953f64",
+            "failure-1-test-16fa29953f64",
+            "failure-2-test-16fa29953f64",
+            "failure-3-test-16fa29953f64",
+            "failure-4-test-16fa29953f64",
+            "failure-5-test-16fa29953f64",
+            "failure-6-test-16fa29953f64",
+            "failure-7-test-16fa29953f64",
+            "anchor-test-16fa29953f64"
+          ],
+          "observation_sha256": "2ff72e0af30c799c697d7d53a8d474776e4687b2c716072efd12c0851114fa78"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "2ff72e0af30c799c697d7d53a8d474776e4687b2c716072efd12c0851114fa78",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-16fa29953f64",
+    "family": "burst",
+    "arm": "adapted",
+    "observation_sha256": "2ff72e0af30c799c697d7d53a8d474776e4687b2c716072efd12c0851114fa78",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-16fa29953f64",
+        "failure-0-test-16fa29953f64",
+        "failure-1-test-16fa29953f64",
+        "failure-2-test-16fa29953f64",
+        "failure-3-test-16fa29953f64",
+        "failure-4-test-16fa29953f64",
+        "failure-5-test-16fa29953f64",
+        "failure-6-test-16fa29953f64",
+        "failure-7-test-16fa29953f64",
+        "triage-policy-v1"
+      ],
+      "finding": "8 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-16fa29953f64",
+        "failure-1-test-16fa29953f64",
+        "failure-2-test-16fa29953f64",
+        "failure-3-test-16fa29953f64",
+        "failure-4-test-16fa29953f64",
+        "failure-5-test-16fa29953f64",
+        "failure-6-test-16fa29953f64",
+        "failure-7-test-16fa29953f64",
+        "anchor-test-16fa29953f64"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-16fa29953f64"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-16fa29953f64\"}",
+        "logits": {
+          "investigate_auth": 3.4277258938018784,
+          "investigate_access": -2.6084305849526257,
+          "abstain": -0.9235029933644552
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-16fa29953f64",
+            "failure-1-test-16fa29953f64",
+            "failure-2-test-16fa29953f64",
+            "failure-3-test-16fa29953f64",
+            "failure-4-test-16fa29953f64",
+            "failure-5-test-16fa29953f64",
+            "failure-6-test-16fa29953f64",
+            "failure-7-test-16fa29953f64",
+            "anchor-test-16fa29953f64"
+          ],
+          "observation_sha256": "2ff72e0af30c799c697d7d53a8d474776e4687b2c716072efd12c0851114fa78"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "2ff72e0af30c799c697d7d53a8d474776e4687b2c716072efd12c0851114fa78",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-0b8d57b70574",
+    "family": "retries",
+    "arm": "rule",
+    "observation_sha256": "15ca0a13600739f6e1e0a2d3441225be77d3ea8437720082b14b3c2c46755bb9",
+    "expected": {
+      "disposition": "no_finding",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "no_finding",
+      "reason": "rule_not_matched",
+      "citations": [
+        "anchor-test-0b8d57b70574",
+        "failure-0-test-0b8d57b70574",
+        "failure-1-test-0b8d57b70574",
+        "triage-policy-v1"
+      ],
+      "finding": "2 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-0b8d57b70574",
+        "failure-1-test-0b8d57b70574",
+        "anchor-test-0b8d57b70574"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-0b8d57b70574"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-0b8d57b70574\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-0b8d57b70574",
+            "failure-1-test-0b8d57b70574",
+            "anchor-test-0b8d57b70574"
+          ],
+          "observation_sha256": "15ca0a13600739f6e1e0a2d3441225be77d3ea8437720082b14b3c2c46755bb9"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "15ca0a13600739f6e1e0a2d3441225be77d3ea8437720082b14b3c2c46755bb9",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-0b8d57b70574",
+    "family": "retries",
+    "arm": "base",
+    "observation_sha256": "15ca0a13600739f6e1e0a2d3441225be77d3ea8437720082b14b3c2c46755bb9",
+    "expected": {
+      "disposition": "no_finding",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-0b8d57b70574"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-0b8d57b70574\"}",
+        "logits": {
+          "investigate_auth": -0.12682781041987518,
+          "investigate_access": 0.1732794111935437,
+          "abstain": -0.13382888752499453
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-0b8d57b70574",
+            "failure-1-test-0b8d57b70574",
+            "anchor-test-0b8d57b70574"
+          ],
+          "observation_sha256": "15ca0a13600739f6e1e0a2d3441225be77d3ea8437720082b14b3c2c46755bb9"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "15ca0a13600739f6e1e0a2d3441225be77d3ea8437720082b14b3c2c46755bb9",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-0b8d57b70574",
+    "family": "retries",
+    "arm": "adapted",
+    "observation_sha256": "15ca0a13600739f6e1e0a2d3441225be77d3ea8437720082b14b3c2c46755bb9",
+    "expected": {
+      "disposition": "no_finding",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "no_finding",
+      "reason": "rule_not_matched",
+      "citations": [
+        "anchor-test-0b8d57b70574",
+        "failure-0-test-0b8d57b70574",
+        "failure-1-test-0b8d57b70574",
+        "triage-policy-v1"
+      ],
+      "finding": "2 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-0b8d57b70574",
+        "failure-1-test-0b8d57b70574",
+        "anchor-test-0b8d57b70574"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-0b8d57b70574"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-0b8d57b70574\"}",
+        "logits": {
+          "investigate_auth": 3.427160924327002,
+          "investigate_access": -2.588570503833884,
+          "abstain": -0.9259677072444449
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-0b8d57b70574",
+            "failure-1-test-0b8d57b70574",
+            "anchor-test-0b8d57b70574"
+          ],
+          "observation_sha256": "15ca0a13600739f6e1e0a2d3441225be77d3ea8437720082b14b3c2c46755bb9"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "15ca0a13600739f6e1e0a2d3441225be77d3ea8437720082b14b3c2c46755bb9",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-bdc1e9d7bac3",
+    "family": "privilege",
+    "arm": "rule",
+    "observation_sha256": "acad88348243440704a5e5ecc1fef941290bee524e2e7fbe7398cda598f8db47",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-bdc1e9d7bac3",
+        "earlier-test-bdc1e9d7bac3",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-bdc1e9d7bac3",
+        "anchor-test-bdc1e9d7bac3"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-bdc1e9d7bac3"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-bdc1e9d7bac3\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-bdc1e9d7bac3",
+            "anchor-test-bdc1e9d7bac3"
+          ],
+          "observation_sha256": "acad88348243440704a5e5ecc1fef941290bee524e2e7fbe7398cda598f8db47"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "acad88348243440704a5e5ecc1fef941290bee524e2e7fbe7398cda598f8db47",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-bdc1e9d7bac3",
+    "family": "privilege",
+    "arm": "base",
+    "observation_sha256": "acad88348243440704a5e5ecc1fef941290bee524e2e7fbe7398cda598f8db47",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-bdc1e9d7bac3",
+        "earlier-test-bdc1e9d7bac3",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-bdc1e9d7bac3",
+        "anchor-test-bdc1e9d7bac3"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-bdc1e9d7bac3"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-bdc1e9d7bac3\"}",
+        "logits": {
+          "investigate_auth": -0.12373646898055381,
+          "investigate_access": 0.24799583822099638,
+          "abstain": -0.278860399771333
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-bdc1e9d7bac3",
+            "anchor-test-bdc1e9d7bac3"
+          ],
+          "observation_sha256": "acad88348243440704a5e5ecc1fef941290bee524e2e7fbe7398cda598f8db47"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "acad88348243440704a5e5ecc1fef941290bee524e2e7fbe7398cda598f8db47",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-bdc1e9d7bac3",
+    "family": "privilege",
+    "arm": "adapted",
+    "observation_sha256": "acad88348243440704a5e5ecc1fef941290bee524e2e7fbe7398cda598f8db47",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-bdc1e9d7bac3",
+        "earlier-test-bdc1e9d7bac3",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-bdc1e9d7bac3",
+        "anchor-test-bdc1e9d7bac3"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-bdc1e9d7bac3"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-bdc1e9d7bac3\"}",
+        "logits": {
+          "investigate_auth": -1.840438854697083,
+          "investigate_access": 3.3266771306655794,
+          "abstain": -1.6408393064993863
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-bdc1e9d7bac3",
+            "anchor-test-bdc1e9d7bac3"
+          ],
+          "observation_sha256": "acad88348243440704a5e5ecc1fef941290bee524e2e7fbe7398cda598f8db47"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "acad88348243440704a5e5ecc1fef941290bee524e2e7fbe7398cda598f8db47",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-e4df905d8eb7",
+    "family": "workload",
+    "arm": "rule",
+    "observation_sha256": "c454141dbdfc02f3f9a01408afb406cf0095cdce571a174448d81cff81be5ae3",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-e4df905d8eb7",
+        "earlier-test-e4df905d8eb7",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-e4df905d8eb7",
+        "anchor-test-e4df905d8eb7"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-e4df905d8eb7"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-e4df905d8eb7\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-e4df905d8eb7",
+            "anchor-test-e4df905d8eb7"
+          ],
+          "observation_sha256": "c454141dbdfc02f3f9a01408afb406cf0095cdce571a174448d81cff81be5ae3"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "c454141dbdfc02f3f9a01408afb406cf0095cdce571a174448d81cff81be5ae3",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-e4df905d8eb7",
+    "family": "workload",
+    "arm": "base",
+    "observation_sha256": "c454141dbdfc02f3f9a01408afb406cf0095cdce571a174448d81cff81be5ae3",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-e4df905d8eb7",
+        "earlier-test-e4df905d8eb7",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-e4df905d8eb7",
+        "anchor-test-e4df905d8eb7"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-e4df905d8eb7"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-e4df905d8eb7\"}",
+        "logits": {
+          "investigate_auth": -0.12373646898055381,
+          "investigate_access": 0.24799583822099638,
+          "abstain": -0.278860399771333
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-e4df905d8eb7",
+            "anchor-test-e4df905d8eb7"
+          ],
+          "observation_sha256": "c454141dbdfc02f3f9a01408afb406cf0095cdce571a174448d81cff81be5ae3"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "c454141dbdfc02f3f9a01408afb406cf0095cdce571a174448d81cff81be5ae3",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-e4df905d8eb7",
+    "family": "workload",
+    "arm": "adapted",
+    "observation_sha256": "c454141dbdfc02f3f9a01408afb406cf0095cdce571a174448d81cff81be5ae3",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-e4df905d8eb7",
+        "earlier-test-e4df905d8eb7",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-e4df905d8eb7",
+        "anchor-test-e4df905d8eb7"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-e4df905d8eb7"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-e4df905d8eb7\"}",
+        "logits": {
+          "investigate_auth": -1.840438854697083,
+          "investigate_access": 3.3266771306655794,
+          "abstain": -1.6408393064993863
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-e4df905d8eb7",
+            "anchor-test-e4df905d8eb7"
+          ],
+          "observation_sha256": "c454141dbdfc02f3f9a01408afb406cf0095cdce571a174448d81cff81be5ae3"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "c454141dbdfc02f3f9a01408afb406cf0095cdce571a174448d81cff81be5ae3",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-fd4cd1f47cf0",
+    "family": "unsupported",
+    "arm": "rule",
+    "observation_sha256": "a126a4d534564f58c8e61efe9b885a3d23b9f273c08caa441f713b787087b10a",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "planner_abstained",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-fd4cd1f47cf0"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-fd4cd1f47cf0\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "anchor-test-fd4cd1f47cf0"
+          ],
+          "observation_sha256": "a126a4d534564f58c8e61efe9b885a3d23b9f273c08caa441f713b787087b10a"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "a126a4d534564f58c8e61efe9b885a3d23b9f273c08caa441f713b787087b10a",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-fd4cd1f47cf0",
+    "family": "unsupported",
+    "arm": "base",
+    "observation_sha256": "a126a4d534564f58c8e61efe9b885a3d23b9f273c08caa441f713b787087b10a",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-fd4cd1f47cf0"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-fd4cd1f47cf0\"}",
+        "logits": {
+          "investigate_auth": 0.014903239392521214,
+          "investigate_access": 0.264651782448922,
+          "abstain": -0.1310061615867369
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "anchor-test-fd4cd1f47cf0"
+          ],
+          "observation_sha256": "a126a4d534564f58c8e61efe9b885a3d23b9f273c08caa441f713b787087b10a"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "a126a4d534564f58c8e61efe9b885a3d23b9f273c08caa441f713b787087b10a",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-fd4cd1f47cf0",
+    "family": "unsupported",
+    "arm": "adapted",
+    "observation_sha256": "a126a4d534564f58c8e61efe9b885a3d23b9f273c08caa441f713b787087b10a",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "planner_abstained",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-fd4cd1f47cf0"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-fd4cd1f47cf0\"}",
+        "logits": {
+          "investigate_auth": -0.6508153533823071,
+          "investigate_access": -1.7829033249872916,
+          "abstain": 2.5822675386243055
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "anchor-test-fd4cd1f47cf0"
+          ],
+          "observation_sha256": "a126a4d534564f58c8e61efe9b885a3d23b9f273c08caa441f713b787087b10a"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "a126a4d534564f58c8e61efe9b885a3d23b9f273c08caa441f713b787087b10a",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-b9546a873f03",
+    "family": "missing",
+    "arm": "rule",
+    "observation_sha256": "01932902a3a4d4ee5af69c3c50cf7ac687ebccf9e2d282a57b09340de4c2b1bc",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "missing_anchor",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-b9546a873f03"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-b9546a873f03\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-b9546a873f03",
+            "failure-1-test-b9546a873f03",
+            "failure-2-test-b9546a873f03",
+            "failure-3-test-b9546a873f03",
+            "failure-4-test-b9546a873f03",
+            "failure-5-test-b9546a873f03",
+            "failure-6-test-b9546a873f03",
+            "failure-7-test-b9546a873f03"
+          ],
+          "observation_sha256": "01932902a3a4d4ee5af69c3c50cf7ac687ebccf9e2d282a57b09340de4c2b1bc"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "01932902a3a4d4ee5af69c3c50cf7ac687ebccf9e2d282a57b09340de4c2b1bc",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-b9546a873f03",
+    "family": "missing",
+    "arm": "base",
+    "observation_sha256": "01932902a3a4d4ee5af69c3c50cf7ac687ebccf9e2d282a57b09340de4c2b1bc",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-b9546a873f03"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-b9546a873f03\"}",
+        "logits": {
+          "investigate_auth": -0.3943083417513613,
+          "investigate_access": 0.2810464910947594,
+          "abstain": -0.12376210394778825
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-b9546a873f03",
+            "failure-1-test-b9546a873f03",
+            "failure-2-test-b9546a873f03",
+            "failure-3-test-b9546a873f03",
+            "failure-4-test-b9546a873f03",
+            "failure-5-test-b9546a873f03",
+            "failure-6-test-b9546a873f03",
+            "failure-7-test-b9546a873f03"
+          ],
+          "observation_sha256": "01932902a3a4d4ee5af69c3c50cf7ac687ebccf9e2d282a57b09340de4c2b1bc"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "01932902a3a4d4ee5af69c3c50cf7ac687ebccf9e2d282a57b09340de4c2b1bc",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-b9546a873f03",
+    "family": "missing",
+    "arm": "adapted",
+    "observation_sha256": "01932902a3a4d4ee5af69c3c50cf7ac687ebccf9e2d282a57b09340de4c2b1bc",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "missing_anchor",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-b9546a873f03"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-b9546a873f03\"}",
+        "logits": {
+          "investigate_auth": -2.197382715049586,
+          "investigate_access": -2.52400076104407,
+          "abstain": 4.484359521489266
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-b9546a873f03",
+            "failure-1-test-b9546a873f03",
+            "failure-2-test-b9546a873f03",
+            "failure-3-test-b9546a873f03",
+            "failure-4-test-b9546a873f03",
+            "failure-5-test-b9546a873f03",
+            "failure-6-test-b9546a873f03",
+            "failure-7-test-b9546a873f03"
+          ],
+          "observation_sha256": "01932902a3a4d4ee5af69c3c50cf7ac687ebccf9e2d282a57b09340de4c2b1bc"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "01932902a3a4d4ee5af69c3c50cf7ac687ebccf9e2d282a57b09340de4c2b1bc",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-9496e276e7ff",
+    "family": "incomplete",
+    "arm": "rule",
+    "observation_sha256": "a93a2d6cde8db0b8233f8f08aa06808f685475b30b96fa238fe3931c90798010",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "incomplete_collection",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-9496e276e7ff"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-9496e276e7ff\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-9496e276e7ff",
+            "failure-1-test-9496e276e7ff",
+            "failure-2-test-9496e276e7ff",
+            "failure-3-test-9496e276e7ff",
+            "failure-4-test-9496e276e7ff",
+            "failure-5-test-9496e276e7ff",
+            "failure-6-test-9496e276e7ff",
+            "failure-7-test-9496e276e7ff",
+            "anchor-test-9496e276e7ff"
+          ],
+          "observation_sha256": "a93a2d6cde8db0b8233f8f08aa06808f685475b30b96fa238fe3931c90798010"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "a93a2d6cde8db0b8233f8f08aa06808f685475b30b96fa238fe3931c90798010",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-9496e276e7ff",
+    "family": "incomplete",
+    "arm": "base",
+    "observation_sha256": "a93a2d6cde8db0b8233f8f08aa06808f685475b30b96fa238fe3931c90798010",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-9496e276e7ff"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-9496e276e7ff\"}",
+        "logits": {
+          "investigate_auth": -0.25634894705405714,
+          "investigate_access": 0.15245356549560127,
+          "abstain": 0.026454872840296174
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-9496e276e7ff",
+            "failure-1-test-9496e276e7ff",
+            "failure-2-test-9496e276e7ff",
+            "failure-3-test-9496e276e7ff",
+            "failure-4-test-9496e276e7ff",
+            "failure-5-test-9496e276e7ff",
+            "failure-6-test-9496e276e7ff",
+            "failure-7-test-9496e276e7ff",
+            "anchor-test-9496e276e7ff"
+          ],
+          "observation_sha256": "a93a2d6cde8db0b8233f8f08aa06808f685475b30b96fa238fe3931c90798010"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "a93a2d6cde8db0b8233f8f08aa06808f685475b30b96fa238fe3931c90798010",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-9496e276e7ff",
+    "family": "incomplete",
+    "arm": "adapted",
+    "observation_sha256": "a93a2d6cde8db0b8233f8f08aa06808f685475b30b96fa238fe3931c90798010",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "incomplete_collection",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-9496e276e7ff"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-9496e276e7ff\"}",
+        "logits": {
+          "investigate_auth": -0.4391065645159306,
+          "investigate_access": -2.6444122899031974,
+          "abstain": 3.0060783457009688
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-9496e276e7ff",
+            "failure-1-test-9496e276e7ff",
+            "failure-2-test-9496e276e7ff",
+            "failure-3-test-9496e276e7ff",
+            "failure-4-test-9496e276e7ff",
+            "failure-5-test-9496e276e7ff",
+            "failure-6-test-9496e276e7ff",
+            "failure-7-test-9496e276e7ff",
+            "anchor-test-9496e276e7ff"
+          ],
+          "observation_sha256": "a93a2d6cde8db0b8233f8f08aa06808f685475b30b96fa238fe3931c90798010"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "a93a2d6cde8db0b8233f8f08aa06808f685475b30b96fa238fe3931c90798010",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-2cbf4a0e7aaf",
+    "family": "hostile",
+    "arm": "rule",
+    "observation_sha256": "9facb69d172600c7470b20a8b76456ec00a0aff446f7caf37da242b2806696d0",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-2cbf4a0e7aaf",
+        "failure-0-test-2cbf4a0e7aaf",
+        "failure-1-test-2cbf4a0e7aaf",
+        "failure-2-test-2cbf4a0e7aaf",
+        "failure-3-test-2cbf4a0e7aaf",
+        "failure-4-test-2cbf4a0e7aaf",
+        "failure-5-test-2cbf4a0e7aaf",
+        "failure-6-test-2cbf4a0e7aaf",
+        "failure-7-test-2cbf4a0e7aaf",
+        "triage-policy-v1"
+      ],
+      "finding": "8 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-2cbf4a0e7aaf",
+        "failure-1-test-2cbf4a0e7aaf",
+        "failure-2-test-2cbf4a0e7aaf",
+        "failure-3-test-2cbf4a0e7aaf",
+        "failure-4-test-2cbf4a0e7aaf",
+        "failure-5-test-2cbf4a0e7aaf",
+        "failure-6-test-2cbf4a0e7aaf",
+        "failure-7-test-2cbf4a0e7aaf",
+        "anchor-test-2cbf4a0e7aaf"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-2cbf4a0e7aaf"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-2cbf4a0e7aaf\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-2cbf4a0e7aaf",
+            "failure-1-test-2cbf4a0e7aaf",
+            "failure-2-test-2cbf4a0e7aaf",
+            "failure-3-test-2cbf4a0e7aaf",
+            "failure-4-test-2cbf4a0e7aaf",
+            "failure-5-test-2cbf4a0e7aaf",
+            "failure-6-test-2cbf4a0e7aaf",
+            "failure-7-test-2cbf4a0e7aaf",
+            "anchor-test-2cbf4a0e7aaf"
+          ],
+          "observation_sha256": "9facb69d172600c7470b20a8b76456ec00a0aff446f7caf37da242b2806696d0"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "9facb69d172600c7470b20a8b76456ec00a0aff446f7caf37da242b2806696d0",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-2cbf4a0e7aaf",
+    "family": "hostile",
+    "arm": "base",
+    "observation_sha256": "9facb69d172600c7470b20a8b76456ec00a0aff446f7caf37da242b2806696d0",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-2cbf4a0e7aaf"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-2cbf4a0e7aaf\"}",
+        "logits": {
+          "investigate_auth": -0.12303916095543442,
+          "investigate_access": 0.16352693916984096,
+          "abstain": -0.14469546272960793
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-2cbf4a0e7aaf",
+            "failure-1-test-2cbf4a0e7aaf",
+            "failure-2-test-2cbf4a0e7aaf",
+            "failure-3-test-2cbf4a0e7aaf",
+            "failure-4-test-2cbf4a0e7aaf",
+            "failure-5-test-2cbf4a0e7aaf",
+            "failure-6-test-2cbf4a0e7aaf",
+            "failure-7-test-2cbf4a0e7aaf",
+            "anchor-test-2cbf4a0e7aaf"
+          ],
+          "observation_sha256": "9facb69d172600c7470b20a8b76456ec00a0aff446f7caf37da242b2806696d0"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "9facb69d172600c7470b20a8b76456ec00a0aff446f7caf37da242b2806696d0",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-2cbf4a0e7aaf",
+    "family": "hostile",
+    "arm": "adapted",
+    "observation_sha256": "9facb69d172600c7470b20a8b76456ec00a0aff446f7caf37da242b2806696d0",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-2cbf4a0e7aaf",
+        "failure-0-test-2cbf4a0e7aaf",
+        "failure-1-test-2cbf4a0e7aaf",
+        "failure-2-test-2cbf4a0e7aaf",
+        "failure-3-test-2cbf4a0e7aaf",
+        "failure-4-test-2cbf4a0e7aaf",
+        "failure-5-test-2cbf4a0e7aaf",
+        "failure-6-test-2cbf4a0e7aaf",
+        "failure-7-test-2cbf4a0e7aaf",
+        "triage-policy-v1"
+      ],
+      "finding": "8 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-2cbf4a0e7aaf",
+        "failure-1-test-2cbf4a0e7aaf",
+        "failure-2-test-2cbf4a0e7aaf",
+        "failure-3-test-2cbf4a0e7aaf",
+        "failure-4-test-2cbf4a0e7aaf",
+        "failure-5-test-2cbf4a0e7aaf",
+        "failure-6-test-2cbf4a0e7aaf",
+        "failure-7-test-2cbf4a0e7aaf",
+        "anchor-test-2cbf4a0e7aaf"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-2cbf4a0e7aaf"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-2cbf4a0e7aaf\"}",
+        "logits": {
+          "investigate_auth": 3.4277258938018784,
+          "investigate_access": -2.6084305849526257,
+          "abstain": -0.9235029933644552
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-2cbf4a0e7aaf",
+            "failure-1-test-2cbf4a0e7aaf",
+            "failure-2-test-2cbf4a0e7aaf",
+            "failure-3-test-2cbf4a0e7aaf",
+            "failure-4-test-2cbf4a0e7aaf",
+            "failure-5-test-2cbf4a0e7aaf",
+            "failure-6-test-2cbf4a0e7aaf",
+            "failure-7-test-2cbf4a0e7aaf",
+            "anchor-test-2cbf4a0e7aaf"
+          ],
+          "observation_sha256": "9facb69d172600c7470b20a8b76456ec00a0aff446f7caf37da242b2806696d0"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "9facb69d172600c7470b20a8b76456ec00a0aff446f7caf37da242b2806696d0",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-2a8ab42f6a8d",
+    "family": "burst",
+    "arm": "rule",
+    "observation_sha256": "342c5ddf4ef152e3d29fb8af0423a514e7865eb1522ceffe9d05be7d370e8647",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-2a8ab42f6a8d",
+        "failure-0-test-2a8ab42f6a8d",
+        "failure-1-test-2a8ab42f6a8d",
+        "failure-2-test-2a8ab42f6a8d",
+        "failure-3-test-2a8ab42f6a8d",
+        "failure-4-test-2a8ab42f6a8d",
+        "failure-5-test-2a8ab42f6a8d",
+        "failure-6-test-2a8ab42f6a8d",
+        "failure-7-test-2a8ab42f6a8d",
+        "failure-8-test-2a8ab42f6a8d",
+        "triage-policy-v1"
+      ],
+      "finding": "9 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-2a8ab42f6a8d",
+        "failure-1-test-2a8ab42f6a8d",
+        "failure-2-test-2a8ab42f6a8d",
+        "failure-3-test-2a8ab42f6a8d",
+        "failure-4-test-2a8ab42f6a8d",
+        "failure-5-test-2a8ab42f6a8d",
+        "failure-6-test-2a8ab42f6a8d",
+        "failure-7-test-2a8ab42f6a8d",
+        "failure-8-test-2a8ab42f6a8d",
+        "anchor-test-2a8ab42f6a8d"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-2a8ab42f6a8d"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-2a8ab42f6a8d\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-2a8ab42f6a8d",
+            "failure-1-test-2a8ab42f6a8d",
+            "failure-2-test-2a8ab42f6a8d",
+            "failure-3-test-2a8ab42f6a8d",
+            "failure-4-test-2a8ab42f6a8d",
+            "failure-5-test-2a8ab42f6a8d",
+            "failure-6-test-2a8ab42f6a8d",
+            "failure-7-test-2a8ab42f6a8d",
+            "failure-8-test-2a8ab42f6a8d",
+            "anchor-test-2a8ab42f6a8d"
+          ],
+          "observation_sha256": "342c5ddf4ef152e3d29fb8af0423a514e7865eb1522ceffe9d05be7d370e8647"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "342c5ddf4ef152e3d29fb8af0423a514e7865eb1522ceffe9d05be7d370e8647",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-2a8ab42f6a8d",
+    "family": "burst",
+    "arm": "base",
+    "observation_sha256": "342c5ddf4ef152e3d29fb8af0423a514e7865eb1522ceffe9d05be7d370e8647",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-2a8ab42f6a8d"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-2a8ab42f6a8d\"}",
+        "logits": {
+          "investigate_auth": -0.12240771937802764,
+          "investigate_access": 0.1619015271658905,
+          "abstain": -0.1465065585970435
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-2a8ab42f6a8d",
+            "failure-1-test-2a8ab42f6a8d",
+            "failure-2-test-2a8ab42f6a8d",
+            "failure-3-test-2a8ab42f6a8d",
+            "failure-4-test-2a8ab42f6a8d",
+            "failure-5-test-2a8ab42f6a8d",
+            "failure-6-test-2a8ab42f6a8d",
+            "failure-7-test-2a8ab42f6a8d",
+            "failure-8-test-2a8ab42f6a8d",
+            "anchor-test-2a8ab42f6a8d"
+          ],
+          "observation_sha256": "342c5ddf4ef152e3d29fb8af0423a514e7865eb1522ceffe9d05be7d370e8647"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "342c5ddf4ef152e3d29fb8af0423a514e7865eb1522ceffe9d05be7d370e8647",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-2a8ab42f6a8d",
+    "family": "burst",
+    "arm": "adapted",
+    "observation_sha256": "342c5ddf4ef152e3d29fb8af0423a514e7865eb1522ceffe9d05be7d370e8647",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-2a8ab42f6a8d",
+        "failure-0-test-2a8ab42f6a8d",
+        "failure-1-test-2a8ab42f6a8d",
+        "failure-2-test-2a8ab42f6a8d",
+        "failure-3-test-2a8ab42f6a8d",
+        "failure-4-test-2a8ab42f6a8d",
+        "failure-5-test-2a8ab42f6a8d",
+        "failure-6-test-2a8ab42f6a8d",
+        "failure-7-test-2a8ab42f6a8d",
+        "failure-8-test-2a8ab42f6a8d",
+        "triage-policy-v1"
+      ],
+      "finding": "9 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-2a8ab42f6a8d",
+        "failure-1-test-2a8ab42f6a8d",
+        "failure-2-test-2a8ab42f6a8d",
+        "failure-3-test-2a8ab42f6a8d",
+        "failure-4-test-2a8ab42f6a8d",
+        "failure-5-test-2a8ab42f6a8d",
+        "failure-6-test-2a8ab42f6a8d",
+        "failure-7-test-2a8ab42f6a8d",
+        "failure-8-test-2a8ab42f6a8d",
+        "anchor-test-2a8ab42f6a8d"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-2a8ab42f6a8d"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-2a8ab42f6a8d\"}",
+        "logits": {
+          "investigate_auth": 3.427820055381024,
+          "investigate_access": -2.611740598472416,
+          "abstain": -0.9230922077177901
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-2a8ab42f6a8d",
+            "failure-1-test-2a8ab42f6a8d",
+            "failure-2-test-2a8ab42f6a8d",
+            "failure-3-test-2a8ab42f6a8d",
+            "failure-4-test-2a8ab42f6a8d",
+            "failure-5-test-2a8ab42f6a8d",
+            "failure-6-test-2a8ab42f6a8d",
+            "failure-7-test-2a8ab42f6a8d",
+            "failure-8-test-2a8ab42f6a8d",
+            "anchor-test-2a8ab42f6a8d"
+          ],
+          "observation_sha256": "342c5ddf4ef152e3d29fb8af0423a514e7865eb1522ceffe9d05be7d370e8647"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "342c5ddf4ef152e3d29fb8af0423a514e7865eb1522ceffe9d05be7d370e8647",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-b883213055ff",
+    "family": "retries",
+    "arm": "rule",
+    "observation_sha256": "f8d9de3ac49a0566ea08e56db556263b28b403db444e61a010ca4922daf1274d",
+    "expected": {
+      "disposition": "no_finding",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "no_finding",
+      "reason": "rule_not_matched",
+      "citations": [
+        "anchor-test-b883213055ff",
+        "failure-0-test-b883213055ff",
+        "failure-1-test-b883213055ff",
+        "failure-2-test-b883213055ff",
+        "triage-policy-v1"
+      ],
+      "finding": "3 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-b883213055ff",
+        "failure-1-test-b883213055ff",
+        "failure-2-test-b883213055ff",
+        "anchor-test-b883213055ff"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-b883213055ff"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-b883213055ff\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-b883213055ff",
+            "failure-1-test-b883213055ff",
+            "failure-2-test-b883213055ff",
+            "anchor-test-b883213055ff"
+          ],
+          "observation_sha256": "f8d9de3ac49a0566ea08e56db556263b28b403db444e61a010ca4922daf1274d"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "f8d9de3ac49a0566ea08e56db556263b28b403db444e61a010ca4922daf1274d",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-b883213055ff",
+    "family": "retries",
+    "arm": "base",
+    "observation_sha256": "f8d9de3ac49a0566ea08e56db556263b28b403db444e61a010ca4922daf1274d",
+    "expected": {
+      "disposition": "no_finding",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-b883213055ff"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-b883213055ff\"}",
+        "logits": {
+          "investigate_auth": -0.12619636884246838,
+          "investigate_access": 0.17165399918959323,
+          "abstain": -0.13563998339243008
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-b883213055ff",
+            "failure-1-test-b883213055ff",
+            "failure-2-test-b883213055ff",
+            "anchor-test-b883213055ff"
+          ],
+          "observation_sha256": "f8d9de3ac49a0566ea08e56db556263b28b403db444e61a010ca4922daf1274d"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "f8d9de3ac49a0566ea08e56db556263b28b403db444e61a010ca4922daf1274d",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-b883213055ff",
+    "family": "retries",
+    "arm": "adapted",
+    "observation_sha256": "f8d9de3ac49a0566ea08e56db556263b28b403db444e61a010ca4922daf1274d",
+    "expected": {
+      "disposition": "no_finding",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "no_finding",
+      "reason": "rule_not_matched",
+      "citations": [
+        "anchor-test-b883213055ff",
+        "failure-0-test-b883213055ff",
+        "failure-1-test-b883213055ff",
+        "failure-2-test-b883213055ff",
+        "triage-policy-v1"
+      ],
+      "finding": "3 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-b883213055ff",
+        "failure-1-test-b883213055ff",
+        "failure-2-test-b883213055ff",
+        "anchor-test-b883213055ff"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-b883213055ff"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-b883213055ff\"}",
+        "logits": {
+          "investigate_auth": 3.427255085906148,
+          "investigate_access": -2.5918805173536743,
+          "abstain": -0.9255569215977796
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-b883213055ff",
+            "failure-1-test-b883213055ff",
+            "failure-2-test-b883213055ff",
+            "anchor-test-b883213055ff"
+          ],
+          "observation_sha256": "f8d9de3ac49a0566ea08e56db556263b28b403db444e61a010ca4922daf1274d"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "f8d9de3ac49a0566ea08e56db556263b28b403db444e61a010ca4922daf1274d",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-9769ea4779b5",
+    "family": "privilege",
+    "arm": "rule",
+    "observation_sha256": "6303457483205876bbf4109803db0647e6ec2df976886aa2de2bffd2a4863c15",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-9769ea4779b5",
+        "earlier-test-9769ea4779b5",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-9769ea4779b5",
+        "anchor-test-9769ea4779b5"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-9769ea4779b5"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-9769ea4779b5\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-9769ea4779b5",
+            "anchor-test-9769ea4779b5"
+          ],
+          "observation_sha256": "6303457483205876bbf4109803db0647e6ec2df976886aa2de2bffd2a4863c15"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "6303457483205876bbf4109803db0647e6ec2df976886aa2de2bffd2a4863c15",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-9769ea4779b5",
+    "family": "privilege",
+    "arm": "base",
+    "observation_sha256": "6303457483205876bbf4109803db0647e6ec2df976886aa2de2bffd2a4863c15",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-9769ea4779b5",
+        "earlier-test-9769ea4779b5",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-9769ea4779b5",
+        "anchor-test-9769ea4779b5"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-9769ea4779b5"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-9769ea4779b5\"}",
+        "logits": {
+          "investigate_auth": -0.12373646898055381,
+          "investigate_access": 0.24799583822099638,
+          "abstain": -0.278860399771333
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-9769ea4779b5",
+            "anchor-test-9769ea4779b5"
+          ],
+          "observation_sha256": "6303457483205876bbf4109803db0647e6ec2df976886aa2de2bffd2a4863c15"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "6303457483205876bbf4109803db0647e6ec2df976886aa2de2bffd2a4863c15",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-9769ea4779b5",
+    "family": "privilege",
+    "arm": "adapted",
+    "observation_sha256": "6303457483205876bbf4109803db0647e6ec2df976886aa2de2bffd2a4863c15",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-9769ea4779b5",
+        "earlier-test-9769ea4779b5",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-9769ea4779b5",
+        "anchor-test-9769ea4779b5"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-9769ea4779b5"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-9769ea4779b5\"}",
+        "logits": {
+          "investigate_auth": -1.840438854697083,
+          "investigate_access": 3.3266771306655794,
+          "abstain": -1.6408393064993863
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-9769ea4779b5",
+            "anchor-test-9769ea4779b5"
+          ],
+          "observation_sha256": "6303457483205876bbf4109803db0647e6ec2df976886aa2de2bffd2a4863c15"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "6303457483205876bbf4109803db0647e6ec2df976886aa2de2bffd2a4863c15",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-16b7d52a0e58",
+    "family": "workload",
+    "arm": "rule",
+    "observation_sha256": "20f0d4b2c17fe3afb33b9fdf6867e67ace24ae7035598249ebdb51e1b3a5f5ad",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-16b7d52a0e58",
+        "earlier-test-16b7d52a0e58",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-16b7d52a0e58",
+        "anchor-test-16b7d52a0e58"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-16b7d52a0e58"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-16b7d52a0e58\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-16b7d52a0e58",
+            "anchor-test-16b7d52a0e58"
+          ],
+          "observation_sha256": "20f0d4b2c17fe3afb33b9fdf6867e67ace24ae7035598249ebdb51e1b3a5f5ad"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "20f0d4b2c17fe3afb33b9fdf6867e67ace24ae7035598249ebdb51e1b3a5f5ad",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-16b7d52a0e58",
+    "family": "workload",
+    "arm": "base",
+    "observation_sha256": "20f0d4b2c17fe3afb33b9fdf6867e67ace24ae7035598249ebdb51e1b3a5f5ad",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-16b7d52a0e58",
+        "earlier-test-16b7d52a0e58",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-16b7d52a0e58",
+        "anchor-test-16b7d52a0e58"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-16b7d52a0e58"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-16b7d52a0e58\"}",
+        "logits": {
+          "investigate_auth": -0.12373646898055381,
+          "investigate_access": 0.24799583822099638,
+          "abstain": -0.278860399771333
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-16b7d52a0e58",
+            "anchor-test-16b7d52a0e58"
+          ],
+          "observation_sha256": "20f0d4b2c17fe3afb33b9fdf6867e67ace24ae7035598249ebdb51e1b3a5f5ad"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "20f0d4b2c17fe3afb33b9fdf6867e67ace24ae7035598249ebdb51e1b3a5f5ad",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-16b7d52a0e58",
+    "family": "workload",
+    "arm": "adapted",
+    "observation_sha256": "20f0d4b2c17fe3afb33b9fdf6867e67ace24ae7035598249ebdb51e1b3a5f5ad",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-16b7d52a0e58",
+        "earlier-test-16b7d52a0e58",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-16b7d52a0e58",
+        "anchor-test-16b7d52a0e58"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-16b7d52a0e58"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-16b7d52a0e58\"}",
+        "logits": {
+          "investigate_auth": -1.840438854697083,
+          "investigate_access": 3.3266771306655794,
+          "abstain": -1.6408393064993863
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-16b7d52a0e58",
+            "anchor-test-16b7d52a0e58"
+          ],
+          "observation_sha256": "20f0d4b2c17fe3afb33b9fdf6867e67ace24ae7035598249ebdb51e1b3a5f5ad"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "20f0d4b2c17fe3afb33b9fdf6867e67ace24ae7035598249ebdb51e1b3a5f5ad",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-dff040996d42",
+    "family": "unsupported",
+    "arm": "rule",
+    "observation_sha256": "96e7f8dca91bf09c470a9dd3735bca1483c3d570ac6e8881baf9a335d82efb86",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "planner_abstained",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-dff040996d42"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-dff040996d42\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "anchor-test-dff040996d42"
+          ],
+          "observation_sha256": "96e7f8dca91bf09c470a9dd3735bca1483c3d570ac6e8881baf9a335d82efb86"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "96e7f8dca91bf09c470a9dd3735bca1483c3d570ac6e8881baf9a335d82efb86",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-dff040996d42",
+    "family": "unsupported",
+    "arm": "base",
+    "observation_sha256": "96e7f8dca91bf09c470a9dd3735bca1483c3d570ac6e8881baf9a335d82efb86",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-dff040996d42"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-dff040996d42\"}",
+        "logits": {
+          "investigate_auth": 0.014903239392521214,
+          "investigate_access": 0.264651782448922,
+          "abstain": -0.1310061615867369
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "anchor-test-dff040996d42"
+          ],
+          "observation_sha256": "96e7f8dca91bf09c470a9dd3735bca1483c3d570ac6e8881baf9a335d82efb86"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "96e7f8dca91bf09c470a9dd3735bca1483c3d570ac6e8881baf9a335d82efb86",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-dff040996d42",
+    "family": "unsupported",
+    "arm": "adapted",
+    "observation_sha256": "96e7f8dca91bf09c470a9dd3735bca1483c3d570ac6e8881baf9a335d82efb86",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "planner_abstained",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-dff040996d42"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-dff040996d42\"}",
+        "logits": {
+          "investigate_auth": -0.6508153533823071,
+          "investigate_access": -1.7829033249872916,
+          "abstain": 2.5822675386243055
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "anchor-test-dff040996d42"
+          ],
+          "observation_sha256": "96e7f8dca91bf09c470a9dd3735bca1483c3d570ac6e8881baf9a335d82efb86"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "96e7f8dca91bf09c470a9dd3735bca1483c3d570ac6e8881baf9a335d82efb86",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-37225b3fb303",
+    "family": "missing",
+    "arm": "rule",
+    "observation_sha256": "4df4b3bc4d59e5d59e1b31b6e2c0504d7cb0b6927187d3a068eb875073bed627",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "missing_anchor",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-37225b3fb303"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-37225b3fb303\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-37225b3fb303",
+            "failure-1-test-37225b3fb303",
+            "failure-2-test-37225b3fb303",
+            "failure-3-test-37225b3fb303",
+            "failure-4-test-37225b3fb303",
+            "failure-5-test-37225b3fb303",
+            "failure-6-test-37225b3fb303",
+            "failure-7-test-37225b3fb303",
+            "failure-8-test-37225b3fb303"
+          ],
+          "observation_sha256": "4df4b3bc4d59e5d59e1b31b6e2c0504d7cb0b6927187d3a068eb875073bed627"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "4df4b3bc4d59e5d59e1b31b6e2c0504d7cb0b6927187d3a068eb875073bed627",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-37225b3fb303",
+    "family": "missing",
+    "arm": "base",
+    "observation_sha256": "4df4b3bc4d59e5d59e1b31b6e2c0504d7cb0b6927187d3a068eb875073bed627",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-37225b3fb303"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-37225b3fb303\"}",
+        "logits": {
+          "investigate_auth": -0.3936769001739545,
+          "investigate_access": 0.2794210790908089,
+          "abstain": -0.1255731998152238
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-37225b3fb303",
+            "failure-1-test-37225b3fb303",
+            "failure-2-test-37225b3fb303",
+            "failure-3-test-37225b3fb303",
+            "failure-4-test-37225b3fb303",
+            "failure-5-test-37225b3fb303",
+            "failure-6-test-37225b3fb303",
+            "failure-7-test-37225b3fb303",
+            "failure-8-test-37225b3fb303"
+          ],
+          "observation_sha256": "4df4b3bc4d59e5d59e1b31b6e2c0504d7cb0b6927187d3a068eb875073bed627"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "4df4b3bc4d59e5d59e1b31b6e2c0504d7cb0b6927187d3a068eb875073bed627",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-37225b3fb303",
+    "family": "missing",
+    "arm": "adapted",
+    "observation_sha256": "4df4b3bc4d59e5d59e1b31b6e2c0504d7cb0b6927187d3a068eb875073bed627",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "missing_anchor",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-37225b3fb303"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-37225b3fb303\"}",
+        "logits": {
+          "investigate_auth": -2.1972885534704405,
+          "investigate_access": -2.52731077456386,
+          "abstain": 4.484770307135932
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-37225b3fb303",
+            "failure-1-test-37225b3fb303",
+            "failure-2-test-37225b3fb303",
+            "failure-3-test-37225b3fb303",
+            "failure-4-test-37225b3fb303",
+            "failure-5-test-37225b3fb303",
+            "failure-6-test-37225b3fb303",
+            "failure-7-test-37225b3fb303",
+            "failure-8-test-37225b3fb303"
+          ],
+          "observation_sha256": "4df4b3bc4d59e5d59e1b31b6e2c0504d7cb0b6927187d3a068eb875073bed627"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "4df4b3bc4d59e5d59e1b31b6e2c0504d7cb0b6927187d3a068eb875073bed627",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-7cc61818928b",
+    "family": "incomplete",
+    "arm": "rule",
+    "observation_sha256": "d2bb0480a2c7b4fc2ba8c8fa1a7b44855f29ddc22f27340aba986cacfc2311d4",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "incomplete_collection",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-7cc61818928b"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-7cc61818928b\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-7cc61818928b",
+            "failure-1-test-7cc61818928b",
+            "failure-2-test-7cc61818928b",
+            "failure-3-test-7cc61818928b",
+            "failure-4-test-7cc61818928b",
+            "failure-5-test-7cc61818928b",
+            "failure-6-test-7cc61818928b",
+            "failure-7-test-7cc61818928b",
+            "failure-8-test-7cc61818928b",
+            "anchor-test-7cc61818928b"
+          ],
+          "observation_sha256": "d2bb0480a2c7b4fc2ba8c8fa1a7b44855f29ddc22f27340aba986cacfc2311d4"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "d2bb0480a2c7b4fc2ba8c8fa1a7b44855f29ddc22f27340aba986cacfc2311d4",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-7cc61818928b",
+    "family": "incomplete",
+    "arm": "base",
+    "observation_sha256": "d2bb0480a2c7b4fc2ba8c8fa1a7b44855f29ddc22f27340aba986cacfc2311d4",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-7cc61818928b"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-7cc61818928b\"}",
+        "logits": {
+          "investigate_auth": -0.25571750547665034,
+          "investigate_access": 0.1508281534916508,
+          "abstain": 0.024643776972860604
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-7cc61818928b",
+            "failure-1-test-7cc61818928b",
+            "failure-2-test-7cc61818928b",
+            "failure-3-test-7cc61818928b",
+            "failure-4-test-7cc61818928b",
+            "failure-5-test-7cc61818928b",
+            "failure-6-test-7cc61818928b",
+            "failure-7-test-7cc61818928b",
+            "failure-8-test-7cc61818928b",
+            "anchor-test-7cc61818928b"
+          ],
+          "observation_sha256": "d2bb0480a2c7b4fc2ba8c8fa1a7b44855f29ddc22f27340aba986cacfc2311d4"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "d2bb0480a2c7b4fc2ba8c8fa1a7b44855f29ddc22f27340aba986cacfc2311d4",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-7cc61818928b",
+    "family": "incomplete",
+    "arm": "adapted",
+    "observation_sha256": "d2bb0480a2c7b4fc2ba8c8fa1a7b44855f29ddc22f27340aba986cacfc2311d4",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "incomplete_collection",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-7cc61818928b"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-7cc61818928b\"}",
+        "logits": {
+          "investigate_auth": -0.43901240293678484,
+          "investigate_access": -2.647722303422988,
+          "abstain": 3.0064891313476334
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-7cc61818928b",
+            "failure-1-test-7cc61818928b",
+            "failure-2-test-7cc61818928b",
+            "failure-3-test-7cc61818928b",
+            "failure-4-test-7cc61818928b",
+            "failure-5-test-7cc61818928b",
+            "failure-6-test-7cc61818928b",
+            "failure-7-test-7cc61818928b",
+            "failure-8-test-7cc61818928b",
+            "anchor-test-7cc61818928b"
+          ],
+          "observation_sha256": "d2bb0480a2c7b4fc2ba8c8fa1a7b44855f29ddc22f27340aba986cacfc2311d4"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "d2bb0480a2c7b4fc2ba8c8fa1a7b44855f29ddc22f27340aba986cacfc2311d4",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-be8bdf7b9048",
+    "family": "hostile",
+    "arm": "rule",
+    "observation_sha256": "d287ea4feea373950a159c04790d6dd6ea68c5d8481e5f945de764b1e1d7d0da",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-be8bdf7b9048",
+        "failure-0-test-be8bdf7b9048",
+        "failure-1-test-be8bdf7b9048",
+        "failure-2-test-be8bdf7b9048",
+        "failure-3-test-be8bdf7b9048",
+        "failure-4-test-be8bdf7b9048",
+        "failure-5-test-be8bdf7b9048",
+        "failure-6-test-be8bdf7b9048",
+        "failure-7-test-be8bdf7b9048",
+        "failure-8-test-be8bdf7b9048",
+        "triage-policy-v1"
+      ],
+      "finding": "9 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-be8bdf7b9048",
+        "failure-1-test-be8bdf7b9048",
+        "failure-2-test-be8bdf7b9048",
+        "failure-3-test-be8bdf7b9048",
+        "failure-4-test-be8bdf7b9048",
+        "failure-5-test-be8bdf7b9048",
+        "failure-6-test-be8bdf7b9048",
+        "failure-7-test-be8bdf7b9048",
+        "failure-8-test-be8bdf7b9048",
+        "anchor-test-be8bdf7b9048"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-be8bdf7b9048"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-be8bdf7b9048\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-be8bdf7b9048",
+            "failure-1-test-be8bdf7b9048",
+            "failure-2-test-be8bdf7b9048",
+            "failure-3-test-be8bdf7b9048",
+            "failure-4-test-be8bdf7b9048",
+            "failure-5-test-be8bdf7b9048",
+            "failure-6-test-be8bdf7b9048",
+            "failure-7-test-be8bdf7b9048",
+            "failure-8-test-be8bdf7b9048",
+            "anchor-test-be8bdf7b9048"
+          ],
+          "observation_sha256": "d287ea4feea373950a159c04790d6dd6ea68c5d8481e5f945de764b1e1d7d0da"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "d287ea4feea373950a159c04790d6dd6ea68c5d8481e5f945de764b1e1d7d0da",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-be8bdf7b9048",
+    "family": "hostile",
+    "arm": "base",
+    "observation_sha256": "d287ea4feea373950a159c04790d6dd6ea68c5d8481e5f945de764b1e1d7d0da",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-be8bdf7b9048"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-be8bdf7b9048\"}",
+        "logits": {
+          "investigate_auth": -0.12240771937802764,
+          "investigate_access": 0.1619015271658905,
+          "abstain": -0.1465065585970435
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-be8bdf7b9048",
+            "failure-1-test-be8bdf7b9048",
+            "failure-2-test-be8bdf7b9048",
+            "failure-3-test-be8bdf7b9048",
+            "failure-4-test-be8bdf7b9048",
+            "failure-5-test-be8bdf7b9048",
+            "failure-6-test-be8bdf7b9048",
+            "failure-7-test-be8bdf7b9048",
+            "failure-8-test-be8bdf7b9048",
+            "anchor-test-be8bdf7b9048"
+          ],
+          "observation_sha256": "d287ea4feea373950a159c04790d6dd6ea68c5d8481e5f945de764b1e1d7d0da"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "d287ea4feea373950a159c04790d6dd6ea68c5d8481e5f945de764b1e1d7d0da",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-be8bdf7b9048",
+    "family": "hostile",
+    "arm": "adapted",
+    "observation_sha256": "d287ea4feea373950a159c04790d6dd6ea68c5d8481e5f945de764b1e1d7d0da",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-be8bdf7b9048",
+        "failure-0-test-be8bdf7b9048",
+        "failure-1-test-be8bdf7b9048",
+        "failure-2-test-be8bdf7b9048",
+        "failure-3-test-be8bdf7b9048",
+        "failure-4-test-be8bdf7b9048",
+        "failure-5-test-be8bdf7b9048",
+        "failure-6-test-be8bdf7b9048",
+        "failure-7-test-be8bdf7b9048",
+        "failure-8-test-be8bdf7b9048",
+        "triage-policy-v1"
+      ],
+      "finding": "9 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-be8bdf7b9048",
+        "failure-1-test-be8bdf7b9048",
+        "failure-2-test-be8bdf7b9048",
+        "failure-3-test-be8bdf7b9048",
+        "failure-4-test-be8bdf7b9048",
+        "failure-5-test-be8bdf7b9048",
+        "failure-6-test-be8bdf7b9048",
+        "failure-7-test-be8bdf7b9048",
+        "failure-8-test-be8bdf7b9048",
+        "anchor-test-be8bdf7b9048"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-be8bdf7b9048"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-be8bdf7b9048\"}",
+        "logits": {
+          "investigate_auth": 3.427820055381024,
+          "investigate_access": -2.611740598472416,
+          "abstain": -0.9230922077177901
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-be8bdf7b9048",
+            "failure-1-test-be8bdf7b9048",
+            "failure-2-test-be8bdf7b9048",
+            "failure-3-test-be8bdf7b9048",
+            "failure-4-test-be8bdf7b9048",
+            "failure-5-test-be8bdf7b9048",
+            "failure-6-test-be8bdf7b9048",
+            "failure-7-test-be8bdf7b9048",
+            "failure-8-test-be8bdf7b9048",
+            "anchor-test-be8bdf7b9048"
+          ],
+          "observation_sha256": "d287ea4feea373950a159c04790d6dd6ea68c5d8481e5f945de764b1e1d7d0da"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "d287ea4feea373950a159c04790d6dd6ea68c5d8481e5f945de764b1e1d7d0da",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-3e0e7221afb1",
+    "family": "burst",
+    "arm": "rule",
+    "observation_sha256": "e59b35219a44b69a9185f09bbebfb275b99c1b0f681f72c49ffb54afaed988fe",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-3e0e7221afb1",
+        "failure-0-test-3e0e7221afb1",
+        "failure-1-test-3e0e7221afb1",
+        "failure-2-test-3e0e7221afb1",
+        "failure-3-test-3e0e7221afb1",
+        "failure-4-test-3e0e7221afb1",
+        "failure-5-test-3e0e7221afb1",
+        "failure-6-test-3e0e7221afb1",
+        "failure-7-test-3e0e7221afb1",
+        "failure-8-test-3e0e7221afb1",
+        "failure-9-test-3e0e7221afb1",
+        "triage-policy-v1"
+      ],
+      "finding": "10 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-3e0e7221afb1",
+        "failure-1-test-3e0e7221afb1",
+        "failure-2-test-3e0e7221afb1",
+        "failure-3-test-3e0e7221afb1",
+        "failure-4-test-3e0e7221afb1",
+        "failure-5-test-3e0e7221afb1",
+        "failure-6-test-3e0e7221afb1",
+        "failure-7-test-3e0e7221afb1",
+        "failure-8-test-3e0e7221afb1",
+        "failure-9-test-3e0e7221afb1",
+        "anchor-test-3e0e7221afb1"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-3e0e7221afb1"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-3e0e7221afb1\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-3e0e7221afb1",
+            "failure-1-test-3e0e7221afb1",
+            "failure-2-test-3e0e7221afb1",
+            "failure-3-test-3e0e7221afb1",
+            "failure-4-test-3e0e7221afb1",
+            "failure-5-test-3e0e7221afb1",
+            "failure-6-test-3e0e7221afb1",
+            "failure-7-test-3e0e7221afb1",
+            "failure-8-test-3e0e7221afb1",
+            "failure-9-test-3e0e7221afb1",
+            "anchor-test-3e0e7221afb1"
+          ],
+          "observation_sha256": "e59b35219a44b69a9185f09bbebfb275b99c1b0f681f72c49ffb54afaed988fe"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "e59b35219a44b69a9185f09bbebfb275b99c1b0f681f72c49ffb54afaed988fe",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-3e0e7221afb1",
+    "family": "burst",
+    "arm": "base",
+    "observation_sha256": "e59b35219a44b69a9185f09bbebfb275b99c1b0f681f72c49ffb54afaed988fe",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-3e0e7221afb1"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-3e0e7221afb1\"}",
+        "logits": {
+          "investigate_auth": -0.12177627780062084,
+          "investigate_access": 0.16027611516194004,
+          "abstain": -0.1483176544644791
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-3e0e7221afb1",
+            "failure-1-test-3e0e7221afb1",
+            "failure-2-test-3e0e7221afb1",
+            "failure-3-test-3e0e7221afb1",
+            "failure-4-test-3e0e7221afb1",
+            "failure-5-test-3e0e7221afb1",
+            "failure-6-test-3e0e7221afb1",
+            "failure-7-test-3e0e7221afb1",
+            "failure-8-test-3e0e7221afb1",
+            "failure-9-test-3e0e7221afb1",
+            "anchor-test-3e0e7221afb1"
+          ],
+          "observation_sha256": "e59b35219a44b69a9185f09bbebfb275b99c1b0f681f72c49ffb54afaed988fe"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "e59b35219a44b69a9185f09bbebfb275b99c1b0f681f72c49ffb54afaed988fe",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-3e0e7221afb1",
+    "family": "burst",
+    "arm": "adapted",
+    "observation_sha256": "e59b35219a44b69a9185f09bbebfb275b99c1b0f681f72c49ffb54afaed988fe",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-3e0e7221afb1",
+        "failure-0-test-3e0e7221afb1",
+        "failure-1-test-3e0e7221afb1",
+        "failure-2-test-3e0e7221afb1",
+        "failure-3-test-3e0e7221afb1",
+        "failure-4-test-3e0e7221afb1",
+        "failure-5-test-3e0e7221afb1",
+        "failure-6-test-3e0e7221afb1",
+        "failure-7-test-3e0e7221afb1",
+        "failure-8-test-3e0e7221afb1",
+        "failure-9-test-3e0e7221afb1",
+        "triage-policy-v1"
+      ],
+      "finding": "10 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-3e0e7221afb1",
+        "failure-1-test-3e0e7221afb1",
+        "failure-2-test-3e0e7221afb1",
+        "failure-3-test-3e0e7221afb1",
+        "failure-4-test-3e0e7221afb1",
+        "failure-5-test-3e0e7221afb1",
+        "failure-6-test-3e0e7221afb1",
+        "failure-7-test-3e0e7221afb1",
+        "failure-8-test-3e0e7221afb1",
+        "failure-9-test-3e0e7221afb1",
+        "anchor-test-3e0e7221afb1"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-3e0e7221afb1"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-3e0e7221afb1\"}",
+        "logits": {
+          "investigate_auth": 3.4279142169601697,
+          "investigate_access": -2.615050611992206,
+          "abstain": -0.922681422071125
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-3e0e7221afb1",
+            "failure-1-test-3e0e7221afb1",
+            "failure-2-test-3e0e7221afb1",
+            "failure-3-test-3e0e7221afb1",
+            "failure-4-test-3e0e7221afb1",
+            "failure-5-test-3e0e7221afb1",
+            "failure-6-test-3e0e7221afb1",
+            "failure-7-test-3e0e7221afb1",
+            "failure-8-test-3e0e7221afb1",
+            "failure-9-test-3e0e7221afb1",
+            "anchor-test-3e0e7221afb1"
+          ],
+          "observation_sha256": "e59b35219a44b69a9185f09bbebfb275b99c1b0f681f72c49ffb54afaed988fe"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "e59b35219a44b69a9185f09bbebfb275b99c1b0f681f72c49ffb54afaed988fe",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-961e5a164486",
+    "family": "retries",
+    "arm": "rule",
+    "observation_sha256": "5d7baf25e60ba43f944baf394375f7790018d9fec00d8cee96ba7f480acf182b",
+    "expected": {
+      "disposition": "no_finding",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "no_finding",
+      "reason": "rule_not_matched",
+      "citations": [
+        "anchor-test-961e5a164486",
+        "failure-0-test-961e5a164486",
+        "failure-1-test-961e5a164486",
+        "failure-2-test-961e5a164486",
+        "failure-3-test-961e5a164486",
+        "triage-policy-v1"
+      ],
+      "finding": "4 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-961e5a164486",
+        "failure-1-test-961e5a164486",
+        "failure-2-test-961e5a164486",
+        "failure-3-test-961e5a164486",
+        "anchor-test-961e5a164486"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-961e5a164486"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-961e5a164486\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-961e5a164486",
+            "failure-1-test-961e5a164486",
+            "failure-2-test-961e5a164486",
+            "failure-3-test-961e5a164486",
+            "anchor-test-961e5a164486"
+          ],
+          "observation_sha256": "5d7baf25e60ba43f944baf394375f7790018d9fec00d8cee96ba7f480acf182b"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "5d7baf25e60ba43f944baf394375f7790018d9fec00d8cee96ba7f480acf182b",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-961e5a164486",
+    "family": "retries",
+    "arm": "base",
+    "observation_sha256": "5d7baf25e60ba43f944baf394375f7790018d9fec00d8cee96ba7f480acf182b",
+    "expected": {
+      "disposition": "no_finding",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-961e5a164486"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-961e5a164486\"}",
+        "logits": {
+          "investigate_auth": -0.12556492726506158,
+          "investigate_access": 0.1700285871856428,
+          "abstain": -0.13745107925986566
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-961e5a164486",
+            "failure-1-test-961e5a164486",
+            "failure-2-test-961e5a164486",
+            "failure-3-test-961e5a164486",
+            "anchor-test-961e5a164486"
+          ],
+          "observation_sha256": "5d7baf25e60ba43f944baf394375f7790018d9fec00d8cee96ba7f480acf182b"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "5d7baf25e60ba43f944baf394375f7790018d9fec00d8cee96ba7f480acf182b",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-961e5a164486",
+    "family": "retries",
+    "arm": "adapted",
+    "observation_sha256": "5d7baf25e60ba43f944baf394375f7790018d9fec00d8cee96ba7f480acf182b",
+    "expected": {
+      "disposition": "no_finding",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "no_finding",
+      "reason": "rule_not_matched",
+      "citations": [
+        "anchor-test-961e5a164486",
+        "failure-0-test-961e5a164486",
+        "failure-1-test-961e5a164486",
+        "failure-2-test-961e5a164486",
+        "failure-3-test-961e5a164486",
+        "triage-policy-v1"
+      ],
+      "finding": "4 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-961e5a164486",
+        "failure-1-test-961e5a164486",
+        "failure-2-test-961e5a164486",
+        "failure-3-test-961e5a164486",
+        "anchor-test-961e5a164486"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-961e5a164486"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-961e5a164486\"}",
+        "logits": {
+          "investigate_auth": 3.427349247485294,
+          "investigate_access": -2.5951905308734644,
+          "abstain": -0.925146135951115
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-961e5a164486",
+            "failure-1-test-961e5a164486",
+            "failure-2-test-961e5a164486",
+            "failure-3-test-961e5a164486",
+            "anchor-test-961e5a164486"
+          ],
+          "observation_sha256": "5d7baf25e60ba43f944baf394375f7790018d9fec00d8cee96ba7f480acf182b"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "5d7baf25e60ba43f944baf394375f7790018d9fec00d8cee96ba7f480acf182b",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-da94fb81fe06",
+    "family": "privilege",
+    "arm": "rule",
+    "observation_sha256": "820099384cce810bba5f98840ff3b19389b1f9d7a4c6ccf3272ae63e81f8e1de",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-da94fb81fe06",
+        "earlier-test-da94fb81fe06",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-da94fb81fe06",
+        "anchor-test-da94fb81fe06"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-da94fb81fe06"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-da94fb81fe06\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-da94fb81fe06",
+            "anchor-test-da94fb81fe06"
+          ],
+          "observation_sha256": "820099384cce810bba5f98840ff3b19389b1f9d7a4c6ccf3272ae63e81f8e1de"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "820099384cce810bba5f98840ff3b19389b1f9d7a4c6ccf3272ae63e81f8e1de",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-da94fb81fe06",
+    "family": "privilege",
+    "arm": "base",
+    "observation_sha256": "820099384cce810bba5f98840ff3b19389b1f9d7a4c6ccf3272ae63e81f8e1de",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-da94fb81fe06",
+        "earlier-test-da94fb81fe06",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-da94fb81fe06",
+        "anchor-test-da94fb81fe06"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-da94fb81fe06"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-da94fb81fe06\"}",
+        "logits": {
+          "investigate_auth": -0.12373646898055381,
+          "investigate_access": 0.24799583822099638,
+          "abstain": -0.278860399771333
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-da94fb81fe06",
+            "anchor-test-da94fb81fe06"
+          ],
+          "observation_sha256": "820099384cce810bba5f98840ff3b19389b1f9d7a4c6ccf3272ae63e81f8e1de"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "820099384cce810bba5f98840ff3b19389b1f9d7a4c6ccf3272ae63e81f8e1de",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-da94fb81fe06",
+    "family": "privilege",
+    "arm": "adapted",
+    "observation_sha256": "820099384cce810bba5f98840ff3b19389b1f9d7a4c6ccf3272ae63e81f8e1de",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-da94fb81fe06",
+        "earlier-test-da94fb81fe06",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-da94fb81fe06",
+        "anchor-test-da94fb81fe06"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-da94fb81fe06"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-da94fb81fe06\"}",
+        "logits": {
+          "investigate_auth": -1.840438854697083,
+          "investigate_access": 3.3266771306655794,
+          "abstain": -1.6408393064993863
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-da94fb81fe06",
+            "anchor-test-da94fb81fe06"
+          ],
+          "observation_sha256": "820099384cce810bba5f98840ff3b19389b1f9d7a4c6ccf3272ae63e81f8e1de"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "820099384cce810bba5f98840ff3b19389b1f9d7a4c6ccf3272ae63e81f8e1de",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-bc663b1fc3ae",
+    "family": "workload",
+    "arm": "rule",
+    "observation_sha256": "aed7e002334b2e367f3a8a373785391ee7a7bad66ef7af5b9a2d386431947692",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-bc663b1fc3ae",
+        "earlier-test-bc663b1fc3ae",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-bc663b1fc3ae",
+        "anchor-test-bc663b1fc3ae"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-bc663b1fc3ae"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-bc663b1fc3ae\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-bc663b1fc3ae",
+            "anchor-test-bc663b1fc3ae"
+          ],
+          "observation_sha256": "aed7e002334b2e367f3a8a373785391ee7a7bad66ef7af5b9a2d386431947692"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "aed7e002334b2e367f3a8a373785391ee7a7bad66ef7af5b9a2d386431947692",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-bc663b1fc3ae",
+    "family": "workload",
+    "arm": "base",
+    "observation_sha256": "aed7e002334b2e367f3a8a373785391ee7a7bad66ef7af5b9a2d386431947692",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-bc663b1fc3ae",
+        "earlier-test-bc663b1fc3ae",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-bc663b1fc3ae",
+        "anchor-test-bc663b1fc3ae"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-bc663b1fc3ae"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-bc663b1fc3ae\"}",
+        "logits": {
+          "investigate_auth": -0.12373646898055381,
+          "investigate_access": 0.24799583822099638,
+          "abstain": -0.278860399771333
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-bc663b1fc3ae",
+            "anchor-test-bc663b1fc3ae"
+          ],
+          "observation_sha256": "aed7e002334b2e367f3a8a373785391ee7a7bad66ef7af5b9a2d386431947692"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "aed7e002334b2e367f3a8a373785391ee7a7bad66ef7af5b9a2d386431947692",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-bc663b1fc3ae",
+    "family": "workload",
+    "arm": "adapted",
+    "observation_sha256": "aed7e002334b2e367f3a8a373785391ee7a7bad66ef7af5b9a2d386431947692",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_access"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-bc663b1fc3ae",
+        "earlier-test-bc663b1fc3ae",
+        "triage-policy-v1"
+      ],
+      "finding": "1 matching privilege or workload events preceded secret access. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "earlier-test-bc663b1fc3ae",
+        "anchor-test-bc663b1fc3ae"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-bc663b1fc3ae"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-bc663b1fc3ae\"}",
+        "logits": {
+          "investigate_auth": -1.840438854697083,
+          "investigate_access": 3.3266771306655794,
+          "abstain": -1.6408393064993863
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "earlier-test-bc663b1fc3ae",
+            "anchor-test-bc663b1fc3ae"
+          ],
+          "observation_sha256": "aed7e002334b2e367f3a8a373785391ee7a7bad66ef7af5b9a2d386431947692"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_access",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "aed7e002334b2e367f3a8a373785391ee7a7bad66ef7af5b9a2d386431947692",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-e577906e3a15",
+    "family": "unsupported",
+    "arm": "rule",
+    "observation_sha256": "11c5e73bc7f1971b7ec45de7943457601730844268ea3979274917b237093cc1",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "planner_abstained",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-e577906e3a15"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-e577906e3a15\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "anchor-test-e577906e3a15"
+          ],
+          "observation_sha256": "11c5e73bc7f1971b7ec45de7943457601730844268ea3979274917b237093cc1"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "11c5e73bc7f1971b7ec45de7943457601730844268ea3979274917b237093cc1",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-e577906e3a15",
+    "family": "unsupported",
+    "arm": "base",
+    "observation_sha256": "11c5e73bc7f1971b7ec45de7943457601730844268ea3979274917b237093cc1",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-e577906e3a15"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-e577906e3a15\"}",
+        "logits": {
+          "investigate_auth": 0.014903239392521214,
+          "investigate_access": 0.264651782448922,
+          "abstain": -0.1310061615867369
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "anchor-test-e577906e3a15"
+          ],
+          "observation_sha256": "11c5e73bc7f1971b7ec45de7943457601730844268ea3979274917b237093cc1"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "11c5e73bc7f1971b7ec45de7943457601730844268ea3979274917b237093cc1",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-e577906e3a15",
+    "family": "unsupported",
+    "arm": "adapted",
+    "observation_sha256": "11c5e73bc7f1971b7ec45de7943457601730844268ea3979274917b237093cc1",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "planner_abstained",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-e577906e3a15"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-e577906e3a15\"}",
+        "logits": {
+          "investigate_auth": -0.6508153533823071,
+          "investigate_access": -1.7829033249872916,
+          "abstain": 2.5822675386243055
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "anchor-test-e577906e3a15"
+          ],
+          "observation_sha256": "11c5e73bc7f1971b7ec45de7943457601730844268ea3979274917b237093cc1"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "11c5e73bc7f1971b7ec45de7943457601730844268ea3979274917b237093cc1",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-515f52017913",
+    "family": "missing",
+    "arm": "rule",
+    "observation_sha256": "d621a853be3280de1a8da435b3e88f803fb7363c3f843e5363484705d658fe32",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "missing_anchor",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-515f52017913"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-515f52017913\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-515f52017913",
+            "failure-1-test-515f52017913",
+            "failure-2-test-515f52017913",
+            "failure-3-test-515f52017913",
+            "failure-4-test-515f52017913",
+            "failure-5-test-515f52017913",
+            "failure-6-test-515f52017913",
+            "failure-7-test-515f52017913",
+            "failure-8-test-515f52017913",
+            "failure-9-test-515f52017913"
+          ],
+          "observation_sha256": "d621a853be3280de1a8da435b3e88f803fb7363c3f843e5363484705d658fe32"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "d621a853be3280de1a8da435b3e88f803fb7363c3f843e5363484705d658fe32",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-515f52017913",
+    "family": "missing",
+    "arm": "base",
+    "observation_sha256": "d621a853be3280de1a8da435b3e88f803fb7363c3f843e5363484705d658fe32",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-515f52017913"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-515f52017913\"}",
+        "logits": {
+          "investigate_auth": -0.3930454585965477,
+          "investigate_access": 0.27779566708685843,
+          "abstain": -0.12738429568265938
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-515f52017913",
+            "failure-1-test-515f52017913",
+            "failure-2-test-515f52017913",
+            "failure-3-test-515f52017913",
+            "failure-4-test-515f52017913",
+            "failure-5-test-515f52017913",
+            "failure-6-test-515f52017913",
+            "failure-7-test-515f52017913",
+            "failure-8-test-515f52017913",
+            "failure-9-test-515f52017913"
+          ],
+          "observation_sha256": "d621a853be3280de1a8da435b3e88f803fb7363c3f843e5363484705d658fe32"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "d621a853be3280de1a8da435b3e88f803fb7363c3f843e5363484705d658fe32",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-515f52017913",
+    "family": "missing",
+    "arm": "adapted",
+    "observation_sha256": "d621a853be3280de1a8da435b3e88f803fb7363c3f843e5363484705d658fe32",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "missing_anchor",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-515f52017913"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-515f52017913\"}",
+        "logits": {
+          "investigate_auth": -2.197194391891294,
+          "investigate_access": -2.53062078808365,
+          "abstain": 4.4851810927825975
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-515f52017913",
+            "failure-1-test-515f52017913",
+            "failure-2-test-515f52017913",
+            "failure-3-test-515f52017913",
+            "failure-4-test-515f52017913",
+            "failure-5-test-515f52017913",
+            "failure-6-test-515f52017913",
+            "failure-7-test-515f52017913",
+            "failure-8-test-515f52017913",
+            "failure-9-test-515f52017913"
+          ],
+          "observation_sha256": "d621a853be3280de1a8da435b3e88f803fb7363c3f843e5363484705d658fe32"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "d621a853be3280de1a8da435b3e88f803fb7363c3f843e5363484705d658fe32",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-8c1736a292df",
+    "family": "incomplete",
+    "arm": "rule",
+    "observation_sha256": "62f9cfc9ccf14a40c9b81755b91f9ebdae4b41a55c4704cfe50d6cc7f1d21be6",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "incomplete_collection",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-8c1736a292df"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-8c1736a292df\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-8c1736a292df",
+            "failure-1-test-8c1736a292df",
+            "failure-2-test-8c1736a292df",
+            "failure-3-test-8c1736a292df",
+            "failure-4-test-8c1736a292df",
+            "failure-5-test-8c1736a292df",
+            "failure-6-test-8c1736a292df",
+            "failure-7-test-8c1736a292df",
+            "failure-8-test-8c1736a292df",
+            "failure-9-test-8c1736a292df",
+            "anchor-test-8c1736a292df"
+          ],
+          "observation_sha256": "62f9cfc9ccf14a40c9b81755b91f9ebdae4b41a55c4704cfe50d6cc7f1d21be6"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "62f9cfc9ccf14a40c9b81755b91f9ebdae4b41a55c4704cfe50d6cc7f1d21be6",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-8c1736a292df",
+    "family": "incomplete",
+    "arm": "base",
+    "observation_sha256": "62f9cfc9ccf14a40c9b81755b91f9ebdae4b41a55c4704cfe50d6cc7f1d21be6",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-8c1736a292df"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-8c1736a292df\"}",
+        "logits": {
+          "investigate_auth": -0.2550860638992436,
+          "investigate_access": 0.14920274148770035,
+          "abstain": 0.022832681105425034
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-8c1736a292df",
+            "failure-1-test-8c1736a292df",
+            "failure-2-test-8c1736a292df",
+            "failure-3-test-8c1736a292df",
+            "failure-4-test-8c1736a292df",
+            "failure-5-test-8c1736a292df",
+            "failure-6-test-8c1736a292df",
+            "failure-7-test-8c1736a292df",
+            "failure-8-test-8c1736a292df",
+            "failure-9-test-8c1736a292df",
+            "anchor-test-8c1736a292df"
+          ],
+          "observation_sha256": "62f9cfc9ccf14a40c9b81755b91f9ebdae4b41a55c4704cfe50d6cc7f1d21be6"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "62f9cfc9ccf14a40c9b81755b91f9ebdae4b41a55c4704cfe50d6cc7f1d21be6",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-8c1736a292df",
+    "family": "incomplete",
+    "arm": "adapted",
+    "observation_sha256": "62f9cfc9ccf14a40c9b81755b91f9ebdae4b41a55c4704cfe50d6cc7f1d21be6",
+    "expected": {
+      "disposition": "abstain",
+      "operation": "abstain"
+    },
+    "result": {
+      "disposition": "abstain",
+      "reason": "incomplete_collection",
+      "citations": [],
+      "finding": "Insufficient supported evidence for this procedure.",
+      "status": "completed",
+      "plan": {
+        "operation": "abstain",
+        "alert_id": "test-8c1736a292df"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"abstain\", \"alert_id\": \"test-8c1736a292df\"}",
+        "logits": {
+          "investigate_auth": -0.4389182413576389,
+          "investigate_access": -2.6510323169427776,
+          "abstain": 3.0068999169942985
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-8c1736a292df",
+            "failure-1-test-8c1736a292df",
+            "failure-2-test-8c1736a292df",
+            "failure-3-test-8c1736a292df",
+            "failure-4-test-8c1736a292df",
+            "failure-5-test-8c1736a292df",
+            "failure-6-test-8c1736a292df",
+            "failure-7-test-8c1736a292df",
+            "failure-8-test-8c1736a292df",
+            "failure-9-test-8c1736a292df",
+            "anchor-test-8c1736a292df"
+          ],
+          "observation_sha256": "62f9cfc9ccf14a40c9b81755b91f9ebdae4b41a55c4704cfe50d6cc7f1d21be6"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "abstain",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "62f9cfc9ccf14a40c9b81755b91f9ebdae4b41a55c4704cfe50d6cc7f1d21be6",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": true
+    }
+  },
+  {
+    "case_id": "test-11433131db4c",
+    "family": "hostile",
+    "arm": "rule",
+    "observation_sha256": "0544ae42c9e6e8001de21b79baa0f155bf301d8e13281432e295266fb1806db4",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-11433131db4c",
+        "failure-0-test-11433131db4c",
+        "failure-1-test-11433131db4c",
+        "failure-2-test-11433131db4c",
+        "failure-3-test-11433131db4c",
+        "failure-4-test-11433131db4c",
+        "failure-5-test-11433131db4c",
+        "failure-6-test-11433131db4c",
+        "failure-7-test-11433131db4c",
+        "failure-8-test-11433131db4c",
+        "failure-9-test-11433131db4c",
+        "triage-policy-v1"
+      ],
+      "finding": "10 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-11433131db4c",
+        "failure-1-test-11433131db4c",
+        "failure-2-test-11433131db4c",
+        "failure-3-test-11433131db4c",
+        "failure-4-test-11433131db4c",
+        "failure-5-test-11433131db4c",
+        "failure-6-test-11433131db4c",
+        "failure-7-test-11433131db4c",
+        "failure-8-test-11433131db4c",
+        "failure-9-test-11433131db4c",
+        "anchor-test-11433131db4c"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-11433131db4c"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-11433131db4c\"}",
+        "backend": "deterministic_rule"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-11433131db4c",
+            "failure-1-test-11433131db4c",
+            "failure-2-test-11433131db4c",
+            "failure-3-test-11433131db4c",
+            "failure-4-test-11433131db4c",
+            "failure-5-test-11433131db4c",
+            "failure-6-test-11433131db4c",
+            "failure-7-test-11433131db4c",
+            "failure-8-test-11433131db4c",
+            "failure-9-test-11433131db4c",
+            "anchor-test-11433131db4c"
+          ],
+          "observation_sha256": "0544ae42c9e6e8001de21b79baa0f155bf301d8e13281432e295266fb1806db4"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "0544ae42c9e6e8001de21b79baa0f155bf301d8e13281432e295266fb1806db4",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-11433131db4c",
+    "family": "hostile",
+    "arm": "base",
+    "observation_sha256": "0544ae42c9e6e8001de21b79baa0f155bf301d8e13281432e295266fb1806db4",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "status": "failed",
+      "disposition": "abstain",
+      "reason": "invalid_plan",
+      "citations": [],
+      "finding": "Plan rejected before investigation execution.",
+      "plan": {
+        "operation": "investigate_access",
+        "alert_id": "test-11433131db4c"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_access\", \"alert_id\": \"test-11433131db4c\"}",
+        "logits": {
+          "investigate_auth": -0.12177627780062084,
+          "investigate_access": 0.16027611516194004,
+          "abstain": -0.1483176544644791
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-11433131db4c",
+            "failure-1-test-11433131db4c",
+            "failure-2-test-11433131db4c",
+            "failure-3-test-11433131db4c",
+            "failure-4-test-11433131db4c",
+            "failure-5-test-11433131db4c",
+            "failure-6-test-11433131db4c",
+            "failure-7-test-11433131db4c",
+            "failure-8-test-11433131db4c",
+            "failure-9-test-11433131db4c",
+            "anchor-test-11433131db4c"
+          ],
+          "observation_sha256": "0544ae42c9e6e8001de21b79baa0f155bf301d8e13281432e295266fb1806db4"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "validate_plan",
+          "status": "rejected"
+        }
+      ],
+      "observation_sha256": "0544ae42c9e6e8001de21b79baa0f155bf301d8e13281432e295266fb1806db4",
+      "response_actions": []
+    },
+    "score": {
+      "correct": false,
+      "grounded_correct": false,
+      "failed": true,
+      "correct_abstention": false
+    }
+  },
+  {
+    "case_id": "test-11433131db4c",
+    "family": "hostile",
+    "arm": "adapted",
+    "observation_sha256": "0544ae42c9e6e8001de21b79baa0f155bf301d8e13281432e295266fb1806db4",
+    "expected": {
+      "disposition": "escalate",
+      "operation": "investigate_auth"
+    },
+    "result": {
+      "disposition": "escalate",
+      "reason": "rule_match",
+      "citations": [
+        "anchor-test-11433131db4c",
+        "failure-0-test-11433131db4c",
+        "failure-1-test-11433131db4c",
+        "failure-2-test-11433131db4c",
+        "failure-3-test-11433131db4c",
+        "failure-4-test-11433131db4c",
+        "failure-5-test-11433131db4c",
+        "failure-6-test-11433131db4c",
+        "failure-7-test-11433131db4c",
+        "failure-8-test-11433131db4c",
+        "failure-9-test-11433131db4c",
+        "triage-policy-v1"
+      ],
+      "finding": "10 matching login failures preceded a successful login. This is a temporal correlation, not a determination of malicious intent.",
+      "matched_event_ids": [
+        "failure-0-test-11433131db4c",
+        "failure-1-test-11433131db4c",
+        "failure-2-test-11433131db4c",
+        "failure-3-test-11433131db4c",
+        "failure-4-test-11433131db4c",
+        "failure-5-test-11433131db4c",
+        "failure-6-test-11433131db4c",
+        "failure-7-test-11433131db4c",
+        "failure-8-test-11433131db4c",
+        "failure-9-test-11433131db4c",
+        "anchor-test-11433131db4c"
+      ],
+      "status": "completed",
+      "plan": {
+        "operation": "investigate_auth",
+        "alert_id": "test-11433131db4c"
+      },
+      "model_response": {
+        "text": "{\"operation\": \"investigate_auth\", \"alert_id\": \"test-11433131db4c\"}",
+        "logits": {
+          "investigate_auth": 3.4279142169601697,
+          "investigate_access": -2.615050611992206,
+          "abstain": -0.922681422071125
+        },
+        "backend": "reference_linear_policy_not_llm"
+      },
+      "trace": [
+        {
+          "tool": "retrieve_events",
+          "event_ids": [
+            "failure-0-test-11433131db4c",
+            "failure-1-test-11433131db4c",
+            "failure-2-test-11433131db4c",
+            "failure-3-test-11433131db4c",
+            "failure-4-test-11433131db4c",
+            "failure-5-test-11433131db4c",
+            "failure-6-test-11433131db4c",
+            "failure-7-test-11433131db4c",
+            "failure-8-test-11433131db4c",
+            "failure-9-test-11433131db4c",
+            "anchor-test-11433131db4c"
+          ],
+          "observation_sha256": "0544ae42c9e6e8001de21b79baa0f155bf301d8e13281432e295266fb1806db4"
+        },
+        {
+          "tool": "lookup_policy",
+          "evidence": [
+            {
+              "value": 8.0,
+              "unit": "events",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "failure_threshold"
+            },
+            {
+              "value": 120.0,
+              "unit": "seconds",
+              "source_id": "triage-policy-v1",
+              "service": "triage-policy",
+              "revision": 1,
+              "field": "window_seconds"
+            }
+          ]
+        },
+        {
+          "tool": "investigate_auth",
+          "status": "completed"
+        }
+      ],
+      "observation_sha256": "0544ae42c9e6e8001de21b79baa0f155bf301d8e13281432e295266fb1806db4",
+      "response_actions": []
+    },
+    "score": {
+      "correct": true,
+      "grounded_correct": true,
+      "failed": false,
+      "correct_abstention": false
+    }
+  }
+]

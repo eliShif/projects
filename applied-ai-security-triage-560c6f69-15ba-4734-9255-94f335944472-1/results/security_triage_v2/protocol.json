@@ -1,0 +1,61 @@
+{
+  "acceptance": {
+    "faults": [
+      "expired lease and reopened DB",
+      "duplicate submissions",
+      "invalid requests",
+      "hostile fixture plans",
+      "planner evidence mutation"
+    ],
+    "max_jobs": 32,
+    "transport": "in-memory HTTP handler, no sockets",
+    "workers": 4
+  },
+  "backend": "reference",
+  "budgets": {
+    "events_per_observation": 64,
+    "lease_seconds": 300,
+    "stages": [
+      "prepare",
+      "train",
+      "evaluate"
+    ],
+    "training_steps_max": 512,
+    "worker_attempts": 3
+  },
+  "dataset_sha256": "fb3e90bf74ff346525dff3e479d57ccace191f546433d5f38bb0f9f4ad0ca1b6",
+  "experiment": "security-triage-v2",
+  "format": 2,
+  "information": "identical actor/time evidence and versioned policy for every arm; no labels",
+  "metrics": [
+    "correct",
+    "grounded_correct",
+    "correct_abstentions",
+    "failed",
+    "paired_changes"
+  ],
+  "model_files_sha256": {},
+  "packages": {
+    "safetensors": "not_installed",
+    "torch": "not_installed",
+    "transformers": "not_installed"
+  },
+  "python": "3.14.4",
+  "seed": 2026,
+  "selection": "validation NLL only; test cases excluded from fitting and checkpoint selection",
+  "source_sha256": {
+    "adapter_tuning.py": "3b1695797aabd3dbb7709cd33ac01cd04331677884546f52308bfc662a0c5730",
+    "common.py": "fc775920d42b9951b1d47908eb4c647a022b0cdcec2d9c2600fdce4649b7997f",
+    "evidence_agent.py": "dfb14a4cc72f58aac99c94841b7e4d24976cd0d9e82498f80c0aa05df39ea677",
+    "local_lm.py": "7c8dbf7b1d1950ab3e0051bf95b5cc84cd9427ed1efe20c7ffc2a101a22cd5d3",
+    "reliable_service.py": "7819ac993f13f98664849c59495e53da4b332be5554f6135da6083b8c4a9fda1",
+    "security_acceptance.py": "a710c21d3b0af35f57a2bcb05262f753a61e6022201c2e43fcd9cc40fc337d7b",
+    "security_data.py": "2bfc301f06a0cd0c68250a884b8304fef0c5f893312c91ea6b82a0ee41e83902",
+    "security_eval.py": "1578774b10c0cdaf7e819638fb4f75503f3251a5e5b4054bbde65167e15d9f3b",
+    "security_models.py": "db195b52953d0b84425ce6338612d48b9123b5bf09227dd6c85615ca77ffd329",
+    "security_pipeline.py": "10822338434dd0bbb49f557b1f76cccb33801cfacb1d57302f0eafec5b043f08",
+    "security_triage.py": "2582ab8b69faf1ed64a6f5c301f43bb70e77df1950c21eb35c5d517fcf916b44",
+    "telemetry.py": "5c17b489de2cdd187f60f70545718c85d0126ed2f8aad579113789bfe1b2c1b5"
+  },
+  "steps": 96
+}

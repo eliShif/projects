@@ -1,0 +1,50 @@
+{
+  "backend": "reference_linear_policy_not_llm",
+  "selection": "minimum validation NLL, including step zero",
+  "rank": 2,
+  "trainable_parameters": 22,
+  "seed": 2026,
+  "steps": 96,
+  "selected_step": 96,
+  "lr": 0.4,
+  "frozen_base_sha256": "418088407233c148ff133665c72766c8534389538f3a8472f9ecae4710c540f8",
+  "validation_history": [
+    {
+      "step": 0,
+      "validation_nll": 1.0978938206762408
+    },
+    {
+      "step": 12,
+      "validation_nll": 1.0312002298161058
+    },
+    {
+      "step": 24,
+      "validation_nll": 0.9310268980719845
+    },
+    {
+      "step": 36,
+      "validation_nll": 0.5635296314462578
+    },
+    {
+      "step": 48,
+      "validation_nll": 0.360852525324783
+    },
+    {
+      "step": 60,
+      "validation_nll": 0.13183291058042776
+    },
+    {
+      "step": 72,
+      "validation_nll": 0.07952838868203971
+    },
+    {
+      "step": 84,
+      "validation_nll": 0.029904567036958925
+    },
+    {
+      "step": 96,
+      "validation_nll": 0.01980738085773406
+    }
+  ],
+  "base_origin": "seeded random linear weights; no pretrained language model"
+}

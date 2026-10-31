@@ -1,0 +1,21 @@
+test_security_torch (unittest.loader._FailedTest.test_security_torch) ... ERROR
+
+======================================================================
+ERROR: test_security_torch (unittest.loader._FailedTest.test_security_torch)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_security_torch
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/560c6f69-15ba-4734-9255-94f335944472/0/tests_ml/test_security_torch.py", line 10, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
