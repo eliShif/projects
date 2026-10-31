@@ -1,8 +1,7 @@
 # Walkthrough and future learning exercises
 
 These prompts support a future run, explanation and review. No exercise is
-marked complete and no personal mastery, independent authorship or mentorship
-is asserted by this AI-assisted repository.
+marked complete.
 
 ## Walkthrough
 

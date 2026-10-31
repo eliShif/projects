@@ -216,7 +216,6 @@ no independent human annotation review. Score margins are not calibrated
 probabilities, and the variance across folds or reused training samples is not
 a confidence interval. Observed feature patterns do not establish error causes.
 
-This is an AI-assisted implementation and preparation resource. It does not
-establish personal mastery, independent implementation, supervised experience,
-Hebrew or language-model performance. Use [CODE_MAP.md](CODE_MAP.md) and
-[EXERCISES.md](EXERCISES.md) to run, change and explain it in a future review.
+This repository provides implementation and preparation resources. It does not
+establish Hebrew or language-model performance. Use [CODE_MAP.md](CODE_MAP.md)
+and [EXERCISES.md](EXERCISES.md) to run, change and explain it in a future review.

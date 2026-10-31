@@ -1,0 +1,33 @@
+{
+  "version": "sha256:58e014cbf4b3559379c8b9da32c807fa3d57604116af6ebb86416f4e2487831d",
+  "files": {
+    "config.json": {
+      "sha256": "6300193cb75e01cf80c96decef7187dfb33094d97cc1490b7ead6ff134476e4e",
+      "bytes": 645
+    },
+    "model.safetensors": {
+      "sha256": "eaa086f0ffee582aeb45b36e34cdd1fe2d6de2bef61f8a559a1bbc9bd955917b",
+      "bytes": 470641600
+    },
+    "sentencepiece.bpe.model": {
+      "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865",
+      "bytes": 5069051
+    },
+    "special_tokens_map.json": {
+      "sha256": "378eb3bf733eb16e65792d7e3fda5b8a4631387ca04d2015199c4d4f22ae554d",
+      "bytes": 239
+    },
+    "tokenizer.json": {
+      "sha256": "2c3387be76557bd40970cec13153b3bbf80407865484b209e655e5e4729076b8",
+      "bytes": 9081518
+    },
+    "tokenizer_config.json": {
+      "sha256": "5036ea374ffedd706e3bef33e2e0d6953cb868ef8a490e76e32ba0faa37a6b9b",
+      "bytes": 526
+    }
+  },
+  "declared_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "provenance_note": "Identifier is operator-supplied; version is computed from local model/tokenizer bytes.",
+  "model_type": "bert",
+  "trainable_parameters": 0
+}

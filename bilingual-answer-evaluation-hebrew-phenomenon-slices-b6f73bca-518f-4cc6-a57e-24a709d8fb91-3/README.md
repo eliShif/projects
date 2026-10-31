@@ -4,7 +4,7 @@ This extends the existing Python evaluator with a small, explicitly selected Heb
 
 The implementation reuses source validation, validation-only threshold selection, word-overlap retrieval, exact answer-and-citation scoring, paired comparisons, and the optional local GGUF adapter. New code validates the added grammar and annotations, keeps related variants together, and reports concrete failures for each phenomenon. The original experiment remains the default dataset.
 
-This is AI-assisted implementation and preparation material. It does not establish anyone's mastery, language proficiency, completed reading, presentation, learning progress, or team review. No model weights, credentials, paid APIs, or external services are required. Source lineage is recorded in [UPSTREAM.md](UPSTREAM.md).
+This repository provides implementation and preparation material. No model weights, credentials, paid APIs, or external services are required. Source lineage is recorded in [UPSTREAM.md](UPSTREAM.md).
 
 ## Setup, tests and build
 

@@ -1,0 +1,76 @@
+{
+  "selected": "dense_mean",
+  "selection_split": "validation",
+  "rule": "highest MRR@k, then Recall@k, then tfidf/dense_mean/dense_cls order",
+  "validation": {
+    "tfidf": {
+      "queries": 12,
+      "precision_at_k": 0.16666666666666666,
+      "recall_at_k": 0.5,
+      "mrr_at_k": 0.3611111111111111,
+      "hit_at_k": 0.5,
+      "by_language": {
+        "en": {
+          "queries": 6,
+          "precision_at_k": 0.16666666666666666,
+          "recall_at_k": 0.5,
+          "mrr_at_k": 0.3055555555555556,
+          "hit_at_k": 0.5
+        },
+        "he": {
+          "queries": 6,
+          "precision_at_k": 0.16666666666666666,
+          "recall_at_k": 0.5,
+          "mrr_at_k": 0.4166666666666667,
+          "hit_at_k": 0.5
+        }
+      }
+    },
+    "dense_mean": {
+      "queries": 12,
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "mrr_at_k": 1.0,
+      "hit_at_k": 1.0,
+      "by_language": {
+        "en": {
+          "queries": 6,
+          "precision_at_k": 0.3333333333333333,
+          "recall_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "hit_at_k": 1.0
+        },
+        "he": {
+          "queries": 6,
+          "precision_at_k": 0.3333333333333333,
+          "recall_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "hit_at_k": 1.0
+        }
+      }
+    },
+    "dense_cls": {
+      "queries": 12,
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "mrr_at_k": 0.7777777777777778,
+      "hit_at_k": 1.0,
+      "by_language": {
+        "en": {
+          "queries": 6,
+          "precision_at_k": 0.3333333333333333,
+          "recall_at_k": 1.0,
+          "mrr_at_k": 0.9166666666666666,
+          "hit_at_k": 1.0
+        },
+        "he": {
+          "queries": 6,
+          "precision_at_k": 0.3333333333333333,
+          "recall_at_k": 1.0,
+          "mrr_at_k": 0.6388888888888888,
+          "hit_at_k": 1.0
+        }
+      }
+    }
+  }
+}

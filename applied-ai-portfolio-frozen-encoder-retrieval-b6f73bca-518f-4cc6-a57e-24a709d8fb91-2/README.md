@@ -12,12 +12,21 @@ ML dependencies. [UPSTREAM.md](UPSTREAM.md) and
 [UPSTREAM_FILES.json](UPSTREAM_FILES.json) record the supplied source lineage.
 No remote repository was changed.
 
-**Validation status:** the dependency-free evaluation/protocol tests run here;
-ML dependencies could not be installed from the unavailable package indexes.
-There are no new TF-IDF or pretrained-encoder scores in this adaptation. The
-local-weight comparison, measurements, and conclusions remain unrun.
-See [VALIDATION.md](VALIDATION.md) for exact outcomes. Historical files under
-`results/` belong to the supplied source and are not new validation.
+**Validation status:** a real pretrained-encoder comparison completed on 2026-10-31.
+The frozen `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`
+checkpoint was compared with TF-IDF on the same corpus and predeclared splits.
+Masked-mean pooling was selected using validation data only. On 12 authored
+held-out queries, MRR@3 was 1.000000 for masked mean, 0.958333 for CLS pooling,
+and 0.388889 for TF-IDF. These are descriptive results on a small synthetic
+English/Hebrew corpus, not a general performance claim.
+
+See [the executed report](results/pretrained-minilm-20261031/REPORT.md),
+[case-level rankings](results/pretrained-minilm-20261031/rankings.json),
+[protocol](results/pretrained-minilm-20261031/protocol.json) and
+[exact environment](results/pretrained-minilm-20261031/environment-lock.txt).
+Previous dependency/network failures remain historical validation records;
+they do not describe the status of this completed comparison. No new LoRA
+training run is claimed.
 
 ## Setup
 
@@ -70,6 +79,22 @@ The full suite requires the installed dependencies. Dense tests create a small
 tokenization, padding, normalization and freezing. These tests are not evidence
 of pretrained quality and do not substitute for the comparison below.
 
+## Reproduce the committed pretrained result
+
+```text
+python3 -m venv .venv
+.venv/bin/python -m pip install --index-url https://pypi.org/simple --extra-index-url https://download.pytorch.org/whl/cpu -r results/pretrained-minilm-20261031/environment-lock.txt
+.venv/bin/python scripts/download_encoder.py --destination models/pretrained-minilm
+.venv/bin/python -m portfolio.retrieval_experiment run --model-path models/pretrained-minilm --model-id sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --batch-size 4 --threads 1 --out results/reproduction-new
+.venv/bin/python -m portfolio.retrieval_experiment audit --out results/reproduction-new
+```
+
+Use a new output directory each time. Model/tokenizer bytes and package versions
+are recorded in the committed manifests. The run performs zero training updates:
+these are pretrained weights held frozen during evaluation. The operator limited
+the process to one CPU core, 1700 MiB RAM and 512 MiB swap; the service reported a
+1.5 GiB memory peak. Model weights and virtual environments are not stored in Git.
+
 ## Run real retrieval
 
 TF-IDF needs no model weights, but requires NumPy and scikit-learn:
@@ -81,9 +106,10 @@ TF-IDF needs no model weights, but requires NumPy and scikit-learn:
 ```
 
 For the comparison, supply a locally obtained pretrained AutoModel-compatible
-encoder/tokenizer in `models/encoder`. The intended model is
-`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`; no revision or
-weights were available here. The directory must contain `config.json`, tokenizer
+encoder/tokenizer in `models/encoder`. The executed model is
+`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`, pinned to revision
+`e8f8c211226b894fcb81acc59f3b34ba3efd5f42`. The public download script obtains
+the exact safetensors/tokenizer assets before offline inference. The directory must contain `config.json`, tokenizer
 assets, and `model.safetensors` or valid safetensors shards. Custom remote code
 and pickle weights are not loaded. The exact local version is computed from
 SHA-256 hashes of model/tokenizer files and saved in `encoder.json`; the optional
@@ -97,8 +123,8 @@ model ID is only an operator-supplied provenance label.
 Defaults: `k=3`, CPU, two threads, batches of eight, 128 tokens including special
 tokens, zero training updates. Both dense arms share the same frozen checkpoint.
 For the bundled 12 documents and 24 queries, the budget permits 72 text encodings
-and 52 forward calls across both pooling arms. These are calculated limits,
-**not measurements of an executed model**.
+and 52 forward calls across both pooling arms. These defaults are calculated limits. The committed run used one CPU thread
+and batches of four; actual counters and timings are in summary.json.
 
 Every arm uses the same corpus text, queries and `k`. Validation MRR@k selects
 the primary method before any test search; Recall@k and a fixed arm order break

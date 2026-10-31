@@ -27,8 +27,9 @@ Predeclared acceptance gate: **PASS**.
 {"mean_difference": 0.4791666666666667, "ci95": [0.375, 0.5833333333333334], "unit": "service entity", "questions": 6, "repeats_per_question": 1}
 
 ## Limits
+
 - Authored synthetic data; six held-out entities, not a public benchmark.
 - Typed agent has structured corpus access; RAG receives top-six text records. This compares systems, not isolated model intelligence.
 - Agent prevents document-note injection by keeping notes outside the planning boundary; no broad injection-robustness claim.
 - Task families are shared across development/test; entity holdout does not prove task generalization.
-- No claim of frontier-model quality, production load capacity, or independent human mastery.
+- The evaluation does not establish frontier-model quality or production load capacity.

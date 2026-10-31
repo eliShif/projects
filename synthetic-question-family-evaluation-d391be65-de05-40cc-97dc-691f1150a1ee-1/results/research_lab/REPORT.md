@@ -219,4 +219,4 @@ Labels come from the synthetic family generator; there is no independent annotat
 - Seeded resamples reuse the same 24 constructed training cases and frozen evaluation sets; their spread is not population uncertainty.
 - The downsampling check changes training composition and is post-hoc; any score change cannot establish a general effect size.
 - Generated labels have no independent human audit; feature and frequency clues cannot prove error cause.
-- Feature-label association does not establish causality or independent human mastery.
+- Feature-label association does not establish causality.

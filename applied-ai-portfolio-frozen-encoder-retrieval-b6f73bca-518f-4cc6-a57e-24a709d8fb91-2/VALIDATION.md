@@ -27,3 +27,12 @@ Exit code: 0
 Output SHA-256: `b0a7f18b5de53dd1aad783088bc6bd279dee77c5493ddfb85f221cf74cc070e3`
 
 Raw execution output remains in private application storage.
+
+
+## Completed pretrained comparison — 2026-10-31
+
+The pinned pretrained MiniLM comparison, result audit, retrieval test suite,
+bytecode build and documented baseline smoke all completed with exit code zero.
+See results/pretrained-minilm-20261031 for the protocol, environment lock,
+model hashes, validation selection, full rankings and descriptive test metrics.
+No fresh LoRA run or generalization beyond the authored corpus is asserted.

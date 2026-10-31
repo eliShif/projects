@@ -1,0 +1,2094 @@
+{
+  "validation": {
+    "tfidf": [
+      {
+        "query_id": "q-backup-1",
+        "query": "How long can I recover an accidentally erased document?",
+        "split": "validation",
+        "group": "backup",
+        "language": "en",
+        "relevant_ids": [
+          "d-backup"
+        ],
+        "hits": [
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.24034832357743668
+          },
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.06631676988214291
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.06343038667150298
+          }
+        ],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      },
+      {
+        "query_id": "q-backup-2",
+        "query": "Is there a daily backup that lets me undo deletion?",
+        "split": "validation",
+        "group": "backup",
+        "language": "en",
+        "relevant_ids": [
+          "d-backup"
+        ],
+        "hits": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      },
+      {
+        "query_id": "q-traffic-1",
+        "query": "What happens when a website is overloaded with visitors?",
+        "split": "validation",
+        "group": "traffic",
+        "language": "en",
+        "relevant_ids": [
+          "d-traffic"
+        ],
+        "hits": [
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.16706045679186812
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-traffic-2",
+        "query": "Should an application immediately retry after congestion blocks access?",
+        "split": "validation",
+        "group": "traffic",
+        "language": "en",
+        "relevant_ids": [
+          "d-traffic"
+        ],
+        "hits": [
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.10346226150957752
+          },
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.10096992837018047
+          },
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.07471818698524597
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-encryption-1",
+        "query": "How is private communication protected while it travels?",
+        "split": "validation",
+        "group": "encryption",
+        "language": "en",
+        "relevant_ids": [
+          "d-encryption"
+        ],
+        "hits": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      },
+      {
+        "query_id": "q-encryption-2",
+        "query": "Who can decipher an encrypted letter?",
+        "split": "validation",
+        "group": "encryption",
+        "language": "en",
+        "relevant_ids": [
+          "d-encryption"
+        ],
+        "hits": [
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.1770629118870528
+          },
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.0785796824771842
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.07672918573126819
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.3333333333333333,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-library-1",
+        "query": "איך אפשר להשאיר אצלי עוד זמן את מה ששאלתי לקריאה?",
+        "split": "validation",
+        "group": "library",
+        "language": "he",
+        "relevant_ids": [
+          "d-library"
+        ],
+        "hits": [
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.27837896537139317
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.10020498719735789
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-library-2",
+        "query": "האם הזמנה של מישהו אחר מונעת ממני לחדש השאלה?",
+        "split": "validation",
+        "group": "library",
+        "language": "he",
+        "relevant_ids": [
+          "d-library"
+        ],
+        "hits": [
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.20734080868227753
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.11538290652687229
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-transit-1",
+        "query": "איך נוסעים העירה בתחבורה ציבורית באמצע הלילה?",
+        "split": "validation",
+        "group": "transit",
+        "language": "he",
+        "relevant_ids": [
+          "d-transit"
+        ],
+        "hits": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      },
+      {
+        "query_id": "q-transit-2",
+        "query": "מתי מסתיים השירות הרגיל ונשארת רק נסיעה במונית?",
+        "split": "validation",
+        "group": "transit",
+        "language": "he",
+        "relevant_ids": [
+          "d-transit"
+        ],
+        "hits": [
+          {
+            "id": "d-transit",
+            "text": "קו האוטובוס האחרון יוצא מהתחנה בחצות. אחרי שעה זו ניתן להגיע למרכז העיר רק במונית.",
+            "score": 0.26380928206625076
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-printer-1",
+        "query": "המכונה להפקת עותקים מבקשת דפים, מה לעשות?",
+        "split": "validation",
+        "group": "printer",
+        "language": "he",
+        "relevant_ids": [
+          "d-printer"
+        ],
+        "hits": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      },
+      {
+        "query_id": "q-printer-2",
+        "query": "איך לחדש הדפסה שנעצרה בגלל מגש ריק?",
+        "split": "validation",
+        "group": "printer",
+        "language": "he",
+        "relevant_ids": [
+          "d-printer"
+        ],
+        "hits": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      }
+    ],
+    "dense_mean": [
+      {
+        "query_id": "q-backup-1",
+        "query": "How long can I recover an accidentally erased document?",
+        "split": "validation",
+        "group": "backup",
+        "language": "en",
+        "relevant_ids": [
+          "d-backup"
+        ],
+        "hits": [
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.4964151382446289
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.4112442433834076
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.36045652627944946
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-backup-2",
+        "query": "Is there a daily backup that lets me undo deletion?",
+        "split": "validation",
+        "group": "backup",
+        "language": "en",
+        "relevant_ids": [
+          "d-backup"
+        ],
+        "hits": [
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.5627213716506958
+          },
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.38316285610198975
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.28841742873191833
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-traffic-1",
+        "query": "What happens when a website is overloaded with visitors?",
+        "split": "validation",
+        "group": "traffic",
+        "language": "en",
+        "relevant_ids": [
+          "d-traffic"
+        ],
+        "hits": [
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.3873934745788574
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.23804871737957
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.23035725951194763
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-traffic-2",
+        "query": "Should an application immediately retry after congestion blocks access?",
+        "split": "validation",
+        "group": "traffic",
+        "language": "en",
+        "relevant_ids": [
+          "d-traffic"
+        ],
+        "hits": [
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.47314733266830444
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.36715394258499146
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.3544115424156189
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-encryption-1",
+        "query": "How is private communication protected while it travels?",
+        "split": "validation",
+        "group": "encryption",
+        "language": "en",
+        "relevant_ids": [
+          "d-encryption"
+        ],
+        "hits": [
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.4845722019672394
+          },
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.24672450125217438
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.21127702295780182
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-encryption-2",
+        "query": "Who can decipher an encrypted letter?",
+        "split": "validation",
+        "group": "encryption",
+        "language": "en",
+        "relevant_ids": [
+          "d-encryption"
+        ],
+        "hits": [
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.5815061330795288
+          },
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.24310511350631714
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.19832465052604675
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-library-1",
+        "query": "איך אפשר להשאיר אצלי עוד זמן את מה ששאלתי לקריאה?",
+        "split": "validation",
+        "group": "library",
+        "language": "he",
+        "relevant_ids": [
+          "d-library"
+        ],
+        "hits": [
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.4603147506713867
+          },
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.22696633636951447
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.20080316066741943
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-library-2",
+        "query": "האם הזמנה של מישהו אחר מונעת ממני לחדש השאלה?",
+        "split": "validation",
+        "group": "library",
+        "language": "he",
+        "relevant_ids": [
+          "d-library"
+        ],
+        "hits": [
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.3031461834907532
+          },
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.2799064517021179
+          },
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.25129395723342896
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-transit-1",
+        "query": "איך נוסעים העירה בתחבורה ציבורית באמצע הלילה?",
+        "split": "validation",
+        "group": "transit",
+        "language": "he",
+        "relevant_ids": [
+          "d-transit"
+        ],
+        "hits": [
+          {
+            "id": "d-transit",
+            "text": "קו האוטובוס האחרון יוצא מהתחנה בחצות. אחרי שעה זו ניתן להגיע למרכז העיר רק במונית.",
+            "score": 0.7178051471710205
+          },
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.2905602753162384
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.17146176099777222
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-transit-2",
+        "query": "מתי מסתיים השירות הרגיל ונשארת רק נסיעה במונית?",
+        "split": "validation",
+        "group": "transit",
+        "language": "he",
+        "relevant_ids": [
+          "d-transit"
+        ],
+        "hits": [
+          {
+            "id": "d-transit",
+            "text": "קו האוטובוס האחרון יוצא מהתחנה בחצות. אחרי שעה זו ניתן להגיע למרכז העיר רק במונית.",
+            "score": 0.6237619519233704
+          },
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.5186017155647278
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.47965869307518005
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-printer-1",
+        "query": "המכונה להפקת עותקים מבקשת דפים, מה לעשות?",
+        "split": "validation",
+        "group": "printer",
+        "language": "he",
+        "relevant_ids": [
+          "d-printer"
+        ],
+        "hits": [
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.35547006130218506
+          },
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.3112339377403259
+          },
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.2926892638206482
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-printer-2",
+        "query": "איך לחדש הדפסה שנעצרה בגלל מגש ריק?",
+        "split": "validation",
+        "group": "printer",
+        "language": "he",
+        "relevant_ids": [
+          "d-printer"
+        ],
+        "hits": [
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.40414392948150635
+          },
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.3490230441093445
+          },
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.3138289451599121
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      }
+    ],
+    "dense_cls": [
+      {
+        "query_id": "q-backup-1",
+        "query": "How long can I recover an accidentally erased document?",
+        "split": "validation",
+        "group": "backup",
+        "language": "en",
+        "relevant_ids": [
+          "d-backup"
+        ],
+        "hits": [
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.5379526615142822
+          },
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.44163069128990173
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.42990827560424805
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-backup-2",
+        "query": "Is there a daily backup that lets me undo deletion?",
+        "split": "validation",
+        "group": "backup",
+        "language": "en",
+        "relevant_ids": [
+          "d-backup"
+        ],
+        "hits": [
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.686302125453949
+          },
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.5396748185157776
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.4931611716747284
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-traffic-1",
+        "query": "What happens when a website is overloaded with visitors?",
+        "split": "validation",
+        "group": "traffic",
+        "language": "en",
+        "relevant_ids": [
+          "d-traffic"
+        ],
+        "hits": [
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.43842455744743347
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.4324195981025696
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.40610942244529724
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-traffic-2",
+        "query": "Should an application immediately retry after congestion blocks access?",
+        "split": "validation",
+        "group": "traffic",
+        "language": "en",
+        "relevant_ids": [
+          "d-traffic"
+        ],
+        "hits": [
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.42705902457237244
+          },
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.4086650609970093
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.40547171235084534
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-encryption-1",
+        "query": "How is private communication protected while it travels?",
+        "split": "validation",
+        "group": "encryption",
+        "language": "en",
+        "relevant_ids": [
+          "d-encryption"
+        ],
+        "hits": [
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.554794192314148
+          },
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.3533203899860382
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.35137659311294556
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-encryption-2",
+        "query": "Who can decipher an encrypted letter?",
+        "split": "validation",
+        "group": "encryption",
+        "language": "en",
+        "relevant_ids": [
+          "d-encryption"
+        ],
+        "hits": [
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.6662858128547668
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.5061444640159607
+          },
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.4795595407485962
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-library-1",
+        "query": "איך אפשר להשאיר אצלי עוד זמן את מה ששאלתי לקריאה?",
+        "split": "validation",
+        "group": "library",
+        "language": "he",
+        "relevant_ids": [
+          "d-library"
+        ],
+        "hits": [
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.67079758644104
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.655613362789154
+          },
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.6134240627288818
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-library-2",
+        "query": "האם הזמנה של מישהו אחר מונעת ממני לחדש השאלה?",
+        "split": "validation",
+        "group": "library",
+        "language": "he",
+        "relevant_ids": [
+          "d-library"
+        ],
+        "hits": [
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.5705991387367249
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.5609908103942871
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.5554681420326233
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.3333333333333333,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-transit-1",
+        "query": "איך נוסעים העירה בתחבורה ציבורית באמצע הלילה?",
+        "split": "validation",
+        "group": "transit",
+        "language": "he",
+        "relevant_ids": [
+          "d-transit"
+        ],
+        "hits": [
+          {
+            "id": "d-transit",
+            "text": "קו האוטובוס האחרון יוצא מהתחנה בחצות. אחרי שעה זו ניתן להגיע למרכז העיר רק במונית.",
+            "score": 0.7581595778465271
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.4158908426761627
+          },
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.4120023250579834
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-transit-2",
+        "query": "מתי מסתיים השירות הרגיל ונשארת רק נסיעה במונית?",
+        "split": "validation",
+        "group": "transit",
+        "language": "he",
+        "relevant_ids": [
+          "d-transit"
+        ],
+        "hits": [
+          {
+            "id": "d-transit",
+            "text": "קו האוטובוס האחרון יוצא מהתחנה בחצות. אחרי שעה זו ניתן להגיע למרכז העיר רק במונית.",
+            "score": 0.7569922208786011
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.5831166505813599
+          },
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.5070092678070068
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-printer-1",
+        "query": "המכונה להפקת עותקים מבקשת דפים, מה לעשות?",
+        "split": "validation",
+        "group": "printer",
+        "language": "he",
+        "relevant_ids": [
+          "d-printer"
+        ],
+        "hits": [
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.6212212443351746
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.575573742389679
+          },
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.5480312705039978
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-printer-2",
+        "query": "איך לחדש הדפסה שנעצרה בגלל מגש ריק?",
+        "split": "validation",
+        "group": "printer",
+        "language": "he",
+        "relevant_ids": [
+          "d-printer"
+        ],
+        "hits": [
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.644287109375
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.6018450260162354
+          },
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.4925365746021271
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      }
+    ]
+  },
+  "test": {
+    "tfidf": [
+      {
+        "query_id": "q-refund-1",
+        "query": "Can I get my money back for a sealed item bought last week?",
+        "split": "test",
+        "group": "refund",
+        "language": "en",
+        "relevant_ids": [
+          "d-refund"
+        ],
+        "hits": [
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.1672375359218235
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.09689569887589289
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.07295862576638908
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-refund-2",
+        "query": "What is the deadline for a refund on unused merchandise?",
+        "split": "test",
+        "group": "refund",
+        "language": "en",
+        "relevant_ids": [
+          "d-refund"
+        ],
+        "hits": [
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.18715921034101493
+          },
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.09175607791932139
+          },
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.05437241048254047
+          }
+        ],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      },
+      {
+        "query_id": "q-password-1",
+        "query": "How do I reset a forgotten password?",
+        "split": "test",
+        "group": "password",
+        "language": "en",
+        "relevant_ids": [
+          "d-password"
+        ],
+        "hits": [
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.17118416292364497
+          }
+        ],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      },
+      {
+        "query_id": "q-password-2",
+        "query": "I cannot remember how to sign in; how can I regain access?",
+        "split": "test",
+        "group": "password",
+        "language": "en",
+        "relevant_ids": [
+          "d-password"
+        ],
+        "hits": [
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.10130491239475432
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.09689569887589289
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.07295862576638908
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-delivery-1",
+        "query": "Does Saturday count when estimating when my package will reach me?",
+        "split": "test",
+        "group": "delivery",
+        "language": "en",
+        "relevant_ids": [
+          "d-delivery"
+        ],
+        "hits": [
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.20394560518915994
+          },
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.07759686611294793
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-delivery-2",
+        "query": "How many business days does shipping usually take?",
+        "split": "test",
+        "group": "delivery",
+        "language": "en",
+        "relevant_ids": [
+          "d-delivery"
+        ],
+        "hits": [
+          {
+            "id": "d-traffic",
+            "text": "When too many requests reach the server, the gateway temporarily rejects additional connections. Clients should wait before trying again.",
+            "score": 0.13309457110439554
+          },
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.13289628962739103
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.07350902738255
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-appointment-1",
+        "query": "עד מתי אפשר לוותר על התור לרופא בלי קנס?",
+        "split": "test",
+        "group": "appointment",
+        "language": "he",
+        "relevant_ids": [
+          "d-appointment"
+        ],
+        "hits": [
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.1832635906788696
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.09862223858890154
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.07750598919191465
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.3333333333333333,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-appointment-2",
+        "query": "האם אצטרך לשלם אם אודיע מאוחר שלא אבוא לבדיקה?",
+        "split": "test",
+        "group": "appointment",
+        "language": "he",
+        "relevant_ids": [
+          "d-appointment"
+        ],
+        "hits": [
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.10198140428537411
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.10038306051558456
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.09420974867669463
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-course-1",
+        "query": "איך מצטרפים לשיעור אחרי שחלף המועד הרגיל?",
+        "split": "test",
+        "group": "course",
+        "language": "he",
+        "relevant_ids": [
+          "d-course"
+        ],
+        "hits": [
+          {
+            "id": "d-transit",
+            "text": "קו האוטובוס האחרון יוצא מהתחנה בחצות. אחרי שעה זו ניתן להגיע למרכז העיר רק במונית.",
+            "score": 0.13190464103312538
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.12294363854105371
+          }
+        ],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      },
+      {
+        "query_id": "q-course-2",
+        "query": "עד מתי ניתן להירשם ללימודים בלי רשות חריגה?",
+        "split": "test",
+        "group": "course",
+        "language": "he",
+        "relevant_ids": [
+          "d-course"
+        ],
+        "hits": [
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.21117084982036463
+          },
+          {
+            "id": "d-transit",
+            "text": "קו האוטובוס האחרון יוצא מהתחנה בחצות. אחרי שעה זו ניתן להגיע למרכז העיר רק במונית.",
+            "score": 0.11328123794267728
+          },
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.1051690585683979
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.3333333333333333,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-device-1",
+        "query": "הסוללה מלאה אבל הציוד אינו פועל, לאן לפנות?",
+        "split": "test",
+        "group": "device",
+        "language": "he",
+        "relevant_ids": [
+          "d-device"
+        ],
+        "hits": [
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.1766369736494904
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-device-2",
+        "query": "האם אבחון תקלה ראשוני עולה כסף כשהאחריות בתוקף?",
+        "split": "test",
+        "group": "device",
+        "language": "he",
+        "relevant_ids": [
+          "d-device"
+        ],
+        "hits": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "mrr_at_k": 0.0,
+        "hit_at_k": 0.0
+      }
+    ],
+    "dense_mean": [
+      {
+        "query_id": "q-refund-1",
+        "query": "Can I get my money back for a sealed item bought last week?",
+        "split": "test",
+        "group": "refund",
+        "language": "en",
+        "relevant_ids": [
+          "d-refund"
+        ],
+        "hits": [
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.5351390242576599
+          },
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.34557342529296875
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.330436646938324
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-refund-2",
+        "query": "What is the deadline for a refund on unused merchandise?",
+        "split": "test",
+        "group": "refund",
+        "language": "en",
+        "relevant_ids": [
+          "d-refund"
+        ],
+        "hits": [
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.5961835384368896
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.4595889449119568
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.4046640992164612
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-password-1",
+        "query": "How do I reset a forgotten password?",
+        "split": "test",
+        "group": "password",
+        "language": "en",
+        "relevant_ids": [
+          "d-password"
+        ],
+        "hits": [
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.6078376173973083
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.4103086292743683
+          },
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.20558646321296692
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-password-2",
+        "query": "I cannot remember how to sign in; how can I regain access?",
+        "split": "test",
+        "group": "password",
+        "language": "en",
+        "relevant_ids": [
+          "d-password"
+        ],
+        "hits": [
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.4333001375198364
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.2905348241329193
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.2499665468931198
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-delivery-1",
+        "query": "Does Saturday count when estimating when my package will reach me?",
+        "split": "test",
+        "group": "delivery",
+        "language": "en",
+        "relevant_ids": [
+          "d-delivery"
+        ],
+        "hits": [
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.510526180267334
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.33362579345703125
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.3275371789932251
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-delivery-2",
+        "query": "How many business days does shipping usually take?",
+        "split": "test",
+        "group": "delivery",
+        "language": "en",
+        "relevant_ids": [
+          "d-delivery"
+        ],
+        "hits": [
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.5912908911705017
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.33386021852493286
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.3007923662662506
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-appointment-1",
+        "query": "עד מתי אפשר לוותר על התור לרופא בלי קנס?",
+        "split": "test",
+        "group": "appointment",
+        "language": "he",
+        "relevant_ids": [
+          "d-appointment"
+        ],
+        "hits": [
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.623386025428772
+          },
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.3473547399044037
+          },
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.2874267101287842
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-appointment-2",
+        "query": "האם אצטרך לשלם אם אודיע מאוחר שלא אבוא לבדיקה?",
+        "split": "test",
+        "group": "appointment",
+        "language": "he",
+        "relevant_ids": [
+          "d-appointment"
+        ],
+        "hits": [
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.556731641292572
+          },
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.4146243929862976
+          },
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.35080838203430176
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-course-1",
+        "query": "איך מצטרפים לשיעור אחרי שחלף המועד הרגיל?",
+        "split": "test",
+        "group": "course",
+        "language": "he",
+        "relevant_ids": [
+          "d-course"
+        ],
+        "hits": [
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.47920361161231995
+          },
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.3270532190799713
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.32165855169296265
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-course-2",
+        "query": "עד מתי ניתן להירשם ללימודים בלי רשות חריגה?",
+        "split": "test",
+        "group": "course",
+        "language": "he",
+        "relevant_ids": [
+          "d-course"
+        ],
+        "hits": [
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.5853368043899536
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.3577924370765686
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.33204883337020874
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-device-1",
+        "query": "הסוללה מלאה אבל הציוד אינו פועל, לאן לפנות?",
+        "split": "test",
+        "group": "device",
+        "language": "he",
+        "relevant_ids": [
+          "d-device"
+        ],
+        "hits": [
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.33919525146484375
+          },
+          {
+            "id": "d-transit",
+            "text": "קו האוטובוס האחרון יוצא מהתחנה בחצות. אחרי שעה זו ניתן להגיע למרכז העיר רק במונית.",
+            "score": 0.2261306494474411
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.18192869424819946
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-device-2",
+        "query": "האם אבחון תקלה ראשוני עולה כסף כשהאחריות בתוקף?",
+        "split": "test",
+        "group": "device",
+        "language": "he",
+        "relevant_ids": [
+          "d-device"
+        ],
+        "hits": [
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.470927894115448
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.37467634677886963
+          },
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.2834710478782654
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      }
+    ],
+    "dense_cls": [
+      {
+        "query_id": "q-refund-1",
+        "query": "Can I get my money back for a sealed item bought last week?",
+        "split": "test",
+        "group": "refund",
+        "language": "en",
+        "relevant_ids": [
+          "d-refund"
+        ],
+        "hits": [
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.5953150987625122
+          },
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.5271028876304626
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.4733419120311737
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-refund-2",
+        "query": "What is the deadline for a refund on unused merchandise?",
+        "split": "test",
+        "group": "refund",
+        "language": "en",
+        "relevant_ids": [
+          "d-refund"
+        ],
+        "hits": [
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.6116268634796143
+          },
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.5080327391624451
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.44587579369544983
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-password-1",
+        "query": "How do I reset a forgotten password?",
+        "split": "test",
+        "group": "password",
+        "language": "en",
+        "relevant_ids": [
+          "d-password"
+        ],
+        "hits": [
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.7147564888000488
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.5950624942779541
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.5115233659744263
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-password-2",
+        "query": "I cannot remember how to sign in; how can I regain access?",
+        "split": "test",
+        "group": "password",
+        "language": "en",
+        "relevant_ids": [
+          "d-password"
+        ],
+        "hits": [
+          {
+            "id": "d-password",
+            "text": "If a user forgets their login secret, the account recovery page sends an email containing a link to choose a new one.",
+            "score": 0.5884998440742493
+          },
+          {
+            "id": "d-encryption",
+            "text": "Confidential messages are transformed into unreadable data before transmission. Only a recipient holding the correct secret key can recover their contents.",
+            "score": 0.5229960083961487
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.45712488889694214
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-delivery-1",
+        "query": "Does Saturday count when estimating when my package will reach me?",
+        "split": "test",
+        "group": "delivery",
+        "language": "en",
+        "relevant_ids": [
+          "d-delivery"
+        ],
+        "hits": [
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.5903660655021667
+          },
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.4884943962097168
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.4349796175956726
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-delivery-2",
+        "query": "How many business days does shipping usually take?",
+        "split": "test",
+        "group": "delivery",
+        "language": "en",
+        "relevant_ids": [
+          "d-delivery"
+        ],
+        "hits": [
+          {
+            "id": "d-delivery",
+            "text": "Parcels normally arrive within three working days after dispatch. Weekend days do not count toward this delivery period.",
+            "score": 0.5175484418869019
+          },
+          {
+            "id": "d-refund",
+            "text": "A customer who returns an unopened purchase within fourteen days receives the payment back. Opened products cannot be returned under this policy.",
+            "score": 0.4027312695980072
+          },
+          {
+            "id": "d-backup",
+            "text": "The storage system creates a duplicate of every file each night. Deleted files can be restored from these copies for seven days.",
+            "score": 0.3174291253089905
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-appointment-1",
+        "query": "עד מתי אפשר לוותר על התור לרופא בלי קנס?",
+        "split": "test",
+        "group": "appointment",
+        "language": "he",
+        "relevant_ids": [
+          "d-appointment"
+        ],
+        "hits": [
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.7472386360168457
+          },
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.6938477158546448
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.6628336310386658
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-appointment-2",
+        "query": "האם אצטרך לשלם אם אודיע מאוחר שלא אבוא לבדיקה?",
+        "split": "test",
+        "group": "appointment",
+        "language": "he",
+        "relevant_ids": [
+          "d-appointment"
+        ],
+        "hits": [
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.7110064625740051
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.6965380907058716
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.6644744277000427
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.5,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-course-1",
+        "query": "איך מצטרפים לשיעור אחרי שחלף המועד הרגיל?",
+        "split": "test",
+        "group": "course",
+        "language": "he",
+        "relevant_ids": [
+          "d-course"
+        ],
+        "hits": [
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.6691919565200806
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.5920537114143372
+          },
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.5870106220245361
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-course-2",
+        "query": "עד מתי ניתן להירשם ללימודים בלי רשות חריגה?",
+        "split": "test",
+        "group": "course",
+        "language": "he",
+        "relevant_ids": [
+          "d-course"
+        ],
+        "hits": [
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.6821874380111694
+          },
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.5594079494476318
+          },
+          {
+            "id": "d-library",
+            "text": "אפשר להאריך את תקופת השאלת הספר באתר הספרייה. אם קורא אחר הזמין את הספר, יש להחזיר אותו בתאריך המקורי.",
+            "score": 0.5359265804290771
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-device-1",
+        "query": "הסוללה מלאה אבל הציוד אינו פועל, לאן לפנות?",
+        "split": "test",
+        "group": "device",
+        "language": "he",
+        "relevant_ids": [
+          "d-device"
+        ],
+        "hits": [
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.5439620018005371
+          },
+          {
+            "id": "d-printer",
+            "text": "כאשר המדפסת מציגה הודעה על מחסור בנייר, יש למלא את המגש התחתון וללחוץ על כפתור ההמשך.",
+            "score": 0.44497519731521606
+          },
+          {
+            "id": "d-transit",
+            "text": "קו האוטובוס האחרון יוצא מהתחנה בחצות. אחרי שעה זו ניתן להגיע למרכז העיר רק במונית.",
+            "score": 0.42761579155921936
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      },
+      {
+        "query_id": "q-device-2",
+        "query": "האם אבחון תקלה ראשוני עולה כסף כשהאחריות בתוקף?",
+        "split": "test",
+        "group": "device",
+        "language": "he",
+        "relevant_ids": [
+          "d-device"
+        ],
+        "hits": [
+          {
+            "id": "d-device",
+            "text": "מכשיר שלא נדלק לאחר טעינה מלאה יש למסור למעבדת התיקונים. במסגרת האחריות הבדיקה הראשונית אינה כרוכה בתשלום.",
+            "score": 0.6675817370414734
+          },
+          {
+            "id": "d-appointment",
+            "text": "ניתן לבטל ביקור במרפאה עד יום לפני המועד שנקבע ללא תשלום. ביטול מאוחר כרוך בתשלום דמי ביטול.",
+            "score": 0.5878763794898987
+          },
+          {
+            "id": "d-course",
+            "text": "ההרשמה לקורס פתוחה עד סוף השבוע הראשון של הסמסטר. לאחר מכן נדרש אישור מיוחד של מזכירות החוג.",
+            "score": 0.5518444776535034
+          }
+        ],
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "hit_at_k": 1.0
+      }
+    ]
+  }
+}

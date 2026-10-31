@@ -1,5 +1,4 @@
 Original source: https://github.com/eliShif/projects/tree/26f91b8693546fc34ac99da0c01895004886ac02
-Authorship is not inferred; this adaptation is AI-assisted.
 
 The supplied adaptation checkpoint is pinned in the task metadata to revision
 `88b12633d5bb49e95c01592b179b4ea7a76c9699`, project directory

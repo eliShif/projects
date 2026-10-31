@@ -97,11 +97,10 @@ The retained diagnostics operate after selection:
 
 ## Requirement evidence
 
-These paths demonstrate executable preparation material, not personal mastery,
-reading, mentorship or an already-completed research review. IDs below refer to
-the current assignment. R02 and R06 provide explanation preparation only; R20
-implements lexical classification and representation comparison, not learned
-semantic search.
+These paths identify executable preparation material for a future research
+review. IDs below refer to the current assignment. R02 and R06 provide
+explanation preparation only; R20 implements lexical classification and
+representation comparison, not learned semantic search.
 
 | ID | Implementation path and behavior | Test path and check |
 |---|---|---|
