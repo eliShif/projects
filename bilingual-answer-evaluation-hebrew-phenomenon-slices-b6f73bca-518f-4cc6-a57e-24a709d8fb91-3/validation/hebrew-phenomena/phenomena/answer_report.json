@@ -1,0 +1,3611 @@
+{
+  "protocol": {
+    "source": "AI-assisted constructed fictional object facts and question variants; local resource v1; no external corpus or independent linguistic review.",
+    "dataset_sha256": "79b5f45968cc31fe1741ac83d19c76a2e66aeec8ebab1a5e7ac870d68374d962",
+    "code_sha256": "e2a1514d465698112755996e5d168a4906ec62671162f3d65960b4af8f6474a4",
+    "python": "3.14.4",
+    "languages": [
+      "en",
+      "he"
+    ],
+    "selection": "one overlap threshold maximizes validation exact-answer-and-evidence accuracy; highest threshold wins ties",
+    "threshold": 2,
+    "test_use": "held out until threshold fixed",
+    "case_counts": {
+      "validation": 24,
+      "test": 24
+    },
+    "data_quality": {
+      "validation": {
+        "en": {
+          "answerable": 8,
+          "unanswerable": 4,
+          "entities": [
+            "Alder",
+            "Birch",
+            "Cedar",
+            "Dune"
+          ]
+        },
+        "he": {
+          "answerable": 8,
+          "unanswerable": 4,
+          "entities": [
+            "Alder",
+            "Birch",
+            "Cedar",
+            "Dune"
+          ]
+        }
+      },
+      "test": {
+        "en": {
+          "answerable": 8,
+          "unanswerable": 4,
+          "entities": [
+            "Ember",
+            "Fjord",
+            "Grove",
+            "Harbor"
+          ]
+        },
+        "he": {
+          "answerable": 8,
+          "unanswerable": 4,
+          "entities": [
+            "Ember",
+            "Fjord",
+            "Grove",
+            "Harbor"
+          ]
+        }
+      }
+    },
+    "reference_validation": "synthetic-facts-v1; match question entity/attribute against all same-split/language source facts",
+    "metric_policy": "conditional-rates-v2; undefined rates are null with case-type counts and reasons",
+    "challenge_corpus": {
+      "suite": "hebrew-phenomena-v1",
+      "cleaning": "nfc-whitespace-v1; NFC and whitespace only; retain letters, marks, punctuation and script",
+      "reference_validation": "hebrew-challenges-v1; explicit form grammar plus source entity/attribute/value checks",
+      "slice_policy": "hebrew-variants-v1; Hebrew variants only, matched controls, null metrics for empty slices",
+      "definitions": {
+        "inflection": "Possessive inflection: הצבע של (the color of) versus צבעו של (its color, of); masculine fictional object.",
+        "spelling": "Full/deficient spelling of description: התיאור versus התאור; the source retains התיאור.",
+        "mixed_language": "English content word inside Hebrew syntax: הצבע versus ה-color; Latin entity IDs alone do not define this slice."
+      },
+      "variant_group_splits": {
+        "Alder/inflection": "validation",
+        "Birch/spelling": "validation",
+        "Cedar/mixed_language": "validation",
+        "Dune/inflection": "validation",
+        "Ember/inflection": "test",
+        "Fjord/spelling": "test",
+        "Grove/mixed_language": "test",
+        "Harbor/inflection": "test"
+      },
+      "raw_corpus_sha256": "972c2cd4249fd3ebfca2a45ba1ba308a9674004ec1ea7702e513531fc0f37805",
+      "implementation_sha256": "18c32e0d8c15154212b6e4e08ea7bbaf0b515fddac527453c3b4dcab4567dc84",
+      "independent_linguistic_review": false,
+      "duplicates": "reject exact NFC/whitespace/casefold text duplicates within each language"
+    },
+    "threshold_candidates": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "model_outputs": null,
+    "information_control": {
+      "status": "baseline_only",
+      "retrieval_rule": "word-overlap-v1; same split/language; highest document ID breaks ties",
+      "case_exposures": [
+        {
+          "case_id": "test-en-Ember-color_control-q",
+          "pair_id": "test/Ember/color_control",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "ab72c62be5bf39580fb908875878eb7e185273a6e36627ef1608345066f4811e"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Ember-color"
+              ],
+              "input_sha256": "319f78e1f520f9bf7daab26a63ae61e328a0e2036f8588daec9e0000522d511d"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Ember-color_variant-q",
+          "pair_id": "test/Ember/color_variant",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "81ac229246f25d4136a480297f95d2b9f5c292d11bd86a32b59d8eeb605b0cda"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Ember-color"
+              ],
+              "input_sha256": "03941b71870968351112239f121a0a85a6efb8cf7b3dc882ac9ca1d3e79fc840"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Ember-weight-q",
+          "pair_id": "test/Ember/weight",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "25a64795fa46c756b45eb9d2d0a2adf5b7ad9594452bd0ec698005940a69b8ca"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Ember-shape"
+              ],
+              "input_sha256": "037f22a265c0ee3d9cfe1830a270376a8497431475df89e1eafa61a9873e0c0c"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Ember-color_control-q",
+          "pair_id": "test/Ember/color_control",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "b4cd509fffe9cdfb98c4a3be1e9c38435c5ed6a5f8c4f3f6df9704d0a28be947"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Ember-color"
+              ],
+              "input_sha256": "332a6d6dba7aec0decff1bab7ba18391bb313930fdd4051525fba3d286d72e69"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Ember-color_variant-q",
+          "pair_id": "test/Ember/color_variant",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "4b17964ef467c552f32ceae8696e2d61fd7af53b3149afb678cd62a42577dd05"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Ember-shape"
+              ],
+              "input_sha256": "a01da026be60274e825d3c6d57c1c64f170f941786b2e451805850f16f3d4551"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Ember-weight-q",
+          "pair_id": "test/Ember/weight",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "dc52abb57efe3df4de99721ee450804955f0ab9833ac44412827f82e7fb3a860"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Ember-shape"
+              ],
+              "input_sha256": "59468b35b87044060d3c707be7a9bdab0fcf521fd1a9edfe4407a47964e0cbd2"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Fjord-description_control-q",
+          "pair_id": "test/Fjord/description_control",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "d5597fa011d3b056209f58cabb830acdf8f4ccc78b6cb44a6214fcbf5f37eb53"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Fjord-description"
+              ],
+              "input_sha256": "1b517a9bb47b842b5c21fda30478fb6c181cfbe9efdd9ee200d05f3ee725fd73"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Fjord-description_variant-q",
+          "pair_id": "test/Fjord/description_variant",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "4a369918ce8a9b8857ee9610c1492bbce3dbec219003aa2669f7b942a4866561"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Fjord-description"
+              ],
+              "input_sha256": "fcc75358462f592126bc01bf899334de10820f0252d176a73e56b3f2685fa5f9"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Fjord-weight-q",
+          "pair_id": "test/Fjord/weight",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "91c09a84d2d3d22e25d934d6b791d19eefd63c64ee298106dc5a2c4e5a89b5ed"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Fjord-shape"
+              ],
+              "input_sha256": "6a0ac90229e64dd536b926158fd0055019c7fd5baa9ab504a44e3dfe22ecbbab"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Fjord-description_control-q",
+          "pair_id": "test/Fjord/description_control",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "5d45f03bf20759a16995e220d7b924ead7ce7fe2d89b589283cbd0de59206978"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Fjord-description"
+              ],
+              "input_sha256": "13e0c7537814049c32ad924865def146f512d78a7c7e7c7d20069a3da8675b54"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Fjord-description_variant-q",
+          "pair_id": "test/Fjord/description_variant",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "901330b739aaf011387fe3057508473f895d3c13f7cfcea3842a307b2335f57e"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Fjord-shape"
+              ],
+              "input_sha256": "c6b18a6eb740cf5dca7906894b93ed23fba4925309cb987372dc9970a4d34fe1"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Fjord-weight-q",
+          "pair_id": "test/Fjord/weight",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "624cd03e65afda88450a979ff2ef83073d08a0782b6dc2fbbcf59bf7f7ebabcc"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Fjord-shape"
+              ],
+              "input_sha256": "bdd0568900e6e6a637f49bf4c4044450e6bff8bdd85c47d62a2158dda83f1024"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Grove-color_control-q",
+          "pair_id": "test/Grove/color_control",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "c910b07eaf87172bd8dfe0ef844653315397382c67ffe9a90cc9a6898b437e63"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Grove-color"
+              ],
+              "input_sha256": "3ec74ddda6b435494fc88d7912c1a2998f17a86b0272b3e842956662a8fdbd6b"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Grove-color_variant-q",
+          "pair_id": "test/Grove/color_variant",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "1601189a08aed7379d4d224376efdfbb890976c6eb2186b711c8f27cea5eba95"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Grove-color"
+              ],
+              "input_sha256": "1f622ddc4da77fc9c2856ee0965c3f37dfbb0c0870b4889f6bede2e99a1bcd4f"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Grove-weight-q",
+          "pair_id": "test/Grove/weight",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "4e6ae71db5442538fed1b1cd0256b26fb25c68d071ac9f375a517f608b8b54b2"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Grove-shape"
+              ],
+              "input_sha256": "e2d60670fc211f75a67cd40f44d9a80c19442120245eb6fedf3b927cedc0504c"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Grove-color_control-q",
+          "pair_id": "test/Grove/color_control",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "d9f619d382b03858c0f22846c3e0e79acca1dfbd7e3b9909b6dfbee0116624ad"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Grove-color"
+              ],
+              "input_sha256": "b8e973a242c146b1d987c2b5c23ec6cd224a1dc4669d552f26fd5fc9823c1eb4"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Grove-color_variant-q",
+          "pair_id": "test/Grove/color_variant",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "4a908628d13758c6498396530ec9ce4c83b959ed3cc0774a9a90ed89de7ae641"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Grove-shape"
+              ],
+              "input_sha256": "519436923b4362ae13ccb71ea6fcf3a283acb940dca499a88f315a7ac46ccc58"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Grove-weight-q",
+          "pair_id": "test/Grove/weight",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "c28093c3eb58355bc54831cdd743fe0bcfcfea0345b47140960b0fef8a8d0c8e"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Grove-shape"
+              ],
+              "input_sha256": "37ad66005b20a4a857e576cbfd8d1c8c56243782159cce1c07011ade8dc1c58f"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Harbor-color_control-q",
+          "pair_id": "test/Harbor/color_control",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "1437b019d7bd8a57c1de702fa861f9684cc368d8b907971baefa3cb2ab373b25"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Harbor-color"
+              ],
+              "input_sha256": "bf85a9705ff75ad75c025573f077c69fb96dfe7bc1099f6ba289e2e28088aa63"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Harbor-color_variant-q",
+          "pair_id": "test/Harbor/color_variant",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "0638df8cd4f93305794ab7b74e005838919056a583d2bfa9738fefcf8bc2f2b1"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Harbor-color"
+              ],
+              "input_sha256": "7d2990d9b84778bd81f671b85f5dab298376a9fd5b9a7a9c6313de649c74e3a1"
+            }
+          }
+        },
+        {
+          "case_id": "test-en-Harbor-weight-q",
+          "pair_id": "test/Harbor/weight",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "5a87c42ed7f184d5abf90e084b04b4a22027a71fadcb2c79c7ccd79879847f74"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-en-Harbor-shape"
+              ],
+              "input_sha256": "56525453b47a89f4d69c6a988249b7cc82eec14d5be82e3a82dd463565ca1f9f"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Harbor-color_control-q",
+          "pair_id": "test/Harbor/color_control",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "39cf23b36ad7f18804a73db8737291016fbe826e178a2d538fff6896273c2773"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Harbor-color"
+              ],
+              "input_sha256": "0572ac6b282bc86bbf348bc6dc0ca0af1d06924acb65d7afb273f0058692a0ba"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Harbor-color_variant-q",
+          "pair_id": "test/Harbor/color_variant",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "8a15092c6a7d53351f91d92e999e3697339fb3741953b49622aa937c295f6e0e"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Harbor-shape"
+              ],
+              "input_sha256": "e49529ef8fb54cc1dc11be54c66defc7cb8651111dc1e715f55e92984490f025"
+            }
+          }
+        },
+        {
+          "case_id": "test-he-Harbor-weight-q",
+          "pair_id": "test/Harbor/weight",
+          "methods": {
+            "always_abstain": {
+              "document_ids": [],
+              "input_sha256": "d5fa113c114fda0f34c1365319580b84dea010752f2afd042c8e0b9c37d7ecdf"
+            },
+            "lexical_retrieval": {
+              "document_ids": [
+                "test-he-Harbor-shape"
+              ],
+              "input_sha256": "aa3b0f5744d85244cacb6ae4574c2f4eeda929a56f4cc8e9e534b1d8f0330d21"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "methods": {
+    "always_abstain": {
+      "overall": {
+        "count": 24,
+        "accuracy": 0.3333333333333333,
+        "answerable_count": 16,
+        "unanswerable_count": 8,
+        "grounded_answer_rate": 0.0,
+        "abstention_accuracy": 1.0,
+        "undefined_metrics": {},
+        "error_counts": {
+          "false_abstention": 16
+        },
+        "errors": [
+          {
+            "case_id": "test-en-Ember-color_control-q",
+            "language": "en",
+            "question": "What is the color of Ember?",
+            "expected_answer": "blue",
+            "expected_evidence": [
+              "test-en-Ember-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-en-Ember-color_variant-q",
+            "language": "en",
+            "question": "Which color does Ember have?",
+            "expected_answer": "blue",
+            "expected_evidence": [
+              "test-en-Ember-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Ember-color_control-q",
+            "language": "he",
+            "question": "מה הצבע של Ember?",
+            "expected_answer": "כחול",
+            "expected_evidence": [
+              "test-he-Ember-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Ember-color_variant-q",
+            "language": "he",
+            "question": "מה צבעו של Ember?",
+            "expected_answer": "כחול",
+            "expected_evidence": [
+              "test-he-Ember-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-en-Fjord-description_control-q",
+            "language": "en",
+            "question": "What is the description of Fjord?",
+            "expected_answer": "square",
+            "expected_evidence": [
+              "test-en-Fjord-description"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-en-Fjord-description_variant-q",
+            "language": "en",
+            "question": "Which description does Fjord have?",
+            "expected_answer": "square",
+            "expected_evidence": [
+              "test-en-Fjord-description"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Fjord-description_control-q",
+            "language": "he",
+            "question": "מה התיאור של Fjord?",
+            "expected_answer": "מרובע",
+            "expected_evidence": [
+              "test-he-Fjord-description"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Fjord-description_variant-q",
+            "language": "he",
+            "question": "מה התאור של Fjord?",
+            "expected_answer": "מרובע",
+            "expected_evidence": [
+              "test-he-Fjord-description"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-en-Grove-color_control-q",
+            "language": "en",
+            "question": "What is the color of Grove?",
+            "expected_answer": "red",
+            "expected_evidence": [
+              "test-en-Grove-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-en-Grove-color_variant-q",
+            "language": "en",
+            "question": "Which color does Grove have?",
+            "expected_answer": "red",
+            "expected_evidence": [
+              "test-en-Grove-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Grove-color_control-q",
+            "language": "he",
+            "question": "מה הצבע של Grove?",
+            "expected_answer": "אדום",
+            "expected_evidence": [
+              "test-he-Grove-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Grove-color_variant-q",
+            "language": "he",
+            "question": "מה ה-color של Grove?",
+            "expected_answer": "אדום",
+            "expected_evidence": [
+              "test-he-Grove-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-en-Harbor-color_control-q",
+            "language": "en",
+            "question": "What is the color of Harbor?",
+            "expected_answer": "gold",
+            "expected_evidence": [
+              "test-en-Harbor-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-en-Harbor-color_variant-q",
+            "language": "en",
+            "question": "Which color does Harbor have?",
+            "expected_answer": "gold",
+            "expected_evidence": [
+              "test-en-Harbor-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Harbor-color_control-q",
+            "language": "he",
+            "question": "מה הצבע של Harbor?",
+            "expected_answer": "זהוב",
+            "expected_evidence": [
+              "test-he-Harbor-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Harbor-color_variant-q",
+            "language": "he",
+            "question": "מה צבעו של Harbor?",
+            "expected_answer": "זהוב",
+            "expected_evidence": [
+              "test-he-Harbor-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": null
+            },
+            "error_type": "false_abstention"
+          }
+        ]
+      },
+      "by_language": {
+        "en": {
+          "count": 12,
+          "accuracy": 0.3333333333333333,
+          "answerable_count": 8,
+          "unanswerable_count": 4,
+          "grounded_answer_rate": 0.0,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 8
+          },
+          "errors": [
+            {
+              "case_id": "test-en-Ember-color_control-q",
+              "language": "en",
+              "question": "What is the color of Ember?",
+              "expected_answer": "blue",
+              "expected_evidence": [
+                "test-en-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Ember-color_variant-q",
+              "language": "en",
+              "question": "Which color does Ember have?",
+              "expected_answer": "blue",
+              "expected_evidence": [
+                "test-en-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Fjord-description_control-q",
+              "language": "en",
+              "question": "What is the description of Fjord?",
+              "expected_answer": "square",
+              "expected_evidence": [
+                "test-en-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Fjord-description_variant-q",
+              "language": "en",
+              "question": "Which description does Fjord have?",
+              "expected_answer": "square",
+              "expected_evidence": [
+                "test-en-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Grove-color_control-q",
+              "language": "en",
+              "question": "What is the color of Grove?",
+              "expected_answer": "red",
+              "expected_evidence": [
+                "test-en-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Grove-color_variant-q",
+              "language": "en",
+              "question": "Which color does Grove have?",
+              "expected_answer": "red",
+              "expected_evidence": [
+                "test-en-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Harbor-color_control-q",
+              "language": "en",
+              "question": "What is the color of Harbor?",
+              "expected_answer": "gold",
+              "expected_evidence": [
+                "test-en-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Harbor-color_variant-q",
+              "language": "en",
+              "question": "Which color does Harbor have?",
+              "expected_answer": "gold",
+              "expected_evidence": [
+                "test-en-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        },
+        "he": {
+          "count": 12,
+          "accuracy": 0.3333333333333333,
+          "answerable_count": 8,
+          "unanswerable_count": 4,
+          "grounded_answer_rate": 0.0,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 8
+          },
+          "errors": [
+            {
+              "case_id": "test-he-Ember-color_control-q",
+              "language": "he",
+              "question": "מה הצבע של Ember?",
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Ember?",
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Fjord-description_control-q",
+              "language": "he",
+              "question": "מה התיאור של Fjord?",
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "language": "he",
+              "question": "מה התאור של Fjord?",
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Grove-color_control-q",
+              "language": "he",
+              "question": "מה הצבע של Grove?",
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "language": "he",
+              "question": "מה ה-color של Grove?",
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Harbor-color_control-q",
+              "language": "he",
+              "question": "מה הצבע של Harbor?",
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Harbor?",
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        }
+      },
+      "by_entity": {
+        "Ember": {
+          "count": 6,
+          "accuracy": 0.3333333333333333,
+          "answerable_count": 4,
+          "unanswerable_count": 2,
+          "grounded_answer_rate": 0.0,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 4
+          },
+          "errors": [
+            {
+              "case_id": "test-en-Ember-color_control-q",
+              "language": "en",
+              "question": "What is the color of Ember?",
+              "expected_answer": "blue",
+              "expected_evidence": [
+                "test-en-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Ember-color_variant-q",
+              "language": "en",
+              "question": "Which color does Ember have?",
+              "expected_answer": "blue",
+              "expected_evidence": [
+                "test-en-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Ember-color_control-q",
+              "language": "he",
+              "question": "מה הצבע של Ember?",
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Ember?",
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        },
+        "Fjord": {
+          "count": 6,
+          "accuracy": 0.3333333333333333,
+          "answerable_count": 4,
+          "unanswerable_count": 2,
+          "grounded_answer_rate": 0.0,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 4
+          },
+          "errors": [
+            {
+              "case_id": "test-en-Fjord-description_control-q",
+              "language": "en",
+              "question": "What is the description of Fjord?",
+              "expected_answer": "square",
+              "expected_evidence": [
+                "test-en-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Fjord-description_variant-q",
+              "language": "en",
+              "question": "Which description does Fjord have?",
+              "expected_answer": "square",
+              "expected_evidence": [
+                "test-en-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Fjord-description_control-q",
+              "language": "he",
+              "question": "מה התיאור של Fjord?",
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "language": "he",
+              "question": "מה התאור של Fjord?",
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        },
+        "Grove": {
+          "count": 6,
+          "accuracy": 0.3333333333333333,
+          "answerable_count": 4,
+          "unanswerable_count": 2,
+          "grounded_answer_rate": 0.0,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 4
+          },
+          "errors": [
+            {
+              "case_id": "test-en-Grove-color_control-q",
+              "language": "en",
+              "question": "What is the color of Grove?",
+              "expected_answer": "red",
+              "expected_evidence": [
+                "test-en-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Grove-color_variant-q",
+              "language": "en",
+              "question": "Which color does Grove have?",
+              "expected_answer": "red",
+              "expected_evidence": [
+                "test-en-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Grove-color_control-q",
+              "language": "he",
+              "question": "מה הצבע של Grove?",
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "language": "he",
+              "question": "מה ה-color של Grove?",
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        },
+        "Harbor": {
+          "count": 6,
+          "accuracy": 0.3333333333333333,
+          "answerable_count": 4,
+          "unanswerable_count": 2,
+          "grounded_answer_rate": 0.0,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 4
+          },
+          "errors": [
+            {
+              "case_id": "test-en-Harbor-color_control-q",
+              "language": "en",
+              "question": "What is the color of Harbor?",
+              "expected_answer": "gold",
+              "expected_evidence": [
+                "test-en-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Harbor-color_variant-q",
+              "language": "en",
+              "question": "Which color does Harbor have?",
+              "expected_answer": "gold",
+              "expected_evidence": [
+                "test-en-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Harbor-color_control-q",
+              "language": "he",
+              "question": "מה הצבע של Harbor?",
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Harbor?",
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        }
+      },
+      "by_answerability": {
+        "answerable": {
+          "count": 16,
+          "accuracy": 0.0,
+          "answerable_count": 16,
+          "unanswerable_count": 0,
+          "grounded_answer_rate": 0.0,
+          "abstention_accuracy": null,
+          "undefined_metrics": {
+            "abstention_accuracy": "No unanswerable cases in this subset."
+          },
+          "error_counts": {
+            "false_abstention": 16
+          },
+          "errors": [
+            {
+              "case_id": "test-en-Ember-color_control-q",
+              "language": "en",
+              "question": "What is the color of Ember?",
+              "expected_answer": "blue",
+              "expected_evidence": [
+                "test-en-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Ember-color_variant-q",
+              "language": "en",
+              "question": "Which color does Ember have?",
+              "expected_answer": "blue",
+              "expected_evidence": [
+                "test-en-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Ember-color_control-q",
+              "language": "he",
+              "question": "מה הצבע של Ember?",
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Ember?",
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Fjord-description_control-q",
+              "language": "en",
+              "question": "What is the description of Fjord?",
+              "expected_answer": "square",
+              "expected_evidence": [
+                "test-en-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Fjord-description_variant-q",
+              "language": "en",
+              "question": "Which description does Fjord have?",
+              "expected_answer": "square",
+              "expected_evidence": [
+                "test-en-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Fjord-description_control-q",
+              "language": "he",
+              "question": "מה התיאור של Fjord?",
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "language": "he",
+              "question": "מה התאור של Fjord?",
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Grove-color_control-q",
+              "language": "en",
+              "question": "What is the color of Grove?",
+              "expected_answer": "red",
+              "expected_evidence": [
+                "test-en-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Grove-color_variant-q",
+              "language": "en",
+              "question": "Which color does Grove have?",
+              "expected_answer": "red",
+              "expected_evidence": [
+                "test-en-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Grove-color_control-q",
+              "language": "he",
+              "question": "מה הצבע של Grove?",
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "language": "he",
+              "question": "מה ה-color של Grove?",
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Harbor-color_control-q",
+              "language": "en",
+              "question": "What is the color of Harbor?",
+              "expected_answer": "gold",
+              "expected_evidence": [
+                "test-en-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-en-Harbor-color_variant-q",
+              "language": "en",
+              "question": "Which color does Harbor have?",
+              "expected_answer": "gold",
+              "expected_evidence": [
+                "test-en-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Harbor-color_control-q",
+              "language": "he",
+              "question": "מה הצבע של Harbor?",
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Harbor?",
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        },
+        "unanswerable": {
+          "count": 8,
+          "accuracy": 1.0,
+          "answerable_count": 0,
+          "unanswerable_count": 8,
+          "grounded_answer_rate": null,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {
+            "grounded_answer_rate": "No answerable cases in this subset."
+          },
+          "error_counts": {},
+          "errors": []
+        }
+      },
+      "paired_languages": {
+        "pair_count": 12,
+        "both_correct": 4,
+        "both_wrong": 8,
+        "english_only_correct": 0,
+        "hebrew_only_correct": 0
+      },
+      "by_phenomenon": {
+        "inflection": {
+          "definition": "Possessive inflection: הצבע של (the color of) versus צבעו של (its color, of); masculine fictional object.",
+          "language": "he",
+          "count": 2,
+          "metrics": {
+            "count": 2,
+            "accuracy": 0.0,
+            "answerable_count": 2,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 0.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {
+              "false_abstention": 2
+            },
+            "errors": [
+              {
+                "case_id": "test-he-Ember-color_variant-q",
+                "language": "he",
+                "question": "מה צבעו של Ember?",
+                "expected_answer": "כחול",
+                "expected_evidence": [
+                  "test-he-Ember-color"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": null
+                },
+                "error_type": "false_abstention"
+              },
+              {
+                "case_id": "test-he-Harbor-color_variant-q",
+                "language": "he",
+                "question": "מה צבעו של Harbor?",
+                "expected_answer": "זהוב",
+                "expected_evidence": [
+                  "test-he-Harbor-color"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": null
+                },
+                "error_type": "false_abstention"
+              }
+            ]
+          },
+          "control_metrics": {
+            "count": 2,
+            "accuracy": 0.0,
+            "answerable_count": 2,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 0.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {
+              "false_abstention": 2
+            },
+            "errors": [
+              {
+                "case_id": "test-he-Ember-color_control-q",
+                "language": "he",
+                "question": "מה הצבע של Ember?",
+                "expected_answer": "כחול",
+                "expected_evidence": [
+                  "test-he-Ember-color"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": null
+                },
+                "error_type": "false_abstention"
+              },
+              {
+                "case_id": "test-he-Harbor-color_control-q",
+                "language": "he",
+                "question": "מה הצבע של Harbor?",
+                "expected_answer": "זהוב",
+                "expected_evidence": [
+                  "test-he-Harbor-color"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": null
+                },
+                "error_type": "false_abstention"
+              }
+            ]
+          },
+          "empty_reason": null,
+          "transitions": {
+            "both_wrong": 2
+          },
+          "pairs": [
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "variant_group": "Ember/inflection",
+              "question": "מה צבעו של Ember?",
+              "raw_question": "מה צבעו של Ember?",
+              "control_case_id": "test-he-Ember-color_control-q",
+              "control_question": "מה הצבע של Ember?",
+              "control_correct": false,
+              "correct": false,
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention",
+              "transition": "both_wrong",
+              "selected_source": {
+                "id": "test-he-Ember-shape",
+                "text": "הצורה של Ember היא עגולה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Ember-color",
+                  "text": "הצבע של Ember הוא כחול."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": null
+            },
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "variant_group": "Harbor/inflection",
+              "question": "מה צבעו של Harbor?",
+              "raw_question": "מה צבעו של Harbor?",
+              "control_case_id": "test-he-Harbor-color_control-q",
+              "control_question": "מה הצבע של Harbor?",
+              "control_correct": false,
+              "correct": false,
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention",
+              "transition": "both_wrong",
+              "selected_source": {
+                "id": "test-he-Harbor-shape",
+                "text": "הצורה של Harbor היא שטוחה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Harbor-color",
+                  "text": "הצבע של Harbor הוא זהוב."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": null
+            }
+          ],
+          "failures": [
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "variant_group": "Ember/inflection",
+              "question": "מה צבעו של Ember?",
+              "raw_question": "מה צבעו של Ember?",
+              "control_case_id": "test-he-Ember-color_control-q",
+              "control_question": "מה הצבע של Ember?",
+              "control_correct": false,
+              "correct": false,
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention",
+              "transition": "both_wrong",
+              "selected_source": {
+                "id": "test-he-Ember-shape",
+                "text": "הצורה של Ember היא עגולה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Ember-color",
+                  "text": "הצבע של Ember הוא כחול."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": null
+            },
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "variant_group": "Harbor/inflection",
+              "question": "מה צבעו של Harbor?",
+              "raw_question": "מה צבעו של Harbor?",
+              "control_case_id": "test-he-Harbor-color_control-q",
+              "control_question": "מה הצבע של Harbor?",
+              "control_correct": false,
+              "correct": false,
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention",
+              "transition": "both_wrong",
+              "selected_source": {
+                "id": "test-he-Harbor-shape",
+                "text": "הצורה של Harbor היא שטוחה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Harbor-color",
+                  "text": "הצבע של Harbor הוא זהוב."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": null
+            }
+          ],
+          "diagnostic_scope": "Lexical selection only; no inferred model exposure or linguistic cause."
+        },
+        "spelling": {
+          "definition": "Full/deficient spelling of description: התיאור versus התאור; the source retains התיאור.",
+          "language": "he",
+          "count": 1,
+          "metrics": {
+            "count": 1,
+            "accuracy": 0.0,
+            "answerable_count": 1,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 0.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {
+              "false_abstention": 1
+            },
+            "errors": [
+              {
+                "case_id": "test-he-Fjord-description_variant-q",
+                "language": "he",
+                "question": "מה התאור של Fjord?",
+                "expected_answer": "מרובע",
+                "expected_evidence": [
+                  "test-he-Fjord-description"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": null
+                },
+                "error_type": "false_abstention"
+              }
+            ]
+          },
+          "control_metrics": {
+            "count": 1,
+            "accuracy": 0.0,
+            "answerable_count": 1,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 0.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {
+              "false_abstention": 1
+            },
+            "errors": [
+              {
+                "case_id": "test-he-Fjord-description_control-q",
+                "language": "he",
+                "question": "מה התיאור של Fjord?",
+                "expected_answer": "מרובע",
+                "expected_evidence": [
+                  "test-he-Fjord-description"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": null
+                },
+                "error_type": "false_abstention"
+              }
+            ]
+          },
+          "empty_reason": null,
+          "transitions": {
+            "both_wrong": 1
+          },
+          "pairs": [
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "variant_group": "Fjord/spelling",
+              "question": "מה התאור של Fjord?",
+              "raw_question": "  מה\tהתאור של Fjord?  ",
+              "control_case_id": "test-he-Fjord-description_control-q",
+              "control_question": "מה התיאור של Fjord?",
+              "control_correct": false,
+              "correct": false,
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention",
+              "transition": "both_wrong",
+              "selected_source": {
+                "id": "test-he-Fjord-shape",
+                "text": "הצורה של Fjord היא מרובעת."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Fjord-description",
+                  "text": "התיאור של Fjord הוא מרובע."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": null
+            }
+          ],
+          "failures": [
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "variant_group": "Fjord/spelling",
+              "question": "מה התאור של Fjord?",
+              "raw_question": "  מה\tהתאור של Fjord?  ",
+              "control_case_id": "test-he-Fjord-description_control-q",
+              "control_question": "מה התיאור של Fjord?",
+              "control_correct": false,
+              "correct": false,
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention",
+              "transition": "both_wrong",
+              "selected_source": {
+                "id": "test-he-Fjord-shape",
+                "text": "הצורה של Fjord היא מרובעת."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Fjord-description",
+                  "text": "התיאור של Fjord הוא מרובע."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": null
+            }
+          ],
+          "diagnostic_scope": "Lexical selection only; no inferred model exposure or linguistic cause."
+        },
+        "mixed_language": {
+          "definition": "English content word inside Hebrew syntax: הצבע versus ה-color; Latin entity IDs alone do not define this slice.",
+          "language": "he",
+          "count": 1,
+          "metrics": {
+            "count": 1,
+            "accuracy": 0.0,
+            "answerable_count": 1,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 0.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {
+              "false_abstention": 1
+            },
+            "errors": [
+              {
+                "case_id": "test-he-Grove-color_variant-q",
+                "language": "he",
+                "question": "מה ה-color של Grove?",
+                "expected_answer": "אדום",
+                "expected_evidence": [
+                  "test-he-Grove-color"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": null
+                },
+                "error_type": "false_abstention"
+              }
+            ]
+          },
+          "control_metrics": {
+            "count": 1,
+            "accuracy": 0.0,
+            "answerable_count": 1,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 0.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {
+              "false_abstention": 1
+            },
+            "errors": [
+              {
+                "case_id": "test-he-Grove-color_control-q",
+                "language": "he",
+                "question": "מה הצבע של Grove?",
+                "expected_answer": "אדום",
+                "expected_evidence": [
+                  "test-he-Grove-color"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": null
+                },
+                "error_type": "false_abstention"
+              }
+            ]
+          },
+          "empty_reason": null,
+          "transitions": {
+            "both_wrong": 1
+          },
+          "pairs": [
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "variant_group": "Grove/mixed_language",
+              "question": "מה ה-color של Grove?",
+              "raw_question": "מה ה-color של Grove?",
+              "control_case_id": "test-he-Grove-color_control-q",
+              "control_question": "מה הצבע של Grove?",
+              "control_correct": false,
+              "correct": false,
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention",
+              "transition": "both_wrong",
+              "selected_source": {
+                "id": "test-he-Grove-shape",
+                "text": "הצורה של Grove היא סגלגלה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Grove-color",
+                  "text": "הצבע של Grove הוא אדום."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": null
+            }
+          ],
+          "failures": [
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "variant_group": "Grove/mixed_language",
+              "question": "מה ה-color של Grove?",
+              "raw_question": "מה ה-color של Grove?",
+              "control_case_id": "test-he-Grove-color_control-q",
+              "control_question": "מה הצבע של Grove?",
+              "control_correct": false,
+              "correct": false,
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": null
+              },
+              "error_type": "false_abstention",
+              "transition": "both_wrong",
+              "selected_source": {
+                "id": "test-he-Grove-shape",
+                "text": "הצורה של Grove היא סגלגלה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Grove-color",
+                  "text": "הצבע של Grove הוא אדום."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": null
+            }
+          ],
+          "diagnostic_scope": "Lexical selection only; no inferred model exposure or linguistic cause."
+        }
+      }
+    },
+    "lexical_retrieval": {
+      "overall": {
+        "count": 24,
+        "accuracy": 0.8333333333333334,
+        "answerable_count": 16,
+        "unanswerable_count": 8,
+        "grounded_answer_rate": 0.75,
+        "abstention_accuracy": 1.0,
+        "undefined_metrics": {},
+        "error_counts": {
+          "false_abstention": 4
+        },
+        "errors": [
+          {
+            "case_id": "test-he-Ember-color_variant-q",
+            "language": "he",
+            "question": "מה צבעו של Ember?",
+            "expected_answer": "כחול",
+            "expected_evidence": [
+              "test-he-Ember-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": 1
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Fjord-description_variant-q",
+            "language": "he",
+            "question": "מה התאור של Fjord?",
+            "expected_answer": "מרובע",
+            "expected_evidence": [
+              "test-he-Fjord-description"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": 1
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Grove-color_variant-q",
+            "language": "he",
+            "question": "מה ה-color של Grove?",
+            "expected_answer": "אדום",
+            "expected_evidence": [
+              "test-he-Grove-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": 1
+            },
+            "error_type": "false_abstention"
+          },
+          {
+            "case_id": "test-he-Harbor-color_variant-q",
+            "language": "he",
+            "question": "מה צבעו של Harbor?",
+            "expected_answer": "זהוב",
+            "expected_evidence": [
+              "test-he-Harbor-color"
+            ],
+            "prediction": {
+              "answer": null,
+              "citations": [],
+              "overlap": 1
+            },
+            "error_type": "false_abstention"
+          }
+        ]
+      },
+      "by_language": {
+        "en": {
+          "count": 12,
+          "accuracy": 1.0,
+          "answerable_count": 8,
+          "unanswerable_count": 4,
+          "grounded_answer_rate": 1.0,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {},
+          "errors": []
+        },
+        "he": {
+          "count": 12,
+          "accuracy": 0.6666666666666666,
+          "answerable_count": 8,
+          "unanswerable_count": 4,
+          "grounded_answer_rate": 0.5,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 4
+          },
+          "errors": [
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Ember?",
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "language": "he",
+              "question": "מה התאור של Fjord?",
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "language": "he",
+              "question": "מה ה-color של Grove?",
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Harbor?",
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        }
+      },
+      "by_entity": {
+        "Ember": {
+          "count": 6,
+          "accuracy": 0.8333333333333334,
+          "answerable_count": 4,
+          "unanswerable_count": 2,
+          "grounded_answer_rate": 0.75,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 1
+          },
+          "errors": [
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Ember?",
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        },
+        "Fjord": {
+          "count": 6,
+          "accuracy": 0.8333333333333334,
+          "answerable_count": 4,
+          "unanswerable_count": 2,
+          "grounded_answer_rate": 0.75,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 1
+          },
+          "errors": [
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "language": "he",
+              "question": "מה התאור של Fjord?",
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        },
+        "Grove": {
+          "count": 6,
+          "accuracy": 0.8333333333333334,
+          "answerable_count": 4,
+          "unanswerable_count": 2,
+          "grounded_answer_rate": 0.75,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 1
+          },
+          "errors": [
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "language": "he",
+              "question": "מה ה-color של Grove?",
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        },
+        "Harbor": {
+          "count": 6,
+          "accuracy": 0.8333333333333334,
+          "answerable_count": 4,
+          "unanswerable_count": 2,
+          "grounded_answer_rate": 0.75,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {},
+          "error_counts": {
+            "false_abstention": 1
+          },
+          "errors": [
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Harbor?",
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        }
+      },
+      "by_answerability": {
+        "answerable": {
+          "count": 16,
+          "accuracy": 0.75,
+          "answerable_count": 16,
+          "unanswerable_count": 0,
+          "grounded_answer_rate": 0.75,
+          "abstention_accuracy": null,
+          "undefined_metrics": {
+            "abstention_accuracy": "No unanswerable cases in this subset."
+          },
+          "error_counts": {
+            "false_abstention": 4
+          },
+          "errors": [
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Ember?",
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "language": "he",
+              "question": "מה התאור של Fjord?",
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "language": "he",
+              "question": "מה ה-color של Grove?",
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            },
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "language": "he",
+              "question": "מה צבעו של Harbor?",
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention"
+            }
+          ]
+        },
+        "unanswerable": {
+          "count": 8,
+          "accuracy": 1.0,
+          "answerable_count": 0,
+          "unanswerable_count": 8,
+          "grounded_answer_rate": null,
+          "abstention_accuracy": 1.0,
+          "undefined_metrics": {
+            "grounded_answer_rate": "No answerable cases in this subset."
+          },
+          "error_counts": {},
+          "errors": []
+        }
+      },
+      "paired_languages": {
+        "pair_count": 12,
+        "both_correct": 8,
+        "both_wrong": 0,
+        "english_only_correct": 4,
+        "hebrew_only_correct": 0
+      },
+      "by_phenomenon": {
+        "inflection": {
+          "definition": "Possessive inflection: הצבע של (the color of) versus צבעו של (its color, of); masculine fictional object.",
+          "language": "he",
+          "count": 2,
+          "metrics": {
+            "count": 2,
+            "accuracy": 0.0,
+            "answerable_count": 2,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 0.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {
+              "false_abstention": 2
+            },
+            "errors": [
+              {
+                "case_id": "test-he-Ember-color_variant-q",
+                "language": "he",
+                "question": "מה צבעו של Ember?",
+                "expected_answer": "כחול",
+                "expected_evidence": [
+                  "test-he-Ember-color"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": 1
+                },
+                "error_type": "false_abstention"
+              },
+              {
+                "case_id": "test-he-Harbor-color_variant-q",
+                "language": "he",
+                "question": "מה צבעו של Harbor?",
+                "expected_answer": "זהוב",
+                "expected_evidence": [
+                  "test-he-Harbor-color"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": 1
+                },
+                "error_type": "false_abstention"
+              }
+            ]
+          },
+          "control_metrics": {
+            "count": 2,
+            "accuracy": 1.0,
+            "answerable_count": 2,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 1.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {},
+            "errors": []
+          },
+          "empty_reason": null,
+          "transitions": {
+            "regressed": 2
+          },
+          "pairs": [
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "variant_group": "Ember/inflection",
+              "question": "מה צבעו של Ember?",
+              "raw_question": "מה צבעו של Ember?",
+              "control_case_id": "test-he-Ember-color_control-q",
+              "control_question": "מה הצבע של Ember?",
+              "control_correct": true,
+              "correct": false,
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention",
+              "transition": "regressed",
+              "selected_source": {
+                "id": "test-he-Ember-shape",
+                "text": "הצורה של Ember היא עגולה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Ember-color",
+                  "text": "הצבע של Ember הוא כחול."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": "source_not_retrieved"
+            },
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "variant_group": "Harbor/inflection",
+              "question": "מה צבעו של Harbor?",
+              "raw_question": "מה צבעו של Harbor?",
+              "control_case_id": "test-he-Harbor-color_control-q",
+              "control_question": "מה הצבע של Harbor?",
+              "control_correct": true,
+              "correct": false,
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention",
+              "transition": "regressed",
+              "selected_source": {
+                "id": "test-he-Harbor-shape",
+                "text": "הצורה של Harbor היא שטוחה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Harbor-color",
+                  "text": "הצבע של Harbor הוא זהוב."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": "source_not_retrieved"
+            }
+          ],
+          "failures": [
+            {
+              "case_id": "test-he-Ember-color_variant-q",
+              "variant_group": "Ember/inflection",
+              "question": "מה צבעו של Ember?",
+              "raw_question": "מה צבעו של Ember?",
+              "control_case_id": "test-he-Ember-color_control-q",
+              "control_question": "מה הצבע של Ember?",
+              "control_correct": true,
+              "correct": false,
+              "expected_answer": "כחול",
+              "expected_evidence": [
+                "test-he-Ember-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention",
+              "transition": "regressed",
+              "selected_source": {
+                "id": "test-he-Ember-shape",
+                "text": "הצורה של Ember היא עגולה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Ember-color",
+                  "text": "הצבע של Ember הוא כחול."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": "source_not_retrieved"
+            },
+            {
+              "case_id": "test-he-Harbor-color_variant-q",
+              "variant_group": "Harbor/inflection",
+              "question": "מה צבעו של Harbor?",
+              "raw_question": "מה צבעו של Harbor?",
+              "control_case_id": "test-he-Harbor-color_control-q",
+              "control_question": "מה הצבע של Harbor?",
+              "control_correct": true,
+              "correct": false,
+              "expected_answer": "זהוב",
+              "expected_evidence": [
+                "test-he-Harbor-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention",
+              "transition": "regressed",
+              "selected_source": {
+                "id": "test-he-Harbor-shape",
+                "text": "הצורה של Harbor היא שטוחה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Harbor-color",
+                  "text": "הצבע של Harbor הוא זהוב."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": "source_not_retrieved"
+            }
+          ],
+          "diagnostic_scope": "Lexical selection only; no inferred model exposure or linguistic cause."
+        },
+        "spelling": {
+          "definition": "Full/deficient spelling of description: התיאור versus התאור; the source retains התיאור.",
+          "language": "he",
+          "count": 1,
+          "metrics": {
+            "count": 1,
+            "accuracy": 0.0,
+            "answerable_count": 1,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 0.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {
+              "false_abstention": 1
+            },
+            "errors": [
+              {
+                "case_id": "test-he-Fjord-description_variant-q",
+                "language": "he",
+                "question": "מה התאור של Fjord?",
+                "expected_answer": "מרובע",
+                "expected_evidence": [
+                  "test-he-Fjord-description"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": 1
+                },
+                "error_type": "false_abstention"
+              }
+            ]
+          },
+          "control_metrics": {
+            "count": 1,
+            "accuracy": 1.0,
+            "answerable_count": 1,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 1.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {},
+            "errors": []
+          },
+          "empty_reason": null,
+          "transitions": {
+            "regressed": 1
+          },
+          "pairs": [
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "variant_group": "Fjord/spelling",
+              "question": "מה התאור של Fjord?",
+              "raw_question": "  מה\tהתאור של Fjord?  ",
+              "control_case_id": "test-he-Fjord-description_control-q",
+              "control_question": "מה התיאור של Fjord?",
+              "control_correct": true,
+              "correct": false,
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention",
+              "transition": "regressed",
+              "selected_source": {
+                "id": "test-he-Fjord-shape",
+                "text": "הצורה של Fjord היא מרובעת."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Fjord-description",
+                  "text": "התיאור של Fjord הוא מרובע."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": "source_not_retrieved"
+            }
+          ],
+          "failures": [
+            {
+              "case_id": "test-he-Fjord-description_variant-q",
+              "variant_group": "Fjord/spelling",
+              "question": "מה התאור של Fjord?",
+              "raw_question": "  מה\tהתאור של Fjord?  ",
+              "control_case_id": "test-he-Fjord-description_control-q",
+              "control_question": "מה התיאור של Fjord?",
+              "control_correct": true,
+              "correct": false,
+              "expected_answer": "מרובע",
+              "expected_evidence": [
+                "test-he-Fjord-description"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention",
+              "transition": "regressed",
+              "selected_source": {
+                "id": "test-he-Fjord-shape",
+                "text": "הצורה של Fjord היא מרובעת."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Fjord-description",
+                  "text": "התיאור של Fjord הוא מרובע."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": "source_not_retrieved"
+            }
+          ],
+          "diagnostic_scope": "Lexical selection only; no inferred model exposure or linguistic cause."
+        },
+        "mixed_language": {
+          "definition": "English content word inside Hebrew syntax: הצבע versus ה-color; Latin entity IDs alone do not define this slice.",
+          "language": "he",
+          "count": 1,
+          "metrics": {
+            "count": 1,
+            "accuracy": 0.0,
+            "answerable_count": 1,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 0.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {
+              "false_abstention": 1
+            },
+            "errors": [
+              {
+                "case_id": "test-he-Grove-color_variant-q",
+                "language": "he",
+                "question": "מה ה-color של Grove?",
+                "expected_answer": "אדום",
+                "expected_evidence": [
+                  "test-he-Grove-color"
+                ],
+                "prediction": {
+                  "answer": null,
+                  "citations": [],
+                  "overlap": 1
+                },
+                "error_type": "false_abstention"
+              }
+            ]
+          },
+          "control_metrics": {
+            "count": 1,
+            "accuracy": 1.0,
+            "answerable_count": 1,
+            "unanswerable_count": 0,
+            "grounded_answer_rate": 1.0,
+            "abstention_accuracy": null,
+            "undefined_metrics": {
+              "abstention_accuracy": "No unanswerable cases in this subset."
+            },
+            "error_counts": {},
+            "errors": []
+          },
+          "empty_reason": null,
+          "transitions": {
+            "regressed": 1
+          },
+          "pairs": [
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "variant_group": "Grove/mixed_language",
+              "question": "מה ה-color של Grove?",
+              "raw_question": "מה ה-color של Grove?",
+              "control_case_id": "test-he-Grove-color_control-q",
+              "control_question": "מה הצבע של Grove?",
+              "control_correct": true,
+              "correct": false,
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention",
+              "transition": "regressed",
+              "selected_source": {
+                "id": "test-he-Grove-shape",
+                "text": "הצורה של Grove היא סגלגלה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Grove-color",
+                  "text": "הצבע של Grove הוא אדום."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": "source_not_retrieved"
+            }
+          ],
+          "failures": [
+            {
+              "case_id": "test-he-Grove-color_variant-q",
+              "variant_group": "Grove/mixed_language",
+              "question": "מה ה-color של Grove?",
+              "raw_question": "מה ה-color של Grove?",
+              "control_case_id": "test-he-Grove-color_control-q",
+              "control_question": "מה הצבע של Grove?",
+              "control_correct": true,
+              "correct": false,
+              "expected_answer": "אדום",
+              "expected_evidence": [
+                "test-he-Grove-color"
+              ],
+              "prediction": {
+                "answer": null,
+                "citations": [],
+                "overlap": 1
+              },
+              "error_type": "false_abstention",
+              "transition": "regressed",
+              "selected_source": {
+                "id": "test-he-Grove-shape",
+                "text": "הצורה של Grove היא סגלגלה."
+              },
+              "expected_sources": [
+                {
+                  "id": "test-he-Grove-color",
+                  "text": "הצבע של Grove הוא אדום."
+                }
+              ],
+              "retrieval_status": "source_missed",
+              "error_stage": "source_not_retrieved"
+            }
+          ],
+          "diagnostic_scope": "Lexical selection only; no inferred model exposure or linguistic cause."
+        }
+      }
+    }
+  },
+  "paired_audit": {
+    "pair_count": 12,
+    "pairs": [
+      {
+        "entity": "Ember",
+        "intent": "color_control",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Ember-color_control-q",
+            "question": "What is the color of Ember?",
+            "expected_answer": "blue",
+            "expected_evidence": [
+              "test-en-Ember-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "blue",
+                "citations": [
+                  "test-en-Ember-color"
+                ]
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Ember-color_control-q",
+            "question": "מה הצבע של Ember?",
+            "expected_answer": "כחול",
+            "expected_evidence": [
+              "test-he-Ember-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "כחול",
+                "citations": [
+                  "test-he-Ember-color"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Ember",
+        "intent": "color_variant",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Ember-color_variant-q",
+            "question": "Which color does Ember have?",
+            "expected_answer": "blue",
+            "expected_evidence": [
+              "test-en-Ember-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "blue",
+                "citations": [
+                  "test-en-Ember-color"
+                ]
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Ember-color_variant-q",
+            "question": "מה צבעו של Ember?",
+            "expected_answer": "כחול",
+            "expected_evidence": [
+              "test-he-Ember-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Ember",
+        "intent": "weight",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Ember-weight-q",
+            "question": "What is the weight of Ember?",
+            "expected_answer": null,
+            "expected_evidence": [],
+            "methods": {
+              "always_abstain": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Ember-weight-q",
+            "question": "מה המשקל של Ember?",
+            "expected_answer": null,
+            "expected_evidence": [],
+            "methods": {
+              "always_abstain": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Fjord",
+        "intent": "description_control",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Fjord-description_control-q",
+            "question": "What is the description of Fjord?",
+            "expected_answer": "square",
+            "expected_evidence": [
+              "test-en-Fjord-description"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "square",
+                "citations": [
+                  "test-en-Fjord-description"
+                ]
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Fjord-description_control-q",
+            "question": "מה התיאור של Fjord?",
+            "expected_answer": "מרובע",
+            "expected_evidence": [
+              "test-he-Fjord-description"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "מרובע",
+                "citations": [
+                  "test-he-Fjord-description"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Fjord",
+        "intent": "description_variant",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Fjord-description_variant-q",
+            "question": "Which description does Fjord have?",
+            "expected_answer": "square",
+            "expected_evidence": [
+              "test-en-Fjord-description"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "square",
+                "citations": [
+                  "test-en-Fjord-description"
+                ]
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Fjord-description_variant-q",
+            "question": "מה התאור של Fjord?",
+            "expected_answer": "מרובע",
+            "expected_evidence": [
+              "test-he-Fjord-description"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Fjord",
+        "intent": "weight",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Fjord-weight-q",
+            "question": "What is the weight of Fjord?",
+            "expected_answer": null,
+            "expected_evidence": [],
+            "methods": {
+              "always_abstain": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Fjord-weight-q",
+            "question": "מה המשקל של Fjord?",
+            "expected_answer": null,
+            "expected_evidence": [],
+            "methods": {
+              "always_abstain": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Grove",
+        "intent": "color_control",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Grove-color_control-q",
+            "question": "What is the color of Grove?",
+            "expected_answer": "red",
+            "expected_evidence": [
+              "test-en-Grove-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "red",
+                "citations": [
+                  "test-en-Grove-color"
+                ]
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Grove-color_control-q",
+            "question": "מה הצבע של Grove?",
+            "expected_answer": "אדום",
+            "expected_evidence": [
+              "test-he-Grove-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "אדום",
+                "citations": [
+                  "test-he-Grove-color"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Grove",
+        "intent": "color_variant",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Grove-color_variant-q",
+            "question": "Which color does Grove have?",
+            "expected_answer": "red",
+            "expected_evidence": [
+              "test-en-Grove-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "red",
+                "citations": [
+                  "test-en-Grove-color"
+                ]
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Grove-color_variant-q",
+            "question": "מה ה-color של Grove?",
+            "expected_answer": "אדום",
+            "expected_evidence": [
+              "test-he-Grove-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Grove",
+        "intent": "weight",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Grove-weight-q",
+            "question": "What is the weight of Grove?",
+            "expected_answer": null,
+            "expected_evidence": [],
+            "methods": {
+              "always_abstain": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Grove-weight-q",
+            "question": "מה המשקל של Grove?",
+            "expected_answer": null,
+            "expected_evidence": [],
+            "methods": {
+              "always_abstain": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Harbor",
+        "intent": "color_control",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Harbor-color_control-q",
+            "question": "What is the color of Harbor?",
+            "expected_answer": "gold",
+            "expected_evidence": [
+              "test-en-Harbor-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "gold",
+                "citations": [
+                  "test-en-Harbor-color"
+                ]
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Harbor-color_control-q",
+            "question": "מה הצבע של Harbor?",
+            "expected_answer": "זהוב",
+            "expected_evidence": [
+              "test-he-Harbor-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "זהוב",
+                "citations": [
+                  "test-he-Harbor-color"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Harbor",
+        "intent": "color_variant",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Harbor-color_variant-q",
+            "question": "Which color does Harbor have?",
+            "expected_answer": "gold",
+            "expected_evidence": [
+              "test-en-Harbor-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": "gold",
+                "citations": [
+                  "test-en-Harbor-color"
+                ]
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Harbor-color_variant-q",
+            "question": "מה צבעו של Harbor?",
+            "expected_answer": "זהוב",
+            "expected_evidence": [
+              "test-he-Harbor-color"
+            ],
+            "methods": {
+              "always_abstain": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": false,
+                "error_type": "false_abstention",
+                "answer": null,
+                "citations": []
+              }
+            }
+          }
+        }
+      },
+      {
+        "entity": "Harbor",
+        "intent": "weight",
+        "languages": {
+          "en": {
+            "case_id": "test-en-Harbor-weight-q",
+            "question": "What is the weight of Harbor?",
+            "expected_answer": null,
+            "expected_evidence": [],
+            "methods": {
+              "always_abstain": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              }
+            }
+          },
+          "he": {
+            "case_id": "test-he-Harbor-weight-q",
+            "question": "מה המשקל של Harbor?",
+            "expected_answer": null,
+            "expected_evidence": [],
+            "methods": {
+              "always_abstain": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              },
+              "lexical_retrieval": {
+                "correct": true,
+                "error_type": null,
+                "answer": null,
+                "citations": []
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outcome_counts": {
+      "always_abstain": {
+        "both_wrong": 8,
+        "both_correct": 4
+      },
+      "lexical_retrieval": {
+        "both_correct": 8,
+        "english_only_correct": 4
+      }
+    },
+    "versus_lexical": {
+      "always_abstain": {
+        "regressed": 12,
+        "same_wrong": 4,
+        "same_correct": 8
+      }
+    }
+  },
+  "comparisons": {
+    "lexical_retrieval": {
+      "accuracy_delta": 0.5,
+      "entity_deltas": {
+        "Ember": 0.5,
+        "Fjord": 0.5,
+        "Grove": 0.5,
+        "Harbor": 0.5
+      },
+      "cluster_resampling": {
+        "unit": "entity",
+        "draws": 256,
+        "descriptive_95_percentile_interval": [
+          0.5,
+          0.5
+        ],
+        "includes_zero": false
+      }
+    }
+  },
+  "comparisons_with_lexical": {},
+  "limitations": [
+    "Synthetic paired templates are not natural user questions.",
+    "Reference validation parses a closed synthetic grammar; it is not independent annotation or general semantic validation.",
+    "Missing facts mean absent from the full split/language source corpus, not merely absent from retrieved evidence.",
+    "The baseline extracts answers from known synthetic source templates; it is not an LLM.",
+    "Imported predictions alone do not verify evidence exposure or generation settings.",
+    "Four test entities and their resampling interval cannot establish language parity or population stability.",
+    "Lexical overlap cannot resolve paraphrases or assess semantic equivalence."
+  ]
+}

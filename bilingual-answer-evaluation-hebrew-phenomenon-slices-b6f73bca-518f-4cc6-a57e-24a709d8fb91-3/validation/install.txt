@@ -1,0 +1,17 @@
+Obtaining file:///home/ubuntu/job-pilot/runtime/projects/7805ed7f-6bb9-400d-b446-db160c6d748f/2
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: bilingual-answer-evaluation
+  Building editable for bilingual-answer-evaluation (pyproject.toml): started
+  Building editable for bilingual-answer-evaluation (pyproject.toml): finished with status 'done'
+  Created wheel for bilingual-answer-evaluation: filename=bilingual_answer_evaluation-0.2.0-0.editable-py3-none-any.whl size=3103 sha256=2937f07619531de25611170fa220149720e41658e2754cd544c412fac00f6dba
+  Stored in directory: /tmp/pip-ephem-wheel-cache-3joazz4b/wheels/84/1f/c1/38048cde80229552b41fdff1715851a66530e3216218aa2f54
+Successfully built bilingual-answer-evaluation
+Installing collected packages: bilingual-answer-evaluation
+  Attempting uninstall: bilingual-answer-evaluation
+    Found existing installation: bilingual-answer-evaluation 0.2.0
+    Uninstalling bilingual-answer-evaluation-0.2.0:
+      Successfully uninstalled bilingual-answer-evaluation-0.2.0
+Successfully installed bilingual-answer-evaluation-0.2.0

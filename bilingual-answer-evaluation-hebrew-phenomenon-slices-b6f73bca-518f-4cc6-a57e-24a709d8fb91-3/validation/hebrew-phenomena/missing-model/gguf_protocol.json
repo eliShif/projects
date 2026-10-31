@@ -1,0 +1,4287 @@
+{
+  "schema_version": 2,
+  "dataset_name": "hebrew-phenomena",
+  "context_mode": "shared-document",
+  "base_seed": 17,
+  "repeats": 2,
+  "settings": {
+    "n_ctx": 2048,
+    "n_gpu_layers": 0,
+    "n_threads": 1,
+    "n_threads_batch": 1,
+    "n_batch": 128,
+    "temperature": 0.0,
+    "max_tokens": 96,
+    "top_p": 1.0,
+    "top_k": 0,
+    "min_p": 0.0,
+    "typical_p": 1.0,
+    "repeat_penalty": 1.0,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 0.0,
+    "mirostat_mode": 0,
+    "stop": [],
+    "seed": 17
+  },
+  "seed_policy": "pair-repeat-v1: SHA256 of compact UTF-8 JSON [base_seed, pair_id]; first 4 bytes as unsigned big-endian integer, plus zero-based repeat_index, modulo 2147483647. Language and case order are excluded. Reset before every call.",
+  "retrieval_rule": "word-overlap-v1; same split/language; highest document ID breaks ties",
+  "failure_policy": "stop at first failure; retain attempts; no partial quality score",
+  "source_sha256": {
+    "answer_eval.py": "e2a1514d465698112755996e5d168a4906ec62671162f3d65960b4af8f6474a4",
+    "local_gguf.py": "9df71acdfe6087dbb4ec0fbaa80a0706905bf8f9b58887ff52dc77be623085d9",
+    "gguf_audit.py": "21d64fa82230137aafd33e1ea765151b766b8a94bb409ec3e73e5ca81583f302",
+    "__main__.py": "87176fa1d9f648b2d290a3c8e69c8e8b6414e03c36ddc55adf16f22be0e135a2",
+    "phenomena.py": "18c32e0d8c15154212b6e4e08ea7bbaf0b515fddac527453c3b4dcab4567dc84",
+    "resources/hebrew_phenomena.json": "972c2cd4249fd3ebfca2a45ba1ba308a9674004ec1ea7702e513531fc0f37805"
+  },
+  "dataset": {
+    "suite": "hebrew-phenomena-v1",
+    "source": "AI-assisted constructed fictional object facts and question variants; local resource v1; no external corpus or independent linguistic review.",
+    "documents": [
+      {
+        "id": "validation-en-Alder-color",
+        "split": "validation",
+        "language": "en",
+        "entity": "Alder",
+        "text": "The color of Alder is blue.",
+        "answer": "blue",
+        "raw_text": "The color of Alder is blue."
+      },
+      {
+        "id": "validation-en-Alder-shape",
+        "split": "validation",
+        "language": "en",
+        "entity": "Alder",
+        "text": "The shape of Alder is round.",
+        "answer": "round",
+        "raw_text": "The shape of Alder is round."
+      },
+      {
+        "id": "validation-he-Alder-color",
+        "split": "validation",
+        "language": "he",
+        "entity": "Alder",
+        "text": "הצבע של Alder הוא כחול.",
+        "answer": "כחול",
+        "raw_text": "הצבע של Alder הוא כחול."
+      },
+      {
+        "id": "validation-he-Alder-shape",
+        "split": "validation",
+        "language": "he",
+        "entity": "Alder",
+        "text": "הצורה של Alder היא עגולה.",
+        "answer": "עגולה",
+        "raw_text": "הצורה של Alder היא עגולה."
+      },
+      {
+        "id": "validation-en-Birch-description",
+        "split": "validation",
+        "language": "en",
+        "entity": "Birch",
+        "text": "The description of Birch is square.",
+        "answer": "square",
+        "raw_text": "The description of Birch is square."
+      },
+      {
+        "id": "validation-en-Birch-shape",
+        "split": "validation",
+        "language": "en",
+        "entity": "Birch",
+        "text": "The shape of Birch is square.",
+        "answer": "square",
+        "raw_text": "The shape of Birch is square."
+      },
+      {
+        "id": "validation-he-Birch-description",
+        "split": "validation",
+        "language": "he",
+        "entity": "Birch",
+        "text": "התיאור של Birch הוא מרובע.",
+        "answer": "מרובע",
+        "raw_text": "התיאור של Birch הוא מרובע."
+      },
+      {
+        "id": "validation-he-Birch-shape",
+        "split": "validation",
+        "language": "he",
+        "entity": "Birch",
+        "text": "הצורה של Birch היא מרובעת.",
+        "answer": "מרובעת",
+        "raw_text": "הצורה של Birch היא מרובעת."
+      },
+      {
+        "id": "validation-en-Cedar-color",
+        "split": "validation",
+        "language": "en",
+        "entity": "Cedar",
+        "text": "The color of Cedar is red.",
+        "answer": "red",
+        "raw_text": "The color of Cedar is red."
+      },
+      {
+        "id": "validation-en-Cedar-shape",
+        "split": "validation",
+        "language": "en",
+        "entity": "Cedar",
+        "text": "The shape of Cedar is oval.",
+        "answer": "oval",
+        "raw_text": "The shape of Cedar is oval."
+      },
+      {
+        "id": "validation-he-Cedar-color",
+        "split": "validation",
+        "language": "he",
+        "entity": "Cedar",
+        "text": "הצבע של Cedar הוא אדום.",
+        "answer": "אדום",
+        "raw_text": "הצבע של Cedar הוא אדום."
+      },
+      {
+        "id": "validation-he-Cedar-shape",
+        "split": "validation",
+        "language": "he",
+        "entity": "Cedar",
+        "text": "הצורה של Cedar היא סגלגלה.",
+        "answer": "סגלגלה",
+        "raw_text": "הצורה של Cedar היא סגלגלה."
+      },
+      {
+        "id": "validation-en-Dune-color",
+        "split": "validation",
+        "language": "en",
+        "entity": "Dune",
+        "text": "The color of Dune is gold.",
+        "answer": "gold",
+        "raw_text": "The color of Dune is gold."
+      },
+      {
+        "id": "validation-en-Dune-shape",
+        "split": "validation",
+        "language": "en",
+        "entity": "Dune",
+        "text": "The shape of Dune is flat.",
+        "answer": "flat",
+        "raw_text": "The shape of Dune is flat."
+      },
+      {
+        "id": "validation-he-Dune-color",
+        "split": "validation",
+        "language": "he",
+        "entity": "Dune",
+        "text": "הצבע של Dune הוא זהוב.",
+        "answer": "זהוב",
+        "raw_text": "הצבע של Dune הוא זהוב."
+      },
+      {
+        "id": "validation-he-Dune-shape",
+        "split": "validation",
+        "language": "he",
+        "entity": "Dune",
+        "text": "הצורה של Dune היא שטוחה.",
+        "answer": "שטוחה",
+        "raw_text": "הצורה של Dune היא שטוחה."
+      },
+      {
+        "id": "test-en-Ember-color",
+        "split": "test",
+        "language": "en",
+        "entity": "Ember",
+        "text": "The color of Ember is blue.",
+        "answer": "blue",
+        "raw_text": "The color of Ember is blue."
+      },
+      {
+        "id": "test-en-Ember-shape",
+        "split": "test",
+        "language": "en",
+        "entity": "Ember",
+        "text": "The shape of Ember is round.",
+        "answer": "round",
+        "raw_text": "The shape of Ember is round."
+      },
+      {
+        "id": "test-he-Ember-color",
+        "split": "test",
+        "language": "he",
+        "entity": "Ember",
+        "text": "הצבע של Ember הוא כחול.",
+        "answer": "כחול",
+        "raw_text": "הצבע של Ember הוא כחול."
+      },
+      {
+        "id": "test-he-Ember-shape",
+        "split": "test",
+        "language": "he",
+        "entity": "Ember",
+        "text": "הצורה של Ember היא עגולה.",
+        "answer": "עגולה",
+        "raw_text": "הצורה של Ember היא עגולה."
+      },
+      {
+        "id": "test-en-Fjord-description",
+        "split": "test",
+        "language": "en",
+        "entity": "Fjord",
+        "text": "The description of Fjord is square.",
+        "answer": "square",
+        "raw_text": "The description of Fjord is square."
+      },
+      {
+        "id": "test-en-Fjord-shape",
+        "split": "test",
+        "language": "en",
+        "entity": "Fjord",
+        "text": "The shape of Fjord is square.",
+        "answer": "square",
+        "raw_text": "The shape of Fjord is square."
+      },
+      {
+        "id": "test-he-Fjord-description",
+        "split": "test",
+        "language": "he",
+        "entity": "Fjord",
+        "text": "התיאור של Fjord הוא מרובע.",
+        "answer": "מרובע",
+        "raw_text": "התיאור של Fjord הוא מרובע."
+      },
+      {
+        "id": "test-he-Fjord-shape",
+        "split": "test",
+        "language": "he",
+        "entity": "Fjord",
+        "text": "הצורה של Fjord היא מרובעת.",
+        "answer": "מרובעת",
+        "raw_text": "הצורה של Fjord היא מרובעת."
+      },
+      {
+        "id": "test-en-Grove-color",
+        "split": "test",
+        "language": "en",
+        "entity": "Grove",
+        "text": "The color of Grove is red.",
+        "answer": "red",
+        "raw_text": "The color of Grove is red."
+      },
+      {
+        "id": "test-en-Grove-shape",
+        "split": "test",
+        "language": "en",
+        "entity": "Grove",
+        "text": "The shape of Grove is oval.",
+        "answer": "oval",
+        "raw_text": "The shape of Grove is oval."
+      },
+      {
+        "id": "test-he-Grove-color",
+        "split": "test",
+        "language": "he",
+        "entity": "Grove",
+        "text": "הצבע של Grove הוא אדום.",
+        "answer": "אדום",
+        "raw_text": "הצבע של Grove הוא אדום."
+      },
+      {
+        "id": "test-he-Grove-shape",
+        "split": "test",
+        "language": "he",
+        "entity": "Grove",
+        "text": "הצורה של Grove היא סגלגלה.",
+        "answer": "סגלגלה",
+        "raw_text": "הצורה של Grove היא סגלגלה."
+      },
+      {
+        "id": "test-en-Harbor-color",
+        "split": "test",
+        "language": "en",
+        "entity": "Harbor",
+        "text": "The color of Harbor is gold.",
+        "answer": "gold",
+        "raw_text": "The color of Harbor is gold."
+      },
+      {
+        "id": "test-en-Harbor-shape",
+        "split": "test",
+        "language": "en",
+        "entity": "Harbor",
+        "text": "The shape of Harbor is flat.",
+        "answer": "flat",
+        "raw_text": "The shape of Harbor is flat."
+      },
+      {
+        "id": "test-he-Harbor-color",
+        "split": "test",
+        "language": "he",
+        "entity": "Harbor",
+        "text": "הצבע של Harbor הוא זהוב.",
+        "answer": "זהוב",
+        "raw_text": "הצבע של Harbor הוא זהוב."
+      },
+      {
+        "id": "test-he-Harbor-shape",
+        "split": "test",
+        "language": "he",
+        "entity": "Harbor",
+        "text": "הצורה של Harbor היא שטוחה.",
+        "answer": "שטוחה",
+        "raw_text": "הצורה של Harbor היא שטוחה."
+      }
+    ],
+    "cases": [
+      {
+        "id": "validation-en-Alder-color_control-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Alder",
+        "question": "What is the color of Alder?",
+        "expected_answer": "blue",
+        "evidence_ids": [
+          "validation-en-Alder-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Alder/inflection",
+        "variant": "control",
+        "raw_question": "What is the color of Alder?"
+      },
+      {
+        "id": "validation-en-Alder-color_variant-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Alder",
+        "question": "Which color does Alder have?",
+        "expected_answer": "blue",
+        "evidence_ids": [
+          "validation-en-Alder-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Alder/inflection",
+        "variant": "variant",
+        "raw_question": "Which color does Alder have?"
+      },
+      {
+        "id": "validation-en-Alder-weight-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Alder",
+        "question": "What is the weight of Alder?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "What is the weight of Alder?"
+      },
+      {
+        "id": "validation-he-Alder-color_control-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Alder",
+        "question": "מה הצבע של Alder?",
+        "expected_answer": "כחול",
+        "evidence_ids": [
+          "validation-he-Alder-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Alder/inflection",
+        "variant": "control",
+        "raw_question": "מה הצבע של Alder?"
+      },
+      {
+        "id": "validation-he-Alder-color_variant-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Alder",
+        "question": "מה צבעו של Alder?",
+        "expected_answer": "כחול",
+        "evidence_ids": [
+          "validation-he-Alder-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Alder/inflection",
+        "variant": "variant",
+        "raw_question": "מה צבעו של Alder?"
+      },
+      {
+        "id": "validation-he-Alder-weight-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Alder",
+        "question": "מה המשקל של Alder?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "מה המשקל של Alder?"
+      },
+      {
+        "id": "validation-en-Birch-description_control-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Birch",
+        "question": "What is the description of Birch?",
+        "expected_answer": "square",
+        "evidence_ids": [
+          "validation-en-Birch-description"
+        ],
+        "phenomenon": "spelling",
+        "variant_group": "Birch/spelling",
+        "variant": "control",
+        "raw_question": "What is the description of Birch?"
+      },
+      {
+        "id": "validation-en-Birch-description_variant-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Birch",
+        "question": "Which description does Birch have?",
+        "expected_answer": "square",
+        "evidence_ids": [
+          "validation-en-Birch-description"
+        ],
+        "phenomenon": "spelling",
+        "variant_group": "Birch/spelling",
+        "variant": "variant",
+        "raw_question": "Which description does Birch have?"
+      },
+      {
+        "id": "validation-en-Birch-weight-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Birch",
+        "question": "What is the weight of Birch?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "What is the weight of Birch?"
+      },
+      {
+        "id": "validation-he-Birch-description_control-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Birch",
+        "question": "מה התיאור של Birch?",
+        "expected_answer": "מרובע",
+        "evidence_ids": [
+          "validation-he-Birch-description"
+        ],
+        "phenomenon": "spelling",
+        "variant_group": "Birch/spelling",
+        "variant": "control",
+        "raw_question": "מה התיאור של Birch?"
+      },
+      {
+        "id": "validation-he-Birch-description_variant-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Birch",
+        "question": "מה התאור של Birch?",
+        "expected_answer": "מרובע",
+        "evidence_ids": [
+          "validation-he-Birch-description"
+        ],
+        "phenomenon": "spelling",
+        "variant_group": "Birch/spelling",
+        "variant": "variant",
+        "raw_question": "מה התאור של Birch?"
+      },
+      {
+        "id": "validation-he-Birch-weight-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Birch",
+        "question": "מה המשקל של Birch?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "מה המשקל של Birch?"
+      },
+      {
+        "id": "validation-en-Cedar-color_control-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Cedar",
+        "question": "What is the color of Cedar?",
+        "expected_answer": "red",
+        "evidence_ids": [
+          "validation-en-Cedar-color"
+        ],
+        "phenomenon": "mixed_language",
+        "variant_group": "Cedar/mixed_language",
+        "variant": "control",
+        "raw_question": "What is the color of Cedar?"
+      },
+      {
+        "id": "validation-en-Cedar-color_variant-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Cedar",
+        "question": "Which color does Cedar have?",
+        "expected_answer": "red",
+        "evidence_ids": [
+          "validation-en-Cedar-color"
+        ],
+        "phenomenon": "mixed_language",
+        "variant_group": "Cedar/mixed_language",
+        "variant": "variant",
+        "raw_question": "Which color does Cedar have?"
+      },
+      {
+        "id": "validation-en-Cedar-weight-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Cedar",
+        "question": "What is the weight of Cedar?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "What is the weight of Cedar?"
+      },
+      {
+        "id": "validation-he-Cedar-color_control-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Cedar",
+        "question": "מה הצבע של Cedar?",
+        "expected_answer": "אדום",
+        "evidence_ids": [
+          "validation-he-Cedar-color"
+        ],
+        "phenomenon": "mixed_language",
+        "variant_group": "Cedar/mixed_language",
+        "variant": "control",
+        "raw_question": "מה הצבע של Cedar?"
+      },
+      {
+        "id": "validation-he-Cedar-color_variant-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Cedar",
+        "question": "מה ה-color של Cedar?",
+        "expected_answer": "אדום",
+        "evidence_ids": [
+          "validation-he-Cedar-color"
+        ],
+        "phenomenon": "mixed_language",
+        "variant_group": "Cedar/mixed_language",
+        "variant": "variant",
+        "raw_question": "מה ה-color של Cedar?"
+      },
+      {
+        "id": "validation-he-Cedar-weight-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Cedar",
+        "question": "מה המשקל של Cedar?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "מה המשקל של Cedar?"
+      },
+      {
+        "id": "validation-en-Dune-color_control-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Dune",
+        "question": "What is the color of Dune?",
+        "expected_answer": "gold",
+        "evidence_ids": [
+          "validation-en-Dune-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Dune/inflection",
+        "variant": "control",
+        "raw_question": "What is the color of Dune?"
+      },
+      {
+        "id": "validation-en-Dune-color_variant-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Dune",
+        "question": "Which color does Dune have?",
+        "expected_answer": "gold",
+        "evidence_ids": [
+          "validation-en-Dune-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Dune/inflection",
+        "variant": "variant",
+        "raw_question": "Which color does Dune have?"
+      },
+      {
+        "id": "validation-en-Dune-weight-q",
+        "split": "validation",
+        "language": "en",
+        "entity": "Dune",
+        "question": "What is the weight of Dune?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "What is the weight of Dune?"
+      },
+      {
+        "id": "validation-he-Dune-color_control-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Dune",
+        "question": "מה הצבע של Dune?",
+        "expected_answer": "זהוב",
+        "evidence_ids": [
+          "validation-he-Dune-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Dune/inflection",
+        "variant": "control",
+        "raw_question": "מה הצבע של Dune?"
+      },
+      {
+        "id": "validation-he-Dune-color_variant-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Dune",
+        "question": "מה צבעו של Dune?",
+        "expected_answer": "זהוב",
+        "evidence_ids": [
+          "validation-he-Dune-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Dune/inflection",
+        "variant": "variant",
+        "raw_question": "מה צבעו של Dune?"
+      },
+      {
+        "id": "validation-he-Dune-weight-q",
+        "split": "validation",
+        "language": "he",
+        "entity": "Dune",
+        "question": "מה המשקל של Dune?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "מה המשקל של Dune?"
+      },
+      {
+        "id": "test-en-Ember-color_control-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Ember",
+        "question": "What is the color of Ember?",
+        "expected_answer": "blue",
+        "evidence_ids": [
+          "test-en-Ember-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Ember/inflection",
+        "variant": "control",
+        "raw_question": "What is the color of Ember?"
+      },
+      {
+        "id": "test-en-Ember-color_variant-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Ember",
+        "question": "Which color does Ember have?",
+        "expected_answer": "blue",
+        "evidence_ids": [
+          "test-en-Ember-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Ember/inflection",
+        "variant": "variant",
+        "raw_question": "Which color does Ember have?"
+      },
+      {
+        "id": "test-en-Ember-weight-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Ember",
+        "question": "What is the weight of Ember?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "What is the weight of Ember?"
+      },
+      {
+        "id": "test-he-Ember-color_control-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Ember",
+        "question": "מה הצבע של Ember?",
+        "expected_answer": "כחול",
+        "evidence_ids": [
+          "test-he-Ember-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Ember/inflection",
+        "variant": "control",
+        "raw_question": "מה הצבע של Ember?"
+      },
+      {
+        "id": "test-he-Ember-color_variant-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Ember",
+        "question": "מה צבעו של Ember?",
+        "expected_answer": "כחול",
+        "evidence_ids": [
+          "test-he-Ember-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Ember/inflection",
+        "variant": "variant",
+        "raw_question": "מה צבעו של Ember?"
+      },
+      {
+        "id": "test-he-Ember-weight-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Ember",
+        "question": "מה המשקל של Ember?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "מה המשקל של Ember?"
+      },
+      {
+        "id": "test-en-Fjord-description_control-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Fjord",
+        "question": "What is the description of Fjord?",
+        "expected_answer": "square",
+        "evidence_ids": [
+          "test-en-Fjord-description"
+        ],
+        "phenomenon": "spelling",
+        "variant_group": "Fjord/spelling",
+        "variant": "control",
+        "raw_question": "What is the description of Fjord?"
+      },
+      {
+        "id": "test-en-Fjord-description_variant-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Fjord",
+        "question": "Which description does Fjord have?",
+        "expected_answer": "square",
+        "evidence_ids": [
+          "test-en-Fjord-description"
+        ],
+        "phenomenon": "spelling",
+        "variant_group": "Fjord/spelling",
+        "variant": "variant",
+        "raw_question": "Which description does Fjord have?"
+      },
+      {
+        "id": "test-en-Fjord-weight-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Fjord",
+        "question": "What is the weight of Fjord?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "What is the weight of Fjord?"
+      },
+      {
+        "id": "test-he-Fjord-description_control-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Fjord",
+        "question": "מה התיאור של Fjord?",
+        "expected_answer": "מרובע",
+        "evidence_ids": [
+          "test-he-Fjord-description"
+        ],
+        "phenomenon": "spelling",
+        "variant_group": "Fjord/spelling",
+        "variant": "control",
+        "raw_question": "מה התיאור של Fjord?"
+      },
+      {
+        "id": "test-he-Fjord-description_variant-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Fjord",
+        "question": "מה התאור של Fjord?",
+        "expected_answer": "מרובע",
+        "evidence_ids": [
+          "test-he-Fjord-description"
+        ],
+        "phenomenon": "spelling",
+        "variant_group": "Fjord/spelling",
+        "variant": "variant",
+        "raw_question": "  מה\tהתאור של Fjord?  "
+      },
+      {
+        "id": "test-he-Fjord-weight-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Fjord",
+        "question": "מה המשקל של Fjord?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "מה המשקל של Fjord?"
+      },
+      {
+        "id": "test-en-Grove-color_control-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Grove",
+        "question": "What is the color of Grove?",
+        "expected_answer": "red",
+        "evidence_ids": [
+          "test-en-Grove-color"
+        ],
+        "phenomenon": "mixed_language",
+        "variant_group": "Grove/mixed_language",
+        "variant": "control",
+        "raw_question": "What is the color of Grove?"
+      },
+      {
+        "id": "test-en-Grove-color_variant-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Grove",
+        "question": "Which color does Grove have?",
+        "expected_answer": "red",
+        "evidence_ids": [
+          "test-en-Grove-color"
+        ],
+        "phenomenon": "mixed_language",
+        "variant_group": "Grove/mixed_language",
+        "variant": "variant",
+        "raw_question": "Which color does Grove have?"
+      },
+      {
+        "id": "test-en-Grove-weight-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Grove",
+        "question": "What is the weight of Grove?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "What is the weight of Grove?"
+      },
+      {
+        "id": "test-he-Grove-color_control-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Grove",
+        "question": "מה הצבע של Grove?",
+        "expected_answer": "אדום",
+        "evidence_ids": [
+          "test-he-Grove-color"
+        ],
+        "phenomenon": "mixed_language",
+        "variant_group": "Grove/mixed_language",
+        "variant": "control",
+        "raw_question": "מה הצבע של Grove?"
+      },
+      {
+        "id": "test-he-Grove-color_variant-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Grove",
+        "question": "מה ה-color של Grove?",
+        "expected_answer": "אדום",
+        "evidence_ids": [
+          "test-he-Grove-color"
+        ],
+        "phenomenon": "mixed_language",
+        "variant_group": "Grove/mixed_language",
+        "variant": "variant",
+        "raw_question": "מה ה-color של Grove?"
+      },
+      {
+        "id": "test-he-Grove-weight-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Grove",
+        "question": "מה המשקל של Grove?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "מה המשקל של Grove?"
+      },
+      {
+        "id": "test-en-Harbor-color_control-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Harbor",
+        "question": "What is the color of Harbor?",
+        "expected_answer": "gold",
+        "evidence_ids": [
+          "test-en-Harbor-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Harbor/inflection",
+        "variant": "control",
+        "raw_question": "What is the color of Harbor?"
+      },
+      {
+        "id": "test-en-Harbor-color_variant-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Harbor",
+        "question": "Which color does Harbor have?",
+        "expected_answer": "gold",
+        "evidence_ids": [
+          "test-en-Harbor-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Harbor/inflection",
+        "variant": "variant",
+        "raw_question": "Which color does Harbor have?"
+      },
+      {
+        "id": "test-en-Harbor-weight-q",
+        "split": "test",
+        "language": "en",
+        "entity": "Harbor",
+        "question": "What is the weight of Harbor?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "What is the weight of Harbor?"
+      },
+      {
+        "id": "test-he-Harbor-color_control-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Harbor",
+        "question": "מה הצבע של Harbor?",
+        "expected_answer": "זהוב",
+        "evidence_ids": [
+          "test-he-Harbor-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Harbor/inflection",
+        "variant": "control",
+        "raw_question": "מה הצבע של Harbor?"
+      },
+      {
+        "id": "test-he-Harbor-color_variant-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Harbor",
+        "question": "מה צבעו של Harbor?",
+        "expected_answer": "זהוב",
+        "evidence_ids": [
+          "test-he-Harbor-color"
+        ],
+        "phenomenon": "inflection",
+        "variant_group": "Harbor/inflection",
+        "variant": "variant",
+        "raw_question": "מה צבעו של Harbor?"
+      },
+      {
+        "id": "test-he-Harbor-weight-q",
+        "split": "test",
+        "language": "he",
+        "entity": "Harbor",
+        "question": "מה המשקל של Harbor?",
+        "expected_answer": null,
+        "evidence_ids": [],
+        "phenomenon": null,
+        "variant_group": null,
+        "variant": null,
+        "raw_question": "מה המשקל של Harbor?"
+      }
+    ]
+  },
+  "requests": [
+    {
+      "case_id": "test-en-Ember-color_control-q",
+      "pair_id": "test/Ember/color_control",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the color of Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the color of Ember?",
+          "documents": [
+            {
+              "id": "test-en-Ember-color",
+              "text": "The color of Ember is blue."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the color of Ember?",
+          "documents": [
+            {
+              "id": "test-en-Ember-color",
+              "text": "The color of Ember is blue."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "ab72c62be5bf39580fb908875878eb7e185273a6e36627ef1608345066f4811e"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Ember-color"
+          ],
+          "input_sha256": "319f78e1f520f9bf7daab26a63ae61e328a0e2036f8588daec9e0000522d511d"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Ember-color"
+          ],
+          "input_sha256": "319f78e1f520f9bf7daab26a63ae61e328a0e2036f8588daec9e0000522d511d"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1061108737
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Ember-color: The color of Ember is blue.\nQuestion: What is the color of Ember?\nJSON:",
+      "prompt_sha256": "b9eecbda5e461bad6b7d3f2bb82733265c8a928059ee756ab05e51f01c59b5ae"
+    },
+    {
+      "case_id": "test-en-Ember-color_variant-q",
+      "pair_id": "test/Ember/color_variant",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "Which color does Ember have?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "Which color does Ember have?",
+          "documents": [
+            {
+              "id": "test-en-Ember-color",
+              "text": "The color of Ember is blue."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "Which color does Ember have?",
+          "documents": [
+            {
+              "id": "test-en-Ember-color",
+              "text": "The color of Ember is blue."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "81ac229246f25d4136a480297f95d2b9f5c292d11bd86a32b59d8eeb605b0cda"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Ember-color"
+          ],
+          "input_sha256": "03941b71870968351112239f121a0a85a6efb8cf7b3dc882ac9ca1d3e79fc840"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Ember-color"
+          ],
+          "input_sha256": "03941b71870968351112239f121a0a85a6efb8cf7b3dc882ac9ca1d3e79fc840"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 2094157249
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Ember-color: The color of Ember is blue.\nQuestion: Which color does Ember have?\nJSON:",
+      "prompt_sha256": "f02271e682b89106d9253025428e903c2544d2612d04c0b4fd1a9bc1df32e80f"
+    },
+    {
+      "case_id": "test-en-Ember-weight-q",
+      "pair_id": "test/Ember/weight",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the weight of Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the weight of Ember?",
+          "documents": [
+            {
+              "id": "test-en-Ember-shape",
+              "text": "The shape of Ember is round."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the weight of Ember?",
+          "documents": [
+            {
+              "id": "test-en-Ember-shape",
+              "text": "The shape of Ember is round."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "25a64795fa46c756b45eb9d2d0a2adf5b7ad9594452bd0ec698005940a69b8ca"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Ember-shape"
+          ],
+          "input_sha256": "037f22a265c0ee3d9cfe1830a270376a8497431475df89e1eafa61a9873e0c0c"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Ember-shape"
+          ],
+          "input_sha256": "037f22a265c0ee3d9cfe1830a270376a8497431475df89e1eafa61a9873e0c0c"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1515902602
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Ember-shape: The shape of Ember is round.\nQuestion: What is the weight of Ember?\nJSON:",
+      "prompt_sha256": "92946f802644b4ee3fa3812b67751698350f6fc86b2104c4659f63f77aa6f057"
+    },
+    {
+      "case_id": "test-en-Fjord-description_control-q",
+      "pair_id": "test/Fjord/description_control",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the description of Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the description of Fjord?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-description",
+              "text": "The description of Fjord is square."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the description of Fjord?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-description",
+              "text": "The description of Fjord is square."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "d5597fa011d3b056209f58cabb830acdf8f4ccc78b6cb44a6214fcbf5f37eb53"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Fjord-description"
+          ],
+          "input_sha256": "1b517a9bb47b842b5c21fda30478fb6c181cfbe9efdd9ee200d05f3ee725fd73"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Fjord-description"
+          ],
+          "input_sha256": "1b517a9bb47b842b5c21fda30478fb6c181cfbe9efdd9ee200d05f3ee725fd73"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 928446908
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Fjord-description: The description of Fjord is square.\nQuestion: What is the description of Fjord?\nJSON:",
+      "prompt_sha256": "96fda086457bf8182cf8402d952a344b4161327571408ee65abd36eaf06fa1b2"
+    },
+    {
+      "case_id": "test-en-Fjord-description_variant-q",
+      "pair_id": "test/Fjord/description_variant",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "Which description does Fjord have?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "Which description does Fjord have?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-description",
+              "text": "The description of Fjord is square."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "Which description does Fjord have?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-description",
+              "text": "The description of Fjord is square."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "4a369918ce8a9b8857ee9610c1492bbce3dbec219003aa2669f7b942a4866561"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Fjord-description"
+          ],
+          "input_sha256": "fcc75358462f592126bc01bf899334de10820f0252d176a73e56b3f2685fa5f9"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Fjord-description"
+          ],
+          "input_sha256": "fcc75358462f592126bc01bf899334de10820f0252d176a73e56b3f2685fa5f9"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1847904403
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Fjord-description: The description of Fjord is square.\nQuestion: Which description does Fjord have?\nJSON:",
+      "prompt_sha256": "9631555f9f54076aa0691ba9d3a33248dab9751d7161a02e813fe2c81e9730b1"
+    },
+    {
+      "case_id": "test-en-Fjord-weight-q",
+      "pair_id": "test/Fjord/weight",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the weight of Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the weight of Fjord?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-shape",
+              "text": "The shape of Fjord is square."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the weight of Fjord?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-shape",
+              "text": "The shape of Fjord is square."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "91c09a84d2d3d22e25d934d6b791d19eefd63c64ee298106dc5a2c4e5a89b5ed"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Fjord-shape"
+          ],
+          "input_sha256": "6a0ac90229e64dd536b926158fd0055019c7fd5baa9ab504a44e3dfe22ecbbab"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Fjord-shape"
+          ],
+          "input_sha256": "6a0ac90229e64dd536b926158fd0055019c7fd5baa9ab504a44e3dfe22ecbbab"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 867569201
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Fjord-shape: The shape of Fjord is square.\nQuestion: What is the weight of Fjord?\nJSON:",
+      "prompt_sha256": "994a76e73f38b449f5519876c892dc01438854fb7c16dafdf97f23f89166c373"
+    },
+    {
+      "case_id": "test-en-Grove-color_control-q",
+      "pair_id": "test/Grove/color_control",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the color of Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the color of Grove?",
+          "documents": [
+            {
+              "id": "test-en-Grove-color",
+              "text": "The color of Grove is red."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the color of Grove?",
+          "documents": [
+            {
+              "id": "test-en-Grove-color",
+              "text": "The color of Grove is red."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "c910b07eaf87172bd8dfe0ef844653315397382c67ffe9a90cc9a6898b437e63"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Grove-color"
+          ],
+          "input_sha256": "3ec74ddda6b435494fc88d7912c1a2998f17a86b0272b3e842956662a8fdbd6b"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Grove-color"
+          ],
+          "input_sha256": "3ec74ddda6b435494fc88d7912c1a2998f17a86b0272b3e842956662a8fdbd6b"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1568674268
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Grove-color: The color of Grove is red.\nQuestion: What is the color of Grove?\nJSON:",
+      "prompt_sha256": "50ec26af92d7df1ca53dd50be0e05a8a1fad87f26a4b3da8bf03dec2dd79753e"
+    },
+    {
+      "case_id": "test-en-Grove-color_variant-q",
+      "pair_id": "test/Grove/color_variant",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "Which color does Grove have?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "Which color does Grove have?",
+          "documents": [
+            {
+              "id": "test-en-Grove-color",
+              "text": "The color of Grove is red."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "Which color does Grove have?",
+          "documents": [
+            {
+              "id": "test-en-Grove-color",
+              "text": "The color of Grove is red."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "1601189a08aed7379d4d224376efdfbb890976c6eb2186b711c8f27cea5eba95"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Grove-color"
+          ],
+          "input_sha256": "1f622ddc4da77fc9c2856ee0965c3f37dfbb0c0870b4889f6bede2e99a1bcd4f"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Grove-color"
+          ],
+          "input_sha256": "1f622ddc4da77fc9c2856ee0965c3f37dfbb0c0870b4889f6bede2e99a1bcd4f"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1135289004
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Grove-color: The color of Grove is red.\nQuestion: Which color does Grove have?\nJSON:",
+      "prompt_sha256": "91fc31351c9f4543d904e61970f3267e0a1e76c6e3c90be8e25ff55f1b9dba16"
+    },
+    {
+      "case_id": "test-en-Grove-weight-q",
+      "pair_id": "test/Grove/weight",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the weight of Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the weight of Grove?",
+          "documents": [
+            {
+              "id": "test-en-Grove-shape",
+              "text": "The shape of Grove is oval."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the weight of Grove?",
+          "documents": [
+            {
+              "id": "test-en-Grove-shape",
+              "text": "The shape of Grove is oval."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "4e6ae71db5442538fed1b1cd0256b26fb25c68d071ac9f375a517f608b8b54b2"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Grove-shape"
+          ],
+          "input_sha256": "e2d60670fc211f75a67cd40f44d9a80c19442120245eb6fedf3b927cedc0504c"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Grove-shape"
+          ],
+          "input_sha256": "e2d60670fc211f75a67cd40f44d9a80c19442120245eb6fedf3b927cedc0504c"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 433801383
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Grove-shape: The shape of Grove is oval.\nQuestion: What is the weight of Grove?\nJSON:",
+      "prompt_sha256": "c21dd6d79f2823216da298c9628c0b7874c4cc20081e27e9751a332aace31a44"
+    },
+    {
+      "case_id": "test-en-Harbor-color_control-q",
+      "pair_id": "test/Harbor/color_control",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the color of Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the color of Harbor?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-color",
+              "text": "The color of Harbor is gold."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the color of Harbor?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-color",
+              "text": "The color of Harbor is gold."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "1437b019d7bd8a57c1de702fa861f9684cc368d8b907971baefa3cb2ab373b25"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Harbor-color"
+          ],
+          "input_sha256": "bf85a9705ff75ad75c025573f077c69fb96dfe7bc1099f6ba289e2e28088aa63"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Harbor-color"
+          ],
+          "input_sha256": "bf85a9705ff75ad75c025573f077c69fb96dfe7bc1099f6ba289e2e28088aa63"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 342599410
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Harbor-color: The color of Harbor is gold.\nQuestion: What is the color of Harbor?\nJSON:",
+      "prompt_sha256": "0714876d88251ee00a235db9b6a21a6c4d307d98f10cd2c7c429fce02c2c3d6a"
+    },
+    {
+      "case_id": "test-en-Harbor-color_variant-q",
+      "pair_id": "test/Harbor/color_variant",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "Which color does Harbor have?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "Which color does Harbor have?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-color",
+              "text": "The color of Harbor is gold."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "Which color does Harbor have?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-color",
+              "text": "The color of Harbor is gold."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "0638df8cd4f93305794ab7b74e005838919056a583d2bfa9738fefcf8bc2f2b1"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Harbor-color"
+          ],
+          "input_sha256": "7d2990d9b84778bd81f671b85f5dab298376a9fd5b9a7a9c6313de649c74e3a1"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Harbor-color"
+          ],
+          "input_sha256": "7d2990d9b84778bd81f671b85f5dab298376a9fd5b9a7a9c6313de649c74e3a1"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 913175327
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Harbor-color: The color of Harbor is gold.\nQuestion: Which color does Harbor have?\nJSON:",
+      "prompt_sha256": "c67c97dd1e2fc21ce4b16d8ae272539b695386eb868b0e77fe3f2a405b378d58"
+    },
+    {
+      "case_id": "test-en-Harbor-weight-q",
+      "pair_id": "test/Harbor/weight",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the weight of Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the weight of Harbor?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-shape",
+              "text": "The shape of Harbor is flat."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the weight of Harbor?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-shape",
+              "text": "The shape of Harbor is flat."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "5a87c42ed7f184d5abf90e084b04b4a22027a71fadcb2c79c7ccd79879847f74"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Harbor-shape"
+          ],
+          "input_sha256": "56525453b47a89f4d69c6a988249b7cc82eec14d5be82e3a82dd463565ca1f9f"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Harbor-shape"
+          ],
+          "input_sha256": "56525453b47a89f4d69c6a988249b7cc82eec14d5be82e3a82dd463565ca1f9f"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 350329085
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Harbor-shape: The shape of Harbor is flat.\nQuestion: What is the weight of Harbor?\nJSON:",
+      "prompt_sha256": "8d5d70b259d012be29e6edda0cc5d6a2c96215262b3d58a58000a1c1ff72dafc"
+    },
+    {
+      "case_id": "test-he-Ember-color_control-q",
+      "pair_id": "test/Ember/color_control",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה הצבע של Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה הצבע של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-color",
+              "text": "הצבע של Ember הוא כחול."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה הצבע של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-color",
+              "text": "הצבע של Ember הוא כחול."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "b4cd509fffe9cdfb98c4a3be1e9c38435c5ed6a5f8c4f3f6df9704d0a28be947"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Ember-color"
+          ],
+          "input_sha256": "332a6d6dba7aec0decff1bab7ba18391bb313930fdd4051525fba3d286d72e69"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Ember-color"
+          ],
+          "input_sha256": "332a6d6dba7aec0decff1bab7ba18391bb313930fdd4051525fba3d286d72e69"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1061108737
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Ember-color: הצבע של Ember הוא כחול.\nQuestion: מה הצבע של Ember?\nJSON:",
+      "prompt_sha256": "0e3b43c1cee6c2abfe3bad8f71062412f6ecc3e41bf1e68fdc5d9faf27d37132"
+    },
+    {
+      "case_id": "test-he-Ember-color_variant-q",
+      "pair_id": "test/Ember/color_variant",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה צבעו של Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה צבעו של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-shape",
+              "text": "הצורה של Ember היא עגולה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה צבעו של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-shape",
+              "text": "הצורה של Ember היא עגולה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "4b17964ef467c552f32ceae8696e2d61fd7af53b3149afb678cd62a42577dd05"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Ember-shape"
+          ],
+          "input_sha256": "a01da026be60274e825d3c6d57c1c64f170f941786b2e451805850f16f3d4551"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Ember-shape"
+          ],
+          "input_sha256": "a01da026be60274e825d3c6d57c1c64f170f941786b2e451805850f16f3d4551"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 2094157249
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Ember-shape: הצורה של Ember היא עגולה.\nQuestion: מה צבעו של Ember?\nJSON:",
+      "prompt_sha256": "b30e7badf86999d843f971a4a748fa7d63efd502f8a324a70dd4b12683f2c059"
+    },
+    {
+      "case_id": "test-he-Ember-weight-q",
+      "pair_id": "test/Ember/weight",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה המשקל של Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה המשקל של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-shape",
+              "text": "הצורה של Ember היא עגולה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה המשקל של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-shape",
+              "text": "הצורה של Ember היא עגולה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "dc52abb57efe3df4de99721ee450804955f0ab9833ac44412827f82e7fb3a860"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Ember-shape"
+          ],
+          "input_sha256": "59468b35b87044060d3c707be7a9bdab0fcf521fd1a9edfe4407a47964e0cbd2"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Ember-shape"
+          ],
+          "input_sha256": "59468b35b87044060d3c707be7a9bdab0fcf521fd1a9edfe4407a47964e0cbd2"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1515902602
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Ember-shape: הצורה של Ember היא עגולה.\nQuestion: מה המשקל של Ember?\nJSON:",
+      "prompt_sha256": "1f5667c26f6a17d42a98a3dc8eed906c19ff4de9276609e30411b2552b022507"
+    },
+    {
+      "case_id": "test-he-Fjord-description_control-q",
+      "pair_id": "test/Fjord/description_control",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה התיאור של Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה התיאור של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-description",
+              "text": "התיאור של Fjord הוא מרובע."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה התיאור של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-description",
+              "text": "התיאור של Fjord הוא מרובע."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "5d45f03bf20759a16995e220d7b924ead7ce7fe2d89b589283cbd0de59206978"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Fjord-description"
+          ],
+          "input_sha256": "13e0c7537814049c32ad924865def146f512d78a7c7e7c7d20069a3da8675b54"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Fjord-description"
+          ],
+          "input_sha256": "13e0c7537814049c32ad924865def146f512d78a7c7e7c7d20069a3da8675b54"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 928446908
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Fjord-description: התיאור של Fjord הוא מרובע.\nQuestion: מה התיאור של Fjord?\nJSON:",
+      "prompt_sha256": "505b7aea4d32194d4fce11c0c53f083fec424a4e3b8284cc4aa4cb1d3acfeb5a"
+    },
+    {
+      "case_id": "test-he-Fjord-description_variant-q",
+      "pair_id": "test/Fjord/description_variant",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה התאור של Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה התאור של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-shape",
+              "text": "הצורה של Fjord היא מרובעת."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה התאור של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-shape",
+              "text": "הצורה של Fjord היא מרובעת."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "901330b739aaf011387fe3057508473f895d3c13f7cfcea3842a307b2335f57e"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Fjord-shape"
+          ],
+          "input_sha256": "c6b18a6eb740cf5dca7906894b93ed23fba4925309cb987372dc9970a4d34fe1"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Fjord-shape"
+          ],
+          "input_sha256": "c6b18a6eb740cf5dca7906894b93ed23fba4925309cb987372dc9970a4d34fe1"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1847904403
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Fjord-shape: הצורה של Fjord היא מרובעת.\nQuestion: מה התאור של Fjord?\nJSON:",
+      "prompt_sha256": "aa9e7bf05666aaace0730f5154c2be5a72d8d049220e1233847171893db1932d"
+    },
+    {
+      "case_id": "test-he-Fjord-weight-q",
+      "pair_id": "test/Fjord/weight",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה המשקל של Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה המשקל של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-shape",
+              "text": "הצורה של Fjord היא מרובעת."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה המשקל של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-shape",
+              "text": "הצורה של Fjord היא מרובעת."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "624cd03e65afda88450a979ff2ef83073d08a0782b6dc2fbbcf59bf7f7ebabcc"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Fjord-shape"
+          ],
+          "input_sha256": "bdd0568900e6e6a637f49bf4c4044450e6bff8bdd85c47d62a2158dda83f1024"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Fjord-shape"
+          ],
+          "input_sha256": "bdd0568900e6e6a637f49bf4c4044450e6bff8bdd85c47d62a2158dda83f1024"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 867569201
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Fjord-shape: הצורה של Fjord היא מרובעת.\nQuestion: מה המשקל של Fjord?\nJSON:",
+      "prompt_sha256": "dbcb1b8f7cb77b517e989b05c2edd490a36079048b48113983d65241338bba7f"
+    },
+    {
+      "case_id": "test-he-Grove-color_control-q",
+      "pair_id": "test/Grove/color_control",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה הצבע של Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה הצבע של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-color",
+              "text": "הצבע של Grove הוא אדום."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה הצבע של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-color",
+              "text": "הצבע של Grove הוא אדום."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "d9f619d382b03858c0f22846c3e0e79acca1dfbd7e3b9909b6dfbee0116624ad"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Grove-color"
+          ],
+          "input_sha256": "b8e973a242c146b1d987c2b5c23ec6cd224a1dc4669d552f26fd5fc9823c1eb4"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Grove-color"
+          ],
+          "input_sha256": "b8e973a242c146b1d987c2b5c23ec6cd224a1dc4669d552f26fd5fc9823c1eb4"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1568674268
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Grove-color: הצבע של Grove הוא אדום.\nQuestion: מה הצבע של Grove?\nJSON:",
+      "prompt_sha256": "07897e7561b73ab470c08d081e83f8c28039485e7431fee9438e72677eb8a13e"
+    },
+    {
+      "case_id": "test-he-Grove-color_variant-q",
+      "pair_id": "test/Grove/color_variant",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה ה-color של Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה ה-color של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-shape",
+              "text": "הצורה של Grove היא סגלגלה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה ה-color של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-shape",
+              "text": "הצורה של Grove היא סגלגלה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "4a908628d13758c6498396530ec9ce4c83b959ed3cc0774a9a90ed89de7ae641"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Grove-shape"
+          ],
+          "input_sha256": "519436923b4362ae13ccb71ea6fcf3a283acb940dca499a88f315a7ac46ccc58"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Grove-shape"
+          ],
+          "input_sha256": "519436923b4362ae13ccb71ea6fcf3a283acb940dca499a88f315a7ac46ccc58"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1135289004
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Grove-shape: הצורה של Grove היא סגלגלה.\nQuestion: מה ה-color של Grove?\nJSON:",
+      "prompt_sha256": "515d0f834692967f0584dad25cc91360972068e948d9e1891a779253d903c017"
+    },
+    {
+      "case_id": "test-he-Grove-weight-q",
+      "pair_id": "test/Grove/weight",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה המשקל של Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה המשקל של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-shape",
+              "text": "הצורה של Grove היא סגלגלה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה המשקל של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-shape",
+              "text": "הצורה של Grove היא סגלגלה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "c28093c3eb58355bc54831cdd743fe0bcfcfea0345b47140960b0fef8a8d0c8e"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Grove-shape"
+          ],
+          "input_sha256": "37ad66005b20a4a857e576cbfd8d1c8c56243782159cce1c07011ade8dc1c58f"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Grove-shape"
+          ],
+          "input_sha256": "37ad66005b20a4a857e576cbfd8d1c8c56243782159cce1c07011ade8dc1c58f"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 433801383
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Grove-shape: הצורה של Grove היא סגלגלה.\nQuestion: מה המשקל של Grove?\nJSON:",
+      "prompt_sha256": "499c7e3de99c648a416eba3b0b2919974cadc34f131e32409b75235ec9d35ef4"
+    },
+    {
+      "case_id": "test-he-Harbor-color_control-q",
+      "pair_id": "test/Harbor/color_control",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה הצבע של Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה הצבע של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-color",
+              "text": "הצבע של Harbor הוא זהוב."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה הצבע של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-color",
+              "text": "הצבע של Harbor הוא זהוב."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "39cf23b36ad7f18804a73db8737291016fbe826e178a2d538fff6896273c2773"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Harbor-color"
+          ],
+          "input_sha256": "0572ac6b282bc86bbf348bc6dc0ca0af1d06924acb65d7afb273f0058692a0ba"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Harbor-color"
+          ],
+          "input_sha256": "0572ac6b282bc86bbf348bc6dc0ca0af1d06924acb65d7afb273f0058692a0ba"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 342599410
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Harbor-color: הצבע של Harbor הוא זהוב.\nQuestion: מה הצבע של Harbor?\nJSON:",
+      "prompt_sha256": "ea38d8431fd3aec9b6b7886a34f1ec89e3f6b2dd13e3a004dd2042eacfc5c3fc"
+    },
+    {
+      "case_id": "test-he-Harbor-color_variant-q",
+      "pair_id": "test/Harbor/color_variant",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה צבעו של Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה צבעו של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-shape",
+              "text": "הצורה של Harbor היא שטוחה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה צבעו של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-shape",
+              "text": "הצורה של Harbor היא שטוחה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "8a15092c6a7d53351f91d92e999e3697339fb3741953b49622aa937c295f6e0e"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Harbor-shape"
+          ],
+          "input_sha256": "e49529ef8fb54cc1dc11be54c66defc7cb8651111dc1e715f55e92984490f025"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Harbor-shape"
+          ],
+          "input_sha256": "e49529ef8fb54cc1dc11be54c66defc7cb8651111dc1e715f55e92984490f025"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 913175327
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Harbor-shape: הצורה של Harbor היא שטוחה.\nQuestion: מה צבעו של Harbor?\nJSON:",
+      "prompt_sha256": "bc93f9bddbd0e1a330b65d746a203abb024b3c25173dc84726e6608e4c99142e"
+    },
+    {
+      "case_id": "test-he-Harbor-weight-q",
+      "pair_id": "test/Harbor/weight",
+      "repeat_index": 0,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה המשקל של Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה המשקל של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-shape",
+              "text": "הצורה של Harbor היא שטוחה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה המשקל של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-shape",
+              "text": "הצורה של Harbor היא שטוחה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "d5fa113c114fda0f34c1365319580b84dea010752f2afd042c8e0b9c37d7ecdf"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Harbor-shape"
+          ],
+          "input_sha256": "aa3b0f5744d85244cacb6ae4574c2f4eeda929a56f4cc8e9e534b1d8f0330d21"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Harbor-shape"
+          ],
+          "input_sha256": "aa3b0f5744d85244cacb6ae4574c2f4eeda929a56f4cc8e9e534b1d8f0330d21"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 350329085
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Harbor-shape: הצורה של Harbor היא שטוחה.\nQuestion: מה המשקל של Harbor?\nJSON:",
+      "prompt_sha256": "a56737754e43bb83bcd9dffe816a2d7f2ad73f0903292be40c9606210006ea19"
+    },
+    {
+      "case_id": "test-en-Ember-color_control-q",
+      "pair_id": "test/Ember/color_control",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the color of Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the color of Ember?",
+          "documents": [
+            {
+              "id": "test-en-Ember-color",
+              "text": "The color of Ember is blue."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the color of Ember?",
+          "documents": [
+            {
+              "id": "test-en-Ember-color",
+              "text": "The color of Ember is blue."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "ab72c62be5bf39580fb908875878eb7e185273a6e36627ef1608345066f4811e"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Ember-color"
+          ],
+          "input_sha256": "319f78e1f520f9bf7daab26a63ae61e328a0e2036f8588daec9e0000522d511d"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Ember-color"
+          ],
+          "input_sha256": "319f78e1f520f9bf7daab26a63ae61e328a0e2036f8588daec9e0000522d511d"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1061108738
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Ember-color: The color of Ember is blue.\nQuestion: What is the color of Ember?\nJSON:",
+      "prompt_sha256": "b9eecbda5e461bad6b7d3f2bb82733265c8a928059ee756ab05e51f01c59b5ae"
+    },
+    {
+      "case_id": "test-en-Ember-color_variant-q",
+      "pair_id": "test/Ember/color_variant",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "Which color does Ember have?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "Which color does Ember have?",
+          "documents": [
+            {
+              "id": "test-en-Ember-color",
+              "text": "The color of Ember is blue."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "Which color does Ember have?",
+          "documents": [
+            {
+              "id": "test-en-Ember-color",
+              "text": "The color of Ember is blue."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "81ac229246f25d4136a480297f95d2b9f5c292d11bd86a32b59d8eeb605b0cda"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Ember-color"
+          ],
+          "input_sha256": "03941b71870968351112239f121a0a85a6efb8cf7b3dc882ac9ca1d3e79fc840"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Ember-color"
+          ],
+          "input_sha256": "03941b71870968351112239f121a0a85a6efb8cf7b3dc882ac9ca1d3e79fc840"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 2094157250
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Ember-color: The color of Ember is blue.\nQuestion: Which color does Ember have?\nJSON:",
+      "prompt_sha256": "f02271e682b89106d9253025428e903c2544d2612d04c0b4fd1a9bc1df32e80f"
+    },
+    {
+      "case_id": "test-en-Ember-weight-q",
+      "pair_id": "test/Ember/weight",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the weight of Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the weight of Ember?",
+          "documents": [
+            {
+              "id": "test-en-Ember-shape",
+              "text": "The shape of Ember is round."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the weight of Ember?",
+          "documents": [
+            {
+              "id": "test-en-Ember-shape",
+              "text": "The shape of Ember is round."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "25a64795fa46c756b45eb9d2d0a2adf5b7ad9594452bd0ec698005940a69b8ca"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Ember-shape"
+          ],
+          "input_sha256": "037f22a265c0ee3d9cfe1830a270376a8497431475df89e1eafa61a9873e0c0c"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Ember-shape"
+          ],
+          "input_sha256": "037f22a265c0ee3d9cfe1830a270376a8497431475df89e1eafa61a9873e0c0c"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1515902603
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Ember-shape: The shape of Ember is round.\nQuestion: What is the weight of Ember?\nJSON:",
+      "prompt_sha256": "92946f802644b4ee3fa3812b67751698350f6fc86b2104c4659f63f77aa6f057"
+    },
+    {
+      "case_id": "test-en-Fjord-description_control-q",
+      "pair_id": "test/Fjord/description_control",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the description of Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the description of Fjord?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-description",
+              "text": "The description of Fjord is square."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the description of Fjord?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-description",
+              "text": "The description of Fjord is square."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "d5597fa011d3b056209f58cabb830acdf8f4ccc78b6cb44a6214fcbf5f37eb53"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Fjord-description"
+          ],
+          "input_sha256": "1b517a9bb47b842b5c21fda30478fb6c181cfbe9efdd9ee200d05f3ee725fd73"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Fjord-description"
+          ],
+          "input_sha256": "1b517a9bb47b842b5c21fda30478fb6c181cfbe9efdd9ee200d05f3ee725fd73"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 928446909
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Fjord-description: The description of Fjord is square.\nQuestion: What is the description of Fjord?\nJSON:",
+      "prompt_sha256": "96fda086457bf8182cf8402d952a344b4161327571408ee65abd36eaf06fa1b2"
+    },
+    {
+      "case_id": "test-en-Fjord-description_variant-q",
+      "pair_id": "test/Fjord/description_variant",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "Which description does Fjord have?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "Which description does Fjord have?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-description",
+              "text": "The description of Fjord is square."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "Which description does Fjord have?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-description",
+              "text": "The description of Fjord is square."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "4a369918ce8a9b8857ee9610c1492bbce3dbec219003aa2669f7b942a4866561"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Fjord-description"
+          ],
+          "input_sha256": "fcc75358462f592126bc01bf899334de10820f0252d176a73e56b3f2685fa5f9"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Fjord-description"
+          ],
+          "input_sha256": "fcc75358462f592126bc01bf899334de10820f0252d176a73e56b3f2685fa5f9"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1847904404
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Fjord-description: The description of Fjord is square.\nQuestion: Which description does Fjord have?\nJSON:",
+      "prompt_sha256": "9631555f9f54076aa0691ba9d3a33248dab9751d7161a02e813fe2c81e9730b1"
+    },
+    {
+      "case_id": "test-en-Fjord-weight-q",
+      "pair_id": "test/Fjord/weight",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the weight of Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the weight of Fjord?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-shape",
+              "text": "The shape of Fjord is square."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the weight of Fjord?",
+          "documents": [
+            {
+              "id": "test-en-Fjord-shape",
+              "text": "The shape of Fjord is square."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "91c09a84d2d3d22e25d934d6b791d19eefd63c64ee298106dc5a2c4e5a89b5ed"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Fjord-shape"
+          ],
+          "input_sha256": "6a0ac90229e64dd536b926158fd0055019c7fd5baa9ab504a44e3dfe22ecbbab"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Fjord-shape"
+          ],
+          "input_sha256": "6a0ac90229e64dd536b926158fd0055019c7fd5baa9ab504a44e3dfe22ecbbab"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 867569202
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Fjord-shape: The shape of Fjord is square.\nQuestion: What is the weight of Fjord?\nJSON:",
+      "prompt_sha256": "994a76e73f38b449f5519876c892dc01438854fb7c16dafdf97f23f89166c373"
+    },
+    {
+      "case_id": "test-en-Grove-color_control-q",
+      "pair_id": "test/Grove/color_control",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the color of Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the color of Grove?",
+          "documents": [
+            {
+              "id": "test-en-Grove-color",
+              "text": "The color of Grove is red."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the color of Grove?",
+          "documents": [
+            {
+              "id": "test-en-Grove-color",
+              "text": "The color of Grove is red."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "c910b07eaf87172bd8dfe0ef844653315397382c67ffe9a90cc9a6898b437e63"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Grove-color"
+          ],
+          "input_sha256": "3ec74ddda6b435494fc88d7912c1a2998f17a86b0272b3e842956662a8fdbd6b"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Grove-color"
+          ],
+          "input_sha256": "3ec74ddda6b435494fc88d7912c1a2998f17a86b0272b3e842956662a8fdbd6b"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1568674269
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Grove-color: The color of Grove is red.\nQuestion: What is the color of Grove?\nJSON:",
+      "prompt_sha256": "50ec26af92d7df1ca53dd50be0e05a8a1fad87f26a4b3da8bf03dec2dd79753e"
+    },
+    {
+      "case_id": "test-en-Grove-color_variant-q",
+      "pair_id": "test/Grove/color_variant",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "Which color does Grove have?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "Which color does Grove have?",
+          "documents": [
+            {
+              "id": "test-en-Grove-color",
+              "text": "The color of Grove is red."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "Which color does Grove have?",
+          "documents": [
+            {
+              "id": "test-en-Grove-color",
+              "text": "The color of Grove is red."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "1601189a08aed7379d4d224376efdfbb890976c6eb2186b711c8f27cea5eba95"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Grove-color"
+          ],
+          "input_sha256": "1f622ddc4da77fc9c2856ee0965c3f37dfbb0c0870b4889f6bede2e99a1bcd4f"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Grove-color"
+          ],
+          "input_sha256": "1f622ddc4da77fc9c2856ee0965c3f37dfbb0c0870b4889f6bede2e99a1bcd4f"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1135289005
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Grove-color: The color of Grove is red.\nQuestion: Which color does Grove have?\nJSON:",
+      "prompt_sha256": "91fc31351c9f4543d904e61970f3267e0a1e76c6e3c90be8e25ff55f1b9dba16"
+    },
+    {
+      "case_id": "test-en-Grove-weight-q",
+      "pair_id": "test/Grove/weight",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the weight of Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the weight of Grove?",
+          "documents": [
+            {
+              "id": "test-en-Grove-shape",
+              "text": "The shape of Grove is oval."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the weight of Grove?",
+          "documents": [
+            {
+              "id": "test-en-Grove-shape",
+              "text": "The shape of Grove is oval."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "4e6ae71db5442538fed1b1cd0256b26fb25c68d071ac9f375a517f608b8b54b2"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Grove-shape"
+          ],
+          "input_sha256": "e2d60670fc211f75a67cd40f44d9a80c19442120245eb6fedf3b927cedc0504c"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Grove-shape"
+          ],
+          "input_sha256": "e2d60670fc211f75a67cd40f44d9a80c19442120245eb6fedf3b927cedc0504c"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 433801384
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Grove-shape: The shape of Grove is oval.\nQuestion: What is the weight of Grove?\nJSON:",
+      "prompt_sha256": "c21dd6d79f2823216da298c9628c0b7874c4cc20081e27e9751a332aace31a44"
+    },
+    {
+      "case_id": "test-en-Harbor-color_control-q",
+      "pair_id": "test/Harbor/color_control",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the color of Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the color of Harbor?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-color",
+              "text": "The color of Harbor is gold."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the color of Harbor?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-color",
+              "text": "The color of Harbor is gold."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "1437b019d7bd8a57c1de702fa861f9684cc368d8b907971baefa3cb2ab373b25"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Harbor-color"
+          ],
+          "input_sha256": "bf85a9705ff75ad75c025573f077c69fb96dfe7bc1099f6ba289e2e28088aa63"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Harbor-color"
+          ],
+          "input_sha256": "bf85a9705ff75ad75c025573f077c69fb96dfe7bc1099f6ba289e2e28088aa63"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 342599411
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Harbor-color: The color of Harbor is gold.\nQuestion: What is the color of Harbor?\nJSON:",
+      "prompt_sha256": "0714876d88251ee00a235db9b6a21a6c4d307d98f10cd2c7c429fce02c2c3d6a"
+    },
+    {
+      "case_id": "test-en-Harbor-color_variant-q",
+      "pair_id": "test/Harbor/color_variant",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "Which color does Harbor have?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "Which color does Harbor have?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-color",
+              "text": "The color of Harbor is gold."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "Which color does Harbor have?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-color",
+              "text": "The color of Harbor is gold."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "0638df8cd4f93305794ab7b74e005838919056a583d2bfa9738fefcf8bc2f2b1"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Harbor-color"
+          ],
+          "input_sha256": "7d2990d9b84778bd81f671b85f5dab298376a9fd5b9a7a9c6313de649c74e3a1"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Harbor-color"
+          ],
+          "input_sha256": "7d2990d9b84778bd81f671b85f5dab298376a9fd5b9a7a9c6313de649c74e3a1"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 913175328
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Harbor-color: The color of Harbor is gold.\nQuestion: Which color does Harbor have?\nJSON:",
+      "prompt_sha256": "c67c97dd1e2fc21ce4b16d8ae272539b695386eb868b0e77fe3f2a405b378d58"
+    },
+    {
+      "case_id": "test-en-Harbor-weight-q",
+      "pair_id": "test/Harbor/weight",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "What is the weight of Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "What is the weight of Harbor?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-shape",
+              "text": "The shape of Harbor is flat."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "What is the weight of Harbor?",
+          "documents": [
+            {
+              "id": "test-en-Harbor-shape",
+              "text": "The shape of Harbor is flat."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "5a87c42ed7f184d5abf90e084b04b4a22027a71fadcb2c79c7ccd79879847f74"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-en-Harbor-shape"
+          ],
+          "input_sha256": "56525453b47a89f4d69c6a988249b7cc82eec14d5be82e3a82dd463565ca1f9f"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-en-Harbor-shape"
+          ],
+          "input_sha256": "56525453b47a89f4d69c6a988249b7cc82eec14d5be82e3a82dd463565ca1f9f"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 350329086
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-en-Harbor-shape: The shape of Harbor is flat.\nQuestion: What is the weight of Harbor?\nJSON:",
+      "prompt_sha256": "8d5d70b259d012be29e6edda0cc5d6a2c96215262b3d58a58000a1c1ff72dafc"
+    },
+    {
+      "case_id": "test-he-Ember-color_control-q",
+      "pair_id": "test/Ember/color_control",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה הצבע של Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה הצבע של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-color",
+              "text": "הצבע של Ember הוא כחול."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה הצבע של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-color",
+              "text": "הצבע של Ember הוא כחול."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "b4cd509fffe9cdfb98c4a3be1e9c38435c5ed6a5f8c4f3f6df9704d0a28be947"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Ember-color"
+          ],
+          "input_sha256": "332a6d6dba7aec0decff1bab7ba18391bb313930fdd4051525fba3d286d72e69"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Ember-color"
+          ],
+          "input_sha256": "332a6d6dba7aec0decff1bab7ba18391bb313930fdd4051525fba3d286d72e69"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1061108738
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Ember-color: הצבע של Ember הוא כחול.\nQuestion: מה הצבע של Ember?\nJSON:",
+      "prompt_sha256": "0e3b43c1cee6c2abfe3bad8f71062412f6ecc3e41bf1e68fdc5d9faf27d37132"
+    },
+    {
+      "case_id": "test-he-Ember-color_variant-q",
+      "pair_id": "test/Ember/color_variant",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה צבעו של Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה צבעו של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-shape",
+              "text": "הצורה של Ember היא עגולה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה צבעו של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-shape",
+              "text": "הצורה של Ember היא עגולה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "4b17964ef467c552f32ceae8696e2d61fd7af53b3149afb678cd62a42577dd05"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Ember-shape"
+          ],
+          "input_sha256": "a01da026be60274e825d3c6d57c1c64f170f941786b2e451805850f16f3d4551"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Ember-shape"
+          ],
+          "input_sha256": "a01da026be60274e825d3c6d57c1c64f170f941786b2e451805850f16f3d4551"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 2094157250
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Ember-shape: הצורה של Ember היא עגולה.\nQuestion: מה צבעו של Ember?\nJSON:",
+      "prompt_sha256": "b30e7badf86999d843f971a4a748fa7d63efd502f8a324a70dd4b12683f2c059"
+    },
+    {
+      "case_id": "test-he-Ember-weight-q",
+      "pair_id": "test/Ember/weight",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה המשקל של Ember?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה המשקל של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-shape",
+              "text": "הצורה של Ember היא עגולה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה המשקל של Ember?",
+          "documents": [
+            {
+              "id": "test-he-Ember-shape",
+              "text": "הצורה של Ember היא עגולה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "dc52abb57efe3df4de99721ee450804955f0ab9833ac44412827f82e7fb3a860"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Ember-shape"
+          ],
+          "input_sha256": "59468b35b87044060d3c707be7a9bdab0fcf521fd1a9edfe4407a47964e0cbd2"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Ember-shape"
+          ],
+          "input_sha256": "59468b35b87044060d3c707be7a9bdab0fcf521fd1a9edfe4407a47964e0cbd2"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1515902603
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Ember-shape: הצורה של Ember היא עגולה.\nQuestion: מה המשקל של Ember?\nJSON:",
+      "prompt_sha256": "1f5667c26f6a17d42a98a3dc8eed906c19ff4de9276609e30411b2552b022507"
+    },
+    {
+      "case_id": "test-he-Fjord-description_control-q",
+      "pair_id": "test/Fjord/description_control",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה התיאור של Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה התיאור של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-description",
+              "text": "התיאור של Fjord הוא מרובע."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה התיאור של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-description",
+              "text": "התיאור של Fjord הוא מרובע."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "5d45f03bf20759a16995e220d7b924ead7ce7fe2d89b589283cbd0de59206978"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Fjord-description"
+          ],
+          "input_sha256": "13e0c7537814049c32ad924865def146f512d78a7c7e7c7d20069a3da8675b54"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Fjord-description"
+          ],
+          "input_sha256": "13e0c7537814049c32ad924865def146f512d78a7c7e7c7d20069a3da8675b54"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 928446909
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Fjord-description: התיאור של Fjord הוא מרובע.\nQuestion: מה התיאור של Fjord?\nJSON:",
+      "prompt_sha256": "505b7aea4d32194d4fce11c0c53f083fec424a4e3b8284cc4aa4cb1d3acfeb5a"
+    },
+    {
+      "case_id": "test-he-Fjord-description_variant-q",
+      "pair_id": "test/Fjord/description_variant",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה התאור של Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה התאור של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-shape",
+              "text": "הצורה של Fjord היא מרובעת."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה התאור של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-shape",
+              "text": "הצורה של Fjord היא מרובעת."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "901330b739aaf011387fe3057508473f895d3c13f7cfcea3842a307b2335f57e"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Fjord-shape"
+          ],
+          "input_sha256": "c6b18a6eb740cf5dca7906894b93ed23fba4925309cb987372dc9970a4d34fe1"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Fjord-shape"
+          ],
+          "input_sha256": "c6b18a6eb740cf5dca7906894b93ed23fba4925309cb987372dc9970a4d34fe1"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1847904404
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Fjord-shape: הצורה של Fjord היא מרובעת.\nQuestion: מה התאור של Fjord?\nJSON:",
+      "prompt_sha256": "aa9e7bf05666aaace0730f5154c2be5a72d8d049220e1233847171893db1932d"
+    },
+    {
+      "case_id": "test-he-Fjord-weight-q",
+      "pair_id": "test/Fjord/weight",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה המשקל של Fjord?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה המשקל של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-shape",
+              "text": "הצורה של Fjord היא מרובעת."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה המשקל של Fjord?",
+          "documents": [
+            {
+              "id": "test-he-Fjord-shape",
+              "text": "הצורה של Fjord היא מרובעת."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "624cd03e65afda88450a979ff2ef83073d08a0782b6dc2fbbcf59bf7f7ebabcc"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Fjord-shape"
+          ],
+          "input_sha256": "bdd0568900e6e6a637f49bf4c4044450e6bff8bdd85c47d62a2158dda83f1024"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Fjord-shape"
+          ],
+          "input_sha256": "bdd0568900e6e6a637f49bf4c4044450e6bff8bdd85c47d62a2158dda83f1024"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 867569202
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Fjord-shape: הצורה של Fjord היא מרובעת.\nQuestion: מה המשקל של Fjord?\nJSON:",
+      "prompt_sha256": "dbcb1b8f7cb77b517e989b05c2edd490a36079048b48113983d65241338bba7f"
+    },
+    {
+      "case_id": "test-he-Grove-color_control-q",
+      "pair_id": "test/Grove/color_control",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה הצבע של Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה הצבע של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-color",
+              "text": "הצבע של Grove הוא אדום."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה הצבע של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-color",
+              "text": "הצבע של Grove הוא אדום."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "d9f619d382b03858c0f22846c3e0e79acca1dfbd7e3b9909b6dfbee0116624ad"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Grove-color"
+          ],
+          "input_sha256": "b8e973a242c146b1d987c2b5c23ec6cd224a1dc4669d552f26fd5fc9823c1eb4"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Grove-color"
+          ],
+          "input_sha256": "b8e973a242c146b1d987c2b5c23ec6cd224a1dc4669d552f26fd5fc9823c1eb4"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1568674269
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Grove-color: הצבע של Grove הוא אדום.\nQuestion: מה הצבע של Grove?\nJSON:",
+      "prompt_sha256": "07897e7561b73ab470c08d081e83f8c28039485e7431fee9438e72677eb8a13e"
+    },
+    {
+      "case_id": "test-he-Grove-color_variant-q",
+      "pair_id": "test/Grove/color_variant",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה ה-color של Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה ה-color של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-shape",
+              "text": "הצורה של Grove היא סגלגלה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה ה-color של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-shape",
+              "text": "הצורה של Grove היא סגלגלה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "4a908628d13758c6498396530ec9ce4c83b959ed3cc0774a9a90ed89de7ae641"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Grove-shape"
+          ],
+          "input_sha256": "519436923b4362ae13ccb71ea6fcf3a283acb940dca499a88f315a7ac46ccc58"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Grove-shape"
+          ],
+          "input_sha256": "519436923b4362ae13ccb71ea6fcf3a283acb940dca499a88f315a7ac46ccc58"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 1135289005
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Grove-shape: הצורה של Grove היא סגלגלה.\nQuestion: מה ה-color של Grove?\nJSON:",
+      "prompt_sha256": "515d0f834692967f0584dad25cc91360972068e948d9e1891a779253d903c017"
+    },
+    {
+      "case_id": "test-he-Grove-weight-q",
+      "pair_id": "test/Grove/weight",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה המשקל של Grove?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה המשקל של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-shape",
+              "text": "הצורה של Grove היא סגלגלה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה המשקל של Grove?",
+          "documents": [
+            {
+              "id": "test-he-Grove-shape",
+              "text": "הצורה של Grove היא סגלגלה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "c28093c3eb58355bc54831cdd743fe0bcfcfea0345b47140960b0fef8a8d0c8e"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Grove-shape"
+          ],
+          "input_sha256": "37ad66005b20a4a857e576cbfd8d1c8c56243782159cce1c07011ade8dc1c58f"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Grove-shape"
+          ],
+          "input_sha256": "37ad66005b20a4a857e576cbfd8d1c8c56243782159cce1c07011ade8dc1c58f"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 433801384
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Grove-shape: הצורה של Grove היא סגלגלה.\nQuestion: מה המשקל של Grove?\nJSON:",
+      "prompt_sha256": "499c7e3de99c648a416eba3b0b2919974cadc34f131e32409b75235ec9d35ef4"
+    },
+    {
+      "case_id": "test-he-Harbor-color_control-q",
+      "pair_id": "test/Harbor/color_control",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה הצבע של Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה הצבע של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-color",
+              "text": "הצבע של Harbor הוא זהוב."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה הצבע של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-color",
+              "text": "הצבע של Harbor הוא זהוב."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "39cf23b36ad7f18804a73db8737291016fbe826e178a2d538fff6896273c2773"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Harbor-color"
+          ],
+          "input_sha256": "0572ac6b282bc86bbf348bc6dc0ca0af1d06924acb65d7afb273f0058692a0ba"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Harbor-color"
+          ],
+          "input_sha256": "0572ac6b282bc86bbf348bc6dc0ca0af1d06924acb65d7afb273f0058692a0ba"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 342599411
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Harbor-color: הצבע של Harbor הוא זהוב.\nQuestion: מה הצבע של Harbor?\nJSON:",
+      "prompt_sha256": "ea38d8431fd3aec9b6b7886a34f1ec89e3f6b2dd13e3a004dd2042eacfc5c3fc"
+    },
+    {
+      "case_id": "test-he-Harbor-color_variant-q",
+      "pair_id": "test/Harbor/color_variant",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה צבעו של Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה צבעו של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-shape",
+              "text": "הצורה של Harbor היא שטוחה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה צבעו של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-shape",
+              "text": "הצורה של Harbor היא שטוחה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "8a15092c6a7d53351f91d92e999e3697339fb3741953b49622aa937c295f6e0e"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Harbor-shape"
+          ],
+          "input_sha256": "e49529ef8fb54cc1dc11be54c66defc7cb8651111dc1e715f55e92984490f025"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Harbor-shape"
+          ],
+          "input_sha256": "e49529ef8fb54cc1dc11be54c66defc7cb8651111dc1e715f55e92984490f025"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 913175328
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Harbor-shape: הצורה של Harbor היא שטוחה.\nQuestion: מה צבעו של Harbor?\nJSON:",
+      "prompt_sha256": "bc93f9bddbd0e1a330b65d746a203abb024b3c25173dc84726e6608e4c99142e"
+    },
+    {
+      "case_id": "test-he-Harbor-weight-q",
+      "pair_id": "test/Harbor/weight",
+      "repeat_index": 1,
+      "inputs": {
+        "always_abstain": {
+          "question": "מה המשקל של Harbor?",
+          "documents": []
+        },
+        "lexical_retrieval": {
+          "question": "מה המשקל של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-shape",
+              "text": "הצורה של Harbor היא שטוחה."
+            }
+          ]
+        },
+        "local_model": {
+          "question": "מה המשקל של Harbor?",
+          "documents": [
+            {
+              "id": "test-he-Harbor-shape",
+              "text": "הצורה של Harbor היא שטוחה."
+            }
+          ]
+        }
+      },
+      "exposures": {
+        "always_abstain": {
+          "document_ids": [],
+          "input_sha256": "d5fa113c114fda0f34c1365319580b84dea010752f2afd042c8e0b9c37d7ecdf"
+        },
+        "lexical_retrieval": {
+          "document_ids": [
+            "test-he-Harbor-shape"
+          ],
+          "input_sha256": "aa3b0f5744d85244cacb6ae4574c2f4eeda929a56f4cc8e9e534b1d8f0330d21"
+        },
+        "local_model": {
+          "document_ids": [
+            "test-he-Harbor-shape"
+          ],
+          "input_sha256": "aa3b0f5744d85244cacb6ae4574c2f4eeda929a56f4cc8e9e534b1d8f0330d21"
+        }
+      },
+      "settings": {
+        "n_ctx": 2048,
+        "n_gpu_layers": 0,
+        "n_threads": 1,
+        "n_threads_batch": 1,
+        "n_batch": 128,
+        "temperature": 0.0,
+        "max_tokens": 96,
+        "top_p": 1.0,
+        "top_k": 0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "repeat_penalty": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "mirostat_mode": 0,
+        "stop": [],
+        "seed": 350329086
+      },
+      "prompt": "Answer the question using only the evidence below. Return one JSON object with keys \"answer\" and \"citation\". Use a short exact answer and one listed document ID. If the evidence does not answer the question, use {\"answer\": null, \"citation\": null}. Do not add prose.\nEvidence:\ntest-he-Harbor-shape: הצורה של Harbor היא שטוחה.\nQuestion: מה המשקל של Harbor?\nJSON:",
+      "prompt_sha256": "a56737754e43bb83bcd9dffe816a2d7f2ad73f0903292be40c9606210006ea19"
+    }
+  ]
+}

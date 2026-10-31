@@ -1,0 +1,7 @@
+usage: python -m cola_lab [-h] [--output-dir OUTPUT_DIR]
+                          [--predictions PREDICTIONS] [--model MODEL]
+                          [--protocol PROTOCOL]
+                          [--context-mode {shared-document,all-documents}]
+                          [--seed SEED] [--repeats REPEATS]
+                          {run,smoke,answers,answers-smoke,gguf,gguf-plan,gguf-verify,study-smoke}
+python -m cola_lab: error: An existing local .gguf model file is required

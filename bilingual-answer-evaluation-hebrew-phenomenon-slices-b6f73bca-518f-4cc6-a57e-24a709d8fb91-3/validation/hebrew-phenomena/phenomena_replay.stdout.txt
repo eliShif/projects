@@ -1,0 +1,6 @@
+{
+  "status": "verified",
+  "case_count": 24,
+  "dataset_sha256": "79b5f45968cc31fe1741ac83d19c76a2e66aeec8ebab1a5e7ac870d68374d962",
+  "model_quality_evidence": false
+}

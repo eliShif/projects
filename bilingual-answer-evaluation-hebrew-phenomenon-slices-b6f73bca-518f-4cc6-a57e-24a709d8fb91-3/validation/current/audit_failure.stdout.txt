@@ -1,0 +1,35 @@
+{
+  "status": "failed",
+  "protocol_sha256": "8a078f9634748cea36b7a43ef298b53a317b0ed3026d6fc5484468c495bb0af4",
+  "context_mode": "shared-document",
+  "comparison": null,
+  "backend": "llama-cpp-python",
+  "model_sha256": null,
+  "model_file_checked": false,
+  "model_quality_evidence": false,
+  "by_language": {
+    "en": {
+      "planned": 24,
+      "attempted": 0,
+      "parsed": 0,
+      "invalid_output": 0,
+      "backend_error": 0,
+      "not_attempted": 24
+    },
+    "he": {
+      "planned": 24,
+      "attempted": 0,
+      "parsed": 0,
+      "invalid_output": 0,
+      "backend_error": 0,
+      "not_attempted": 24
+    }
+  },
+  "quality_summary": null,
+  "error": {
+    "type": "ValueError",
+    "message": "An existing local .gguf model file is required"
+  },
+  "failure_phase": "model_check",
+  "failure_case": null
+}

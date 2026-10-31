@@ -1,0 +1,2 @@
+phenomena-smoke: 24 held-out cases, 3 Hebrew slices, 4 variant failures; baseline replay, shared inputs and missing-model audit verified; no model quality result
+wheel-smoke: packaged code and corpus executed successfully

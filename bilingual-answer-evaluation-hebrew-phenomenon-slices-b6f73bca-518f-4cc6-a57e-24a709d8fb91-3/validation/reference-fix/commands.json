@@ -1,0 +1,255 @@
+[
+  {
+    "name": "venv",
+    "command": {
+      "executable": "python3",
+      "args": [
+        "-m",
+        "venv",
+        "--system-site-packages",
+        ".venv"
+      ]
+    },
+    "started_at": "2026-10-30T00:53:28.080568+00:00",
+    "finished_at": "2026-10-30T00:53:30.748794+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "venv.stdout.txt",
+    "stderr": "venv.stderr.txt",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "install",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-build-isolation",
+        "--no-deps",
+        "-e",
+        "."
+      ]
+    },
+    "started_at": "2026-10-30T00:53:30.749782+00:00",
+    "finished_at": "2026-10-30T00:53:33.316096+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "install.stdout.txt",
+    "stderr": "install.stderr.txt",
+    "stdout_sha256": "29c926d2e6872264598fedc7c6e5c9d5657eef1a217fb51f37605750b8e7e877",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "tests",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ]
+    },
+    "started_at": "2026-10-30T00:53:33.316869+00:00",
+    "finished_at": "2026-10-30T00:53:38.223347+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "tests.stdout.txt",
+    "stderr": "tests.stderr.txt",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "fc0e4bc265516d958908ed57a367d2049c8ef82fad630eb36168b35c815d45f5",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "build",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "pip",
+        "wheel",
+        "--no-index",
+        "--no-build-isolation",
+        "--no-deps",
+        "--wheel-dir",
+        "dist",
+        "."
+      ]
+    },
+    "started_at": "2026-10-30T00:53:38.224411+00:00",
+    "finished_at": "2026-10-30T00:53:40.160589+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "build.stdout.txt",
+    "stderr": "build.stderr.txt",
+    "stdout_sha256": "885a6c35da2b9637cf3013509bee44eaa8c35584b4e25fe34c0c2b970e9e39e0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "baseline",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "answers",
+        "--output-dir",
+        "validation/reference-fix/baseline"
+      ]
+    },
+    "started_at": "2026-10-30T00:53:40.161802+00:00",
+    "finished_at": "2026-10-30T00:53:40.336647+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "baseline.stdout.txt",
+    "stderr": "baseline.stderr.txt",
+    "stdout_sha256": "b358bba83d5000961c83ebdac1a9bca1fc691b575d256eeefadf62bbafa4de46",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "plan",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "gguf-plan",
+        "--output-dir",
+        "validation/reference-fix/plan",
+        "--context-mode",
+        "shared-document",
+        "--seed",
+        "17",
+        "--repeats",
+        "2"
+      ]
+    },
+    "started_at": "2026-10-30T00:53:40.337725+00:00",
+    "finished_at": "2026-10-30T00:53:40.520270+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "plan.stdout.txt",
+    "stderr": "plan.stderr.txt",
+    "stdout_sha256": "6b03b35f6743ce6d6d0b35e9ccb3a08a316d7544b7e38fae500fa6dd5bd2c018",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "missing_model",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "gguf",
+        "--model",
+        "validation/reference-fix/not-provided.gguf",
+        "--protocol",
+        "validation/reference-fix/plan/gguf_protocol.json",
+        "--output-dir",
+        "validation/reference-fix/missing-model"
+      ]
+    },
+    "started_at": "2026-10-30T00:53:40.520944+00:00",
+    "finished_at": "2026-10-30T00:53:40.701124+00:00",
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "stdout": "missing_model.stdout.txt",
+    "stderr": "missing_model.stderr.txt",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "d70474fafafe63892dc29494c620582c85ffb92ff81f0bdc4e4bfce7aba3f95d",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "audit_failure",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "gguf-verify",
+        "--output-dir",
+        "validation/reference-fix/missing-model"
+      ]
+    },
+    "started_at": "2026-10-30T00:53:40.701943+00:00",
+    "finished_at": "2026-10-30T00:53:40.843507+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "audit_failure.stdout.txt",
+    "stderr": "audit_failure.stderr.txt",
+    "stdout_sha256": "5bb4ec5a3cbb3db6497e9530ac1aca7e34aaab1ee7174ae812f4eab807193d3e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "baseline_smoke",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "answers-smoke"
+      ]
+    },
+    "started_at": "2026-10-30T00:53:40.844768+00:00",
+    "finished_at": "2026-10-30T00:53:41.018714+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "baseline_smoke.stdout.txt",
+    "stderr": "baseline_smoke.stderr.txt",
+    "stdout_sha256": "7d5464e7d036fab0ece4905bc0a70359ef06502b1f1beb894735c616f09bae11",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "smoke",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "study-smoke"
+      ]
+    },
+    "started_at": "2026-10-30T00:53:41.020249+00:00",
+    "finished_at": "2026-10-30T00:53:41.264824+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "smoke.stdout.txt",
+    "stderr": "smoke.stderr.txt",
+    "stdout_sha256": "43de23a0dfd3f3994809d219e2740c2729c22ec1acb578fec3124bed738e8fbe",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  },
+  {
+    "name": "retained_smoke",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "smoke"
+      ]
+    },
+    "started_at": "2026-10-30T00:53:41.265559+00:00",
+    "finished_at": "2026-10-30T00:53:41.417932+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "retained_smoke.stdout.txt",
+    "stderr": "retained_smoke.stderr.txt",
+    "stdout_sha256": "813f54cabe6c42c52534852ddd4efee0a96024e078601026dcf295d9e7dd8afa",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "e3159b0aafefbf4d299919a84fa0322957292169bf2c5581eefdec712457f1f3"
+  }
+]

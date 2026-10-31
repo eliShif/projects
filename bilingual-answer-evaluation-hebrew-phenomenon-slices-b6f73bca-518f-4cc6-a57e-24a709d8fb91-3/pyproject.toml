@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bilingual-answer-evaluation"
+version = "0.4.0"
+description = "Bilingual answer evaluation with validated Hebrew variants and auditable error slices"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+gguf = ["llama-cpp-python>=0.3.16,<0.4"]
+
+[tool.setuptools]
+packages = ["cola_lab"]
+
+[tool.setuptools.package-data]
+cola_lab = ["resources/*.json"]

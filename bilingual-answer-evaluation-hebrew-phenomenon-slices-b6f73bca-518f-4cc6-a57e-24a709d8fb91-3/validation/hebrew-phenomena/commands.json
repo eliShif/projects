@@ -1,0 +1,342 @@
+[
+  {
+    "name": "venv",
+    "command": {
+      "executable": "python3",
+      "args": [
+        "-m",
+        "venv",
+        "--system-site-packages",
+        ".venv"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:23.797942+00:00",
+    "finished_at": "2026-10-31T05:30:26.256139+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "venv.stdout.txt",
+    "stderr": "venv.stderr.txt",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "install",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-build-isolation",
+        "--no-deps",
+        "-e",
+        "."
+      ]
+    },
+    "started_at": "2026-10-31T05:30:26.256660+00:00",
+    "finished_at": "2026-10-31T05:30:28.230062+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "install.stdout.txt",
+    "stderr": "install.stderr.txt",
+    "stdout_sha256": "25752b431e7920c47f66351dd9072f350c2737fb7ed269762f43836b7d285a1b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "tests",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:28.231013+00:00",
+    "finished_at": "2026-10-31T05:30:35.048580+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "tests.stdout.txt",
+    "stderr": "tests.stderr.txt",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "26fcdd26473f1171d9ca9a62d7c21ce69e105bb5b98787c67f266eb70d88c00c",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "build",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "pip",
+        "wheel",
+        "--no-index",
+        "--no-build-isolation",
+        "--no-deps",
+        "--wheel-dir",
+        "dist",
+        "."
+      ]
+    },
+    "started_at": "2026-10-31T05:30:35.049388+00:00",
+    "finished_at": "2026-10-31T05:30:36.679747+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "build.stdout.txt",
+    "stderr": "build.stderr.txt",
+    "stdout_sha256": "c703cf4218ee8fea5fa0b0b077cdc95e3399d237aee3cfb1a8012893fe27b211",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "wheel_smoke",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "scripts/wheel_smoke.py",
+        "dist/bilingual_answer_evaluation-0.4.0-py3-none-any.whl"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:36.680483+00:00",
+    "finished_at": "2026-10-31T05:30:37.065428+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "wheel_smoke.stdout.txt",
+    "stderr": "wheel_smoke.stderr.txt",
+    "stdout_sha256": "819628b17b0e9263c9bc0ff68efb949eba8c1c98c4a9364497bef5c31f487549",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "baseline",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "answers",
+        "--output-dir",
+        "validation/hebrew-phenomena/baseline"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:37.066156+00:00",
+    "finished_at": "2026-10-31T05:30:37.197814+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "baseline.stdout.txt",
+    "stderr": "baseline.stderr.txt",
+    "stdout_sha256": "8639c54e94aba0279d6ba8c0ff1e6b6c5f6fa52581f25f4629d494736f91308e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "phenomena",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "answers",
+        "--dataset",
+        "hebrew-phenomena",
+        "--output-dir",
+        "validation/hebrew-phenomena/phenomena"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:37.198781+00:00",
+    "finished_at": "2026-10-31T05:30:37.337566+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "phenomena.stdout.txt",
+    "stderr": "phenomena.stderr.txt",
+    "stdout_sha256": "2f235af18d20c65450e20dfef60002b02dadf0ebfd4653c2cc4b9aaf0a9be3af",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "phenomena_replay",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "answers-verify",
+        "--output-dir",
+        "validation/hebrew-phenomena/phenomena"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:37.338267+00:00",
+    "finished_at": "2026-10-31T05:30:37.491372+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "phenomena_replay.stdout.txt",
+    "stderr": "phenomena_replay.stderr.txt",
+    "stdout_sha256": "839c50bf28877fc5913342899d8611f05e94183b6a11ceea1abc1192ae4237fe",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "plan",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "gguf-plan",
+        "--output-dir",
+        "validation/hebrew-phenomena/plan",
+        "--dataset",
+        "hebrew-phenomena",
+        "--context-mode",
+        "shared-document",
+        "--seed",
+        "17",
+        "--repeats",
+        "2"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:37.492369+00:00",
+    "finished_at": "2026-10-31T05:30:37.621485+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "plan.stdout.txt",
+    "stderr": "plan.stderr.txt",
+    "stdout_sha256": "762bd02326e5982eed2e3d7c50e2e5701079c3159c304ddde69232fcee9bc156",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "missing_model",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "gguf",
+        "--model",
+        "validation/hebrew-phenomena/not-provided.gguf",
+        "--protocol",
+        "validation/hebrew-phenomena/plan/gguf_protocol.json",
+        "--output-dir",
+        "validation/hebrew-phenomena/missing-model"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:37.622337+00:00",
+    "finished_at": "2026-10-31T05:30:37.767644+00:00",
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "stdout": "missing_model.stdout.txt",
+    "stderr": "missing_model.stderr.txt",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "a355fe64d065b2962e348903677dc087ebe8c143deb674ae426817b5be22cd2b",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "audit_failure",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "gguf-verify",
+        "--output-dir",
+        "validation/hebrew-phenomena/missing-model"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:37.768307+00:00",
+    "finished_at": "2026-10-31T05:30:37.917632+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "audit_failure.stdout.txt",
+    "stderr": "audit_failure.stderr.txt",
+    "stdout_sha256": "82127e5279dd78874c57cf25a758164b9518771c46707d037b8f846e84644b11",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "baseline_smoke",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "answers-smoke"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:37.919494+00:00",
+    "finished_at": "2026-10-31T05:30:38.061902+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "baseline_smoke.stdout.txt",
+    "stderr": "baseline_smoke.stderr.txt",
+    "stdout_sha256": "7d5464e7d036fab0ece4905bc0a70359ef06502b1f1beb894735c616f09bae11",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "smoke",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "study-smoke"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:38.062441+00:00",
+    "finished_at": "2026-10-31T05:30:38.261095+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "smoke.stdout.txt",
+    "stderr": "smoke.stderr.txt",
+    "stdout_sha256": "43de23a0dfd3f3994809d219e2740c2729c22ec1acb578fec3124bed738e8fbe",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "phenomena_smoke",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "phenomena-smoke"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:38.261648+00:00",
+    "finished_at": "2026-10-31T05:30:38.500351+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "phenomena_smoke.stdout.txt",
+    "stderr": "phenomena_smoke.stderr.txt",
+    "stdout_sha256": "71254467ba76f7fb27f65fc6837cc336aa566f325db0e68826193edaf0da46f2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  },
+  {
+    "name": "retained_smoke",
+    "command": {
+      "executable": ".venv/bin/python",
+      "args": [
+        "-m",
+        "cola_lab",
+        "smoke"
+      ]
+    },
+    "started_at": "2026-10-31T05:30:38.501302+00:00",
+    "finished_at": "2026-10-31T05:30:38.647356+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "retained_smoke.stdout.txt",
+    "stderr": "retained_smoke.stderr.txt",
+    "stdout_sha256": "813f54cabe6c42c52534852ddd4efee0a96024e078601026dcf295d9e7dd8afa",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_manifest_sha256": "5917e2fdf479ee0e2f6ad84dacfc7bc2cc0709240e22792a022a1b8a383a5135"
+  }
+]

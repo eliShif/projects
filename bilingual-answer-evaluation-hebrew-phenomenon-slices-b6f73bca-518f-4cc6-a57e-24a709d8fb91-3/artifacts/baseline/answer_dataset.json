@@ -1,0 +1,759 @@
+{
+  "source": "deterministic fictional facts generated in code",
+  "documents": [
+    {
+      "id": "validation-en-Alder-color",
+      "split": "validation",
+      "language": "en",
+      "entity": "Alder",
+      "text": "The color of Alder is blue.",
+      "answer": "blue"
+    },
+    {
+      "id": "validation-en-Alder-shape",
+      "split": "validation",
+      "language": "en",
+      "entity": "Alder",
+      "text": "The shape of Alder is round.",
+      "answer": "round"
+    },
+    {
+      "id": "validation-en-Birch-color",
+      "split": "validation",
+      "language": "en",
+      "entity": "Birch",
+      "text": "The color of Birch is green.",
+      "answer": "green"
+    },
+    {
+      "id": "validation-en-Birch-shape",
+      "split": "validation",
+      "language": "en",
+      "entity": "Birch",
+      "text": "The shape of Birch is square.",
+      "answer": "square"
+    },
+    {
+      "id": "validation-en-Cedar-color",
+      "split": "validation",
+      "language": "en",
+      "entity": "Cedar",
+      "text": "The color of Cedar is red.",
+      "answer": "red"
+    },
+    {
+      "id": "validation-en-Cedar-shape",
+      "split": "validation",
+      "language": "en",
+      "entity": "Cedar",
+      "text": "The shape of Cedar is oval.",
+      "answer": "oval"
+    },
+    {
+      "id": "validation-en-Dune-color",
+      "split": "validation",
+      "language": "en",
+      "entity": "Dune",
+      "text": "The color of Dune is gold.",
+      "answer": "gold"
+    },
+    {
+      "id": "validation-en-Dune-shape",
+      "split": "validation",
+      "language": "en",
+      "entity": "Dune",
+      "text": "The shape of Dune is flat.",
+      "answer": "flat"
+    },
+    {
+      "id": "validation-he-Alder-color",
+      "split": "validation",
+      "language": "he",
+      "entity": "Alder",
+      "text": "הצבע של Alder הוא כחול.",
+      "answer": "כחול"
+    },
+    {
+      "id": "validation-he-Alder-shape",
+      "split": "validation",
+      "language": "he",
+      "entity": "Alder",
+      "text": "הצורה של Alder הוא עגול.",
+      "answer": "עגול"
+    },
+    {
+      "id": "validation-he-Birch-color",
+      "split": "validation",
+      "language": "he",
+      "entity": "Birch",
+      "text": "הצבע של Birch הוא ירוק.",
+      "answer": "ירוק"
+    },
+    {
+      "id": "validation-he-Birch-shape",
+      "split": "validation",
+      "language": "he",
+      "entity": "Birch",
+      "text": "הצורה של Birch הוא מרובע.",
+      "answer": "מרובע"
+    },
+    {
+      "id": "validation-he-Cedar-color",
+      "split": "validation",
+      "language": "he",
+      "entity": "Cedar",
+      "text": "הצבע של Cedar הוא אדום.",
+      "answer": "אדום"
+    },
+    {
+      "id": "validation-he-Cedar-shape",
+      "split": "validation",
+      "language": "he",
+      "entity": "Cedar",
+      "text": "הצורה של Cedar הוא סגלגל.",
+      "answer": "סגלגל"
+    },
+    {
+      "id": "validation-he-Dune-color",
+      "split": "validation",
+      "language": "he",
+      "entity": "Dune",
+      "text": "הצבע של Dune הוא זהוב.",
+      "answer": "זהוב"
+    },
+    {
+      "id": "validation-he-Dune-shape",
+      "split": "validation",
+      "language": "he",
+      "entity": "Dune",
+      "text": "הצורה של Dune הוא שטוח.",
+      "answer": "שטוח"
+    },
+    {
+      "id": "test-en-Ember-color",
+      "split": "test",
+      "language": "en",
+      "entity": "Ember",
+      "text": "The color of Ember is blue.",
+      "answer": "blue"
+    },
+    {
+      "id": "test-en-Ember-shape",
+      "split": "test",
+      "language": "en",
+      "entity": "Ember",
+      "text": "The shape of Ember is round.",
+      "answer": "round"
+    },
+    {
+      "id": "test-en-Fjord-color",
+      "split": "test",
+      "language": "en",
+      "entity": "Fjord",
+      "text": "The color of Fjord is green.",
+      "answer": "green"
+    },
+    {
+      "id": "test-en-Fjord-shape",
+      "split": "test",
+      "language": "en",
+      "entity": "Fjord",
+      "text": "The shape of Fjord is square.",
+      "answer": "square"
+    },
+    {
+      "id": "test-en-Grove-color",
+      "split": "test",
+      "language": "en",
+      "entity": "Grove",
+      "text": "The color of Grove is red.",
+      "answer": "red"
+    },
+    {
+      "id": "test-en-Grove-shape",
+      "split": "test",
+      "language": "en",
+      "entity": "Grove",
+      "text": "The shape of Grove is oval.",
+      "answer": "oval"
+    },
+    {
+      "id": "test-en-Harbor-color",
+      "split": "test",
+      "language": "en",
+      "entity": "Harbor",
+      "text": "The color of Harbor is gold.",
+      "answer": "gold"
+    },
+    {
+      "id": "test-en-Harbor-shape",
+      "split": "test",
+      "language": "en",
+      "entity": "Harbor",
+      "text": "The shape of Harbor is flat.",
+      "answer": "flat"
+    },
+    {
+      "id": "test-he-Ember-color",
+      "split": "test",
+      "language": "he",
+      "entity": "Ember",
+      "text": "הצבע של Ember הוא כחול.",
+      "answer": "כחול"
+    },
+    {
+      "id": "test-he-Ember-shape",
+      "split": "test",
+      "language": "he",
+      "entity": "Ember",
+      "text": "הצורה של Ember הוא עגול.",
+      "answer": "עגול"
+    },
+    {
+      "id": "test-he-Fjord-color",
+      "split": "test",
+      "language": "he",
+      "entity": "Fjord",
+      "text": "הצבע של Fjord הוא ירוק.",
+      "answer": "ירוק"
+    },
+    {
+      "id": "test-he-Fjord-shape",
+      "split": "test",
+      "language": "he",
+      "entity": "Fjord",
+      "text": "הצורה של Fjord הוא מרובע.",
+      "answer": "מרובע"
+    },
+    {
+      "id": "test-he-Grove-color",
+      "split": "test",
+      "language": "he",
+      "entity": "Grove",
+      "text": "הצבע של Grove הוא אדום.",
+      "answer": "אדום"
+    },
+    {
+      "id": "test-he-Grove-shape",
+      "split": "test",
+      "language": "he",
+      "entity": "Grove",
+      "text": "הצורה של Grove הוא סגלגל.",
+      "answer": "סגלגל"
+    },
+    {
+      "id": "test-he-Harbor-color",
+      "split": "test",
+      "language": "he",
+      "entity": "Harbor",
+      "text": "הצבע של Harbor הוא זהוב.",
+      "answer": "זהוב"
+    },
+    {
+      "id": "test-he-Harbor-shape",
+      "split": "test",
+      "language": "he",
+      "entity": "Harbor",
+      "text": "הצורה של Harbor הוא שטוח.",
+      "answer": "שטוח"
+    }
+  ],
+  "cases": [
+    {
+      "id": "validation-en-Alder-color-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Alder",
+      "question": "Which hue does Alder have?",
+      "expected_answer": "blue",
+      "evidence_ids": [
+        "validation-en-Alder-color"
+      ]
+    },
+    {
+      "id": "validation-en-Alder-shape-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Alder",
+      "question": "What is the shape of Alder?",
+      "expected_answer": "round",
+      "evidence_ids": [
+        "validation-en-Alder-shape"
+      ]
+    },
+    {
+      "id": "validation-en-Alder-weight-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Alder",
+      "question": "What is the weight of Alder?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "validation-en-Birch-color-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Birch",
+      "question": "What is the color of Birch?",
+      "expected_answer": "green",
+      "evidence_ids": [
+        "validation-en-Birch-color"
+      ]
+    },
+    {
+      "id": "validation-en-Birch-shape-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Birch",
+      "question": "What is the shape of Birch?",
+      "expected_answer": "square",
+      "evidence_ids": [
+        "validation-en-Birch-shape"
+      ]
+    },
+    {
+      "id": "validation-en-Birch-weight-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Birch",
+      "question": "What is the weight of Birch?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "validation-en-Cedar-color-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Cedar",
+      "question": "What is the color of Cedar?",
+      "expected_answer": "red",
+      "evidence_ids": [
+        "validation-en-Cedar-color"
+      ]
+    },
+    {
+      "id": "validation-en-Cedar-shape-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Cedar",
+      "question": "What is the shape of Cedar?",
+      "expected_answer": "oval",
+      "evidence_ids": [
+        "validation-en-Cedar-shape"
+      ]
+    },
+    {
+      "id": "validation-en-Cedar-weight-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Cedar",
+      "question": "What is the weight of Cedar?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "validation-en-Dune-color-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Dune",
+      "question": "What is the color of Dune?",
+      "expected_answer": "gold",
+      "evidence_ids": [
+        "validation-en-Dune-color"
+      ]
+    },
+    {
+      "id": "validation-en-Dune-shape-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Dune",
+      "question": "What is the shape of Dune?",
+      "expected_answer": "flat",
+      "evidence_ids": [
+        "validation-en-Dune-shape"
+      ]
+    },
+    {
+      "id": "validation-en-Dune-weight-q",
+      "split": "validation",
+      "language": "en",
+      "entity": "Dune",
+      "question": "What is the weight of Dune?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "validation-he-Alder-color-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Alder",
+      "question": "איזה גוון יש ל Alder?",
+      "expected_answer": "כחול",
+      "evidence_ids": [
+        "validation-he-Alder-color"
+      ]
+    },
+    {
+      "id": "validation-he-Alder-shape-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Alder",
+      "question": "מה הצורה של Alder?",
+      "expected_answer": "עגול",
+      "evidence_ids": [
+        "validation-he-Alder-shape"
+      ]
+    },
+    {
+      "id": "validation-he-Alder-weight-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Alder",
+      "question": "מה המשקל של Alder?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "validation-he-Birch-color-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Birch",
+      "question": "מה הצבע של Birch?",
+      "expected_answer": "ירוק",
+      "evidence_ids": [
+        "validation-he-Birch-color"
+      ]
+    },
+    {
+      "id": "validation-he-Birch-shape-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Birch",
+      "question": "מה הצורה של Birch?",
+      "expected_answer": "מרובע",
+      "evidence_ids": [
+        "validation-he-Birch-shape"
+      ]
+    },
+    {
+      "id": "validation-he-Birch-weight-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Birch",
+      "question": "מה המשקל של Birch?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "validation-he-Cedar-color-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Cedar",
+      "question": "מה הצבע של Cedar?",
+      "expected_answer": "אדום",
+      "evidence_ids": [
+        "validation-he-Cedar-color"
+      ]
+    },
+    {
+      "id": "validation-he-Cedar-shape-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Cedar",
+      "question": "מה הצורה של Cedar?",
+      "expected_answer": "סגלגל",
+      "evidence_ids": [
+        "validation-he-Cedar-shape"
+      ]
+    },
+    {
+      "id": "validation-he-Cedar-weight-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Cedar",
+      "question": "מה המשקל של Cedar?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "validation-he-Dune-color-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Dune",
+      "question": "מה הצבע של Dune?",
+      "expected_answer": "זהוב",
+      "evidence_ids": [
+        "validation-he-Dune-color"
+      ]
+    },
+    {
+      "id": "validation-he-Dune-shape-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Dune",
+      "question": "מה הצורה של Dune?",
+      "expected_answer": "שטוח",
+      "evidence_ids": [
+        "validation-he-Dune-shape"
+      ]
+    },
+    {
+      "id": "validation-he-Dune-weight-q",
+      "split": "validation",
+      "language": "he",
+      "entity": "Dune",
+      "question": "מה המשקל של Dune?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "test-en-Ember-color-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Ember",
+      "question": "Which hue does Ember have?",
+      "expected_answer": "blue",
+      "evidence_ids": [
+        "test-en-Ember-color"
+      ]
+    },
+    {
+      "id": "test-en-Ember-shape-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Ember",
+      "question": "What is the shape of Ember?",
+      "expected_answer": "round",
+      "evidence_ids": [
+        "test-en-Ember-shape"
+      ]
+    },
+    {
+      "id": "test-en-Ember-weight-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Ember",
+      "question": "What is the weight of Ember?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "test-en-Fjord-color-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Fjord",
+      "question": "What is the color of Fjord?",
+      "expected_answer": "green",
+      "evidence_ids": [
+        "test-en-Fjord-color"
+      ]
+    },
+    {
+      "id": "test-en-Fjord-shape-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Fjord",
+      "question": "What is the shape of Fjord?",
+      "expected_answer": "square",
+      "evidence_ids": [
+        "test-en-Fjord-shape"
+      ]
+    },
+    {
+      "id": "test-en-Fjord-weight-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Fjord",
+      "question": "What is the weight of Fjord?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "test-en-Grove-color-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Grove",
+      "question": "What is the color of Grove?",
+      "expected_answer": "red",
+      "evidence_ids": [
+        "test-en-Grove-color"
+      ]
+    },
+    {
+      "id": "test-en-Grove-shape-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Grove",
+      "question": "What is the shape of Grove?",
+      "expected_answer": "oval",
+      "evidence_ids": [
+        "test-en-Grove-shape"
+      ]
+    },
+    {
+      "id": "test-en-Grove-weight-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Grove",
+      "question": "What is the weight of Grove?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "test-en-Harbor-color-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Harbor",
+      "question": "What is the color of Harbor?",
+      "expected_answer": "gold",
+      "evidence_ids": [
+        "test-en-Harbor-color"
+      ]
+    },
+    {
+      "id": "test-en-Harbor-shape-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Harbor",
+      "question": "What is the shape of Harbor?",
+      "expected_answer": "flat",
+      "evidence_ids": [
+        "test-en-Harbor-shape"
+      ]
+    },
+    {
+      "id": "test-en-Harbor-weight-q",
+      "split": "test",
+      "language": "en",
+      "entity": "Harbor",
+      "question": "What is the weight of Harbor?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "test-he-Ember-color-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Ember",
+      "question": "איזה גוון יש ל Ember?",
+      "expected_answer": "כחול",
+      "evidence_ids": [
+        "test-he-Ember-color"
+      ]
+    },
+    {
+      "id": "test-he-Ember-shape-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Ember",
+      "question": "מה הצורה של Ember?",
+      "expected_answer": "עגול",
+      "evidence_ids": [
+        "test-he-Ember-shape"
+      ]
+    },
+    {
+      "id": "test-he-Ember-weight-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Ember",
+      "question": "מה המשקל של Ember?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "test-he-Fjord-color-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Fjord",
+      "question": "מה הצבע של Fjord?",
+      "expected_answer": "ירוק",
+      "evidence_ids": [
+        "test-he-Fjord-color"
+      ]
+    },
+    {
+      "id": "test-he-Fjord-shape-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Fjord",
+      "question": "מה הצורה של Fjord?",
+      "expected_answer": "מרובע",
+      "evidence_ids": [
+        "test-he-Fjord-shape"
+      ]
+    },
+    {
+      "id": "test-he-Fjord-weight-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Fjord",
+      "question": "מה המשקל של Fjord?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "test-he-Grove-color-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Grove",
+      "question": "מה הצבע של Grove?",
+      "expected_answer": "אדום",
+      "evidence_ids": [
+        "test-he-Grove-color"
+      ]
+    },
+    {
+      "id": "test-he-Grove-shape-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Grove",
+      "question": "מה הצורה של Grove?",
+      "expected_answer": "סגלגל",
+      "evidence_ids": [
+        "test-he-Grove-shape"
+      ]
+    },
+    {
+      "id": "test-he-Grove-weight-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Grove",
+      "question": "מה המשקל של Grove?",
+      "expected_answer": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "test-he-Harbor-color-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Harbor",
+      "question": "מה הצבע של Harbor?",
+      "expected_answer": "זהוב",
+      "evidence_ids": [
+        "test-he-Harbor-color"
+      ]
+    },
+    {
+      "id": "test-he-Harbor-shape-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Harbor",
+      "question": "מה הצורה של Harbor?",
+      "expected_answer": "שטוח",
+      "evidence_ids": [
+        "test-he-Harbor-shape"
+      ]
+    },
+    {
+      "id": "test-he-Harbor-weight-q",
+      "split": "test",
+      "language": "he",
+      "entity": "Harbor",
+      "question": "מה המשקל של Harbor?",
+      "expected_answer": null,
+      "evidence_ids": []
+    }
+  ]
+}
