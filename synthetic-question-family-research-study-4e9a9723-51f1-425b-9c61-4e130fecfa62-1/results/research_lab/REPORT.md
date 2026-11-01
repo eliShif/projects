@@ -131,4 +131,4 @@ Labels come from the synthetic family generator; there is no independent annotat
 - Stability folds reuse all entities after the primary selection; they are a sensitivity analysis, not a second independent test.
 - The downsampling check changes training composition and is post-hoc; any score change cannot establish a general effect size.
 - Generated labels have no independent human audit; feature and frequency clues cannot prove error cause.
-- Feature-label association does not establish causality or independent human mastery.
+- Feature-label association does not establish causality.

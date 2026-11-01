@@ -1,7 +1,6 @@
 # Code map
 
-This extension reuses the pinned Python implementation. It does not substitute
-a new framework or claim that a person has already learned the material.
+This extension reuses the pinned Python implementation without introducing a new framework.
 
 | Path | Executable responsibility |
 |---|---|

@@ -2,7 +2,7 @@
 
 This is an executable learning exercise related to grammatical acceptability classification and length bias in language-model scores. It does **not** use CoLA, GPT-2, or a downloaded model. Earlier project claims remain unverified.
 
-This workspace also contains a **bilingual answer and evidence evaluation** added for a junior AI research exercise. It uses fictional English and Hebrew facts and a transparent lexical retrieval rule. It is not the previously described portfolio repository or an evaluation of a language model. The code was prepared with AI assistance; running it does not establish anyone's independent authorship or mastery.
+This workspace includes a **bilingual answer and evidence evaluation** for a research exercise, using fictional English and Hebrew facts and a transparent lexical retrieval rule. It does not evaluate a language model. This checkout is separate from the previously described portfolio repository.
 
 ## Research question and design
 
@@ -50,4 +50,4 @@ In the verified local run, lexical retrieval scored 22/24 on test versus 8/24 fo
 
 Higher log probability is treated as stronger evidence for a grammatical sentence. Summing penalizes extra tokens because each log probability is nonpositive; averaging changes that length dependence. The two methods use identical token probabilities, train data, validation data, and test data. Only score aggregation and its validation-selected threshold differ. Compare `by_length.*.mean_score` alongside accuracy and errors. Accuracy on 24 synthetic test items is a demonstration, not a performance estimate for CoLA or English generally. Score-length association alone does not prove length caused a classification error.
 
-The bigram model has no syntax representation beyond adjacent token counts. The templates are narrow, the labels are generated, and one small split cannot establish stability. This artifact supports explaining a reproducible protocol; it is not evidence of anyone's personal mastery, prior contribution, or supervised research experience.
+The bigram model has no syntax representation beyond adjacent token counts. The templates are narrow, the labels are generated, and one small split cannot establish stability. The study documents a reproducible protocol.

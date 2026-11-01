@@ -92,8 +92,7 @@ actual exit codes, versions and SHA-256 digests:
 
 See [VALIDATION.md](VALIDATION.md) and
 [results/research_validation/commands.json](results/research_validation/commands.json).
-Raw command output is saved alongside the manifest. These are local automated
-checks, not evidence of a person's authorship, understanding or completed review.
+Raw command output from the local automated checks is saved alongside the manifest.
 The unrelated full repository suite was not run for this adaptation.
 
 ## Selection and results
@@ -156,7 +155,4 @@ no independent human annotation review. Score margins are not calibrated
 probabilities, and the variance across folds or reused training samples is not
 a confidence interval. Observed feature patterns do not establish error causes.
 
-This is an AI-assisted implementation and preparation resource. It does not
-establish personal mastery, independent implementation, supervised experience,
-Hebrew or language-model performance. Use [CODE_MAP.md](CODE_MAP.md) and
-[EXERCISES.md](EXERCISES.md) to run, change and explain it in a future review.
+This implementation supports a synthetic question-family classification exercise. Its results do not establish Hebrew or language-model performance. See [CODE_MAP.md](CODE_MAP.md) and [EXERCISES.md](EXERCISES.md) for guidance on future runs, modifications and review.

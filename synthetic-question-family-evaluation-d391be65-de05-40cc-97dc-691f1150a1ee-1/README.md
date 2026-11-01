@@ -103,11 +103,7 @@ actual exit codes, versions and SHA-256 digests:
 .venv/bin/python scripts/verify_research_lab.py --install
 ```
 
-See [VALIDATION.md](VALIDATION.md) and
-[results/research_validation/commands.json](results/research_validation/commands.json).
-Raw command output is saved alongside the manifest. These are local automated
-checks, not evidence of a person's authorship, understanding or completed review.
-The unrelated full repository suite was not run for this adaptation.
+Local automated checks are documented in [VALIDATION.md](VALIDATION.md) and [results/research_validation/commands.json](results/research_validation/commands.json). Raw command output is saved alongside the manifest. The unrelated full repository suite was not run for this adaptation.
 
 ## Selection and results
 

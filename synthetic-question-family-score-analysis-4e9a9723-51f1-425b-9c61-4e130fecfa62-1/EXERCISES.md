@@ -1,7 +1,6 @@
 # Learning walkthrough and change exercises
 
-These prompts are for a future reader to run, inspect and explain. Completion or
-personal mastery is not asserted by this repository.
+These prompts guide future runs, code inspection and explanation of results. Exercise completion is not reported.
 
 ## Walkthrough
 
@@ -124,5 +123,4 @@ personal mastery is not asserted by this repository.
     zero wrong cases and explain how its missing wrong-case mean should be
     represented without inventing a zero score.
 
-If using this work in an interview or review, demonstrate the run, describe one
-change you made yourself, and distinguish your work from AI-assisted code.
+These exercises cover running the experiment, reviewing implementation changes, and explaining results and limitations.

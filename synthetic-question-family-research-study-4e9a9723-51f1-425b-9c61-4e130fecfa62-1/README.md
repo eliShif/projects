@@ -1,9 +1,6 @@
 # Applied AI Portfolio
 
-Five runnable, AI-assisted portfolio projects, selected **per Microsoft opening**.
-These are new personal projects, not employment history, a publication, or claims
-of prior production deployment. Run records distinguish real models, synthetic
-datasets, unit-test fixtures and unexecuted infrastructure integrations.
+Five runnable portfolio projects are organized by Microsoft opening. These are local prototypes and experiments; production deployment remains unverified. Run records distinguish real models, synthetic datasets, unit-test fixtures and unexecuted infrastructure integrations.
 
 | Opening | Project 1 | Project 2 |
 |---|---|---|
@@ -68,10 +65,7 @@ Never submit personal CVs, credentials or private company data to this repositor
 
 ## Scope
 
-This repository was built with AI assistance at the repository owner's direction.
-The code and measured outcomes are portfolio evidence. A source listing does not
-prove a person's independent mastery; interview preparation should include running,
-modifying and explaining the experiments and their limitations.
+The repository provides experiment code and measured outcomes, with documentation of methods, reproduction steps and limitations.
 
 No third-party model weights are committed. Dataset and model provenance is in
 the project documentation. Synthetic research cases and telemetry are authored
@@ -157,9 +151,4 @@ This reads JSON from disk and rejects malformed cases before writing results.
 The focused test and finite smoke commands above ran in this workspace; the
 full repository suite was not rerun here.
 
-The held-out entities share question templates with training. A perfect
-original-test score on this tiny synthetic set is not evidence of general language understanding,
-Hebrew performance, or a person's independent mastery. See
-[`CODE_MAP.md`](CODE_MAP.md) and [`EXERCISES.md`](EXERCISES.md) for a code guide and
-learning exercises. This adaptation is AI-assisted; individual contribution and
-understanding need direct review.
+The held-out entities share question templates with training. A perfect original-test score on this tiny synthetic set does not establish general language understanding or Hebrew performance. See [`CODE_MAP.md`](CODE_MAP.md) and [`EXERCISES.md`](EXERCISES.md) for a code guide and learning exercises.

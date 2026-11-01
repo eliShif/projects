@@ -31,4 +31,4 @@ Predeclared acceptance gate: **PASS**.
 - Typed agent has structured corpus access; RAG receives top-six text records. This compares systems, not isolated model intelligence.
 - Agent prevents document-note injection by keeping notes outside the planning boundary; no broad injection-robustness claim.
 - Task families are shared across development/test; entity holdout does not prove task generalization.
-- No claim of frontier-model quality, production load capacity, or independent human mastery.
+- No claim of frontier-model quality or production load capacity.

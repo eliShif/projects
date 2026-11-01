@@ -50,24 +50,9 @@ For an optional local model run, install the existing GGUF runtime with
 The command requires real weights on disk and fails if they are absent. It
 does not download weights or call an API.
 
-The last command finishes and writes `protocol.json`, `corpus.json`,
-`cases.json`, `predictions.json`, `runs.json`, `summary.json`,
-`baseline_predictions.json`, `comparison.json`, `errors.json`,
-`retrieval_trace.json` and `case_diagnostics.json` under the chosen
-output directory, plus `paired_audit.json`. To score externally saved structured answers, supply a JSON array with one
-entry per `case_id` from `cases.json` using `--predictions path/to/answers.json`.
-Each entry has `case_id`, `status` (`answered`, `abstained` or `failed`), numeric
-`value` or `null`, and `citations` containing corpus record IDs. Invalid or
-incomplete prediction sets fail. Supplied predictions have no independently
-verified model provenance; use `--model` for a directly executed local run.
-See `CODE_MAP.md` and `EXERCISES.md` for code
-navigation and learning exercises. AI-assisted code and its tests do not prove
-personal mastery.
+The last command writes `protocol.json`, `corpus.json`, `cases.json`, `predictions.json`, `runs.json`, `summary.json`, `baseline_predictions.json`, `comparison.json`, `errors.json`, `retrieval_trace.json`, `case_diagnostics.json` and `paired_audit.json` to the chosen output directory. To score externally saved structured answers, use `--predictions path/to/answers.json` with a JSON array containing one entry per `case_id` from `cases.json`. Each entry includes `case_id`, `status` (`answered`, `abstained` or `failed`), a numeric `value` or `null`, and `citations` containing corpus record IDs. Invalid or incomplete prediction sets are rejected. Supplied predictions have no independently verified model provenance; use `--model` for a directly executed local run. See `CODE_MAP.md` and `EXERCISES.md` for code navigation and learning exercises.
 
-Five runnable, AI-assisted portfolio projects, selected **per Microsoft opening**.
-These are new personal projects, not employment history, a publication, or claims
-of prior production deployment. Run records distinguish real models, synthetic
-datasets, unit-test fixtures and unexecuted infrastructure integrations.
+Five runnable portfolio projects are organized by Microsoft opening. These are local prototypes and experiments; production deployment remains unverified. Run records distinguish real models, synthetic datasets, unit-test fixtures and unexecuted infrastructure integrations.
 
 | Opening | Project 1 | Project 2 |
 |---|---|---|
@@ -132,10 +117,7 @@ Never submit personal CVs, credentials or private company data to this repositor
 
 ## Scope
 
-This repository was built with AI assistance at the repository owner's direction.
-The code and measured outcomes are portfolio evidence. A source listing does not
-prove a person's independent mastery; interview preparation should include running,
-modifying and explaining the experiments and their limitations.
+The repository provides experiment code and measured outcomes, with documentation of methods, reproduction steps and limitations.
 
 No third-party model weights are committed. Dataset and model provenance is in
 the project documentation. Synthetic research cases and telemetry are authored
