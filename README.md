@@ -7,9 +7,10 @@ Runnable projects, documented experiments and reproducible evaluation. Each proj
 <!-- job-pilot-project-index:start -->
 | Project | Purpose |
 |---|---|
-| [applied-ai-portfolio](applied-ai-portfolio-1f4ca8ae-96a1-4e54-b076-442bd3784e3e-1/) | Python experiments for image-model training, distillation, INT8 inference, language-model evaluation, and reliable job processing. |
+| [applied-ai-portfolio](applied-ai-portfolio-1f4ca8ae-96a1-4e54-b076-442bd3784e3e-1/) | Python experiments for image-model training, distillation, INT8 inference, language-model evaluation, and reliable job processing. This extension reuses the existing digits models and SQLite service from the pinned upstream source. |
+| [Applied AI Portfolio — Frozen Encoder Retrieval](applied-ai-portfolio-frozen-encoder-retrieval-b6f73bca-518f-4cc6-a57e-24a709d8fb91-2/) | This local extension compares the existing TF-IDF retriever with a frozen Transformers encoder using masked-mean and CLS pooling. |
+| [Bilingual Answer Evaluation](bilingual-answer-evaluation-4e9a9723-51f1-425b-9c61-4e130fecfa62-3/) | `portfolio.bilingual_eval` adds an offline synthetic Hebrew/English evaluation to the existing evidence scorer and TF-IDF retriever. |
 | [Applied AI Security Triage](applied-ai-security-triage-560c6f69-15ba-4734-9255-94f335944472-1/) | A Python extension of the pinned Applied AI Portfolio that connects structured alert investigation, low-rank adaptation and reproducible evaluation through the existing SQLite job queue. |
-| [Frozen Encoder Retrieval](applied-ai-portfolio-frozen-encoder-retrieval-b6f73bca-518f-4cc6-a57e-24a709d8fb91-2/) | Compares a pinned pretrained multilingual MiniLM encoder with TF-IDF; preserves validation-only selection, replayable rankings and measured results. |
 | [Synthetic Question Classification](synthetic-question-family-evaluation-d391be65-de05-40cc-97dc-691f1150a1ee-1/) | Studies question-family classification, held-out paraphrases, split isolation, baseline comparisons and reproducible evaluation. |
 | [Bilingual Answer Evaluation: Reference and Metrics](bilingual-answer-evaluation-reference-and-metric-validation-ba772b65-e5f6-422c-9e76-8a75299ef79d-3/) | Evaluates bilingual retrieval and answer extraction with validated references, leakage checks and recomputed metrics. |
 | [Hebrew–English Phenomenon Evaluation](bilingual-answer-evaluation-hebrew-phenomenon-slices-b6f73bca-518f-4cc6-a57e-24a709d8fb91-3/) | Compares controlled Hebrew/English linguistic variants and matched controls, separating retrieval misses from answer errors. |
