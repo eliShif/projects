@@ -15,11 +15,12 @@ from .reliable_service import JobStore, LeaseLost
 from .security_data import build_dataset, validate_dataset, observations
 from .security_eval import evaluate, replay, report
 from .security_acceptance import run_acceptance, audit_acceptance, WORKERS, MAX_JOBS
-from .security_models import ReferencePolicy, PretrainedPolicy, train_reference, train_pretrained, model_files
+from .security_models import ReferencePolicy, PretrainedPolicy, train_reference, train_pretrained
+from .security_models import capture_model_identity, verify_model_identity
 
 STAGES = ("prepare", "train", "evaluate")
 SOURCE_FILES = ("common.py", "evidence_agent.py", "telemetry.py", "reliable_service.py",
-                "adapter_tuning.py", "local_lm.py", "security_data.py", "security_triage.py",
+                "adapter_tuning.py", "local_lm.py", "model_identity.py", "security_data.py", "security_triage.py",
                 "security_models.py", "security_eval.py", "security_acceptance.py", "security_pipeline.py")
 
 
@@ -77,14 +78,20 @@ def read_artifact(root, receipt, name):
     return json.loads(verified_path(root, receipt, name).read_text())
 
 
-def protocol(backend, steps, model_path):
+def protocol(backend, steps, model_path, expected_model_files=None):
     if backend not in ("reference", "pretrained") or type(steps) is not int or not 1 <= steps <= 512:
         raise ValueError("Invalid experiment configuration")
     if (backend == "pretrained") != bool(model_path):
         raise ValueError("Pretrained backend requires an explicit local model path")
-    models = {p.name: file_hash(p) for p in model_files(model_path)} if model_path else {}
+    models = {}
+    if model_path:
+        if expected_model_files is None:
+            models = capture_model_identity(model_path)
+        else:
+            verify_model_identity(model_path, expected_model_files)
+            models = dict(expected_model_files)
     versions = {}
-    for name in ("torch", "transformers", "safetensors"):
+    for name in ("torch", "transformers", "safetensors", "peft"):
         try:
             versions[name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:
@@ -108,12 +115,16 @@ class Pipeline:
     def __init__(self, out, backend="reference", steps=96, model_path=None, clock=None):
         self.root = Path(out).resolve()
         self.root.mkdir(parents=True, exist_ok=True)
-        self.protocol = protocol(backend, steps, model_path)
-        self.run_id = sha256_json(self.protocol)
-        self.model_path = model_path
+        self.model_path = Path(model_path).absolute() if model_path else None
         previous = self.root / "protocol.json"
+        saved = json.loads(previous.read_text()) if previous.exists() else None
+        # Resume against the original identities. A replacement checkpoint must
+        # never silently become a retry's expected input.
+        expected = saved["model_files_sha256"] if saved and backend == "pretrained" else None
+        self.protocol = protocol(backend, steps, self.model_path, expected)
+        self.run_id = sha256_json(self.protocol)
         if previous.exists():
-            if json.loads(previous.read_text()) != self.protocol:
+            if saved != self.protocol:
                 raise ValueError("Run configuration/source changed; use a new output directory")
         else:
             if any(self.root.iterdir()):
@@ -165,7 +176,8 @@ class Pipeline:
                     if self.protocol["backend"] == "reference":
                         train_reference(*args, **options)
                     else:
-                        train_pretrained(self.model_path, *args, **options)
+                        train_pretrained(self.model_path, *args, **options,
+                                         expected_model_files=self.protocol["model_files_sha256"])
                 else:
                     trained = self.predecessor("train")
                     training = read_artifact(self.root, trained, "training.json")
@@ -173,8 +185,10 @@ class Pipeline:
                         base = ReferencePolicy()
                         adapted = ReferencePolicy(state=read_artifact(self.root, trained, "adapter.json"))
                     else:
-                        base = PretrainedPolicy(self.model_path)
-                        adapted = PretrainedPolicy(self.model_path, verified_path(self.root, trained, "adapters.safetensors"))
+                        base = PretrainedPolicy(self.model_path,
+                                                expected_model_files=self.protocol["model_files_sha256"])
+                        adapted = PretrainedPolicy(self.model_path, verified_path(self.root, trained, "adapters.safetensors"),
+                                                   expected_model_files=self.protocol["model_files_sha256"])
                     summary = evaluate(data["test"], base, adapted, attempt, heartbeat)
                     replay(data["test"], json.loads((attempt/"runs.json").read_text()), summary)
                     acceptance = run_acceptance(data["train"], attempt, heartbeat)

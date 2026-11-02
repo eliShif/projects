@@ -1,0 +1,2 @@
+# Optional compatibility validation; the core application does not require PEFT.
+peft==0.21.2

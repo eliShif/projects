@@ -1,0 +1,27 @@
+{
+  "baseline_files": 148,
+  "changed_files": [
+    "CODE_MAP.md",
+    "EXERCISES.md",
+    "README.md",
+    "UPSTREAM.md",
+    "portfolio/local_lm.py",
+    "portfolio/security_models.py",
+    "portfolio/security_pipeline.py"
+  ],
+  "ignored_generated_files": [
+    "applied_ai_security_triage.egg-info/PKG-INFO",
+    "applied_ai_security_triage.egg-info/SOURCES.txt",
+    "applied_ai_security_triage.egg-info/dependency_links.txt",
+    "applied_ai_security_triage.egg-info/requires.txt",
+    "applied_ai_security_triage.egg-info/top_level.txt"
+  ],
+  "missing_files": [],
+  "ok": true,
+  "preserved_result_files": 81,
+  "preserved_tests": 13,
+  "protected_files": 143,
+  "source_commit": "1158b22985963249917a1f66caee1feac6f785b2",
+  "unchanged_files": 136,
+  "unexpected_changes": []
+}

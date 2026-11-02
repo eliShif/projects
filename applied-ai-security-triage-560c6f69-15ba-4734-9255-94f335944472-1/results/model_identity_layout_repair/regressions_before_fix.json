@@ -1,0 +1,14 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "unittest",
+    "tests_security.test_model_layouts",
+    "tests_ml_identity.test_checkpoint_layouts",
+    "-v"
+  ],
+  "started_utc": "2026-11-01T22:41:55.736928+00:00",
+  "elapsed_seconds": 15.077694715000689,
+  "exit_code": 1,
+  "output_sha256": "9446f882e9566e9994c9d18d05223221a421afb7816cf31f532741f4e396ecc0"
+}

@@ -1,0 +1,9 @@
+test_deleted_source_and_replaced_results_are_detected (tests_security.test_preservation.PreservationTests.test_deleted_source_and_replaced_results_are_detected) ... ok
+test_supplied_tests_results_and_other_unaffected_files_are_preserved (tests_security.test_preservation.PreservationTests.test_supplied_tests_results_and_other_unaffected_files_are_preserved) ... ok
+test_generated_exclusions_do_not_hide_protected_changes (tests_security.test_preservation_packaging.PackagingPreservationTests.test_generated_exclusions_do_not_hide_protected_changes) ... ok
+test_regenerated_or_missing_packaging_outputs_do_not_fail_preservation (tests_security.test_preservation_packaging.PackagingPreservationTests.test_regenerated_or_missing_packaging_outputs_do_not_fail_preservation) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.056s
+
+OK

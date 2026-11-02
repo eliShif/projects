@@ -1,0 +1,452 @@
+test_broken_links_loops_and_escaping_directories_reject (tests_security.test_model_layouts.ModelLayoutTests.test_broken_links_loops_and_escaping_directories_reject) ... 
+  test_broken_links_loops_and_escaping_directories_reject (tests_security.test_model_layouts.ModelLayoutTests.test_broken_links_loops_and_escaping_directories_reject) (target='missing.json') ... ERROR
+  test_broken_links_loops_and_escaping_directories_reject (tests_security.test_model_layouts.ModelLayoutTests.test_broken_links_loops_and_escaping_directories_reject) (target='config.json') ... ERROR
+test_directory_alias_and_internal_file_links_keep_logical_identities (tests_security.test_model_layouts.ModelLayoutTests.test_directory_alias_and_internal_file_links_keep_logical_identities) ... ERROR
+test_escape_even_to_identical_bytes_rejects_before_read (tests_security.test_model_layouts.ModelLayoutTests.test_escape_even_to_identical_bytes_rejects_before_read) ... ok
+test_internal_directory_links_cover_shards_and_chat_templates (tests_security.test_model_layouts.ModelLayoutTests.test_internal_directory_links_cover_shards_and_chat_templates) ... ERROR
+test_retargeted_internal_file_and_model_directory_reject_changed_bytes (tests_security.test_model_layouts.ModelLayoutTests.test_retargeted_internal_file_and_model_directory_reject_changed_bytes) ... ERROR
+test_same_size_mutations_follow_internal_link_targets (tests_security.test_model_layouts.ModelLayoutTests.test_same_size_mutations_follow_internal_link_targets) ... 
+  test_same_size_mutations_follow_internal_link_targets (tests_security.test_model_layouts.ModelLayoutTests.test_same_size_mutations_follow_internal_link_targets) (name='config.json') ... ERROR
+  test_same_size_mutations_follow_internal_link_targets (tests_security.test_model_layouts.ModelLayoutTests.test_same_size_mutations_follow_internal_link_targets) (name='model.safetensors') ... ERROR
+test_all_present_advertised_versions_are_bound_with_add_remove_and_mutation (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_all_present_advertised_versions_are_bound_with_add_remove_and_mutation) ... FAIL
+test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) ... 
+  test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=None) ... FAIL
+  test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names='tokenizer.4.0.0.json') ... FAIL
+  test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=[1]) ... FAIL
+  test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=['../tokenizer.4.0.0.json']) ... FAIL
+  test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=['/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tmpjmx9t3pw/tokenizer.4.0.0.json']) ... FAIL
+  test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=['dir/../tokenizer.4.0.0.json']) ... FAIL
+  test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=['dir\\tokenizer.4.0.0.json']) ... FAIL
+test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) ... FAIL
+test_nested_versioned_tokenizer_link_uses_logical_reference (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_nested_versioned_tokenizer_link_uses_logical_reference) ... FAIL
+test_directory_retarget_and_external_file_retarget_reject_before_load (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_directory_retarget_and_external_file_retarget_reject_before_load) ... 
+  test_directory_retarget_and_external_file_retarget_reject_before_load (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_directory_retarget_and_external_file_retarget_reject_before_load) (kind='directory') ... ERROR
+  test_directory_retarget_and_external_file_retarget_reject_before_load (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_directory_retarget_and_external_file_retarget_reject_before_load) (kind='external_file') ... ERROR
+test_real_sharded_checkpoint_supports_internal_directory_alias (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_real_sharded_checkpoint_supports_internal_directory_alias) ... `torch_dtype` is deprecated! Use `dtype` instead!
+ERROR
+test_retargeted_weight_and_configuration_fail_before_load_then_restore (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_retargeted_weight_and_configuration_fail_before_load_then_restore) ... 
+  test_retargeted_weight_and_configuration_fail_before_load_then_restore (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_retargeted_weight_and_configuration_fail_before_load_then_restore) (name='config.json') ... ERROR
+  test_retargeted_weight_and_configuration_fail_before_load_then_restore (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_retargeted_weight_and_configuration_fail_before_load_then_restore) (name='model.safetensors') ... ERROR
+test_symlink_checkpoint_supports_standalone_apis_without_expected_map (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_symlink_checkpoint_supports_standalone_apis_without_expected_map) ... ERROR
+test_symlink_queue_trains_and_loads_both_arms_after_reopen (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_symlink_queue_trains_and_loads_both_arms_after_reopen) ... ERROR
+test_actual_selection_and_unchanged_queued_training_and_evaluation (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_actual_selection_and_unchanged_queued_training_and_evaluation) ... FAIL
+test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm) ... 
+  test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm) (boundary='train') ... FAIL
+  test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm) (boundary='base') ... FAIL
+  test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm) (boundary='adapted') ... FAIL
+test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map) ... 
+  test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map) (stage='train') ... FAIL
+  test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map) (stage='evaluate') ... FAIL
+test_versioned_file_change_inside_tokenizer_call_stops_model_load (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_versioned_file_change_inside_tokenizer_call_stops_model_load) ... FAIL
+
+======================================================================
+ERROR: test_broken_links_loops_and_escaping_directories_reject (tests_security.test_model_layouts.ModelLayoutTests.test_broken_links_loops_and_escaping_directories_reject) (target='missing.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 129, in test_broken_links_loops_and_escaping_directories_reject
+    capture_model_identity(self.model)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 63, in model_files
+    raise FileNotFoundError("Local pretrained model config.json required")
+FileNotFoundError: Local pretrained model config.json required
+
+======================================================================
+ERROR: test_broken_links_loops_and_escaping_directories_reject (tests_security.test_model_layouts.ModelLayoutTests.test_broken_links_loops_and_escaping_directories_reject) (target='config.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 129, in test_broken_links_loops_and_escaping_directories_reject
+    capture_model_identity(self.model)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 63, in model_files
+    raise FileNotFoundError("Local pretrained model config.json required")
+FileNotFoundError: Local pretrained model config.json required
+
+======================================================================
+ERROR: test_directory_alias_and_internal_file_links_keep_logical_identities (tests_security.test_model_layouts.ModelLayoutTests.test_directory_alias_and_internal_file_links_keep_logical_identities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 39, in test_directory_alias_and_internal_file_links_keep_logical_identities
+    self.assertEqual(capture_model_identity(alias), expected)
+                     ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 61, in model_files
+    raise ModelIdentityError("Model directory symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model directory symlinks are unsupported
+
+======================================================================
+ERROR: test_internal_directory_links_cover_shards_and_chat_templates (tests_security.test_model_layouts.ModelLayoutTests.test_internal_directory_links_cover_shards_and_chat_templates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 58, in test_internal_directory_links_cover_shards_and_chat_templates
+    expected = capture_model_identity(self.model)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 71, in model_files
+    raise ModelIdentityError("Model template symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model template symlinks are unsupported
+
+======================================================================
+ERROR: test_retargeted_internal_file_and_model_directory_reject_changed_bytes (tests_security.test_model_layouts.ModelLayoutTests.test_retargeted_internal_file_and_model_directory_reject_changed_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 101, in test_retargeted_internal_file_and_model_directory_reject_changed_bytes
+    expected = capture_model_identity(self.model)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 79, in model_files
+    _regular_file(root, name)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 37, in _regular_file
+    raise ModelIdentityError("Model artifact symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model artifact symlinks are unsupported
+
+======================================================================
+ERROR: test_same_size_mutations_follow_internal_link_targets (tests_security.test_model_layouts.ModelLayoutTests.test_same_size_mutations_follow_internal_link_targets) (name='config.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 70, in test_same_size_mutations_follow_internal_link_targets
+    expected = capture_model_identity(self.model)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 79, in model_files
+    _regular_file(root, name)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 37, in _regular_file
+    raise ModelIdentityError("Model artifact symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model artifact symlinks are unsupported
+
+======================================================================
+ERROR: test_same_size_mutations_follow_internal_link_targets (tests_security.test_model_layouts.ModelLayoutTests.test_same_size_mutations_follow_internal_link_targets) (name='model.safetensors')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 70, in test_same_size_mutations_follow_internal_link_targets
+    expected = capture_model_identity(self.model)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 79, in model_files
+    _regular_file(root, name)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 37, in _regular_file
+    raise ModelIdentityError("Model artifact symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model artifact symlinks are unsupported
+
+======================================================================
+ERROR: test_directory_retarget_and_external_file_retarget_reject_before_load (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_directory_retarget_and_external_file_retarget_reject_before_load) (kind='directory')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 149, in test_directory_retarget_and_external_file_retarget_reject_before_load
+    pipeline = self.pipeline(kind)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_pretrained_identity.py", line 42, in pipeline
+    return Pipeline(self.root / suffix, "pretrained", 1, self.model, clock=clock)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 124, in __init__
+    self.protocol = protocol(backend, steps, self.model_path, expected)
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 89, in protocol
+    models = capture_model_identity(model_path)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 61, in model_files
+    raise ModelIdentityError("Model directory symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model directory symlinks are unsupported
+
+======================================================================
+ERROR: test_directory_retarget_and_external_file_retarget_reject_before_load (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_directory_retarget_and_external_file_retarget_reject_before_load) (kind='external_file')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 149, in test_directory_retarget_and_external_file_retarget_reject_before_load
+    pipeline = self.pipeline(kind)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_pretrained_identity.py", line 42, in pipeline
+    return Pipeline(self.root / suffix, "pretrained", 1, self.model, clock=clock)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 124, in __init__
+    self.protocol = protocol(backend, steps, self.model_path, expected)
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 89, in protocol
+    models = capture_model_identity(model_path)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 61, in model_files
+    raise ModelIdentityError("Model directory symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model directory symlinks are unsupported
+
+======================================================================
+ERROR: test_real_sharded_checkpoint_supports_internal_directory_alias (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_real_sharded_checkpoint_supports_internal_directory_alias)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 191, in test_real_sharded_checkpoint_supports_internal_directory_alias
+    expected = capture_model_identity(sharded)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 94, in model_files
+    _regular_file(root, shard)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 37, in _regular_file
+    raise ModelIdentityError("Model artifact symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model artifact symlinks are unsupported
+
+======================================================================
+ERROR: test_retargeted_weight_and_configuration_fail_before_load_then_restore (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_retargeted_weight_and_configuration_fail_before_load_then_restore) (name='config.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 121, in test_retargeted_weight_and_configuration_fail_before_load_then_restore
+    pipeline = self.pipeline("retarget-" + name)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_pretrained_identity.py", line 42, in pipeline
+    return Pipeline(self.root / suffix, "pretrained", 1, self.model, clock=clock)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 124, in __init__
+    self.protocol = protocol(backend, steps, self.model_path, expected)
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 89, in protocol
+    models = capture_model_identity(model_path)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 61, in model_files
+    raise ModelIdentityError("Model directory symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model directory symlinks are unsupported
+
+======================================================================
+ERROR: test_retargeted_weight_and_configuration_fail_before_load_then_restore (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_retargeted_weight_and_configuration_fail_before_load_then_restore) (name='model.safetensors')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 121, in test_retargeted_weight_and_configuration_fail_before_load_then_restore
+    pipeline = self.pipeline("retarget-" + name)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_pretrained_identity.py", line 42, in pipeline
+    return Pipeline(self.root / suffix, "pretrained", 1, self.model, clock=clock)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 124, in __init__
+    self.protocol = protocol(backend, steps, self.model_path, expected)
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 89, in protocol
+    models = capture_model_identity(model_path)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 61, in model_files
+    raise ModelIdentityError("Model directory symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model directory symlinks are unsupported
+
+======================================================================
+ERROR: test_symlink_checkpoint_supports_standalone_apis_without_expected_map (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_symlink_checkpoint_supports_standalone_apis_without_expected_map)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 91, in test_symlink_checkpoint_supports_standalone_apis_without_expected_map
+    policy = PretrainedPolicy(self.model)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_models.py", line 172, in __init__
+    expected = (capture_model_identity(model_path) if expected_model_files is None
+                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 61, in model_files
+    raise ModelIdentityError("Model directory symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model directory symlinks are unsupported
+
+======================================================================
+ERROR: test_symlink_queue_trains_and_loads_both_arms_after_reopen (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_symlink_queue_trains_and_loads_both_arms_after_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 105, in test_symlink_queue_trains_and_loads_both_arms_after_reopen
+    pipeline = self.pipeline()
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_pretrained_identity.py", line 42, in pipeline
+    return Pipeline(self.root / suffix, "pretrained", 1, self.model, clock=clock)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 124, in __init__
+    self.protocol = protocol(backend, steps, self.model_path, expected)
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 89, in protocol
+    models = capture_model_identity(model_path)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 105, in capture_model_identity
+    for path in model_files(root):
+                ~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/model_identity.py", line 61, in model_files
+    raise ModelIdentityError("Model directory symlinks are unsupported")
+portfolio.model_identity.ModelIdentityError: Model directory symlinks are unsupported
+
+======================================================================
+FAIL: test_all_present_advertised_versions_are_bound_with_add_remove_and_mutation (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_all_present_advertised_versions_are_bound_with_add_remove_and_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 156, in test_all_present_advertised_versions_are_bound_with_add_remove_and_mutation
+    self.assertTrue(set(names[:2]).issubset(expected))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 198, in test_invalid_and_escaping_references_are_rejected_without_opening_targets
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names='tokenizer.4.0.0.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 198, in test_invalid_and_escaping_references_are_rejected_without_opening_targets
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=[1])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 198, in test_invalid_and_escaping_references_are_rejected_without_opening_targets
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=['../tokenizer.4.0.0.json'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 198, in test_invalid_and_escaping_references_are_rejected_without_opening_targets
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=['/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tmpjmx9t3pw/tokenizer.4.0.0.json'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 198, in test_invalid_and_escaping_references_are_rejected_without_opening_targets
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=['dir/../tokenizer.4.0.0.json'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 198, in test_invalid_and_escaping_references_are_rejected_without_opening_targets
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) (names=['dir\\tokenizer.4.0.0.json'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 198, in test_invalid_and_escaping_references_are_rejected_without_opening_targets
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 202, in test_invalid_and_escaping_references_are_rejected_without_opening_targets
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_nested_versioned_tokenizer_link_uses_logical_reference (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_nested_versioned_tokenizer_link_uses_logical_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_security/test_model_layouts.py", line 181, in test_nested_versioned_tokenizer_link_uses_logical_reference
+    self.assertIn(name, expected)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: 'tokenizers/tokenizer.4.0.0.json' not found in {'config.json': '066feace0aebf6a7a35aa402623a07f1883080e25fcbc6f0f1b94c41c8bf27df', 'model.safetensors': '9810a6550b9fb3031334abe9486e8a19b37ca5ba872d5bf3f301709a09af62cb', 'tokenizer_config.json': '209ed760c6cebd5a282a7de01c89ffe3790f61aef4939f5e684d38acd73a307c'}
+
+======================================================================
+FAIL: test_actual_selection_and_unchanged_queued_training_and_evaluation (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_actual_selection_and_unchanged_queued_training_and_evaluation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 206, in test_actual_selection_and_unchanged_queued_training_and_evaluation
+    self.assertIn(name, pipeline.protocol["model_files_sha256"])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'tokenizer.4.1.0.json' not found in {'chat_template.jinja': '63974be62ed8b3609230ef9ea24c17605733177fb3b8db828a0b4382053aa820', 'config.json': 'e230ecc1aac9a3633fff2125c83af148093f66d3852e415955a8b110c4ea6371', 'generation_config.json': 'cd22f08997eb2353c809a1d9b523c42c924247eb8619aa3e408bba3448f6e270', 'model.safetensors': '6072d6ace8987d2a950dde1a34518cce428d50368395db056bcd949adf8a4c9b', 'special_tokens_map.json': 'bba84181b071da891f9bbed421e15d81acec44a2db3611330f3f247b0dc9e818', 'tokenizer.json': '2b645b77c9de20f68fe0e6f60e74750674c9a2f15a0587fced4af6ecd567ee3e', 'tokenizer_config.json': '341265953310cae6e1d045abdee673d580bb5573f4bff4dde6355c1145ce2dd1'}
+
+======================================================================
+FAIL: test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm) (boundary='train')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 236, in test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm) (boundary='base')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 233, in test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm
+    self.change_tokenizer(name)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 78, in change_tokenizer
+    self.assertNotEqual(changed, original)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"version": "1.0", "truncation": null, "padding": null, "added_tokens": [{"id": 0, "content": "[UNK]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}, {"id": 1, "content": "[BOS]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}, {"id": 2, "content": "[EOS]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}], "normalizer": null, "pre_tokenizer": {"type": "Whitespace"}, "post_processor": null, "decoder": null, "model": {"type": "WordLevel", "vocab": {"[UNK]": 0, "[BOS]": 1, "[EOS]": 2, "investigate_xuth": 4, "investigate_access": 3, "abstain": 5, "operation": 6, "alert_id": 7}, "unk_token": "[UNK]"}}' == b'{"version": "1.0", "truncation": null, "padding": null, "added_tokens": [{"id": 0, "content": "[UNK]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}, {"id": 1, "content": "[BOS]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}, {"id": 2, "content": "[EOS]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}], "normalizer": null, "pre_tokenizer": {"type": "Whitespace"}, "post_processor": null, "decoder": null, "model": {"type": "WordLevel", "vocab": {"[UNK]": 0, "[BOS]": 1, "[EOS]": 2, "investigate_xuth": 4, "investigate_access": 3, "abstain": 5, "operation": 6, "alert_id": 7}, "unk_token": "[UNK]"}}'
+
+======================================================================
+FAIL: test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm) (boundary='adapted')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 237, in test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm
+    pipeline.work_once(job_id)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/portfolio/security_pipeline.py", line 188, in work_once
+    base = PretrainedPolicy(self.model_path,
+                            expected_model_files=self.protocol["model_files_sha256"])
+  File "/usr/lib/python3.14/unittest/mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/unittest/mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/unittest/mock.py", line 1247, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 228, in load_then_change
+    self.assertEqual(policy.lm.tokenizer.convert_tokens_to_ids("investigate_auth"), auth_id)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 4
+
+======================================================================
+FAIL: test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map) (stage='train')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 266, in test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+======================================================================
+FAIL: test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map) (stage='evaluate')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 262, in test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map
+    original = self.change_tokenizer(name)
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 78, in change_tokenizer
+    self.assertNotEqual(changed, original)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"version": "1.0", "truncation": null, "padding": null, "added_tokens": [{"id": 0, "content": "[UNK]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}, {"id": 1, "content": "[BOS]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}, {"id": 2, "content": "[EOS]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}], "normalizer": null, "pre_tokenizer": {"type": "Whitespace"}, "post_processor": null, "decoder": null, "model": {"type": "WordLevel", "vocab": {"[UNK]": 0, "[BOS]": 1, "[EOS]": 2, "investigate_xuth": 4, "investigate_access": 3, "abstain": 5, "operation": 6, "alert_id": 7}, "unk_token": "[UNK]"}}' == b'{"version": "1.0", "truncation": null, "padding": null, "added_tokens": [{"id": 0, "content": "[UNK]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}, {"id": 1, "content": "[BOS]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}, {"id": 2, "content": "[EOS]", "single_word": false, "lstrip": false, "rstrip": false, "normalized": false, "special": true}], "normalizer": null, "pre_tokenizer": {"type": "Whitespace"}, "post_processor": null, "decoder": null, "model": {"type": "WordLevel", "vocab": {"[UNK]": 0, "[BOS]": 1, "[EOS]": 2, "investigate_xuth": 4, "investigate_access": 3, "abstain": 5, "operation": 6, "alert_id": 7}, "unk_token": "[UNK]"}}'
+
+======================================================================
+FAIL: test_versioned_file_change_inside_tokenizer_call_stops_model_load (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_versioned_file_change_inside_tokenizer_call_stops_model_load)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_checkpoint_layouts.py", line 290, in test_versioned_file_change_inside_tokenizer_call_stops_model_load
+    with self.assertRaises(ModelIdentityError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ModelIdentityError not raised
+
+----------------------------------------------------------------------
+Ran 18 tests in 3.690s
+
+FAILED (failures=17, errors=14)

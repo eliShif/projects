@@ -1,0 +1,1 @@
+Requirement already satisfied: setuptools>=77 in /usr/lib/python3/dist-packages (78.1.1)

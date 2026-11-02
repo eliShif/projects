@@ -1,0 +1,23 @@
+{
+  "at": "2026-11-02T00:23:14.003Z",
+  "scope": "Actual identity inventory and verification code in an isolated copy. No pretrained quality or submission is claimed.",
+  "before": {
+    "changed_first_shard_rejected": false,
+    "identity_keys": [
+      "a.safetensors",
+      "config.json",
+      "model.safetensors.index.json"
+    ],
+    "source_sha256": "463db965bad1f99174b4089bef67b6d35a91a0007c9971fc9c608887ed970780"
+  },
+  "after": {
+    "changed_first_shard_rejected": true,
+    "identity_keys": [
+      "a.safetensors",
+      "config.json",
+      "link/../a.safetensors",
+      "model.safetensors.index.json"
+    ],
+    "source_sha256": "c0ef29c8f471dd1d6e636e40285bf2aba980f1af043d16f87bccacaa9a57e616"
+  }
+}

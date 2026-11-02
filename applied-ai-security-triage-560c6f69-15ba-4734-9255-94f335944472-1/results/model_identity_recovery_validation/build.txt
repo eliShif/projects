@@ -1,0 +1,9 @@
+Processing /home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: applied-ai-security-triage
+  Building wheel for applied-ai-security-triage (pyproject.toml): started
+  Building wheel for applied-ai-security-triage (pyproject.toml): finished with status 'done'
+  Created wheel for applied-ai-security-triage: filename=applied_ai_security_triage-0.1.0-py3-none-any.whl size=70076 sha256=7cc4c75f9ae8e7d94a85934766d4e42c787323ee941bbfeebad5fc5d6c59f44f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-kshu9w25/wheels/c5/6c/23/5f71bea50ce3f715ff2e7c93eef39e016c5e35f8134fbe76d3
+Successfully built applied-ai-security-triage

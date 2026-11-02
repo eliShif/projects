@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "started_utc": "2026-11-01T22:49:08.999314+00:00",
+  "elapsed_seconds": 11.497442694962956,
+  "exit_code": 1,
+  "timed_out": false,
+  "output_sha256": "0425a825c621d108828981202730b26d3c9039b494651ee54f5197468572f9a8"
+}

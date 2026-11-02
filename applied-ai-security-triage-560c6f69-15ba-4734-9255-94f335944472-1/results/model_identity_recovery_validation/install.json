@@ -1,0 +1,19 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "pip",
+    "--isolated",
+    "--disable-pip-version-check",
+    "install",
+    "--no-index",
+    "--no-cache-dir",
+    "--no-build-isolation",
+    "--no-deps",
+    "."
+  ],
+  "started_utc": "2026-11-01T20:46:05.226340+00:00",
+  "elapsed_seconds": 2.713312968960963,
+  "exit_code": 0,
+  "output_sha256": "fcc4318f486e1f5abc820770c7f6b11f3973fc2084cb5508e7824514bd1bbe3e"
+}

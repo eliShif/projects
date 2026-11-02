@@ -1,0 +1,22 @@
+test_added_relevant_files_reject (tests_security.test_model_identity.IdentityInventoryTests.test_added_relevant_files_reject) ... ok
+test_empty_or_malformed_expected_identity_never_recaptures (tests_security.test_model_identity.IdentityInventoryTests.test_empty_or_malformed_expected_identity_never_recaptures) ... ok
+test_invalid_or_escaping_shard_indexes_reject_before_loading (tests_security.test_model_identity.IdentityInventoryTests.test_invalid_or_escaping_shard_indexes_reject_before_loading) ... ok
+test_missing_inputs_reject (tests_security.test_model_identity.IdentityInventoryTests.test_missing_inputs_reject) ... ok
+test_same_size_same_mtime_changes_reject_weights_and_config (tests_security.test_model_identity.IdentityInventoryTests.test_same_size_same_mtime_changes_reject_weights_and_config) ... ok
+test_shards_and_index_bytes_are_bound_by_relative_path (tests_security.test_model_identity.IdentityInventoryTests.test_shards_and_index_bytes_are_bound_by_relative_path) ... ok
+test_symlink_and_implicit_base_redirect_reject (tests_security.test_model_identity.IdentityInventoryTests.test_symlink_and_implicit_base_redirect_reject) ... ok
+test_unchanged_inputs_and_unrelated_notes (tests_security.test_model_identity.IdentityInventoryTests.test_unchanged_inputs_and_unrelated_notes) ... ok
+test_change_during_tokenizer_loading_stops_model_load (tests_security.test_model_identity.LoaderBoundaryTests.test_change_during_tokenizer_loading_stops_model_load) ... ok
+test_changed_inputs_stop_both_from_pretrained_calls (tests_security.test_model_identity.LoaderBoundaryTests.test_changed_inputs_stop_both_from_pretrained_calls) ... ok
+test_valid_inputs_reach_both_real_locallm_from_pretrained_calls (tests_security.test_model_identity.LoaderBoundaryTests.test_valid_inputs_reach_both_real_locallm_from_pretrained_calls) ... ok
+test_changes_between_evaluation_arms_stop_second_loader (tests_security.test_model_identity.QueuedIdentityTests.test_changes_between_evaluation_arms_stop_second_loader) ... ok
+test_changes_between_training_and_base_evaluation_stop_loader (tests_security.test_model_identity.QueuedIdentityTests.test_changes_between_training_and_base_evaluation_stop_loader) ... ok
+test_corrupt_adapter_receipt_still_stops_adapted_load (tests_security.test_model_identity.QueuedIdentityTests.test_corrupt_adapter_receipt_still_stops_adapted_load) ... ok
+test_expired_lease_rechecks_weights_and_config (tests_security.test_model_identity.QueuedIdentityTests.test_expired_lease_rechecks_weights_and_config) ... ok
+test_queued_training_rejects_weight_and_config_mutations_before_loader (tests_security.test_model_identity.QueuedIdentityTests.test_queued_training_rejects_weight_and_config_mutations_before_loader) ... ok
+test_retry_and_resume_never_replace_original_identity (tests_security.test_model_identity.QueuedIdentityTests.test_retry_and_resume_never_replace_original_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.203s
+
+OK

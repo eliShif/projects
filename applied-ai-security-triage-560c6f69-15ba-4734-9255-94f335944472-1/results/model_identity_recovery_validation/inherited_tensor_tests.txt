@@ -1,0 +1,8 @@
+test_actual_tensors_mask_gradients_freeze_and_reload (test_security_torch.TorchSecurityTests.test_actual_tensors_mask_gradients_freeze_and_reload) ... `torch_dtype` is deprecated! Use `dtype` instead!
+ok
+test_token_budget_failure_is_explicit (test_security_torch.TorchSecurityTests.test_token_budget_failure_is_explicit) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.270s
+
+OK

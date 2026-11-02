@@ -4,6 +4,100 @@ These exercises build familiarity through execution, inspection and changes.
 Use a new output directory for each protocol or source change. The runner rejects
 resuming an experiment against changed source or configuration.
 
+## Trace model identity through delayed work
+
+1. Run `.venv/bin/python -m unittest tests_security.test_model_identity -v`.
+   Locate the test that enqueues training before replacing weight bytes without
+   changing file size or modification time. Follow the failure from
+   `train_pretrained` back to the queue's `failure.json` and empty result receipt.
+2. Trace `protocol → Pipeline.work_once → PretrainedPolicy → LocalLM`. Identify
+   where the expected map originates and where current file bytes are read.
+   Explain why recapturing expected hashes inside a retry would accept the defect.
+3. Follow the test that changes configuration between the base and adapted
+   evaluation loads. Predict the loader call count and the files left in the
+   failed attempt before running it.
+4. Inspect `LoaderBoundaryTests`: its loaders are doubles. Contrast its evidence
+   with `tests_ml_identity/test_pretrained_identity.py`, which uses the inherited
+   randomly initialized tiny Llama fixture and real Transformers calls. After
+   installing the ML dependencies, run
+   `.venv/bin/python -m unittest discover -s tests_ml_identity -v`.
+   A missing-dependency error is an unexecuted check, not a passed tensor test.
+5. Read the saved protocol and compare it before and after a rejected retry.
+   Restore the exact bytes in a disposable run and explain the three-attempt
+   budget. Compare resuming an unchanged run with starting a new experiment.
+6. Run `.venv/bin/python scripts/check_preservation.py`. Match each changed
+   source file to this code map; inspect the separately retained historical
+   reports and their limitations.
+7. Read [the packaging failure before correction](results/model_identity_recovery_validation/packaging_regressions_before_fix.txt).
+   Explain why installing the package changed `PKG-INFO` and `SOURCES.txt`.
+   Run `.venv/bin/python -m unittest tests_security.test_preservation_packaging -v`,
+   then build the wheel and repeat the preservation check. Identify why an
+   altered `results/build/report.json` must still fail even though root `build/`
+   is disposable. Add a regression for an additional saved-result path before
+   expanding any exclusion rule.
+
+For the combined security, adapter and real checkpoint checks, run
+`.venv/bin/python scripts/test_model_identity.py`. Compare the current execution
+logs with the retained missing-dependency failures; distinguish a fixture-based
+integration check from a new pretrained-model research experiment.
+
+Questions: Why do size/mtime checks miss some replacements? Why does the second
+`from_pretrained` call need a new check after tokenizer loading? How do input
+identities differ from the adapter's output receipt? Which concurrent-writer
+race remains between hashing and reading? What would a signature establish that
+a SHA-256 checksum alone cannot?
+
+## Follow checkpoint aliases and tokenizer selection
+
+1. Run `.venv/bin/python -m unittest tests_security.test_model_layouts tests_ml_identity.test_checkpoint_layouts -v`.
+   Trace a model-directory alias through `_local_path`. Compare the logical
+   protocol key with the resolved file whose bytes are hashed. Identify why the
+   closed-bundle helper accepts an internal link but rejects an external link
+   even with identical bytes. Compare that policy with the guarded workflow's
+   trusted shared-cache loading in the standard-checkpoint compatibility tests.
+2. Inspect `versioned_tokenizer` in `tests_ml_identity/test_checkpoint_layouts.py`.
+   The default and selected tokenizer have different token IDs. Follow the
+   actual `AutoTokenizer.from_pretrained` call that proves which file is consumed.
+   Explain why the absent future version can remain absent without preventing
+   a valid load, and why adding it after capture changes the frozen file set.
+3. Follow the same-size tokenizer mutation through training and each evaluation
+   arm. Count calls to the real loader spies and inspect failed attempts before
+   restoration. Explain why neither `tokenizer.json` alone nor file size/mtime
+   is sufficient to identify the input consumed by Transformers.
+4. Run `.venv/bin/python scripts/check_layout_preservation.py`. Compare the
+   repair's inventory with the original-source preservation check. Find the
+   unchanged earlier test logs and distinguish their observations from the new
+   [repair validation](results/model_identity_layout_repair/REPORT.md).
+
+Questions: Does retargeting an internal link to identical bytes change content
+identity? What does the directory-alias boundary permit? What happens if a link
+is replaced after verification? Why are present unselected tokenizer versions
+also hashed? What happens to a job after its third failed attempt?
+
+Change exercises (use disposable fixture directories):
+
+- Add a real loading regression for a selected versioned tokenizer behind an
+  internal link, then retarget it between the two evaluation arms. Assert the
+  affected loader is never called and the failed attempt has no metrics.
+- Add a nested shard-directory escape regression. Verify rejection before the
+  target file is opened, while preserving the existing successful shard case.
+- Prototype a stable snapshot for loading and compare its disk/lifetime costs
+  with repeated hashing. Retain the current race limitation until a test shows
+  that writes during loading cannot affect the consumed bytes.
+
+Change exercises (use separate disposable model/run directories):
+
+- Add a regression for removing an indexed shard after enqueue. Assert rejection
+  before any affected loader and no successful receipt or evaluation metrics.
+- Add a supported tokenizer input format: identify every consumed file, update
+  the inventory and add positive, mutation, deletion and addition cases. Do not
+  broaden scanning to unrelated directories.
+- Design a verified-snapshot loading variant to close the documented race.
+  State its disk-space/lifetime tradeoffs before implementing it, then test a
+  replacement during loading. Keep existing results and tests unchanged.
+- Extend evaluation retry coverage with a lease expiry between the two arms.
+  Preserve the original expected map and assert stale-worker publication fails.
+
 ## Walk through a complete run
 
 1. Follow README setup and run `.venv/bin/python -m portfolio.security_smoke`.

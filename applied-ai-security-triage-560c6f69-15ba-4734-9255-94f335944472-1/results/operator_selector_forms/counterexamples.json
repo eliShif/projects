@@ -1,0 +1,19 @@
+{
+  "scope": "Actual tiny-model loader compatibility and integrity; no pretrained security-quality experiment.",
+  "object_key_selectors": {
+    "actual_consumed": true,
+    "before_missing_from_identity": true,
+    "after_hashed_and_queued_mutations_rejected": true
+  },
+  "unused_template_entries": {
+    "regular_file": true,
+    "dangling_link": true,
+    "self_link": true,
+    "actual_loading_preserved": true
+  },
+  "unselected_version_self_links": {
+    "python": "3.14",
+    "before_failed_here": false,
+    "availability_first_preserves_loading": true
+  }
+}

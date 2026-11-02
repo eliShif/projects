@@ -1,0 +1,102 @@
+{
+  "at": "2026-11-02T17:00:15.101Z",
+  "scope": "Optional non-file template children preserve actual LocalLM and guarded policy loading; regular template mutations still reject, strict closed-bundle behavior retained. Actual software/tiny-random-model integration, no pretrained security-quality claim.",
+  "validation": [
+    {
+      "name": "focused",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "unittest",
+          "tests_ml_identity.test_optional_template_children",
+          "-v"
+        ]
+      },
+      "started_at": "2026-11-02T16:57:38.918Z",
+      "finished_at": "2026-11-02T16:57:46.518Z",
+      "exit_code": 0,
+      "counts": [
+        2
+      ],
+      "output_sha256": "c28904c0023e3e6025e158ba1f2e832dd0f3ccf1024b023a1ca738049fa57064"
+    },
+    {
+      "name": "tests",
+      "command": {
+        "args": [
+          "scripts/test_model_identity.py"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T16:57:46.520Z",
+      "finished_at": "2026-11-02T16:59:57.863Z",
+      "exit_code": 0,
+      "counts": [
+        124
+      ],
+      "output_sha256": "43ba04bf746317a4bd9882335d42f702918581d62f368cda9daf9b5f4f31eeed"
+    },
+    {
+      "name": "build",
+      "command": {
+        "args": [
+          "-m",
+          "pip",
+          "--isolated",
+          "--disable-pip-version-check",
+          "wheel",
+          "--no-index",
+          "--no-cache-dir",
+          "--no-build-isolation",
+          "--no-deps",
+          "--wheel-dir",
+          "dist",
+          "."
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T16:59:57.864Z",
+      "finished_at": "2026-11-02T17:00:00.211Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "bb4eb1b3058d04d8318e28996a53275be60f9e44a3bbd45c1caaedd6d051bf9e"
+    },
+    {
+      "name": "documented_run",
+      "command": {
+        "args": [
+          "-m",
+          "portfolio.security_smoke"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T17:00:00.211Z",
+      "finished_at": "2026-11-02T17:00:01.638Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "cc344e588d2b238cc392d281ae35e0982197a3075cff130ea4a8b1d2ac795a92"
+    },
+    {
+      "name": "inherited",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ]
+      },
+      "started_at": "2026-11-02T17:00:01.638Z",
+      "finished_at": "2026-11-02T17:00:15.100Z",
+      "exit_code": 0,
+      "counts": [
+        43
+      ],
+      "output_sha256": "ffcf8e5ef121732b2f382cf08aa95290b5abc9e1e6bd0cee77c6cfb570d7c483"
+    }
+  ]
+}

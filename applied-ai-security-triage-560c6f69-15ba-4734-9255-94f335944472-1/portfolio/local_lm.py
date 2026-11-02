@@ -5,14 +5,22 @@ from pathlib import Path
 
 
 class LocalLM:
-    def __init__(self,path,quantized=False,threads=2):
+    def __init__(self,path,quantized=False,threads=2,*,expected_model_files=None):
         import torch
         from transformers import AutoTokenizer,AutoModelForCausalLM
         path=Path(path)
         if not (path/'config.json').is_file():raise FileNotFoundError('Supply a downloaded local model directory')
         torch.set_num_threads(threads)
         self.torch=torch
+        # Recheck at both actual from_pretrained boundaries: tokenizer loading
+        # can run code before the model/configuration files are opened.
+        if expected_model_files is not None:
+            from .model_identity import verify_model_identity
+            expected_model_files = dict(expected_model_files)
+            verify_model_identity(path, expected_model_files, compatible=True)
         self.tokenizer=AutoTokenizer.from_pretrained(str(path),local_files_only=True,trust_remote_code=False)
+        if expected_model_files is not None:
+            verify_model_identity(path, expected_model_files, compatible=True)
         self.model=AutoModelForCausalLM.from_pretrained(str(path),local_files_only=True,trust_remote_code=False,use_safetensors=True,torch_dtype=torch.float32).eval()
         if quantized:
             import warnings

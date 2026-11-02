@@ -1,0 +1,20 @@
+{
+  "scope": "Actual-library counterexamples before optional PEFT installation; tiny random model, not quality measurement.",
+  "before": {
+    "at": "2026-11-02T01:08:42.907Z",
+    "scope": "Actual Transformers tokenizer and tiny random model loading, no quality experiment.",
+    "actual_tokenizer_override_selected": true,
+    "changed_override_rejected": false,
+    "peft_available": false,
+    "actual_full_checkpoint_with_unused_sidecar_loaded": true,
+    "guarded_full_checkpoint_with_unused_sidecar_rejected": true
+  },
+  "after": {
+    "at": "2026-11-02T01:12:20.995Z",
+    "actual_tokenizer_override_selected": true,
+    "changed_override_rejected": true,
+    "peft_available": false,
+    "actual_full_checkpoint_with_unused_sidecar_loaded": true,
+    "guarded_full_checkpoint_with_unused_sidecar_rejected": false
+  }
+}

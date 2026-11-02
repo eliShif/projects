@@ -1,0 +1,13 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "unittest",
+    "tests_security.test_model_identity",
+    "-v"
+  ],
+  "started_utc": "2026-11-01T19:28:22.163559+00:00",
+  "elapsed_seconds": 1.4918921559583396,
+  "exit_code": 0,
+  "output_sha256": "ae82c8976046372b04730dbfa4dac87f9196fb86b657d084ef80c9b5a1f9b1ba"
+}

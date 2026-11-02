@@ -1,0 +1,25 @@
+test_broken_links_loops_and_escaping_directories_reject (tests_security.test_model_layouts.ModelLayoutTests.test_broken_links_loops_and_escaping_directories_reject) ... ok
+test_directory_alias_and_internal_file_links_keep_logical_identities (tests_security.test_model_layouts.ModelLayoutTests.test_directory_alias_and_internal_file_links_keep_logical_identities) ... ok
+test_escape_even_to_identical_bytes_rejects_before_read (tests_security.test_model_layouts.ModelLayoutTests.test_escape_even_to_identical_bytes_rejects_before_read) ... ok
+test_internal_directory_links_cover_shards_and_chat_templates (tests_security.test_model_layouts.ModelLayoutTests.test_internal_directory_links_cover_shards_and_chat_templates) ... ok
+test_retargeted_internal_file_and_model_directory_reject_changed_bytes (tests_security.test_model_layouts.ModelLayoutTests.test_retargeted_internal_file_and_model_directory_reject_changed_bytes) ... ok
+test_same_size_mutations_follow_internal_link_targets (tests_security.test_model_layouts.ModelLayoutTests.test_same_size_mutations_follow_internal_link_targets) ... ok
+test_all_present_advertised_versions_are_bound_with_add_remove_and_mutation (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_all_present_advertised_versions_are_bound_with_add_remove_and_mutation) ... ok
+test_invalid_and_escaping_references_are_rejected_without_opening_targets (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_invalid_and_escaping_references_are_rejected_without_opening_targets) ... ok
+test_nested_versioned_tokenizer_link_uses_logical_reference (tests_security.test_model_layouts.VersionedTokenizerInventoryTests.test_nested_versioned_tokenizer_link_uses_logical_reference) ... ok
+test_directory_retarget_and_external_file_retarget_reject_before_load (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_directory_retarget_and_external_file_retarget_reject_before_load) ... ok
+test_real_sharded_checkpoint_supports_internal_directory_alias (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_real_sharded_checkpoint_supports_internal_directory_alias) ... `torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:00<00:00, 886.29it/s]
+ok
+test_retargeted_weight_and_configuration_fail_before_load_then_restore (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_retargeted_weight_and_configuration_fail_before_load_then_restore) ... ok
+test_symlink_checkpoint_supports_standalone_apis_without_expected_map (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_symlink_checkpoint_supports_standalone_apis_without_expected_map) ... ok
+test_symlink_queue_trains_and_loads_both_arms_after_reopen (tests_ml_identity.test_checkpoint_layouts.LinkedCheckpointTests.test_symlink_queue_trains_and_loads_both_arms_after_reopen) ... ok
+test_actual_selection_and_unchanged_queued_training_and_evaluation (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_actual_selection_and_unchanged_queued_training_and_evaluation) ... ok
+test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_mutation_rejected_at_training_and_each_evaluation_arm) ... ok
+test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_selected_tokenizer_retry_resume_and_expired_lease_keep_original_map) ... ok
+test_versioned_file_change_inside_tokenizer_call_stops_model_load (tests_ml_identity.test_checkpoint_layouts.VersionedTokenizerLoadingTests.test_versioned_file_change_inside_tokenizer_call_stops_model_load) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 93.114s
+
+OK

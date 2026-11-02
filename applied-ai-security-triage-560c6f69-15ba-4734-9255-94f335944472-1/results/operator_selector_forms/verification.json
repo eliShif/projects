@@ -1,0 +1,84 @@
+{
+  "at": "2026-11-02T05:26:51.081Z",
+  "scope": "Existing object-key model/tokenizer version selectors and unused non-directory template entries retain actual loading; mutations are rejected at all queued loading boundaries. Software and real tiny random-model compatibility/integrity integration; no pretrained-security quality result.",
+  "validation": [
+    {
+      "name": "tests",
+      "command": {
+        "args": [
+          "scripts/test_model_identity.py"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T05:23:43.266Z",
+      "finished_at": "2026-11-02T05:26:33.996Z",
+      "exit_code": 0,
+      "counts": [
+        122
+      ],
+      "output_sha256": "ed21db08e7de85ed0cc1599765f9353945bf382e60b6592c8d0297d208fc07ce"
+    },
+    {
+      "name": "build",
+      "command": {
+        "args": [
+          "-m",
+          "pip",
+          "--isolated",
+          "--disable-pip-version-check",
+          "wheel",
+          "--no-index",
+          "--no-cache-dir",
+          "--no-build-isolation",
+          "--no-deps",
+          "--wheel-dir",
+          "dist",
+          "."
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T05:26:33.998Z",
+      "finished_at": "2026-11-02T05:26:36.308Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "7632549b24cd5dbc2afaa2e854103f543590a703a2f1530b48519a52e827abd8"
+    },
+    {
+      "name": "documented_run",
+      "command": {
+        "args": [
+          "-m",
+          "portfolio.security_smoke"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T05:26:36.308Z",
+      "finished_at": "2026-11-02T05:26:37.896Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "cc344e588d2b238cc392d281ae35e0982197a3075cff130ea4a8b1d2ac795a92"
+    },
+    {
+      "name": "inherited_http_and_portfolio",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ]
+      },
+      "started_at": "2026-11-02T05:26:37.896Z",
+      "finished_at": "2026-11-02T05:26:51.078Z",
+      "exit_code": 0,
+      "counts": [
+        43
+      ],
+      "output_sha256": "63603af1e8ce40f8c2a208d4d3406f91078923c9f5d178ad6afc4412b219d4b3"
+    }
+  ],
+  "preserved_original_test_result_files": 94
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "pip",
+    "wheel",
+    "--no-index",
+    "--no-cache-dir",
+    "--no-build-isolation",
+    "--no-deps",
+    "--wheel-dir",
+    "dist",
+    "."
+  ],
+  "started_utc": "2026-11-01T20:46:23.805952+00:00",
+  "elapsed_seconds": 2.0787199100013822,
+  "exit_code": 0,
+  "output_sha256": "8d4b387c2a14acb58cfbac4c889030abc21a9c65ec6863ec28f81097d3d79e3f"
+}

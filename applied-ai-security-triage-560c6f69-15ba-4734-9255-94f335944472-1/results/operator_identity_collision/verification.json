@@ -1,0 +1,84 @@
+{
+  "at": "2026-11-02T00:30:42.789Z",
+  "scope": "Isolated-copy operator collision repair validation. Software and real tiny random-model compatibility/integrity integration; no pretrained-security quality result.",
+  "validation": [
+    {
+      "name": "tests",
+      "command": {
+        "args": [
+          "scripts/test_model_identity.py"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T00:27:25.208Z",
+      "finished_at": "2026-11-02T00:30:18.200Z",
+      "exit_code": 0,
+      "counts": [
+        104
+      ],
+      "output_sha256": "e47aaeed92f773324d72c15a5ec0520cc2917e49f8da20dd6a23c698ab6de3b0"
+    },
+    {
+      "name": "build",
+      "command": {
+        "args": [
+          "-m",
+          "pip",
+          "--isolated",
+          "--disable-pip-version-check",
+          "wheel",
+          "--no-index",
+          "--no-cache-dir",
+          "--no-build-isolation",
+          "--no-deps",
+          "--wheel-dir",
+          "dist",
+          "."
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T00:30:18.202Z",
+      "finished_at": "2026-11-02T00:30:21.157Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "ef8334924f324ed4821cfe53f2d8b6562b772d6d4422e0ab235c05eade139a9b"
+    },
+    {
+      "name": "documented_run",
+      "command": {
+        "args": [
+          "-m",
+          "portfolio.security_smoke"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T00:30:21.158Z",
+      "finished_at": "2026-11-02T00:30:23.165Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "cc344e588d2b238cc392d281ae35e0982197a3075cff130ea4a8b1d2ac795a92"
+    },
+    {
+      "name": "inherited_http_and_portfolio",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ]
+      },
+      "started_at": "2026-11-02T00:30:23.165Z",
+      "finished_at": "2026-11-02T00:30:42.784Z",
+      "exit_code": 0,
+      "counts": [
+        43
+      ],
+      "output_sha256": "4ab1a11370eb8ed4f2c9609d30879e4ad7d39bb4aa42559b985c92bf743cb56d"
+    }
+  ],
+  "preserved_original_test_result_files": 94
+}

@@ -1,0 +1,71 @@
+{
+  "scope": "Actual legacy-loader/identity compatibility and fixed behavior on tiny random local models; no model-quality claim.",
+  "before": [
+    {
+      "case": "dangling_tokenizer",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": true
+    },
+    {
+      "case": "dangling_configuration",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": true
+    },
+    {
+      "case": "dangling_unused_weights",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": true
+    },
+    {
+      "case": "relative_checkpoint_override",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": true
+    },
+    {
+      "case": "relative_peft_base_dot",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": true
+    }
+  ],
+  "after": [
+    {
+      "case": "dangling_tokenizer",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": false
+    },
+    {
+      "case": "dangling_configuration",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": false
+    },
+    {
+      "case": "dangling_unused_weights",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": false
+    },
+    {
+      "case": "relative_checkpoint_override",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": false
+    },
+    {
+      "case": "relative_peft_base_dot",
+      "actual_legacy_loader_succeeded": true,
+      "previous_guard_rejected": false
+    }
+  ],
+  "unused_caller_configuration": {
+    "before": {
+      "actual_legacy_model_loaded": true,
+      "separate_base": true,
+      "identity_inventory_rejected": true,
+      "error_type": "ModelIdentityError"
+    },
+    "after": {
+      "actual_legacy_model_loaded": true,
+      "separate_base": true,
+      "identity_inventory_rejected": false,
+      "error_type": null
+    }
+  }
+}

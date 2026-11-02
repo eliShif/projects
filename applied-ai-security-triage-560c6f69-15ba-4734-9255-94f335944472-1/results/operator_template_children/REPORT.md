@@ -1,0 +1,3 @@
+# Optional chat-template child compatibility
+
+Actual LocalLM and guarded policy loading succeed with unused .jinja directories, dangling links and directory links. Regular .jinja template files remain hashed and a byte change is rejected. The strict closed-bundle helper still rejects non-file entries. The same test failed with three actual identity-capture errors before the targeted filter. All 124 current tests and 43 inherited HTTP/portfolio tests pass, together with the wheel build and reference smoke run. This is loading-compatibility and integrity validation with tiny random models, not a pretrained security-quality experiment. Earlier results and tests remain unchanged.

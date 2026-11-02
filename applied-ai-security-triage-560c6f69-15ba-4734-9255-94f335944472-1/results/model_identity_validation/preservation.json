@@ -1,0 +1,10 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/check_preservation.py"
+  ],
+  "started_utc": "2026-11-01T19:32:32.421251+00:00",
+  "elapsed_seconds": 0.2703959720674902,
+  "exit_code": 0,
+  "output_sha256": "b771edcbba0b7071d281ad4983b1b14284151a6c016dc12cb1b017e2aba33282"
+}

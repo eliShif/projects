@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-11-01T19:35:03.184536+00:00",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "packages": {
+    "setuptools": "78.1.1",
+    "torch": "not_installed",
+    "transformers": "not_installed",
+    "safetensors": "not_installed",
+    "numpy": "not_installed"
+  }
+}

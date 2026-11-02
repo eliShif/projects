@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "pip",
+    "--isolated",
+    "--disable-pip-version-check",
+    "install",
+    "--index-url",
+    "https://pypi.org/simple",
+    "--retries",
+    "0",
+    "--timeout",
+    "15",
+    "-r",
+    "requirements.txt"
+  ],
+  "started_utc": "2026-11-01T19:23:59.807697+00:00",
+  "elapsed_seconds": 0.9481560440035537,
+  "exit_code": 1,
+  "output_sha256": "5794ebab5bf7bf7990725523092aea7a4952fd2ddcd120cc83c820302653f05f"
+}

@@ -1,0 +1,19 @@
+{
+  "baseline_files": 235,
+  "changed_files": [
+    "CODE_MAP.md",
+    "EXERCISES.md",
+    "README.md",
+    "UPSTREAM.md",
+    "portfolio/model_identity.py"
+  ],
+  "ignored_generated_files": [],
+  "missing_files": [],
+  "ok": true,
+  "preserved_result_files": 156,
+  "preserved_tests": 16,
+  "protected_files": 235,
+  "source_commit": "1158b22985963249917a1f66caee1feac6f785b2",
+  "unchanged_files": 230,
+  "unexpected_changes": []
+}

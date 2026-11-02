@@ -1,0 +1,24 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "pip",
+    "--isolated",
+    "--disable-pip-version-check",
+    "install",
+    "--no-cache-dir",
+    "--index-url",
+    "https://pypi.org/simple",
+    "--retries",
+    "0",
+    "--timeout",
+    "15",
+    "torch>=2.9,<3",
+    "transformers>=4.48,<5",
+    "safetensors>=0.4"
+  ],
+  "started_utc": "2026-11-01T19:25:46.713077+00:00",
+  "elapsed_seconds": 0.9163371530594304,
+  "exit_code": 1,
+  "output_sha256": "39790e34804ec41c4eadf6700cc7dd163f29b835da43d3195417ed01a162424d"
+}

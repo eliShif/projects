@@ -13,10 +13,24 @@ import random
 from pathlib import Path
 
 from .common import sha256_json, write_json
+from .model_identity import model_files as _model_files, capture_model_identity as _capture_identity, verify_model_identity as _verify_identity
 from .security_triage import OPERATIONS, SYSTEM
 
 DIMENSIONS = 8
 RANK = 2
+
+
+def model_files(model_path):
+    """Preserve trusted local layouts, including shared Hugging Face cache links."""
+    return _model_files(model_path, compatible=True)
+
+
+def capture_model_identity(model_path):
+    return _capture_identity(model_path, compatible=True)
+
+
+def verify_model_identity(model_path, expected):
+    return _verify_identity(model_path, expected, compatible=True)
 
 
 def features(observation):
@@ -125,21 +139,6 @@ def train_reference(train_obs, train_cases, valid_obs, valid_cases, out, steps=9
     return metadata
 
 
-def model_files(model_path):
-    """Hash only explicit model artifacts; do not scan account/config directories."""
-    path = Path(model_path)
-    if not (path / "config.json").is_file():
-        raise FileNotFoundError("Local pretrained model config.json required")
-    files = sorted(path.glob("*.safetensors"))
-    if not files:
-        raise FileNotFoundError("Local pretrained safetensors weights required")
-    files += [p for p in sorted(path.glob("*.json")) if p.name in {
-        "config.json", "tokenizer.json", "tokenizer_config.json", "special_tokens_map.json",
-        "generation_config.json", "model.safetensors.index.json"}]
-    files += [path / name for name in ("tokenizer.model", "vocab.json", "merges.txt") if (path / name).is_file()]
-    return files
-
-
 def prompt_messages(observation):
     return [{"role": "system", "content": SYSTEM},
             {"role": "user", "content": json.dumps(observation, sort_keys=True)}]
@@ -180,10 +179,14 @@ def attach_adapters(model):
 class PretrainedPolicy:
     backend = "local_pretrained_causal_lm_candidate_nll"
 
-    def __init__(self, model_path, adapter_path=None):
-        model_files(model_path)
+    def __init__(self, model_path, adapter_path=None, *, expected_model_files=None):
+        # Standalone callers capture at entry. Queued callers must pass the
+        # original protocol, including for the second evaluation arm.
+        expected = (capture_model_identity(model_path) if expected_model_files is None
+                    else dict(expected_model_files))
+        verify_model_identity(model_path, expected)
         from .local_lm import LocalLM
-        self.lm = LocalLM(model_path)
+        self.lm = LocalLM(model_path, expected_model_files=expected)
         if adapter_path:
             from safetensors.torch import load_file
             attach_adapters(self.lm.model)
@@ -206,14 +209,18 @@ class PretrainedPolicy:
                 "candidate_answer_nll": dict(zip(OPERATIONS, scores)), "backend": self.backend}
 
 
-def train_pretrained(model_path, train_obs, train_cases, valid_obs, valid_cases, out, steps=96, heartbeat=lambda: None):
+def train_pretrained(model_path, train_obs, train_cases, valid_obs, valid_cases, out, steps=96,
+                     heartbeat=lambda: None, *, expected_model_files=None):
     if type(steps) is not int or not 1 <= steps <= 512:
         raise ValueError("Training step budget must be 1..512")
+    expected = (capture_model_identity(model_path) if expected_model_files is None
+                else dict(expected_model_files))
+    verify_model_identity(model_path, expected)
     import torch
     from safetensors.torch import save_file
     from .adapter_tuning import answer_loss
     torch.manual_seed(2026)
-    policy = PretrainedPolicy(model_path)
+    policy = PretrainedPolicy(model_path, expected_model_files=expected)
     lm = policy.lm
     names = attach_adapters(lm.model)
     training = [encode_plan(lm.tokenizer, o, c["expected"]["operation"]) for o, c in zip(train_obs, train_cases)]

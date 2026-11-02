@@ -1,0 +1,10 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/test_model_identity.py"
+  ],
+  "started_utc": "2026-11-01T20:46:48.794464+00:00",
+  "elapsed_seconds": 35.64252273796592,
+  "exit_code": 0,
+  "output_sha256": "d0c3984784a18abbd7bee8fb4a3a40aa6a0a53f320c051dda1e177888486d09c"
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "portfolio.security_smoke"
+  ],
+  "started_utc": "2026-11-01T22:48:08.184305+00:00",
+  "elapsed_seconds": 2.2817508719163015,
+  "exit_code": 0,
+  "timed_out": false,
+  "output_sha256": "ceda48365c6d57deeb74e591b81cc8d0e53018e3cd27ae38166c5a3febcb8428"
+}

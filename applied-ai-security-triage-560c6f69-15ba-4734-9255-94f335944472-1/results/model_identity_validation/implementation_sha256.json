@@ -1,0 +1,13 @@
+{
+  "files": {
+    "portfolio/local_lm.py": "020276f274f542768c4b6cb03f2432527c8835820de054d573613c94299361d9",
+    "portfolio/model_identity.py": "e53eb577c5de6ffbb49fad8ed573d0991ecf74493e9bdc82e3378a013bb234a8",
+    "portfolio/security_models.py": "7baeaba43825ed8912ce76ef63ac31d741c209d6b4f7cdf737c9bab275a8de9c",
+    "portfolio/security_pipeline.py": "c6ec4da708e67380a0d7c0121991c2daaab2e5dd19ea735faaa62b1c8083cfd3",
+    "scripts/check_preservation.py": "f47751edef26e6282272a15ae1baca86c6310c92c6c696998a91ba807e67b911",
+    "tests_ml_identity/test_pretrained_identity.py": "abe7cf237230a40984f336e8366c6ebce04bd3bb1c8116dda8e8641fc4b97845",
+    "tests_security/test_model_identity.py": "68a6b0a51c52a823947bbaf9bf34bc9b0e498fa1f3e1764fd097d1b2cc69f102",
+    "tests_security/test_preservation.py": "6c9cc49cf8e183f0959083246382c8f830096aebb942c4a193a0dcd65f0f7a57"
+  },
+  "recorded_utc": "2026-11-01T19:36:40.174264+00:00"
+}

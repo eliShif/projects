@@ -1,0 +1,21 @@
+test_pretrained_identity (unittest.loader._FailedTest.test_pretrained_identity) ... ERROR
+
+======================================================================
+ERROR: test_pretrained_identity (unittest.loader._FailedTest.test_pretrained_identity)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_pretrained_identity
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/ubuntu/job-pilot/runtime/projects/f5a2bd73-ba7b-4432-ba13-cf27ca160e76/0/tests_ml_identity/test_pretrained_identity.py", line 15, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

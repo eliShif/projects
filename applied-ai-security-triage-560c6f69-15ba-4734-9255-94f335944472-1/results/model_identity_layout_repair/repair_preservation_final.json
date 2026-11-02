@@ -1,0 +1,10 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/check_layout_preservation.py"
+  ],
+  "started_utc": "2026-11-01T22:49:48.156178+00:00",
+  "elapsed_seconds": 0.09124414203688502,
+  "exit_code": 0,
+  "output_sha256": "d9d931f3e44c3faec5953ce5c46f8014c4a9ce018ff6c41eaa8af21a4749b05a"
+}

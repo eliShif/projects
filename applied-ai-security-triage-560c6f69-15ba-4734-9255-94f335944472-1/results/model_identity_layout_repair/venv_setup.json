@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "venv",
+    "--system-site-packages",
+    ".venv"
+  ],
+  "started_utc": "2026-11-01T22:47:04.717773+00:00",
+  "elapsed_seconds": 2.9485195770394057,
+  "exit_code": 0,
+  "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

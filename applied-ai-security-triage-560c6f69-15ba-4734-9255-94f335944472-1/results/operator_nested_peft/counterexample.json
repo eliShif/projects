@@ -1,0 +1,15 @@
+{
+  "scope": "Actual same-directory PEFT + nested-shard counterexample and fix; random tiny fixtures, no quality study.",
+  "before": {
+    "at": "2026-11-02T01:49:23.773Z",
+    "actual_same_directory_peft_nested_checkpoint_loaded": true,
+    "nested_identity_keys": 0,
+    "changed_nested_shard_rejected": false
+  },
+  "after": {
+    "at": "2026-11-02T01:50:42.608Z",
+    "actual_same_directory_peft_nested_checkpoint_loaded": true,
+    "nested_identity_keys": 16,
+    "changed_nested_shard_rejected": true
+  }
+}

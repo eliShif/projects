@@ -1,0 +1,301 @@
+{
+  "recorded_utc": "2026-11-01T19:35:03.184877+00:00",
+  "checks": [
+    {
+      "name": "baseline_security",
+      "record": "baseline_security.json",
+      "log": "baseline_security.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests_security",
+        "-v"
+      ],
+      "started_utc": "2026-11-01T19:24:00.926575+00:00",
+      "elapsed_seconds": 7.642382932011969,
+      "exit_code": 0,
+      "output_sha256": "943540e40d21ba75fd69084fee82577497e01818d622a78cc22ca7f527afd08e"
+    },
+    {
+      "name": "build",
+      "record": "build.json",
+      "log": "build.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-index",
+        "--no-cache-dir",
+        "--no-build-isolation",
+        "--no-deps",
+        "--wheel-dir",
+        "dist",
+        "."
+      ],
+      "started_utc": "2026-11-01T19:32:54.328954+00:00",
+      "elapsed_seconds": 2.1099902170244604,
+      "exit_code": 0,
+      "output_sha256": "2cb505dbd68b89d61a10b1e81a6dfe385861a0545f4f17cfd0bc4243d1b00efb"
+    },
+    {
+      "name": "dependency_install",
+      "record": "dependency_install.json",
+      "log": "dependency_install.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "--isolated",
+        "--disable-pip-version-check",
+        "install",
+        "--index-url",
+        "https://pypi.org/simple",
+        "--retries",
+        "0",
+        "--timeout",
+        "15",
+        "-r",
+        "requirements.txt"
+      ],
+      "started_utc": "2026-11-01T19:23:59.807697+00:00",
+      "elapsed_seconds": 0.9481560440035537,
+      "exit_code": 1,
+      "output_sha256": "5794ebab5bf7bf7990725523092aea7a4952fd2ddcd120cc83c820302653f05f"
+    },
+    {
+      "name": "focused_ml_install",
+      "record": "focused_ml_install.json",
+      "log": "focused_ml_install.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "--isolated",
+        "--disable-pip-version-check",
+        "install",
+        "--no-cache-dir",
+        "--index-url",
+        "https://pypi.org/simple",
+        "--retries",
+        "0",
+        "--timeout",
+        "15",
+        "torch>=2.9,<3",
+        "transformers>=4.48,<5",
+        "safetensors>=0.4"
+      ],
+      "started_utc": "2026-11-01T19:25:46.713077+00:00",
+      "elapsed_seconds": 0.9163371530594304,
+      "exit_code": 1,
+      "output_sha256": "39790e34804ec41c4eadf6700cc7dd163f29b835da43d3195417ed01a162424d"
+    },
+    {
+      "name": "historical_v1_audit",
+      "record": "historical_v1_audit.json",
+      "log": "historical_v1_audit.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.security_pipeline",
+        "audit",
+        "--out",
+        "results/security_triage"
+      ],
+      "started_utc": "2026-11-01T19:29:50.467264+00:00",
+      "elapsed_seconds": 0.3484449969837442,
+      "exit_code": 0,
+      "output_sha256": "b4b5dae11be178880484ef0ba1c1b298ae072c21222135e5e18d356cd77d5c1f"
+    },
+    {
+      "name": "historical_v2_audit",
+      "record": "historical_v2_audit.json",
+      "log": "historical_v2_audit.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.security_pipeline",
+        "audit",
+        "--out",
+        "results/security_triage_v2"
+      ],
+      "started_utc": "2026-11-01T19:29:50.957910+00:00",
+      "elapsed_seconds": 0.36555774498265237,
+      "exit_code": 0,
+      "output_sha256": "fcc3c82ca88ac776fa75904377fe80f73afcf00a497914841fda67a9554c8a66"
+    },
+    {
+      "name": "identity_tests_attempt1",
+      "record": "identity_tests_attempt1.json",
+      "log": "identity_tests_attempt1.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "tests_security.test_model_identity",
+        "-v"
+      ],
+      "started_utc": "2026-11-01T19:28:22.163559+00:00",
+      "elapsed_seconds": 1.4918921559583396,
+      "exit_code": 0,
+      "output_sha256": "ae82c8976046372b04730dbfa4dac87f9196fb86b657d084ef80c9b5a1f9b1ba"
+    },
+    {
+      "name": "inherited_tensor_tests",
+      "record": "inherited_tensor_tests.json",
+      "log": "inherited_tensor_tests.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests_ml",
+        "-v"
+      ],
+      "started_utc": "2026-11-01T19:29:03.333178+00:00",
+      "elapsed_seconds": 0.13486045505851507,
+      "exit_code": 1,
+      "output_sha256": "a7b3cb97167c4750c295f8b5c3e0f6959eee69ba4437a052bfd4f2d9cdaaf02c"
+    },
+    {
+      "name": "inherited_tests",
+      "record": "inherited_tests.json",
+      "log": "inherited_tests.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "started_utc": "2026-11-01T19:29:49.832850+00:00",
+      "elapsed_seconds": 0.4871166789671406,
+      "exit_code": 1,
+      "output_sha256": "9e8baf75a096d1448ac4e3c446b54618f612cf96e75a8f779667b28aba5b0c5e"
+    },
+    {
+      "name": "install",
+      "record": "install.json",
+      "log": "install.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-cache-dir",
+        "--no-build-isolation",
+        "--no-deps",
+        "."
+      ],
+      "started_utc": "2026-11-01T19:32:43.216934+00:00",
+      "elapsed_seconds": 2.5182508289581165,
+      "exit_code": 0,
+      "output_sha256": "930944db2a578ee080a6ce781153667de2469784bd85c933687526632d97d613"
+    },
+    {
+      "name": "installed_smoke",
+      "record": "installed_smoke.json",
+      "log": "installed_smoke.txt",
+      "command": [
+        ".venv/bin/python",
+        "-I",
+        "-m",
+        "portfolio.security_smoke"
+      ],
+      "started_utc": "2026-11-01T19:33:21.899237+00:00",
+      "elapsed_seconds": 3.4284240739652887,
+      "exit_code": 0,
+      "output_sha256": "ceda48365c6d57deeb74e591b81cc8d0e53018e3cd27ae38166c5a3febcb8428"
+    },
+    {
+      "name": "preservation",
+      "record": "preservation.json",
+      "log": "preservation.txt",
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_preservation.py"
+      ],
+      "started_utc": "2026-11-01T19:32:32.421251+00:00",
+      "elapsed_seconds": 0.2703959720674902,
+      "exit_code": 0,
+      "output_sha256": "b771edcbba0b7071d281ad4983b1b14284151a6c016dc12cb1b017e2aba33282"
+    },
+    {
+      "name": "real_tensor_identity",
+      "record": "real_tensor_identity.json",
+      "log": "real_tensor_identity.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests_ml_identity",
+        "-v"
+      ],
+      "started_utc": "2026-11-01T19:29:02.989607+00:00",
+      "elapsed_seconds": 0.1762124770320952,
+      "exit_code": 1,
+      "output_sha256": "eccfeb3f308a32cf93889a194ef533adbca1e73e4ede1b50991394f6d6a967a0"
+    },
+    {
+      "name": "security_tests",
+      "record": "security_tests.json",
+      "log": "security_tests.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests_security",
+        "-v"
+      ],
+      "started_utc": "2026-11-01T19:32:32.330515+00:00",
+      "elapsed_seconds": 8.32707965595182,
+      "exit_code": 0,
+      "output_sha256": "4fedf1e9755601f3f3e69e1691dfe26a8f8b905d22e5ef62f69abe19447e9a4f"
+    },
+    {
+      "name": "smoke",
+      "record": "smoke.json",
+      "log": "smoke.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "portfolio.security_smoke"
+      ],
+      "started_utc": "2026-11-01T19:33:21.922487+00:00",
+      "elapsed_seconds": 3.1121475910767913,
+      "exit_code": 0,
+      "output_sha256": "ceda48365c6d57deeb74e591b81cc8d0e53018e3cd27ae38166c5a3febcb8428"
+    },
+    {
+      "name": "syntax",
+      "record": "syntax.json",
+      "log": "syntax.txt",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "portfolio",
+        "tests_ml_identity",
+        "tests_security/test_model_identity.py",
+        "tests_security/test_preservation.py",
+        "scripts/check_preservation.py"
+      ],
+      "started_utc": "2026-11-01T19:32:32.333133+00:00",
+      "elapsed_seconds": 0.3415515630040318,
+      "exit_code": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "at": "2026-11-02T01:26:40.119Z",
+  "scope": "Isolated-copy actual tokenizer override, unused adapter sidecar and local/cached PEFT validation. Software and real tiny random-model compatibility/integrity integration; no pretrained-security quality result.",
+  "validation": [
+    {
+      "name": "tests",
+      "command": {
+        "args": [
+          "scripts/test_model_identity.py"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T01:24:07.665Z",
+      "finished_at": "2026-11-02T01:26:21.705Z",
+      "exit_code": 0,
+      "counts": [
+        113
+      ],
+      "output_sha256": "c05e41b059d6b6df01b3efd0b2efdb8944edd9195ac80148412fba7808026448"
+    },
+    {
+      "name": "build",
+      "command": {
+        "args": [
+          "-m",
+          "pip",
+          "--isolated",
+          "--disable-pip-version-check",
+          "wheel",
+          "--no-index",
+          "--no-cache-dir",
+          "--no-build-isolation",
+          "--no-deps",
+          "--wheel-dir",
+          "dist",
+          "."
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T01:26:21.707Z",
+      "finished_at": "2026-11-02T01:26:24.023Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "97452852d978c79685fab21904a2470452a22c1a59330b0e437beae0bb4462bf"
+    },
+    {
+      "name": "documented_run",
+      "command": {
+        "args": [
+          "-m",
+          "portfolio.security_smoke"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T01:26:24.024Z",
+      "finished_at": "2026-11-02T01:26:25.758Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "cc344e588d2b238cc392d281ae35e0982197a3075cff130ea4a8b1d2ac795a92"
+    },
+    {
+      "name": "inherited_http_and_portfolio",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ]
+      },
+      "started_at": "2026-11-02T01:26:25.758Z",
+      "finished_at": "2026-11-02T01:26:40.116Z",
+      "exit_code": 0,
+      "counts": [
+        43
+      ],
+      "output_sha256": "c6cabc6cb3a628a534ebd8839d202f4a44d7f51c5bb9e69b2450e751804348d2"
+    }
+  ],
+  "preserved_original_test_result_files": 94
+}

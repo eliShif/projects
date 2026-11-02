@@ -1,0 +1,15 @@
+test_adapter_receipt_corruption_rejects_without_loading (test_pretrained_identity.TensorIdentityTests.test_adapter_receipt_corruption_rejects_without_loading) ... `torch_dtype` is deprecated! Use `dtype` instead!
+ok
+test_between_real_evaluation_arms_mutations_stop_adapted_load (test_pretrained_identity.TensorIdentityTests.test_between_real_evaluation_arms_mutations_stop_adapted_load) ... ok
+test_between_training_and_base_evaluation_mutations_stop_actual_loaders (test_pretrained_identity.TensorIdentityTests.test_between_training_and_base_evaluation_mutations_stop_actual_loaders) ... ok
+test_queued_training_mutations_stop_actual_loaders (test_pretrained_identity.TensorIdentityTests.test_queued_training_mutations_stop_actual_loaders) ... ok
+test_real_tokenizer_then_mutation_blocks_model_loading (test_pretrained_identity.TensorIdentityTests.test_real_tokenizer_then_mutation_blocks_model_loading) ... ok
+test_retry_and_resume_of_training_and_evaluation_keep_original_hashes (test_pretrained_identity.TensorIdentityTests.test_retry_and_resume_of_training_and_evaluation_keep_original_hashes) ... ok
+test_sharded_real_checkpoint_load_and_shard_mutation (test_pretrained_identity.TensorIdentityTests.test_sharded_real_checkpoint_load_and_shard_mutation) ... Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:00<00:00, 772.96it/s]
+ok
+test_unchanged_checkpoint_trains_loads_both_arms_and_replays (test_pretrained_identity.TensorIdentityTests.test_unchanged_checkpoint_trains_loads_both_arms_and_replays) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 17.405s
+
+OK

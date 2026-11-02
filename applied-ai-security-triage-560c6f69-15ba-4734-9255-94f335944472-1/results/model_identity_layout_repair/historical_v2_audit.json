@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "portfolio.security_pipeline",
+    "audit",
+    "--out",
+    "results/security_triage_v2"
+  ],
+  "started_utc": "2026-11-01T22:48:12.929309+00:00",
+  "elapsed_seconds": 0.42401543899904937,
+  "exit_code": 0,
+  "timed_out": false,
+  "output_sha256": "fcc3c82ca88ac776fa75904377fe80f73afcf00a497914841fda67a9554c8a66"
+}

@@ -1,0 +1,84 @@
+{
+  "at": "2026-11-02T01:55:30.110Z",
+  "scope": "Isolated-copy same-directory PEFT nested-shard mutation and restoration validation. Software and real tiny random-model compatibility/integrity integration; no pretrained-security quality result.",
+  "validation": [
+    {
+      "name": "tests",
+      "command": {
+        "args": [
+          "scripts/test_model_identity.py"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T01:52:39.825Z",
+      "finished_at": "2026-11-02T01:55:11.406Z",
+      "exit_code": 0,
+      "counts": [
+        114
+      ],
+      "output_sha256": "a9e3f1757bcd020112e4819d121878f91858d53ac698e680fb4e835d5dce4318"
+    },
+    {
+      "name": "build",
+      "command": {
+        "args": [
+          "-m",
+          "pip",
+          "--isolated",
+          "--disable-pip-version-check",
+          "wheel",
+          "--no-index",
+          "--no-cache-dir",
+          "--no-build-isolation",
+          "--no-deps",
+          "--wheel-dir",
+          "dist",
+          "."
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T01:55:11.407Z",
+      "finished_at": "2026-11-02T01:55:13.976Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "f1726ec2966ce9be3d6af1f594d7c77ed6241fde55f836d35f9504cd6b3e82ff"
+    },
+    {
+      "name": "documented_run",
+      "command": {
+        "args": [
+          "-m",
+          "portfolio.security_smoke"
+        ],
+        "executable": ".venv/bin/python"
+      },
+      "started_at": "2026-11-02T01:55:13.977Z",
+      "finished_at": "2026-11-02T01:55:15.555Z",
+      "exit_code": 0,
+      "counts": [],
+      "output_sha256": "cc344e588d2b238cc392d281ae35e0982197a3075cff130ea4a8b1d2ac795a92"
+    },
+    {
+      "name": "inherited_http_and_portfolio",
+      "command": {
+        "executable": ".venv/bin/python",
+        "args": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ]
+      },
+      "started_at": "2026-11-02T01:55:15.555Z",
+      "finished_at": "2026-11-02T01:55:30.108Z",
+      "exit_code": 0,
+      "counts": [
+        43
+      ],
+      "output_sha256": "39b86c5bc65ee7762b017ba36c24200e6a05b8b94614229556fa439362697158"
+    }
+  ],
+  "preserved_original_test_result_files": 94
+}

@@ -1,0 +1,13 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "unittest",
+    "tests_security.test_layout_preservation",
+    "-v"
+  ],
+  "started_utc": "2026-11-01T22:49:47.964937+00:00",
+  "elapsed_seconds": 0.1908932940568775,
+  "exit_code": 0,
+  "output_sha256": "38120eaf8669409400710ae8381a214015fe47d46447300028c33036d85b14e6"
+}

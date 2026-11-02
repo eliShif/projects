@@ -1,0 +1,7 @@
+test_changed_old_identity_test_and_result_or_deleted_source_fail (tests_security.test_layout_preservation.LayoutPreservationTests.test_changed_old_identity_test_and_result_or_deleted_source_fail) ... ok
+test_recovery_checkpoint_is_preserved_outside_the_focused_repair (tests_security.test_layout_preservation.LayoutPreservationTests.test_recovery_checkpoint_is_preserved_outside_the_focused_repair) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.059s
+
+OK

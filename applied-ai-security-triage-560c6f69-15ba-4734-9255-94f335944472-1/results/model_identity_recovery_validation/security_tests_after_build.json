@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests_security",
+    "-v"
+  ],
+  "started_utc": "2026-11-01T20:46:37.950306+00:00",
+  "elapsed_seconds": 10.654544480959885,
+  "exit_code": 0,
+  "output_sha256": "b67d45b4ce22bddc6a19b27eb321b6ed9ca1edbe4049c7dd7fd9d3f511e6556f"
+}

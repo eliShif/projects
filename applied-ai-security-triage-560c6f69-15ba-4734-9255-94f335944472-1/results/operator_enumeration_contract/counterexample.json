@@ -1,0 +1,13 @@
+{
+  "scope": "Controlled scalar fixture verifies public path enumeration, not tensor loading.",
+  "before": {
+    "relative_input": true,
+    "original_contract_preserved": true,
+    "candidate_contract_preserved": false
+  },
+  "after": {
+    "relative_input": true,
+    "original_contract_preserved": true,
+    "candidate_contract_preserved": true
+  }
+}
