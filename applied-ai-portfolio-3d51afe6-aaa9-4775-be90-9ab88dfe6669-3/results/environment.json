@@ -1,0 +1,11 @@
+{
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "scikit-learn": "1.8.0",
+  "torch": "2.14.1+cpu",
+  "transformers": "4.57.6",
+  "huggingface-hub": "0.36.2",
+  "safetensors": "0.8.0",
+  "openai": "2.54.0",
+  "httpx": "0.28.1"
+}

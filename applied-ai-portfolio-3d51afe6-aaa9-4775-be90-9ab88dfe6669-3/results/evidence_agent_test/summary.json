@@ -1,0 +1,106 @@
+{
+  "protocol": {
+    "version": "evidence-eval-v2",
+    "split": "test",
+    "repeats": 2,
+    "task_count": 48,
+    "dataset_sha256": "104326eda6a3d7c53b55a08000e16841b4dfdaa49a6b7c5a7fdd068ba3848332",
+    "corpus_sha256": "3209224c58b7329a36a788383bb4bace2c59584e7a677c724721e61a1b5ca6e7",
+    "source_hashes": {
+      "evidence_agent.py": "4dea99bb5c6969ec332be06b964ba96e42a795fc9f974671d842589b766adcc3",
+      "evidence_eval.py": "34cdd6608146e2f6157897f371a493af2c14f43b3fb50574d60d5bc81d88e9ce",
+      "research_cases.py": "d9d398f1096beca68e956e2a1a034e90c54aeac45d4ad1c4996a57cdb72a8806",
+      "gguf_lm.py": "93124164f8d795465229063e578ea35b44f5429012975b468aceee340a790bbf"
+    },
+    "planner_prompt_sha256": "f1efd37252360805491c76f20a7457b1ffa49b41402d02cdbe893ff1d9a39815",
+    "rag_prompt_sha256": "4f551835e9864bee76e0171c6b7199fcbae7fde91303b8bc42b1f7c8df571632",
+    "policies": [
+      "rag",
+      "typed_agent"
+    ],
+    "temperature": 0.2,
+    "max_tokens": 180,
+    "retrieval_k": 6,
+    "acceptance": {
+      "grounded_accuracy": 0.85,
+      "abstention_accuracy": 0.9
+    },
+    "cluster_unit": "service entity; all related questions and repeats retained",
+    "scope": "synthetic versioned numeric service research, eight task families",
+    "created_before_generations": {
+      "utc": "2026-10-22T14:26:48.385795+00:00",
+      "python": "3.12.14",
+      "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+      "machine": "x86_64",
+      "processor": "x86_64"
+    }
+  },
+  "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+  "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+  "runtime": "0.3.36",
+  "provenance": {
+    "utc": "2026-10-22T15:23:31.021666+00:00",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "summaries": {
+    "rag": {
+      "runs": 96,
+      "accuracy": 0.4375,
+      "grounded_accuracy": 0.4375,
+      "abstention_accuracy": 0.5,
+      "failures": 0,
+      "by_family": {
+        "conflict": 0.0,
+        "conversion": 0.0,
+        "difference": 0.5,
+        "lookup": 1.0,
+        "missing_field": 1.0,
+        "ratio": 0.0,
+        "sum": 0.5,
+        "unknown_service": 0.5
+      },
+      "p50_seconds": 14.178627095000138,
+      "p95_seconds": 24.17996828875016
+    },
+    "typed_agent": {
+      "runs": 96,
+      "accuracy": 0.9166666666666666,
+      "grounded_accuracy": 0.9166666666666666,
+      "abstention_accuracy": 1.0,
+      "failures": 0,
+      "by_family": {
+        "conflict": 1.0,
+        "conversion": 0.8333333333333334,
+        "difference": 0.5,
+        "lookup": 1.0,
+        "missing_field": 1.0,
+        "ratio": 1.0,
+        "sum": 1.0,
+        "unknown_service": 1.0
+      },
+      "p50_seconds": 6.651979684999787,
+      "p95_seconds": 8.634960131999378
+    }
+  },
+  "paired_entity_bootstrap": {
+    "mean_difference": 0.4791666666666667,
+    "ci95": [
+      0.375,
+      0.5833333333333334
+    ],
+    "unit": "service entity",
+    "questions": 6,
+    "repeats_per_question": 1
+  },
+  "acceptance_passed": true,
+  "limitations": [
+    "Authored synthetic data; six held-out entities, not a public benchmark.",
+    "Typed agent has structured corpus access; RAG receives top-six text records. This compares systems, not isolated model intelligence.",
+    "Agent prevents document-note injection by keeping notes outside the planning boundary; no broad injection-robustness claim.",
+    "Task families are shared across development/test; entity holdout does not prove task generalization.",
+    "No claim of frontier-model quality, production load capacity, or independent human mastery."
+  ]
+}

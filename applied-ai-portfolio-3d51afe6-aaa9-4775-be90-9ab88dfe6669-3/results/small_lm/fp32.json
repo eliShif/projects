@@ -1,0 +1,99 @@
+{
+  "variant": "fp32",
+  "provenance": {
+    "utc": "2026-10-22T12:25:30.381335+00:00",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "torch": "2.14.1+cpu",
+  "load_seconds": 3.784745605997159,
+  "resident_before_load_bytes": 255266816,
+  "resident_after_load_bytes": 1007341568,
+  "serialized_state_bytes": 538149341,
+  "text_tokens_scored": 131,
+  "negative_log_likelihood": 4.789643691696283,
+  "perplexity_on_authored_texts": 120.25851192217203,
+  "prefill_p50_ms": 145.4864120023558,
+  "prefill_p95_ms": 178.28347929898885,
+  "prefill_tokens": 24,
+  "prefill_repeats": 20,
+  "cpu_threads": 1,
+  "generation_tokens_per_second_median": 14.87893885311735,
+  "generations": [
+    {
+      "prompt": "Explain why a held-out test set matters.",
+      "repeat": 0,
+      "text": "A held-out test set is a crucial component of statistical analysis, particularly in hypothesis testing and confidence intervals. The primary reason holding out a test set matters is that it helps to control the risk of Type I errors, which occur when a",
+      "input_tokens": 40,
+      "output_tokens": 48,
+      "seconds": 3.2260365120018832
+    },
+    {
+      "prompt": "Explain why a held-out test set matters.",
+      "repeat": 1,
+      "text": "A held-out test set is a crucial component of statistical analysis, particularly in hypothesis testing and confidence intervals. The primary reason holding out a test set matters is that it helps to control the risk of Type I errors, which occur when a",
+      "input_tokens": 40,
+      "output_tokens": 48,
+      "seconds": 3.3468966740038013
+    },
+    {
+      "prompt": "Explain why a held-out test set matters.",
+      "repeat": 2,
+      "text": "A held-out test set is a crucial component of statistical analysis, particularly in hypothesis testing and confidence intervals. The primary reason holding out a test set matters is that it helps to control the risk of Type I errors, which occur when a",
+      "input_tokens": 40,
+      "output_tokens": 48,
+      "seconds": 3.212450042992714
+    },
+    {
+      "prompt": "Explain a trade-off between latency and model size.",
+      "repeat": 0,
+      "text": "The trade-off between latency and model size is a fundamental concept in machine learning and deep learning. In essence, it's a balance between the amount of data that needs to be processed and the computational resources available to process that data.\n",
+      "input_tokens": 41,
+      "output_tokens": 48,
+      "seconds": 3.3587447710015113
+    },
+    {
+      "prompt": "Explain a trade-off between latency and model size.",
+      "repeat": 1,
+      "text": "The trade-off between latency and model size is a fundamental concept in machine learning and deep learning. In essence, it's a balance between the amount of data that needs to be processed and the computational resources available to process that data.\n",
+      "input_tokens": 41,
+      "output_tokens": 48,
+      "seconds": 3.7026717880071374
+    },
+    {
+      "prompt": "Explain a trade-off between latency and model size.",
+      "repeat": 2,
+      "text": "The trade-off between latency and model size is a fundamental concept in machine learning and deep learning. In essence, it's a balance between the amount of data that needs to be processed and the computational resources available to process that data.\n",
+      "input_tokens": 41,
+      "output_tokens": 48,
+      "seconds": 3.517696734998026
+    },
+    {
+      "prompt": "What evidence should an incident report contain?",
+      "repeat": 0,
+      "text": "When reporting an incident, it's essential to provide a clear and concise summary of the incident, including the date, time, location, and any relevant details. Here's a general outline of what you should include in an incident report:\n",
+      "input_tokens": 38,
+      "output_tokens": 48,
+      "seconds": 3.1081959099974483
+    },
+    {
+      "prompt": "What evidence should an incident report contain?",
+      "repeat": 1,
+      "text": "When reporting an incident, it's essential to provide a clear and concise summary of the incident, including the date, time, location, and any relevant details. Here's a general outline of what you should include in an incident report:\n",
+      "input_tokens": 38,
+      "output_tokens": 48,
+      "seconds": 3.0108838690066477
+    },
+    {
+      "prompt": "What evidence should an incident report contain?",
+      "repeat": 2,
+      "text": "When reporting an incident, it's essential to provide a clear and concise summary of the incident, including the date, time, location, and any relevant details. Here's a general outline of what you should include in an incident report:\n",
+      "input_tokens": 38,
+      "output_tokens": 48,
+      "seconds": 3.158757851997507
+    }
+  ],
+  "weights_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac"
+}

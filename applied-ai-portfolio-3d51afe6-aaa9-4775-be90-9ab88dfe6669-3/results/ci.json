@@ -1,0 +1,8 @@
+{
+  "tested_commit": "e0bc1d389f23a8bc84aec077d24e558125d94107",
+  "run_id": 39810558301,
+  "conclusion": "success",
+  "url": "https://github.com/eliShif/applied-ai-portfolio/actions/runs/39810558301",
+  "tests": 43,
+  "scope": "unit and contract tests plus synthetic telemetry smoke run; no real-model inference in CI"
+}

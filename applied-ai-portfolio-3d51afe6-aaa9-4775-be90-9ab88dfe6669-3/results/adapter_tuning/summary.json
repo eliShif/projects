@@ -1,0 +1,154 @@
+{
+  "experiment": "lora-format-adaptation-v1",
+  "provenance": {
+    "utc": "2026-10-22T12:30:56.669604+00:00",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "trainable_parameters": 15360,
+  "rank": 4,
+  "alpha": 8,
+  "targets": [
+    "model.layers.28.self_attn.q_proj",
+    "model.layers.28.self_attn.v_proj",
+    "model.layers.29.self_attn.q_proj",
+    "model.layers.29.self_attn.v_proj"
+  ],
+  "steps": 48,
+  "lr": 0.005,
+  "seed": 2026,
+  "training_seconds": 34.74720022499969,
+  "dataset_sha256": "ce664207f1992c4e537598edad3efdf2752b44769e2ffabed538ebb6477f8219",
+  "selection": "lowest validation answer-token NLL",
+  "validation_history": [
+    {
+      "step": 12,
+      "train_loss": 0.6514408588409424,
+      "validation_answer_nll": 1.335959643125534
+    },
+    {
+      "step": 24,
+      "train_loss": 0.606069028377533,
+      "validation_answer_nll": 0.7190937101840973
+    },
+    {
+      "step": 36,
+      "train_loss": 0.4261076748371124,
+      "validation_answer_nll": 0.5100915357470512
+    },
+    {
+      "step": 48,
+      "train_loss": 0.49593111872673035,
+      "validation_answer_nll": 0.5747667886316776
+    }
+  ],
+  "base_test_answer_nll": 6.153372287750244,
+  "adapter_test_answer_nll": 0.5206961880127589,
+  "base_test_exact_match": 0.3333333333333333,
+  "adapter_test_exact_match": 0.3333333333333333,
+  "test_rows": [
+    {
+      "entity": "Aster",
+      "expected": 17,
+      "base_answer": "The document states that the audit-log",
+      "adapter_answer": "17",
+      "base_correct": false,
+      "adapter_correct": true
+    },
+    {
+      "entity": "Birch",
+      "expected": 20,
+      "base_answer": "The Birch service is not a service",
+      "adapter_answer": "30",
+      "base_correct": false,
+      "adapter_correct": false
+    },
+    {
+      "entity": "Cedar",
+      "expected": 23,
+      "base_answer": "The Cedar service is not allowed to retain",
+      "adapter_answer": "36",
+      "base_correct": false,
+      "adapter_correct": false
+    },
+    {
+      "entity": "Dune",
+      "expected": 26,
+      "base_answer": "The Dune service is not a service",
+      "adapter_answer": "13",
+      "base_correct": false,
+      "adapter_correct": false
+    },
+    {
+      "entity": "Elm",
+      "expected": 29,
+      "base_answer": "The Elm service runs 29",
+      "adapter_answer": "15",
+      "base_correct": true,
+      "adapter_correct": false
+    },
+    {
+      "entity": "Flint",
+      "expected": 32,
+      "base_answer": "The Flint service runs 32 days",
+      "adapter_answer": "32",
+      "base_correct": true,
+      "adapter_correct": true
+    },
+    {
+      "entity": "Grove",
+      "expected": 35,
+      "base_answer": "The document states that the audit-log",
+      "adapter_answer": "35",
+      "base_correct": false,
+      "adapter_correct": true
+    },
+    {
+      "entity": "Harbor",
+      "expected": 38,
+      "base_answer": "The Harbor service has a 38",
+      "adapter_answer": "38",
+      "base_correct": true,
+      "adapter_correct": true
+    },
+    {
+      "entity": "Iris",
+      "expected": 41,
+      "base_answer": "The iris service runs 41 days",
+      "adapter_answer": "12",
+      "base_correct": true,
+      "adapter_correct": false
+    },
+    {
+      "entity": "Juniper",
+      "expected": 44,
+      "base_answer": "The Juniper service is not a service",
+      "adapter_answer": "12",
+      "base_correct": false,
+      "adapter_correct": false
+    },
+    {
+      "entity": "Kite",
+      "expected": 47,
+      "base_answer": "The Kite service has a 4",
+      "adapter_answer": "12",
+      "base_correct": false,
+      "adapter_correct": false
+    },
+    {
+      "entity": "Larch",
+      "expected": 50,
+      "base_answer": "The document states that the audit-log",
+      "adapter_answer": "15",
+      "base_correct": false,
+      "adapter_correct": false
+    }
+  ],
+  "limits": [
+    "Single seed and 12 authored test examples; not a general capability estimate.",
+    "Fine-tuning learns an answer format on a narrow synthetic distribution.",
+    "This arm uses one gold document and greedy decoding, unlike the three-document stochastic retrieval experiment; do not compare their scores causally."
+  ]
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "dev-Alder-lookup",
+    "entity": "Alder",
+    "family": "lookup",
+    "question": "According to the current policy, how many days does Alder retain audit logs?",
+    "expected": 71,
+    "evidence_ids": [
+      "Alder-r2"
+    ]
+  },
+  {
+    "id": "dev-Alder-conversion",
+    "entity": "Alder",
+    "family": "conversion",
+    "question": "Express Alder's session timeout in seconds.",
+    "expected": 1800,
+    "evidence_ids": [
+      "Alder-r2"
+    ]
+  },
+  {
+    "id": "dev-Alder-difference",
+    "entity": "Alder",
+    "family": "difference",
+    "question": "Subtract Birch's current log-retention period from Alder's, in days.",
+    "expected": 10,
+    "evidence_ids": [
+      "Alder-r2",
+      "Birch-r2"
+    ]
+  },
+  {
+    "id": "dev-Alder-sum",
+    "entity": "Alder",
+    "family": "sum",
+    "question": "What is the combined daily request quota for Alder and Birch?",
+    "expected": 3900,
+    "evidence_ids": [
+      "Alder-r2",
+      "Birch-r2"
+    ]
+  },
+  {
+    "id": "dev-Alder-ratio",
+    "entity": "Alder",
+    "family": "ratio",
+    "question": "What is the ratio of Alder's monthly cost to Birch's monthly cost?",
+    "expected": 0.8571428571428571,
+    "evidence_ids": [
+      "Alder-r2",
+      "Birch-r2"
+    ]
+  },
+  {
+    "id": "dev-Alder-missing_field",
+    "entity": "Alder",
+    "family": "missing_field",
+    "question": "How many engineers are on Alder's on-call team?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "dev-Alder-unknown_service",
+    "entity": "Alder",
+    "family": "unknown_service",
+    "question": "What is the audit-log retention period in days for AlderSandbox?",
+    "expected": null,
+    "evidence_ids": []
+  },
+  {
+    "id": "dev-Alder-conflict",
+    "entity": "Alder",
+    "family": "conflict",
+    "question": "How many days does AlderMirror retain audit logs under its current policy?",
+    "expected": null,
+    "evidence_ids": []
+  }
+]

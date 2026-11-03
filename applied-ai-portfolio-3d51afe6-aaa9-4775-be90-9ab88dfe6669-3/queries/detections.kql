@@ -1,0 +1,30 @@
+// Reference KQL for an ingested, deduplicated PortfolioEvents table.
+// Columns: id:string, actor:string, ts:long (seconds), kind:string,
+// source_ip:string, resource:string, country:string.
+// NOT executed against Azure. Python test/validation selects threshold 8 here;
+// update from results/telemetry/summary.json before comparing outputs.
+let Threshold = 8;
+let E = PortfolioEvents | summarize arg_max(ts, *) by id;
+let Success = E | where kind == "login_success"
+    | project actor, source_ip, SuccessTime=ts, SuccessId=id;
+let Failure = E | where kind == "login_failure"
+    | project actor, source_ip, FailureTime=ts, FailureId=id;
+Success
+| join kind=inner (Failure) on actor, source_ip
+| where FailureTime < SuccessTime and SuccessTime - FailureTime <= 120
+| summarize FailureCount=count(), Evidence=make_set(FailureId) by actor, SuccessTime, SuccessId
+| where FailureCount >= Threshold
+| extend Rule="burst_then_success", Evidence=array_concat(Evidence, pack_array(SuccessId))
+| project actor, Rule, ts=SuccessTime, Evidence
+;
+let E = PortfolioEvents | summarize arg_max(ts, *) by id;
+let Secrets = E | where kind == "secret_read" and resource == "k8s/prod"
+    | project actor, resource, SecretTime=ts, SecretId=id;
+let Escalations = E | where kind in ("role_change", "pod_exec") and resource == "k8s/prod"
+    | project actor, resource, EscalationTime=ts, EscalationId=id;
+Secrets
+| join kind=inner (Escalations) on actor, resource
+| where EscalationTime < SecretTime and SecretTime - EscalationTime <= 120
+| summarize Evidence=make_set(EscalationId) by actor, SecretTime, SecretId
+| extend Rule="privilege_then_secret", Evidence=array_concat(Evidence, pack_array(SecretId))
+| project actor, Rule, ts=SecretTime, Evidence

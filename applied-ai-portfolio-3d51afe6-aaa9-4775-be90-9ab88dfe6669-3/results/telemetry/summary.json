@@ -1,0 +1,141 @@
+{
+  "experiment": "cloud-telemetry-v1",
+  "data_kind": "synthetic",
+  "provenance": {
+    "utc": "2026-10-22T12:17:19.896679+00:00",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "counts": {
+    "train_episodes": 240,
+    "validation_episodes": 120,
+    "test_episodes": 240,
+    "test_events": 6131
+  },
+  "selected_rule_threshold": 8,
+  "validation_trials": [
+    {
+      "threshold": 6,
+      "precision": 0.7666666666666667,
+      "recall": 0.7666666666666667,
+      "f1": 0.7666666666666667,
+      "tp": 23,
+      "fp": 7,
+      "tn": 83,
+      "fn": 7,
+      "false_positive_rate": 0.07777777777777778,
+      "recall_ci95": [
+        0.5907167384187784,
+        0.8820761185551049
+      ],
+      "false_positive_rate_ci95": [
+        0.038184815317289005,
+        0.15193860182592028
+      ]
+    },
+    {
+      "threshold": 8,
+      "precision": 0.7666666666666667,
+      "recall": 0.7666666666666667,
+      "f1": 0.7666666666666667,
+      "tp": 23,
+      "fp": 7,
+      "tn": 83,
+      "fn": 7,
+      "false_positive_rate": 0.07777777777777778,
+      "recall_ci95": [
+        0.5907167384187784,
+        0.8820761185551049
+      ],
+      "false_positive_rate_ci95": [
+        0.038184815317289005,
+        0.15193860182592028
+      ]
+    },
+    {
+      "threshold": 10,
+      "precision": 0.7407407407407407,
+      "recall": 0.6666666666666666,
+      "f1": 0.7017543859649122,
+      "tp": 20,
+      "fp": 7,
+      "tn": 83,
+      "fn": 10,
+      "false_positive_rate": 0.07777777777777778,
+      "recall_ci95": [
+        0.4878005164454384,
+        0.8076950191632386
+      ],
+      "false_positive_rate_ci95": [
+        0.038184815317289005,
+        0.15193860182592028
+      ]
+    },
+    {
+      "threshold": 12,
+      "precision": 0.72,
+      "recall": 0.6,
+      "f1": 0.6545454545454545,
+      "tp": 18,
+      "fp": 7,
+      "tn": 83,
+      "fn": 12,
+      "false_positive_rate": 0.07777777777777778,
+      "recall_ci95": [
+        0.42320360253322475,
+        0.7540937188319815
+      ],
+      "false_positive_rate_ci95": [
+        0.038184815317289005,
+        0.15193860182592028
+      ]
+    }
+  ],
+  "rule_detector": {
+    "precision": 0.7586206896551724,
+    "recall": 0.7333333333333333,
+    "f1": 0.7457627118644068,
+    "tp": 44,
+    "fp": 14,
+    "tn": 166,
+    "fn": 16,
+    "false_positive_rate": 0.07777777777777778,
+    "recall_ci95": [
+      0.6099128690331636,
+      0.8286735999671945
+    ],
+    "false_positive_rate_ci95": [
+      0.046893422637744854,
+      0.12630722005161726
+    ]
+  },
+  "isolation_forest_baseline": {
+    "precision": 0.5957446808510638,
+    "recall": 0.9333333333333333,
+    "f1": 0.7272727272727273,
+    "tp": 56,
+    "fp": 38,
+    "tn": 142,
+    "fn": 4,
+    "false_positive_rate": 0.2111111111111111,
+    "recall_ci95": [
+      0.8407464268680283,
+      0.9737713012754938
+    ],
+    "false_positive_rate_ci95": [
+      0.15784799003901068,
+      0.2764471865379213
+    ],
+    "roc_auc": 0.8495833333333334,
+    "validation_cutoff": 0.5451907524093742
+  },
+  "test_data_sha256": "21b5a92adeb4b024c339d728ec5c5b94c80cc7b61594555cd4a60e78d881f771",
+  "limitations": [
+    "Synthetic scenario generator; these scores do not measure real attack detection.",
+    "Disjoint actors, seeds and time ranges by split; scenario families are shared.",
+    "No live cloud, Kubernetes cluster, nation-state investigation or KQL engine was used.",
+    "KQL queries are reference translations and have not been executed on Azure."
+  ]
+}
