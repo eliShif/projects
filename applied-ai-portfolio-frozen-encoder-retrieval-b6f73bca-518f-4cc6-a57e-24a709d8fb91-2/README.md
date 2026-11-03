@@ -1,57 +1,28 @@
-# Applied AI Portfolio: frozen-encoder retrieval study
+# Applied AI Portfolio — Frozen Encoder Retrieval
 
-This local extension compares the existing TF-IDF retriever with a frozen
-Transformers encoder using masked-mean and CLS pooling. It asks one question:
-do sentence embeddings retrieve these English and Hebrew paraphrases better
-than lexical overlap, at the same `k` and over the same corpus?
+English and Hebrew paraphrases can have little word overlap with relevant documents. The project evaluates whether frozen sentence embeddings improve retrieval over TF-IDF under shared data, retrieval cutoffs and selection rules.
 
-The existing `portfolio/retrieval.py` and `portfolio/adapter_tuning.py` are
-preserved. The only change to shared production code is making NumPy a local
-import inside `common.clustered_difference`, so data preparation can run without
-ML dependencies. [UPSTREAM.md](UPSTREAM.md) and
-[UPSTREAM_FILES.json](UPSTREAM_FILES.json) record the supplied source lineage.
-No remote repository was changed.
+## What it does
 
-**Validation status:** a real pretrained-encoder comparison completed on 2026-10-31.
-The frozen `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`
-checkpoint was compared with TF-IDF on the same corpus and predeclared splits.
-Masked-mean pooling was selected using validation data only. On 12 authored
-held-out queries, MRR@3 was 1.000000 for masked mean, 0.958333 for CLS pooling,
-and 0.388889 for TF-IDF. These are descriptive results on a small synthetic
-English/Hebrew corpus, not a general performance claim.
+Reproducible English/Hebrew retrieval evaluation comparing TF-IDF with frozen multilingual MiniLM embeddings, using validation-only selection, bounded CPU inference and auditable rankings. The completed study recorded masked-mean MRR@3 of 1.000000 versus 0.388889 for TF-IDF on 12 authored held-out queries.
 
-See [the executed report](results/pretrained-minilm-20261031/REPORT.md),
-[case-level rankings](results/pretrained-minilm-20261031/rankings.json),
-[protocol](results/pretrained-minilm-20261031/protocol.json) and
-[exact environment](results/pretrained-minilm-20261031/environment-lock.txt).
-Previous dependency/network failures remain historical validation records;
-they do not describe the status of this completed comparison. No new LoRA
-training run is claimed.
+Compare TF-IDF, masked-mean pooling and CLS pooling at k=3; select the primary method using validation data before test search; enforce inference budgets; and retain model identities, rankings and recomputable evaluation artifacts.
 
-## Setup
+## Solution and technologies
 
-Use Python 3.11+ on Linux; CPU inference is supported. Preparation was verified
-with Python 3.14.4. Run commands from this repository root. No shell activation
-or credentials are needed. Installation requires access to public package
-indexes and compatible wheels.
+A Python CLI validates bilingual JSON and separates validation/test queries by topic group. All methods index the same text-only corpus. A scikit-learn TF-IDF baseline is compared with local PyTorch/Hugging Face Transformers inference from safetensors checkpoints. The frozen encoder produces padding-aware mean or CLS vectors, followed by L2 normalization and cosine ranking.
+
+Validation MRR@3 selects the primary method; Recall@3 and a fixed method order break ties. Selection is saved before test search. Dataset snapshots, source and checkpoint hashes, package versions, inference counters and saved rankings support reproducibility. Auditing recomputes metrics and selection. A separate LoRA module trains rank-4 query/value adapters with a frozen base, answer-token loss and validation checkpoint selection.
+
+Python · NumPy · PyTorch · Hugging Face Transformers · safetensors · unittest
+
+## Quick start
 
 ```text
 python3 -m venv .venv
 .venv/bin/python -m pip install --index-url https://download.pytorch.org/whl/cpu "torch>=2.9,<3"
 .venv/bin/python -m pip install -r requirements.txt
 ```
-
-These are the existing Python/NumPy/scikit-learn/PyTorch/Transformers dependencies.
-The existing hosted-model dependency is not used by this study. The new run
-path performs no API calls, downloads, or network inference. Each protocol
-records installed package versions; upstream version ranges are retained rather
-than represented as a fully locked environment.
-
-## Prepare, test, build, and smoke
-
-Preparation validates the authored data, rejects duplicate texts and topic-group
-leakage, and writes a protocol and snapshot without importing ML packages.
-It records `prepared`, never a completed model result.
 
 ```text
 .venv/bin/python -m portfolio.retrieval_experiment prepare --out artifacts/retrieval-plan
@@ -61,100 +32,40 @@ It records `prepared`, never a completed model result.
 .venv/bin/python -m portfolio.retrieval_experiment smoke
 ```
 
-The build compiles Python modules and tests to bytecode; no native build or
-bundler is required. The finite smoke invokes the documented preparation CLI
-in a temporary workspace directory, audits the snapshot, checks that a changed
-dataset is rejected, and cleans up. Its output explicitly says **no model
-scored**. It works without third-party packages.
+## Results
 
-For dependency-free checks when package installation is unavailable:
+The worker-verified pretrained CPU comparison completed on 2026-10-31 using sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2, pinned to upstream revision e8f8c211226b894fcb81acc59f3b34ba3efd5f42. The authored dataset contains 12 documents and 24 queries: 12 validation and 12 test queries, with six English and six Hebrew queries in each split. Validation selected masked mean before test search.
 
-```text
-python3 -m unittest discover -s tests -p test_retrieval_study.py -v
-python3 -m portfolio.retrieval_experiment smoke
-```
+| Method | Validation MRR@3 | Test MRR@3 | Test Recall@3 | Test Precision@3 |
+|---|---:|---:|---:|---:|
+| TF-IDF | 0.361111 | 0.388889 | 0.666667 | 0.222222 |
+| Masked mean | 1.000000 | 1.000000 | 1.000000 | 0.333333 |
+| CLS | 0.777778 | 0.958333 | 1.000000 | 0.333333 |
 
-The full suite requires the installed dependencies. Dense tests create a small
-**random BERT checkpoint as a contract fixture**, exercising real local loading,
-tokenization, padding, normalization and freezing. These tests are not evidence
-of pretrained quality and do not substitute for the comparison below.
+Masked mean exceeded TF-IDF test MRR@3 by 0.611111. English/Hebrew test MRR@3 was 1.000000/1.000000 for masked mean, 1.000000/0.916667 for CLS and 0.416667/0.361111 for TF-IDF. Recall and Hit coincide for these single-reference queries. These are descriptive findings on this corpus, without a significance or general superiority claim.
 
-## Reproduce the committed pretrained result
+The completed run used one CPU thread and batches of four, recording 72 text encodings, 54 forward calls, 1,448 attended tokens and 1,526 padded token slots, with zero training updates. Saved rankings support metric and selection recomputation; the recorded audit passed. See the [completed report](https://github.com/eliShif/projects/blob/eb24780e9b1c5e3872b4297e0cfde5b2aec7c906/applied-ai-portfolio-frozen-encoder-retrieval-b6f73bca-518f-4cc6-a57e-24a709d8fb91-2/results/pretrained-minilm-20261031/REPORT.md).
 
-```text
-python3 -m venv .venv
-.venv/bin/python -m pip install --index-url https://pypi.org/simple --extra-index-url https://download.pytorch.org/whl/cpu -r results/pretrained-minilm-20261031/environment-lock.txt
-.venv/bin/python scripts/download_encoder.py --destination models/pretrained-minilm
-.venv/bin/python -m portfolio.retrieval_experiment run --model-path models/pretrained-minilm --model-id sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --batch-size 4 --threads 1 --out results/reproduction-new
-.venv/bin/python -m portfolio.retrieval_experiment audit --out results/reproduction-new
-```
+The separate LoRA experiment is inherited from 2026-10-22: 15,360 trainable parameters and 48 updates reduced held-out answer-token NLL from 6.153 to 0.521, while exact match remained 33.3%. Other inherited portfolio findings include slower INT8 vision latency and worsened small-LM perplexity and resident memory despite smaller saved states. These remain historical measurements; this documentation review performed no reruns.
 
-Use a new output directory each time. Model/tokenizer bytes and package versions
-are recorded in the committed manifests. The run performs zero training updates:
-these are pretrained weights held frozen during evaluation. The operator limited
-the process to one CPU core, 1700 MiB RAM and 512 MiB swap; the service reported a
-1.5 GiB memory peak. Model weights and virtual environments are not stored in Git.
+## Scope and limitations
 
-## Run real retrieval
+The small authored dataset lacks independently reviewed relevance labels. Its English and Hebrew queries are in-language cases, not a cross-language benchmark.
 
-TF-IDF needs no model weights, but requires NumPy and scikit-learn:
+Topic-group holdout does not eliminate shared templates, writing style or possible pretraining contamination. Related paraphrases are correlated, so results support descriptive comparisons rather than significance or general superiority claims.
 
-```text
-.venv/bin/python -m portfolio.retrieval_experiment run --mode baseline --out artifacts/tfidf
-.venv/bin/python -m portfolio.retrieval_experiment audit --out artifacts/tfidf
-.venv/bin/python -m portfolio.retrieval_experiment smoke --baseline
-```
+Every method indexes the full corpus, including documents relevant to held-out queries. Relevance labels are used for scoring and are not indexed.
 
-For the comparison, supply a locally obtained pretrained AutoModel-compatible
-encoder/tokenizer in `models/encoder`. The executed model is
-`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`, pinned to revision
-`e8f8c211226b894fcb81acc59f3b34ba3efd5f42`. The public download script obtains
-the exact safetensors/tokenizer assets before offline inference. The directory must contain `config.json`, tokenizer
-assets, and `model.safetensors` or valid safetensors shards. Custom remote code
-and pickle weights are not loaded. The exact local version is computed from
-SHA-256 hashes of model/tokenizer files and saved in `encoder.json`; the optional
-model ID is only an operator-supplied provenance label.
+CLS is a pooling ablation on the same checkpoint, which may favor mean pooling. TF-IDF excludes zero-overlap results, while dense retrieval can return negative-cosine neighbors. Truncation can affect longer-document comparisons.
 
-```text
-.venv/bin/python -m portfolio.retrieval_experiment run --model-path models/encoder --model-id sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --out artifacts/retrieval-encoder
-.venv/bin/python -m portfolio.retrieval_experiment audit --out artifacts/retrieval-encoder
-```
+The retrieval experiment performs no training, and no new full pretrained LoRA experiment was completed. The inherited LoRA result uses one seed and a narrow authored distribution; its gold-document, greedy-decoding protocol is not causally comparable with stochastic top-three-document retrieval.
 
-Defaults: `k=3`, CPU, two threads, batches of eight, 128 tokens including special
-tokens, zero training updates. Both dense arms share the same frozen checkpoint.
-For the bundled 12 documents and 24 queries, the budget permits 72 text encodings
-and 52 forward calls across both pooling arms. These defaults are calculated limits. The committed run used one CPU thread
-and batches of four; actual counters and timings are in summary.json.
+Checkpoint hashes identify local bytes without certifying pretraining history or multilingual quality. Artifact auditing verifies consistency and is not independent proof of inference.
 
-Every arm uses the same corpus text, queries and `k`. Validation MRR@k selects
-the primary method before any test search; Recall@k and a fixed arm order break
-ties. The report also shows predeclared test comparisons and language slices,
-without reselecting on test. See [the research protocol](docs/retrieval-study.md).
+Fixed execution order and Python/scoring overhead prevent treating the retrieval run as a latency benchmark. No physical edge-device, power or Windows measurements are supplied; verified host CPU results do not establish those outcomes.
 
-## Outputs and failures
+## Documentation
 
-Use a new or empty output directory per run. Existing runs are never overwritten.
-Preparation writes `protocol.json`, `study.json`, and `status.json`. Successful
-retrieval adds `selection.json` before test search, `rankings.json` with case-level
-evidence, `REPORT.md`, and a final `summary.json`. Dense runs also write
-`encoder.json` and measured inference counters. Audit recomputes metrics and
-selection from saved rankings and verifies hashes; it does not independently
-prove that inference took place.
+[Technical guide and current validation](DOCUMENTATION.md) · [Code map](CODE_MAP.md) · [Walkthrough](EXERCISES.md) · [Source provenance](UPSTREAM.md)
 
-Missing dependencies or weights, non-finite vectors, budget exhaustion, and
-invalid evidence abort a run. After preparation, `failure.json` records the
-error and no success summary is written. Failed audits exit with code 2. If
-installation fails, use the offline checks; never replace missing model results
-with fixture scores.
-
-## Preserved LoRA path and learning material
-
-The original LoRA experiment freezes its base, trains low-rank query/value
-adapters on answer-token loss, and selects a checkpoint on validation. It needs
-its own local **causal** model, not the sentence encoder:
-
-```text
-.venv/bin/python -m portfolio.adapter_tuning --model-path models/SmolLM2-135M-Instruct --out artifacts/lora --steps 48
-```
-
-The LoRA experiment is separate from the retrieval comparison; no new LoRA run is reported. [CODE_MAP.md](CODE_MAP.md) links implementations and tests to the assigned requirements. [EXERCISES.md](EXERCISES.md) provides a walkthrough, explanation questions, and change exercises.
+[Historical and supporting records](HISTORY.md) retain earlier reports and validation records. Earlier published versions remain available through Git history.

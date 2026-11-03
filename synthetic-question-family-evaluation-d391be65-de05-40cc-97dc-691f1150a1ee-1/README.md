@@ -1,81 +1,25 @@
 # Synthetic question-family evaluation
 
-An offline Python experiment that asks whether lexical features can classify
-synthetic questions into eight task families for unseen service entities.
-Version **2.1.0** adds train–validation learning curves to the existing generator,
-majority baseline, unigram and unigram-plus-bigram multinomial Naive Bayes models.
-It measures generalization gaps across predeclared training sizes while retaining
-the earlier secondary-entity isolation, missing-family checks and frozen model
-selection. Source provenance is in [UPSTREAM.md](UPSTREAM.md).
-No original remote was changed.
+Evaluate whether lexical classifiers can assign synthetic English questions to eight task families for held-out service entities, while detecting entity leakage, wording sensitivity and train–validation performance gaps.
 
-## What changed
+## What it does
 
-The new diagnostic refits the existing three methods on nested subsets of
-**8, 16 and 24 training cases**, with seed **19** and all eight families at every
-size. Each method sees identical subset IDs and the same 16 validation cases.
-It records training and validation accuracy, macro F1, confusion matrices and
-signed train-minus-validation gaps. No test labels enter this calculation or
-the validation-only selection. A regression reruns the experiment with every
-test label permuted, checking that the choice and curve stay identical while
-the test scores change.
+An offline Python evaluation lab for eight synthetic question families, combining lexical baseline comparisons, reproducible learning curves, entity-leakage checks and reports on accuracy, macro-F1 and wording sensitivity.
 
-The prior revision already fixed a generator that chose comparison partners from one global list, then assigned
-splits using only the primary entity. For example, an Ember training question
-could mention Fjord, which belonged to validation. The revised path assigns
-entity pools **before generating questions**, and both operands come from the
-same pool. A second validation entity, Ibis, makes distinct-entity comparisons
-possible while retaining the original three training and two test entities.
+Compare majority, unigram and unigram-plus-bigram baselines; measure accuracy and macro-F1 across reproducible nested training subsets; preserve validation-only selection; and document template reuse, classification failures and sensitivity to training composition.
 
-| Split | Service roots | Cases |
-|---|---|---:|
-| Train | Cobalt, Delta, Ember | 24 |
-| Validation | Fjord, Ibis | 16 |
-| Test | Garnet, Helix | 16 |
+## Solution and technologies
 
-Every pool has at least two distinct names. The validator scans all known names
-in each question, including secondary mentions, case variants and the fictional
-`Sandbox`/`Mirror` aliases. Aliases belong to their base service's pool. The
-post-selection entity folds also remove training cases containing any service
-mentioned by their holdout. The shared generator's default `dev` and `test`
-outputs remain identical; only this lab opts into the new pools.
+An offline Python standard-library pipeline generates 56 questions across disjoint entity pools: 24 training, 16 validation and 16 test cases. JSON validation checks schema, family coverage, duplicates and primary, secondary and alias entity mentions. Models comprise a majority baseline and add-one-smoothed multinomial Naive Bayes using unigram or unigram-plus-bigram counts. Validation metrics and deterministic tie-breaking select the model, with the decision saved before test predictions. Seed 19 defines nested 8/16/24-case learning curves against fixed validation data. JSON and Markdown artifacts retain protocols, source/input hashes, metrics and diagnostic failures for reproducible replay.
 
-Counts always include all eight `FAMILIES`. `validate_cases` lists missing
-validation/test families and returns JSON `null` for an undefined imbalance
-ratio, rather than omitting zero-count classes. Missing training families are
-rejected. The full experiment requires every family in **every split** and
-rejects missing support before fitting or writing outputs. This keeps validation
-selection and the complete paired diagnostic meaningful. Per-family metric
-formulas retain the existing zero-denominator convention, including zero F1 for
-absent labels in the fixed eight-family macro average.
+Python · Python standard library · JSON · unittest
 
-## Setup and installation
-
-Run commands from this directory. Python 3.11+ is required; the recorded execution
-uses Python 3.14.4. The classifier and tests use only the standard library.
-Packaging uses setuptools 78.1.1, already available in this workspace. These
-commands install the actual local package without contacting a package index:
+## Quick start
 
 ```text
 python3 -m venv --system-site-packages .venv
 .venv/bin/python -m pip --isolated --disable-pip-version-check --no-cache-dir install --no-index --no-build-isolation --no-deps .
 ```
-
-The system-site option exposes the preinstalled build tool to the virtual
-environment; it does not add runtime dependencies to this lab. On another
-machine without that build tool, install `setuptools==78.1.1` into the virtual
-environment from an available package index or local wheel first. A networked
-setup command is:
-
-```text
-.venv/bin/python -m pip --isolated --disable-pip-version-check --no-cache-dir install setuptools==78.1.1
-```
-
-Source execution also works with `python3` directly and needs no installation.
-The other inherited portfolio modules and their requirements files are outside
-this experiment's runtime path. No model weights or API credentials are needed.
-
-## Test, build and run
 
 ```text
 .venv/bin/python -m unittest discover -s tests -p "test_research*.py" -v
@@ -85,133 +29,30 @@ this experiment's runtime path. No model weights or API credentials are needed.
 .venv/bin/python scripts/smoke_research_lab.py --out results/research_lab --installed
 ```
 
-The build command checks Python compilation; the installation command also
-builds a real wheel. The finite smoke executes the documented module command,
-checks artifact hashes and counts, repeats it using the saved JSON input, and
-compares all six artifacts byte for byte. It recalculates curve accuracy and
-macro F1 from confusion matrices and checks gaps, nested IDs, class support and
-entity isolation. It also verifies an installed-package
-run with Python `-I` (excluding the checkout from import lookup), then confirms
-that a leaked secondary entity, a missing validation family and infeasible
-training sizes fail without
-creating result directories. Each child run has a 30-second timeout.
+## Results
 
-To record installation, both test suites, compilation and smoke output with
-actual exit codes, versions and SHA-256 digests:
+The completed version 2.1.0 experiment selected unigram-plus-bigram Naive Bayes by deterministic tie-break after both lexical models reached validation macro-F1 1.0. Both achieved test accuracy and macro-F1 1.0, classifying 16/16 questions correctly; majority achieved 2/16 with macro-F1 1/36. Alternate wording reduced both lexical models to 10/16 correct (62.5%). The selected model’s six failures were lookup, difference and conflict questions classified as unknown_service.
 
-```text
-.venv/bin/python scripts/verify_research_lab.py --install
-```
+At all three training sizes, both lexical models achieved training and validation accuracy/macro-F1 1.0; all methods had zero signed gaps. Every original validation and test template also appeared in training after entity masking. Seven purged entity folds scored 1.0 accuracy and macro-F1; twelve training resamples retained 100% original-test and 62.5% alternate-wording accuracy. Post-hoc lookup downsampling from three examples to one reduced held-out macro-F1 from 1.0 to 0.833 and lookup recall from 1.0 to 0.0.
 
-Local automated checks are documented in [VALIDATION.md](VALIDATION.md) and [results/research_validation/commands.json](results/research_validation/commands.json). Raw command output is saved alongside the manifest. The unrelated full repository suite was not run for this adaptation.
+These are stored experiment measurements. This documentation refresh produced no new measurements.
 
-## Selection and results
+## Scope and limitations
 
-1. Generate or read cases, audit all entity mentions, label consistency and
-   complete family support. Validate the curve schedule and write it to the
-   protocol before fitting. Fit all three primary methods on **all train rows only**.
-2. Rank by validation macro F1, then validation accuracy, then alphabetical model
-   name. Write the decision, validation scores, training IDs, settings and input
-   hashes to `selection.json` **before the first test prediction**. Do not refit
-   on validation or change the selection after seeing test results.
-3. Evaluate all frozen candidates on the same test cases for comparison. Evaluate
-   alternate wording for those same entity/family pairs as a diagnostic.
-4. Refit separate models for the train–validation learning curve using only
-   development data. Run the existing composition, resampling, score-margin and
-   error analyses. None select or tune the primary model.
+The small synthetic English dataset contains only two validation and two test entities. Shared templates limit generalization claims; perfect scores and zero gaps do not rule out overfitting.
 
-The recorded run selects bigram by the deterministic tie-break: unigram and
-bigram both have validation macro F1 of 1.0. The selected model gets 16/16 original
-test cases correct, versus 2/16 for majority. It gets 10/16 alternate-wording
-cases correct; all six failures are listed in
-[REPORT.md](results/research_lab/REPORT.md). These measured values describe a tiny
-constructed dataset, not a general performance claim or an improvement over the
-older dataset. All 16 original test templates also occur in training after
-masking entity names.
+Alternate wording was authored after inspecting the original templates, making it an exploratory diagnostic rather than an independent benchmark.
 
-In the recorded 2.1.0 learning curve, unigram and bigram each score **1.0 accuracy
-and macro F1 on both train and validation at all three sizes**, so their measured
-gaps are **0.0**. Majority scores 0.125 accuracy and 1/36 macro F1 on both sets,
-also with zero gaps. No positive gap was observed on these shared-template data;
-this is not evidence that overfitting is absent on unfamiliar language. The
-numerical controls in the tests are separate from these measured results.
+Training scores reuse fitted examples. Nested subsets, reused validation cases, entity folds and training resamples do not constitute independent trials or population confidence intervals.
 
-| Artifact | Purpose |
-|---|---|
-| `cases.json` | Exact 56-case input snapshot |
-| `challenge_cases.json` | Sixteen matched alternate-wording cases |
-| `protocol.json` | Experiment version, split policy, metrics, source/input hashes and Python version |
-| `selection.json` | Persisted validation-only choice before test evaluation |
-| `summary.json` | All candidate metrics, `learning_curve` subset IDs/counts/hashes, train/validation scores and gaps, confusion matrices, entity mentions, failures and sensitivity results |
-| `REPORT.md` | Readable measured comparisons and limitations |
+Entity checks recognize a fixed synthetic catalogue and its aliases. External corpora require an independently audited entity inventory.
 
-Replay or inspect a copied input:
+Generated labels have no independent human annotation review. Feature diagnostics do not establish error causes, and class-score margins are not calibrated probabilities.
 
-```text
-.venv/bin/python -m portfolio.research_lab --cases results/research_lab/cases.json --out results/research_lab_replay
-```
+The implementation evaluates lexical classification; it does not establish learned semantic-search, Hebrew or language-model performance.
 
-The five string fields are exactly `id`, `entity`, `question`, `label`, `split`.
-The accepted primary names are the catalogue above. Every split must be nonempty;
-IDs must be unique; blank fields, contradictory labels for identical questions,
-cross-split duplicates and recognized foreign mentions are rejected. Generated
-IDs must still match their generator entity and family. Custom IDs are reported
-as unmatched in the provenance audit. The challenge requires exactly one test
-case per designated entity/family pair. The input must also contain at least two
-training `lookup` examples for the retained downsampling diagnostic.
-The curve schedule must contain at least two strictly increasing integer sizes,
-each from 8 through the number of available training rows. The default therefore
-requires at least 24 training rows; predeclare smaller sizes for a smaller input.
-CLI input errors exit nonzero. A failed
-validation does not overwrite existing outputs; it does not certify an older
-output directory as a result of the failed run.
+## Documentation
 
-## Learning curves and overfitting
+[Technical guide and current validation](DOCUMENTATION.md) · [Code map](CODE_MAP.md) · [Walkthrough](EXERCISES.md) · [Source provenance](UPSTREAM.md)
 
-`learning_curve_subsets` sorts each family's IDs, shuffles with a local seeded
-random generator, then interleaves family queues. Prefixes give nested samples
-without replacement. With the default balanced data, each family contributes
-one, two and three rows. Unbalanced inputs still retain every family. All known
-references, including secondary operands, remain inside the original train pool;
-a referenced service need not have a primary row in a small subset.
-
-For each size and method, the training metric is **resubstitution**: scoring the
-same examples used to fit that model. Validation always uses the complete,
-unchanged validation set. A gap is `training metric - validation metric`, with
-the same eight-family macro-F1 definition on both sides. Positive means training
-scored higher; negative gaps are retained. A gap of 0.10 is ten percentage points.
-
-Overfitting involves fitting training-specific patterns that generalize poorly.
-High training performance with lower validation performance is consistent with
-it, but sampling variation and distribution differences can also produce a gap.
-Low scores on both sets can suggest underfitting. Zero gaps do not rule out
-overfitting: these tiny splits reuse the same templates. The alternate-wording
-challenge changes the input distribution; a drop there alone does not diagnose
-overfitting. Neither a positive gap nor an improvement is required for a valid run.
-
-To predeclare another diagnostic schedule, before examining its output:
-
-```text
-.venv/bin/python -m portfolio.research_lab --train-sizes 8 24 --curve-seed 23 --out results/research_curve_alternative
-```
-
-Sizes and seed change only this diagnostic. The primary candidates still fit
-all training rows and selection still uses validation. Searching sizes or seeds
-after looking at results is exploratory; repeated use of this small validation
-set does not create an independent benchmark. The report includes every declared
-point, rather than choosing a favorable gap.
-
-## Limits and learning
-
-The synthetic English questions share authored templates across splits. Entity
-isolation does not remove that shortcut. Alternate wording was authored after
-inspecting those templates and is an exploratory diagnostic. Name detection
-covers the closed synthetic catalogue, not arbitrary entities in external text;
-external corpora need their own audited entity inventory. Generated labels have
-no independent human annotation review. Score margins are not calibrated
-probabilities, and the variance across folds or reused training samples is not
-a confidence interval. Observed feature patterns do not establish error causes.
-
-This repository provides implementation and preparation resources. It does not
-establish Hebrew or language-model performance. Use [CODE_MAP.md](CODE_MAP.md)
-and [EXERCISES.md](EXERCISES.md) to run, change and explain it in a future review.
+[Historical and supporting records](HISTORY.md) retain earlier reports and validation records. Earlier published versions remain available through Git history.

@@ -1,12 +1,22 @@
-# Applied AI Portfolio: measured model and service tradeoffs
+# applied-ai-portfolio
 
-Python experiments for image-model training, distillation, INT8 inference, language-model evaluation, and reliable job processing. This extension reuses the existing digits models and SQLite service from the [pinned upstream source](UPSTREAM.md).
+Compact models and AI services require measured tradeoffs between task accuracy, latency, storage, memory and reliable execution. Smaller files or lower training loss can conceal slower inference, higher memory use or unchanged answer accuracy. Concurrent submissions and worker failures also require consistent job handling.
 
-The digits benchmark adds isolated measurement processes, balanced variant order, raw timing samples, OS peak-memory accounting, hardware/runtime metadata, and a validation-only quality/resource decision. The service harness adds bounded concurrent load, content-conflict checks, lease-boundary failures, and retry verification. No external model service is needed for these paths.
+## What it does
 
-## Setup
+An applied-AI portfolio combining model-compression benchmarks, typed evidence retrieval, synthetic telemetry evaluation and a durable SQLite/HTTP job queue. Completed experiments document quality, latency, storage and memory tradeoffs; host validation verifies real digit-model integration, artifact integrity, concurrent retries and lease fencing.
 
-Use Python 3.11+ and a CPU build of PyTorch. Run commands from the repository root. The core queue and protocol checks use only the standard library; full model checks require the existing dependencies. No activation script is needed.
+Compare teacher, supervised-control, distilled and dynamic INT8 classifiers using validation quality and resource budgets before held-out evaluation. Evaluate retrieval, typed execution, adapter tuning and synthetic telemetry with explicit scoring. Retain raw measurements and traceable artifacts, and verify queue idempotency, conflict rejection, lease fencing and retry recovery under bounded concurrent load.
+
+## Solution and technologies
+
+Python, NumPy, scikit-learn and PyTorch train classifiers on 1,797 normalized UCI digit images using fixed stratified training, validation and test partitions. The extended benchmark launches fresh worker processes, balances measurement order, restores validation-selected checkpoints, records raw CPU timings and whole-process peak memory, verifies artifact hashes, and saves model selection before test evaluation.
+
+Language-model components provide TF-IDF retrieval, bounded tool use, frozen-base LoRA and isolated FP32/INT8 comparisons. A Qwen3-4B planner produces typed operations executed against versioned evidence. Synthetic telemetry compares temporal rules with Isolation Forest. The service combines SQLite WAL transactions, idempotency keys, fenced leases, bounded retries and authenticated HTTP routes. Protocols, logs, manifests and reports connect configuration to recorded outputs.
+
+Python · PyTorch · NumPy · scikit-learn · SQLite · HTTP · unittest
+
+## Quick start
 
 ```text
 python3 -m venv .venv
@@ -14,53 +24,62 @@ python3 -m venv .venv
 .venv/bin/python -m pip install --no-cache-dir -r requirements.txt
 ```
 
-The Linux/macOS environment uses `.venv/bin/python`; on Windows use the equivalent virtual-environment Python executable. Native Windows execution and its memory API have not been validated in this workspace. NumPy, SciPy and scikit-learn retain the supplied pins. PyTorch and other inherited ranges resolve at install time; each run records the installed versions.
-
-## Verify and run
-
-The following commands work without ML packages, model downloads, or sockets:
-
-```text
-python3 -m unittest discover -s tests/core -v
-python3 -m unittest tests.test_service.StoreTests -v
-python3 -m compileall -q portfolio tests scripts
-python3 -m portfolio.smoke
-python3 -m portfolio.service_load --transport store --jobs 24 --clients 4 --copies 3 --out results/store_load_new
+```sh
+.venv/bin/python -m portfolio.smoke
 ```
 
-`smoke` is finite: it creates a temporary database, exercises concurrent retries, conflicting content, stale leases and processing recovery, verifies the artifact manifest, and exits. It explicitly reports `vision_executed: false` and `service_transport: store`.
+## Results
 
-After dependencies are installed and loopback sockets are permitted:
+Recorded extension measurements from 2026-10-31 cover two direct-SQLite runs. Each processed 72 submissions for 24 unique jobs using four threads, rejected 24 expected content conflicts and recorded zero unexpected errors. All recorded invariants passed; store_load_verified additionally records receipt-content preservation after conflicts.
 
-```text
-.venv/bin/python -m unittest discover -s tests -v
-.venv/bin/python -m portfolio.smoke --vision --http
-.venv/bin/python -m portfolio.edge_benchmark --epochs 100 --rounds 4 --repetitions 100 --threads 1 --device-label development-host --power-condition unknown --out results/edge_isolated_new
-.venv/bin/python -m portfolio.service_load --transport http --jobs 24 --clients 4 --copies 3 --out results/http_load_new
-```
+| Report | Enqueue p50 / p95 (ms) | Submission operations/s | Unique enqueue jobs/s | Separate drain jobs/s |
+|---|---:|---:|---:|---:|
+| results/store_load/REPORT.md | 0.462 / 10.217 | 828.66 | 276.22 | 193.75 |
+| results/store_load_verified/REPORT.md | 1.482 / 18.820 | 1,065.03 | 355.01 | 253.06 |
 
-The full digits run trains the original teacher, supervised control and distilled student at seeds 7, 19 and 43, converts the student to actual dynamic INT8, and runs 48 separate measurement workers. It preserves the original fixed splits, 10 warmups, and batch sizes 1 and 32. Worker processes time out after 600 seconds each. `--vision` smoke uses one seed and two epochs; its purpose is integration correctness, not model-quality evidence.
+These are short receipt-processing workloads with separate enqueue and drain phases. Later worker HTTP tests passed, but no standalone HTTP performance report is supplied.
 
-Use a **new, empty output directory** for each run. Failed runs keep their protocol, status and available logs; they do not publish a successful summary. Existing upstream records and recovery checkpoints remain intact.
+The completed original digits experiment, recorded on 2026-10-22 with three seeds and 100 epochs, reports:
 
-## Current verification
+| Variant | Mean test accuracy | Mean state KiB | Median batch-1 CPU latency ms |
+|---|---:|---:|---:|
+| Teacher FP32 | 97.87% | 39.7 | 0.0105 |
+| Supervised student FP32 | 97.41% | 9.3 | 0.0098 |
+| Distilled student FP32 | 97.59% | 9.3 | 0.0100 |
+| Dynamic INT8 student | 97.69% | 5.4 | 0.0312 |
 
-[VALIDATION.md](VALIDATION.md) records worker verification at **2026-10-31T14:15:10.319Z**. Full test discovery passed **75 tests in 139.882 seconds**, including real-model checks and concurrent HTTP retries, conflicts, receipts and fault handling. Python compilation and the documented finite store smoke also exited successfully. The isolated model integration used one seed and two epochs; a completed full three-seed benchmark and its model recommendation remain unverified. The documented smoke used direct SQLite and reported `vision_executed: false` and `power_measured: false`.
+INT8 reduced serialized storage while increasing latency. These inherited measurements are separate from the later integration checks and do not establish a recommendation for the full extended benchmark.
 
-Historical builder sandbox, before that worker verification (exact builder timestamp not supplied): the 27 new core checks, nine inherited store tests, compilation and finite store smoke passed. Full discovery recorded 10 dependency-import/socket-permission errors; dependency installation failed, the vision attempt stopped at missing PyTorch, and the HTTP-load attempt was blocked by prohibited sockets. The later worker successfully executed the previously blocked model and HTTP tests.
+Other completed inherited experiments document the following outcomes:
 
-The [executed SQLite load report](results/store_load_verified/REPORT.md) records 24 unique jobs, 72 submissions, four threads and 24 rejected content conflicts. These are direct queue measurements with a deterministic receipt worker, not HTTP latency or AI inference throughput.
+- Initial agent evaluation: retrieval exact match was 19.44%; direct and tool-agent policies scored 0%. Retrieval recovered the expected source in every retrieval run, identifying generation and action selection as remaining bottlenecks.
+- LoRA adaptation: held-out answer-token NLL fell from 6.153 to 0.521, while exact match remained 33.3% on 12 cases.
+- Typed evidence agent: 88/96 answers were correct with expected evidence, versus 42/96 for text RAG. Correct abstentions were 36/36 versus 18/36, with no invalid/failed outputs for either system. The typed system passed its predefined synthetic-task gate; six outputs reversed operands and two misinterpreted a service name.
+- SmolLM2-135M-Instruct: dynamic INT8 reduced state size from 513.2 to 236.6 MiB and increased generation from 14.88 to 47.23 tokens/s. Authored-text perplexity worsened from 120.26 to 258.58, and post-load RSS increased from 960.7 to 1540.6 MiB.
+- Synthetic telemetry: Isolation Forest increased recall from 73.33% to 93.33%, but increased false positives from 7.78% to 21.11% and reduced F1 from 0.746 to 0.727. Temporal rules missed slow events and flagged legitimate maintenance.
 
-## Interpreting model results
+Inherited loopback HTTP acceptance from 2026-10-22 completed actual local-model research and synthetic-triage jobs with evidence and traces. It verified workflow, authorization and duplicate handling; generated factual accuracy was not certified.
 
-Default experimental gates require validation accuracy of at least 95% for every seed, at most two percentage points below the teacher, state size at most 16 KiB, batch-1 p95 at most 1 ms in every trial, and process peak memory at most 1,024 MiB. The smallest feasible state is selected, with median latency breaking ties. `selection.json` is saved before held-out evaluation. These budgets are configurable research criteria, not product requirements. A run can validly recommend no variant.
+## Scope and limitations
 
-The [inherited vision results](results/edge_vision/REPORT.md) report INT8 storage reduction alongside **slower** batch-1 inference. They were not rerun here. Until the new benchmark runs on an identified target, retain that negative latency finding and do not infer speed, RAM or energy savings from smaller files. Power and energy remain explicitly unavailable; no sensor has been instrumented. A development-host run does not verify an edge device or Windows deployment.
+A completed full new three-seed isolated benchmark, its resource-gated model recommendation and replacement performance measurements are not evidenced. The original three-seed experiment is complete; the later integration run is a separate execution check.
 
-## Project references
+Target-edge performance, physical power/energy measurements and native Windows/macOS execution remain unverified. Host CPU and Linux memory checks do not establish those results. Background load and thermal conditions were uncontrolled; serialized size, post-load RSS and whole-process peak memory measure different resources.
 
-- [Code map](CODE_MAP.md), [learning exercises](EXERCISES.md), [measurement protocol](docs/edge-measurement.md), and [coverage and limits](docs/coverage.md).
-- [Original vision experiment](docs/edge-vision.md), [small-LM efficiency](docs/small-lm.md), and [service operations](docs/operations.md).
-- [Agent evaluation](docs/agent-evaluation.md), [typed evidence agent](docs/evidence-agent.md), [failure analysis](docs/evidence-failure-analysis.md), and [synthetic telemetry](docs/security-telemetry.md).
+Queue rates describe short, closed-loop direct-store receipt workloads with separate enqueue/drain phases. They do not establish representative HTTP capacity, inference throughput, saturation, end-to-end client latency or customer impact. Controlled-clock lease probes do not establish process-crash or power-loss durability.
 
-Inherited negative results remain: the initial 135M agent failed its task gate; LoRA reduced answer-token NLL without improving exact match; small-LM INT8 worsened perplexity and increased post-load RSS. The typed agent's 88/96 result is limited to its synthetic suite and differs from text RAG in evidence access. Hosted-model inference, KQL execution, cloud deployment, customer impact and production capacity remain unverified. The upstream documentation reports a historical 43-test GitHub Actions run; that is separate from this workspace's checks. Dataset and model attribution remain in the linked guides; no model weights are included in the source snapshot.
+The service remains a single-workspace SQLite prototype with at-least-once processing, bounded attempts and no lease heartbeat or supervised long-running worker. TLS, quotas, backups and schema migrations remain deployment work; external side effects would require independent idempotency or an outbox.
+
+Digits seeds share one test set; the small-language-model study uses six authored passages; adapter results use one seed and 12 test cases. Gold-document greedy adapter evaluation is not causally comparable with stochastic retrieval evaluation. Artifact hashes support content traceability, not independent replication.
+
+Agent and telemetry results concern authored or synthetic tasks with shared task/scenario families. The typed-agent comparison uses six held-out entity clusters and different evidence access from RAG. Evidence-ID scoring is not complete claim-level groundedness or broad injection-robustness evidence. Concurrent CPU work and interrupted/resumed execution limit agent timing comparisons.
+
+Hosted-model inference, KQL execution, native cloud-event ingestion, Kubernetes operation, cloud deployment and production availability remain unverified. The inherited GitHub Actions record is separate from later local worker validation.
+
+The supplied report references earlier lease-handling and failure-evidence concerns without detailed findings or a closure record. Passing the documented cases does not establish resolution of unspecified concerns.
+
+## Documentation
+
+[Technical guide and current validation](DOCUMENTATION.md) · [Code map](CODE_MAP.md) · [Walkthrough](EXERCISES.md) · [Source provenance](UPSTREAM.md)
+
+[Historical and supporting records](HISTORY.md) retain earlier reports and validation records. Earlier published versions remain available through Git history.
