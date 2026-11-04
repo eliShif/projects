@@ -1,50 +1,22 @@
 # Applied AI Portfolio
 
-Five runnable portfolio projects, selected **per Microsoft opening**.
-Run records distinguish real models, synthetic datasets, unit-test fixtures and
-unexecuted infrastructure integrations. The projects are local prototypes and
-experiments; production deployment remains unverified.
+Numeric service-policy questions require current evidence, correct arithmetic and a defensible decision to abstain. Retrieval alone does not ensure a correct answer, and valid calculations can still follow an incorrectly interpreted question.
 
-| Opening | Project 1 | Project 2 |
-|---|---|---|
-| 200062584 - Data Science: LLMs and agents | `agent_eval` - controlled LLM/agent experiments | `reliable_service` - retrieval, failure recovery and traceable AI workflows |
-| 200047371 - Software Engineering: AI | `reliable_service` - typed HTTP API, durable jobs and observability | `agent_eval` - tools, retrieval, quality gates and regression evaluation |
-| 200062523 - Data Science: efficient models | `edge_vision` - training, distillation and INT8 vision inference | `small_lm` - language-model quality, latency, memory and quantization |
-| 200028527 - Security Research | `telemetry` - detection engineering and evaluation | `reliable_service` security-triage adaptation - bounded evidence retrieval and auditable investigations |
+## What it does
 
-See `docs/coverage.md` for requirement-by-requirement coverage and limitations.
-Project guides, executable entry points and saved results are linked below. The
-test suite covers queue/HTTP correctness, statistics, detection invariants,
-retrieval safety and adapter gradients. Vision/LM performance uses actual runs.
+Applied AI Portfolio is a local Python research suite for traceable service-policy question answering, LLM adaptation, model efficiency and synthetic security telemetry. Its studies document higher grounded correctness for a typed agent than text RAG on the tested questions, unchanged exact match after LoRA, and mixed quantization tradeoffs.
 
-| Project | Guide | Evidence |
-|---|---|---|
-| Agent Evaluation & Adaptation | [Typed-agent design](docs/evidence-agent.md) | [Held-out typed-agent evaluation](results/evidence_agent_test/REPORT.md), [original baseline](results/agent_eval/REPORT.md), [fine-tuning](results/adapter_tuning/REPORT.md) |
-| Reliable Research Service | [Guide](docs/operations.md) | [Real-model HTTP acceptance](results/service/acceptance.json) |
-| Edge Vision Lab | [Guide](docs/edge-vision.md) | [Three-seed results](results/edge_vision/REPORT.md) |
-| Small-LM Efficiency Lab | [Guide](docs/small-lm.md) | [Measured tradeoffs](results/small_lm/REPORT.md) |
-| Security Telemetry Lab | [Guide](docs/security-telemetry.md) | [Held-out detection results](results/telemetry/REPORT.md) |
+Compare local agents and adapter tuning on held-out data, evaluate answer correctness and evidence support separately, and measure model-efficiency and telemetry-detection tradeoffs through reproducible experiments.
 
-**Readiness:** local prototypes and experiments run. The original small-model
-agent failed its usefulness bar; a new typed agent separates planning from
-evidence execution (see `docs/evidence-agent.md`). Hosted-model integration has contract tests only:
-no API credential was available, so no frontier-model score is claimed. KQL and cloud deployment remain unverified. The 43-test suite also passed in [GitHub Actions](https://github.com/eliShif/applied-ai-portfolio/actions/runs/39810558301) on 22 October 2026. See the coverage matrix.
+## Solution and technologies
 
-## Current agent iteration
+Numeric QA compares a TF-IDF text-RAG baseline with a typed Qwen3-4B agent. The agent separates schema-constrained planning from deterministic execution: versioned fact lookup, unit and arithmetic checks, source provenance and abstention. The evaluation runner separates development/test entities and records outputs and paired uncertainty.
 
-Versioned evidence, dimensional checks, safe abstention and schema-constrained
-Qwen3-4B CPU inference. [Design and reproduction](docs/evidence-agent.md).
-Original negative results are retained alongside the new experiment.
+A separate PyTorch LoRA pipeline freezes base weights and selects checkpoints by validation answer-token loss. An HTTP API and SQLite queue support research jobs and inspectable traces. Independent modules evaluate vision distillation and dynamic INT8 quantization, small-language-model CPU performance, and temporal rules versus Isolation Forest on synthetic telemetry.
 
-The completed held-out synthetic suite has 48 questions and two repetitions per
-system (96 outputs each). The typed agent scores **88/96 (91.7%)** with expected
-evidence, versus **42/96 (43.8%)** for text RAG using the same Qwen3-4B model.
-Correct abstention is 36/36 versus 18/36; no malformed outputs occurred.
-This passes the predeclared suite gate, not a general-purpose or production gate.
-See [full results](results/evidence_agent_test/REPORT.md) and
-[failure analysis](docs/evidence-failure-analysis.md).
+Python · PyTorch · NumPy · scikit-learn: TF-IDF and Isolation Forest · Qwen3-4B: GGUF CPU inference · SmolLM2-135M-Instruct · Custom LoRA adapters · safetensors · SQLite · JSON Schema · Python AST
 
-## Reproduce
+## Quick start
 
 Python 3.11+; CPU supported. Install PyTorch's CPU wheel separately if desired.
 
@@ -66,11 +38,32 @@ The first two experiments work offline. LLM experiments require actual local
 model weights; they **fail** when weights are absent rather than fabricate scores.
 Never submit personal CVs, credentials or private company data to this repository.
 
-## Scope
+## Results
 
-The code, experiment reports and run records document implementations, measured
-outcomes and technical limits.
+On 48 authored synthetic questions across six held-out service entities, repeated twice per system, the typed agent achieved 88/96 (91.7%) answers correct with expected evidence versus 42/96 (43.8%) for text RAG. Both used Qwen3-4B-Instruct-2507-Q4_K_M.gguf on CPU. Correct abstentions were 36/36 versus 18/36; neither system produced invalid or failed outputs. Subtraction and service-name interpretation errors remained.
 
-No third-party model weights are committed. Dataset and model provenance is in
-the project documentation. Synthetic research cases and telemetry are authored
-specifically for this repository and are not real customer or attack data.
+A separate single-seed PyTorch LoRA study reduced held-out answer-token NLL from 6.153 to 0.521 while exact match remained 33.3% on 12 authored test cases.
+
+In the separate SmolLM2-135M-Instruct QA evaluation, TF-IDF retrieval achieved 19.44% strict numeric exact match; direct and tool-agent policies scored 0% on 12 authored synthetic questions repeated three times.
+
+On a fixed 360-image digits test set shared across three training seeds, the distilled FP32 student averaged 97.59% accuracy versus 97.69% for its dynamic INT8 variant. Serialized state fell from 9.3 to 5.4 KiB, while median batch-1 CPU latency increased from 0.0100 to 0.0312 ms.
+
+For SmolLM2-135M-Instruct on CPU, dynamic INT8 reduced serialized state from 513.2 to 236.6 MiB and increased median generation speed from 14.88 to 47.23 tokens/s. Resident memory increased from 960.7 to 1540.6 MiB, and perplexity on six authored passages worsened from 120.26 to 258.58.
+
+On 240 synthetic held-out telemetry episodes, temporal rules recorded F1 of 0.746 versus 0.727 for Isolation Forest. Recall was 73.33% versus 93.33%, with false-positive rates of 7.78% versus 21.11%, respectively.
+
+## Scope and limitations
+
+QA and telemetry use authored synthetic cases with shared task families; the vision study uses a small educational dataset.
+
+The typed agent queries structured records while RAG receives six retrieved text records; differing evidence access limits causal attribution.
+
+Local CPU measurements do not establish production capacity, live-cloud deployment, physical edge-device performance or power consumption.
+
+## Documentation
+
+[Technical guide and current validation](DOCUMENTATION.md) · [Code map](CODE_MAP.md) · [Walkthrough](EXERCISES.md)
+
+[Historical and supporting records](HISTORY.md) retain earlier reports and validation records. Earlier published versions remain available through Git history.
+
+[Role-specific project mappings](EMPLOYER_CONTEXT.md) are documented separately.
