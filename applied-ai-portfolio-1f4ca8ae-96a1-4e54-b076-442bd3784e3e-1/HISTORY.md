@@ -3,6 +3,7 @@
 These original records are retained without moving or rewriting their contents. They are not all current validation reports. Follow [the current documentation](DOCUMENTATION.md) first; each research report describes its own dataset, date and experimental scope.
 
 - [docs/agent-evaluation.md](docs/agent-evaluation.md)
+- [docs/application-bff5013d.md](docs/application-bff5013d.md)
 - [docs/coverage.md](docs/coverage.md)
 - [docs/edge-measurement.md](docs/edge-measurement.md)
 - [docs/edge-vision.md](docs/edge-vision.md)
@@ -20,3 +21,8 @@ These original records are retained without moving or rewriting their contents. 
 - [results/store_load/REPORT.md](results/store_load/REPORT.md)
 - [results/store_load_verified/REPORT.md](results/store_load_verified/REPORT.md)
 - [results/telemetry/REPORT.md](results/telemetry/REPORT.md)
+- [VALIDATION.md](VALIDATION.md)
+
+## Current version
+
+The current version of this document is [HISTORY.verified-5946c5d07ca5.md](HISTORY.verified-5946c5d07ca5.md).

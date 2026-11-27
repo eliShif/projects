@@ -73,3 +73,24 @@ Change exercise: copy a temporary trained artifact in a test, alter one byte and
 Before collecting new measurements, specify the device, OS, runtime, thread count, power source, arrival pattern, quality gates and measurement interval. Run all variants with the same declared conditions. If power is studied, use a real sensor or external meter, document its domain/resolution, and distinguish package energy from whole-device or per-model energy.
 
 Until such instrumentation is available, keep energy and power null. Retain the inherited negative latency and quality results when discussing why a smaller model might still be the wrong deployment choice. Record Windows/macOS native validation separately from Linux unit checks. Write a recommendation with explicit eligibility constraints and unresolved deployment experiments.
+
+## 7. Classical vision and signal processing (Python and C++)
+
+Walkthrough. Build the binary with the command in the README section "Classical vision extension", then run `.venv/bin/python -m portfolio.classical_benchmark --require-native --repeats 3`. Read `correlate2d`, `sobel_magnitude` and `detect_edges` in `portfolio/classical_vision.py`, then the matching functions in `cpp/filters.cpp`. Follow one call through `portfolio/classical_native.py` (`_call`, `run_raw`) and compare the printed `max_abs_diff` values with the tolerance in `portfolio/classical_benchmark.py`.
+
+Questions:
+
+- Why do both implementations restrict kernels to odd dimensions? What would an even kernel require you to decide about the anchor and about agreement with `scipy.signal.correlate2d`?
+- Why is the threshold relative to the maximum magnitude, and which inputs make that choice fragile (for example a noise-only image)?
+- Why does `test_blurring_is_needed_under_heavy_noise` compare two pipelines instead of asserting one absolute score?
+- The three timing series in a run mean different things. Which one includes process start-up and text parsing, and why can none of them rank the two languages?
+- Why does the FFT require power-of-two lengths here, and what would a Bluestein or mixed-radix extension change in the contract and in the tests?
+- Why is `repr(float)` plus 17 significant digits enough for the exact round-trip test, and what inputs (for example subnormal values) are outside that guarantee?
+
+Change exercises:
+
+- Add a median filter to both implementations, wire it into the backend interface and add a reference test plus a native equivalence test that includes a one-pixel image and a kernel larger than the image.
+- Add a Canny-style non-maximum suppression step in Python only. Define its success criterion on the synthetic shapes before measuring, and report its effect on precision and recall separately.
+- Extend the C++ protocol with an `overlap-add` FIR command for long signals. Add rejection tests for malformed headers and an equivalence test against `numpy.convolve`.
+- Replace the direct 2-D correlation with a separable implementation for separable kernels. Keep the existing equivalence tests unchanged and add a case where the kernel is not separable and must be rejected or fall back.
+- Add a second synthetic ROI scenario (for example two regions with different peak frames) to `portfolio/classical_vision.py` and test that the curves separate; document that it remains synthetic.

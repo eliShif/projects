@@ -36,3 +36,18 @@
 - `results/evidence_agent_test/frozen_source/`, `results/evidence_agent_test/recovery/`: retained evaluation source and interruption checkpoints.
 
 See [coverage](docs/coverage.md) for implementation and test paths per requirement. [UPSTREAM.md](UPSTREAM.md) identifies the original source; [VALIDATION.md](VALIDATION.md) distinguishes historical results from current execution.
+
+## Classical vision and signal-processing extension
+
+Details and limitations: [docs/application-bff5013d.md](docs/application-bff5013d.md).
+
+| File | Responsibility | Primary tests |
+|---|---|---|
+| `portfolio/classical_vision.py` | NumPy reference: correlation, Gaussian/Sobel, threshold edges, FIR design/filtering, FFT/STFT, edge scoring, seeded synthetic generators, ROI time-activity curves. Imports only NumPy | `tests/test_classical_vision.py` (also checked against `scipy.signal.correlate2d`) |
+| `cpp/filters.cpp` | C++17 kernels behind a stdin/stdout text protocol; validates input and exits with code 2 on rejection; reports compute-loop time | `tests/test_classical_native.py` |
+| `portfolio/classical_native.py` | Locates or compiles the binary with `g++`, runs it without a shell, parses results, exposes `NATIVE` backend with the same interface as `classical_vision.NUMPY` | `tests/test_classical_native.py` |
+| `portfolio/classical_benchmark.py` | Equivalence, edge-quality and timing check; reuses `measurement.distribution`, `RunRecord` and `environment` | `tests/test_classical_benchmark.py` |
+
+Data flow: `synthetic_image` / `synthetic_signal` → reference function and (optionally) native function → tolerance comparison and timing distributions → console JSON or a recorded run directory. The prebuilt binary is `cpp/classical_filters.bin` (ignored by the existing `*.bin` rule); a missing or stale binary is rebuilt into a temporary directory.
+
+Update: no binary is stored in the repository any more. `portfolio/classical_native.py` always compiles `cpp/filters.cpp` into a per-process temporary directory, and `python -m portfolio.classical_native` is the build check (it also removes a leftover `cpp/classical_filters.bin`). Regression tests: `tests/test_classical_artifacts.py`.

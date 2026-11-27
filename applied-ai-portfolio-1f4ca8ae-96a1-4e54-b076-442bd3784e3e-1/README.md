@@ -83,3 +83,63 @@ The supplied report references earlier lease-handling and failure-evidence conce
 [Technical guide and current validation](DOCUMENTATION.md) · [Code map](CODE_MAP.md) · [Walkthrough](EXERCISES.md) · [Source provenance](UPSTREAM.md)
 
 [Historical and supporting records](HISTORY.md) retain earlier reports and validation records. Earlier published versions remain available through Git history.
+
+## Additions in this extension
+
+# applied-ai-portfolio (classical vision and signal-processing extension)
+Classical image and signal-processing algorithms (filtering, edge detection, spectral analysis) are easy to get subtly wrong at borders, on flat inputs and across implementations. A second implementation in another language is only credible if it is checked against a reference on boundary cases and malformed input. This extension implements these algorithms in NumPy and in C++17 and verifies the two against each other with a finite, reproducible check.
+Classical vision and signal-processing extension of the applied-ai portfolio. It has a NumPy reference (2-D correlation, Gaussian blur, Sobel edges, FIR, FFT, STFT, synthetic ROI time-activity curves) and C++17 kernels behind a validated text protocol, called from Python without a shell. A seeded benchmark checks C++ against NumPy at 1e-9 tolerance and records raw timings. On the host, the full discovery run (121 tests) and the C++ build passed. A one-repeat smoke run on synthetic data matched C++ to NumPy within 3.4e-14 and gave NumPy-pipeline edge F1 1.0 at 2 px tolerance. Scope is small synthetic data. The C++ is unoptimized, timings are not a ranking, and there is no video, detection or PET/fMRI evidence.
+1) Implement 2-D cross-correlation, Gaussian blur, Sobel gradients and a thresholded edge pipeline, scored against synthetic ground truth. 2) Implement windowed-sinc FIR design and filtering, FFT, STFT, dominant-frequency detection and a synthetic ROI-versus-background time-activity comparison. 3) Provide a C++17 kernel program behind a validated stdin/stdout text protocol, called from Python without a shell. 4) Check C++ against NumPy within a stated tolerance (1e-9) and record raw timing samples with a documented timing method. 5) Add new source, test and result-free modules without modifying existing source, test or result files. Documentation sections were only appended.
+portfolio/classical_vision.py is the NumPy reference. It covers zero-padded odd-kernel correlation, Gaussian kernel, Sobel magnitude, a relative-threshold edge map with a flat-image floor, an edge pipeline that edge-replicates the image before filtering and crops the margin afterwards, edge precision/recall/F1 with pixel tolerance, causal FIR filtering, windowed-sinc low-pass design, power-of-two real FFT, Hann STFT magnitude, dominant frequency, seeded synthetic generators and ROI time-activity curves.
+cpp/filters.cpp holds C++17 kernels for direct correlation, Sobel, FIR, iterative radix-2 FFT and STFT. They sit behind a text protocol that checks sizes, rejects non-finite, truncated and trailing input, bounds repeat counts, exits with code 2 on rejection and reports its own compute-loop time.
+portfolio/classical_native.py finds or compiles the binary with g++, runs it without a shell and with a timeout, validates output shapes and exposes a NATIVE backend with the same interface as the NumPy backend. Both backends receive the same padded array, so edge maps are identical.
+portfolio/classical_benchmark.py is a seeded finite CLI check. It compares C++ and NumPy within tolerance, scores edge quality, records raw timings and exits nonzero on any failed check. It reuses the existing RunRecord, distribution and environment helpers, and with --out it records a protocol, source hashes and a manifest in a new empty directory. If g++ and the binary are both absent it falls back to NumPy-only checks unless --require-native is given.
+Data flow: synthetic_image / synthetic_signal → NumPy reference and (optionally) C++ → tolerance comparison and timing distributions → console JSON or a recorded run directory.
+Python · NumPy · SciPy (reference checks in tests) · C++17 · g++ · unittest
+.venv/bin/python -m pip install --no-cache-dir 'torch>=2.9,<3' --index-url https://download.pytorch.org/whl/cpu
+.venv/bin/python -m portfolio.classical_benchmark --require-native --repeats 1
+All results below come from the latest worker run on the host, with a single repeat and seed 11.
+Smoke command (`--require-native --repeats 1`; exit 0, all_passed true, native_executed true):
+- Data: synthetic 64x64 image (rectangle and disc, noise sigma 0.02) and a 256-sample signal at 256 Hz (12 Hz amplitude 1.0 plus 40 Hz amplitude 0.5, noise sigma 0.05).
+- Edge quality, NumPy pipeline against synthetic ground truth: precision 1.0, recall 1.0, F1 1.0 at 2 px tolerance (563 predicted pixels, 148 truth pixels). This is one image and not a general accuracy estimate. The predicted-pixel count is larger than the truth count because scoring is tolerance-based.
+- Dominant frequency: 12.0 Hz from both NumPy and C++.
+- C++ versus NumPy equivalence (tolerance 1e-9): max absolute difference 0.0 for 5x5 Gaussian correlation, 0.0 for Sobel magnitude, 6.7e-16 for 63-tap FIR, 3.4e-14 for 256-point rFFT and 7.1e-15 for STFT (frame 64, hop 32). All are within tolerance, and the edge maps are identical.
+- Timings (one sample each, so p50 equals p95; NumPy is one call, C++ wall time includes subprocess start and text parsing, kernel time is the in-program compute loop). The values are in milliseconds, given as NumPy / C++ wall / C++ kernel:
+  - correlation 0.435 / 21.458 / 0.427
+  - Sobel 0.617 / 19.353 / 0.278
+  - FIR 4.816 / 4.318 / 0.017
+  - rFFT 0.0745 / 3.566 / 0.047
+  - STFT 0.284 / 4.298 / 0.156
+C++ wall time was higher than NumPy for four of five operations, which mostly reflects process start and text I/O. These timings are not an algorithm or language comparison. No result files are shipped.
+Integration status: the full discovery run (121 tests) passed. No new training experiment was run, and no model or performance numbers are inherited into this card.
+Data are seeded synthetic images (64x64) and signals (256 samples); there is no video, object detection, camera geometry, driving or clinical data.
+The ROI time-activity comparison is a synthetic stand-in and not a PET or fMRI pipeline.
+The edge F1 result is a single smoke case (seed 11, one image). The F1 >= 0.75 criterion applies only to the synthetic shapes and noise levels in the tests.
+The C++ kernels are direct, single-threaded and unoptimized, with no SIMD and no production-C++ claim. Timings come from one repeat on the host under uncontrolled background load, and NumPy time, C++ wall time and C++ kernel time measure different things. They are not a performance or language ranking.
+The FFT and STFT require power-of-two lengths, kernels must be odd, and the text protocol may reject subnormal-range numbers.
+Without g++ and a prebuilt binary the native tests are skipped and the benchmark runs NumPy-only checks, reporting native_executed false unless --require-native is set.
+No measurement from this extension is shipped with the code, so timings must be reproduced by running the command. Target-device, power and native Windows/macOS measurements were not made.
+
+### Native build check (no stored binary)
+
+The C++ program is compiled into a temporary directory on first use; no binary is kept in the repository, and the statements above about a prebuilt binary are superseded. To verify the compiler path and remove any leftover `cpp/classical_filters.bin` from earlier revisions:
+
+```
+.venv/bin/python -m portfolio.classical_native
+```
+
+It prints `native build ok ...` and exits 0, or exits nonzero when `g++` is missing or compilation fails. Tests: `.venv/bin/python -m unittest discover -s tests -v` (includes `tests/test_classical_artifacts.py`).
+
+## Current verified documentation (this version)
+
+- [README.md](README.verified-66cc6aca0583.md)
+- [CODE_MAP.md](CODE_MAP.verified-fdfa76eca15f.md)
+- [EXERCISES.md](EXERCISES.verified-21242e3be84c.md)
+
+## Current verified documentation (this version)
+
+- [VALIDATION.md](VALIDATION.verified-a5825e3274d3.md)
+
+## Current version
+
+The current version of this document is [README.verified-4d79712c9997.md](README.verified-4d79712c9997.md).
