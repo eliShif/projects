@@ -25,3 +25,7 @@ This is the entry point for the current project version. Software validation and
 ## Current version
 
 The current version of this document is [DOCUMENTATION.verified-4cef5a3f8fad.md](DOCUMENTATION.verified-4cef5a3f8fad.md).
+
+## Current version
+
+The current version of this document is [DOCUMENTATION.verified-93db5a5cc075.md](DOCUMENTATION.verified-93db5a5cc075.md).

@@ -94,3 +94,29 @@ Change exercises:
 - Extend the C++ protocol with an `overlap-add` FIR command for long signals. Add rejection tests for malformed headers and an equivalence test against `numpy.convolve`.
 - Replace the direct 2-D correlation with a separable implementation for separable kernels. Keep the existing equivalence tests unchanged and add a case where the kernel is not separable and must be rejected or fall back.
 - Add a second synthetic ROI scenario (for example two regions with different peak frames) to `portfolio/classical_vision.py` and test that the curves separate; document that it remains synthetic.
+
+## 8. LLM quality operations (prompt comparison, monitoring, traces)
+
+Walkthrough. Run `.venv/bin/python -m portfolio.llm_quality_ops --seed 17` and read the JSON summary. Then read `portfolio/llm_quality_ops.py` in this order: `make_cases` → `render_messages` → `StubGenerator.generate` → `parse_output` → `score_case` → `evaluate_version` → `compare_evaluations`. Next read `monitor` and the helpers it calls (`latency_stats`, `psi`, `ks_statistic`), and finally `request_spans`, `export_traces_jsonl` and `load_traces_jsonl`. Run `.venv/bin/python -m portfolio.llm_quality_ops --out /tmp/llmops-run` (use a new path each time) and replay the recorded file with `--replay /tmp/llmops-run/traces.jsonl --reference-count 72` to see how a trace file becomes monitor records.
+
+Questions:
+
+- Why must every prompt version see the same cases and seeds, and what does `compare_evaluations` refuse when they differ? What would an unpaired comparison change about the confidence interval?
+- The bootstrap resamples cases, not individual repeats. What goes wrong if repeats of one case are treated as independent?
+- Why does the stub's result say nothing about prompt quality? Which parts of the comparison code are exercised anyway, and which conclusions would need a real model and a larger case set?
+- `grounded_correct` requires a correct answer, valid citation ids and the answer present in the cited text. Construct one output that is correct but not grounded and one that is grounded but wrong; which flag separates each?
+- Why are abstention alerts two-sided while citation and format alerts fire only on increases?
+- The rate alert uses a Wilson interval against the reference rate plus a margin. What false-alarm behaviour would a plain `rate > reference` rule have on a 200-request window?
+- PSI uses reference-quantile bins. Why does a constant reference feature need special handling, and why is the default bin count small?
+- Why do windows below `min_window_count` never alert, and what failure could that hide in a low-traffic period?
+- The p99 value is computed in this module while p50/p95 come from `measurement.distribution`. How does the test tie the two definitions together?
+- Which of the monitored quantities are proxies for hallucination, and which common hallucinations would none of them detect?
+
+Change exercises:
+
+- Add a fourth prompt version (for example one that asks for a one-line justification) and extend `PromptComparisonTests` with a case that the stub must handle without a schema change; decide beforehand what outcome would count as a failure.
+- Add a latency alert based on a fixed absolute budget (milliseconds) in addition to the ratio, with tests for both firing and non-firing windows.
+- Add a consecutive-window rule (alert only after two bad windows) and show with a test how it trades delay against false alarms on the control stream.
+- Extend `export_traces_jsonl` to rotate files by size, keeping the refuse-to-overwrite rule, and add tests for a span whose trace is split across files (the loader should reject it or merge it explicitly).
+- Replace the lexical `retrieval_score` with the TF-IDF retriever in `portfolio/retrieval.py`, and check that the drift test on retrieval score still separates a shifted stream from the control.
+- Run `--model-dir` with a small local model, record the run with `--out`, and write down which expectations in `run_demo` should not be asserted for a real model and why.

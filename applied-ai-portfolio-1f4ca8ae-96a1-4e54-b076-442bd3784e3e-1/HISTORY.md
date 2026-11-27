@@ -26,3 +26,7 @@ These original records are retained without moving or rewriting their contents. 
 ## Current version
 
 The current version of this document is [HISTORY.verified-5946c5d07ca5.md](HISTORY.verified-5946c5d07ca5.md).
+
+## Current version
+
+The current version of this document is [HISTORY.verified-1900863406b6.md](HISTORY.verified-1900863406b6.md).

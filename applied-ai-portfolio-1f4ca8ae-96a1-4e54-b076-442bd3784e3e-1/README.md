@@ -143,3 +143,43 @@ It prints `native build ok ...` and exits 0, or exits nonzero when `g++` is miss
 ## Current version
 
 The current version of this document is [README.verified-4d79712c9997.md](README.verified-4d79712c9997.md).
+
+## LLM quality operations extension (offline)
+
+`portfolio/llm_quality_ops.py` adds three connected capabilities for working on LLM output quality without live traffic. Design notes, requirement coverage and limitations: [docs/application-54a5d041.md](docs/application-54a5d041.md).
+
+- **Prompt-version comparison.** Several prompt versions answer the same synthetic evidence questions with the same seeds. Outputs are parsed against a strict JSON schema (`answer`, `citations`, `abstain`), scored as grounded-correct, and compared pairwise with the existing case-clustered bootstrap (`portfolio.common.clustered_difference`).
+- **Windowed monitoring.** A request-record stream is split into time windows and checked against a reference period: p50/p95 (via `portfolio.measurement.distribution`) and p99 latency, invalid-citation / ungrounded-answer / format-failure / abstention rates as hallucination proxies, and PSI plus Kolmogorov-Smirnov drift on input length, output length and retrieval score. Every alert records its observed value, reference value and threshold.
+- **Trace export.** Requests are written as span-style JSONL (`llm.request` with a child `llm.generate`, trace and span ids, start/duration, token counts, scoring attributes). A recorded file can be loaded with strict validation and replayed through the monitor.
+
+Setup (same environment as the rest of the portfolio; the new module needs only NumPy and, for one test, SciPy):
+
+```text
+python3 -m venv .venv
+.venv/bin/python -m pip install --no-cache-dir "torch>=2.9,<3" --index-url https://download.pytorch.org/whl/cpu
+.venv/bin/python -m pip install --no-cache-dir -r requirements.txt
+```
+
+Run and verify:
+
+```sh
+.venv/bin/python -m unittest tests.test_llm_quality_ops -v
+.venv/bin/python -m portfolio.llm_quality_ops --seed 17
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+The second command is a finite check. It prints a JSON summary and exits 0 only if every check holds: paired comparisons choose the expected prompt version, identical versions are inconclusive, a same-distribution control stream raises no alert, each injected fault (latency spike, invalid-citation surge, ungrounded surge, format failures, abstention increase and collapse, input-length drift, retrieval-score drift) raises the expected alert, and an exported trace file reloads identically. Options: `--out DIR` records the run (protocol, summary, `REPORT.md`, `traces.jsonl`, manifest) in a new empty directory; `--replay FILE --reference-count N [--window-ms MS]` monitors a recorded trace file and exits 3 when an alert fires, 0 when none does, and 2 on invalid input; `--model-dir PATH` swaps the stub for a downloaded local model through `portfolio.local_lm.LocalLM`.
+
+Scope: offline replay on synthetic data. The default generator is a deterministic rule-based stub, so the comparison output verifies the framework and says nothing about the quality of a prompt or model. Latency under the stub is simulated from token counts. The `--model-dir` path has not been exercised in this extension's tests (they use a fake object with the same interface). Hallucination rates are proxies, not a general hallucination measurement, and this is not live monitoring or a production deployment. No result from this module is shipped; the numbers come from running the commands above.
+
+## Current verified documentation (this version)
+
+- [README.md](README.verified-5bbd74a9fbb8.md)
+
+## Current verified documentation (this version)
+
+- [VALIDATION.md](VALIDATION.verified-6fb44b99199e.md)
+
+## Current version
+
+The current version of this document is [README.verified-18ad3c496d5e.md](README.verified-18ad3c496d5e.md).

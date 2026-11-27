@@ -15,3 +15,9 @@ No repository LICENSE file was present in the supplied snapshot; no replacement 
 
 Original source: https://github.com/eliShif/projects/tree/698098d907512cfeb475697ef9e560d624594c78/applied-ai-portfolio-1f4ca8ae-96a1-4e54-b076-442bd3784e3e-1
 This directory preserves the upstream implementation and adds the changes described in README.md.
+
+
+# Extension source provenance
+
+Original source: https://github.com/eliShif/projects/tree/e1a26d02dfde004acff56c31dc11934a78cdd9a2/applied-ai-portfolio-1f4ca8ae-96a1-4e54-b076-442bd3784e3e-1
+This directory preserves the upstream implementation and adds the changes described in README.md.

@@ -51,3 +51,21 @@ Details and limitations: [docs/application-bff5013d.md](docs/application-bff5013
 Data flow: `synthetic_image` / `synthetic_signal` → reference function and (optionally) native function → tolerance comparison and timing distributions → console JSON or a recorded run directory. The prebuilt binary is `cpp/classical_filters.bin` (ignored by the existing `*.bin` rule); a missing or stale binary is rebuilt into a temporary directory.
 
 Update: no binary is stored in the repository any more. `portfolio/classical_native.py` always compiles `cpp/filters.cpp` into a per-process temporary directory, and `python -m portfolio.classical_native` is the build check (it also removes a leftover `cpp/classical_filters.bin`). Regression tests: `tests/test_classical_artifacts.py`.
+
+## LLM quality operations extension
+
+Details and limitations: [docs/application-54a5d041.md](docs/application-54a5d041.md). One new module and one new test file; no existing file is modified.
+
+| Area in `portfolio/llm_quality_ops.py` | Responsibility | Reuses |
+|---|---|---|
+| `make_cases`, `Case`, `ATTRIBUTES` | Deterministic synthetic evidence questions; a configurable number (default 6 of 24) cannot be answered from the supplied passages | none |
+| `PROMPT_VERSIONS`, `render_messages` | Three prompt versions (free-form, JSON with citations, JSON with citations and abstention) | none |
+| `parse_output`, `score_case` | Strict JSON/schema parsing; grounded-correct, invalid-citation, ungrounded, abstained flags | none |
+| `StubGenerator`, `LocalLMGenerator` | Deterministic rule-based stand-in (simulated latency) and an adapter for `LocalLM.generate` | `portfolio/local_lm.py` |
+| `evaluate_version`, `compare_evaluations`, `compare_versions` | Same cases and seeds for every version; paired case-clustered bootstrap and a decision (`a_better`, `b_better`, `inconclusive`) | `common.clustered_difference` |
+| `request_spans`, `export_traces_jsonl`, `load_traces_jsonl`, `validate_spans`, `records_from_spans`, `spans_from_records` | Span-style JSONL export, strict loading and conversion to monitor records | none |
+| `percentile`, `latency_stats` | p50/p95 from the existing distribution function; p99 computed here | `measurement.distribution` |
+| `psi`, `ks_statistic`, `ks_critical`, `MonitorConfig`, `monitor` | Window statistics, rate-shift test (Wilson interval vs reference rate plus margin), PSI/KS drift, alert records | `common.wilson` |
+| `synthetic_records`, `SCENARIOS`, `run_demo`, `main` | Seeded request streams with injectable faults, the finite check and the CLI (`--out`, `--replay`, `--model-dir`) | `measurement.RunRecord`, `common.write_json` |
+
+Data flow: `make_cases` + prompt version + generator → parsed and scored rows → outcome matrix → paired comparison. In parallel, `synthetic_records` (or a loaded trace file) → `monitor` → windows and alerts. Spans from the comparison run are exported and reloaded as the trace round-trip check. Tests: `tests/test_llm_quality_ops.py` (`CaseTests`, `ParsingAndScoringTests`, `PromptComparisonTests`, `StatisticsTests`, `MonitorTests`, `TraceTests`, `CommandLineTests`).
