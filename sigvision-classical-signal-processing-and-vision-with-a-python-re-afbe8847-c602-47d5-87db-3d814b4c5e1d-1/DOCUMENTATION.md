@@ -14,3 +14,11 @@ This is the entry point for the current project version. Software validation and
 ## Research evidence and history
 
 [Earlier measurements, supporting reports and validation history](HISTORY.md) remain available with their original scope and dates. Retained historical outcomes were not necessarily rerun by the current software validation.
+
+## Current version
+
+The current version of this document is [DOCUMENTATION.verified-f8f2ad9c1440.md](DOCUMENTATION.verified-f8f2ad9c1440.md).
+
+## Current version
+
+The current version of this document is [DOCUMENTATION.verified-af5b14e14648.md](DOCUMENTATION.verified-af5b14e14648.md).

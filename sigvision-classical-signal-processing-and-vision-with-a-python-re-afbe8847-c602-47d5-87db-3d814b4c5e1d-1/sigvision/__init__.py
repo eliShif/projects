@@ -13,4 +13,5 @@ __all__ = [
     "perf",
     "cpp_bridge",
     "experiment",
+    "estimation",
 ]

@@ -53,3 +53,46 @@ before and after each change.
    length check, keeping the failure tests for invalid lengths that remain invalid.
 8. **Benchmark hygiene:** add a warm-up/outlier policy to `time_calls_us` and the
    C++ `bench`, keeping their percentile definitions identical.
+
+## Estimation extension
+
+### Walkthrough
+
+1. Read `monte_carlo_noise_estimator` and `noise_estimator_theory` side by side, then
+   run `.venv/bin/python -m sigvision.estimation --quick` and match each printed
+   bias/variance/RMSE pair to its analytic value.
+2. Trace `estimate_tone_frequency`: Hann `power_spectrum`, peak search, `_interpolate_bin`.
+   Print the three log-power samples around the peak for a tone at 40.3 Hz.
+3. Follow `kalman_cv_filter` for one step (predict, innovation covariance, gain,
+   Joseph update) and compare the matrices with `_cv_matrices`.
+4. Run `.venv/bin/python -m sigvision.experiment --quick --require-cpp --estimation`
+   and locate where the estimation section is appended in `main`.
+
+### Questions
+
+1. Why is the maximum-likelihood variance estimator biased by `-sigma^2 / n` when the
+   mean is unknown, and which test checks the sign and size of that bias?
+2. Why does the training-cell average in CA-CFAR have a relative standard deviation of
+   `1 / sqrt(2 * num_train)`, and how does that spread affect the realised threshold?
+3. Which effects keep the tone-frequency RMSE above the Cramer-Rao bound at high SNR?
+   How would a different window or interpolation formula change the bias?
+4. What does a mean NEES near the state dimension indicate, and why does the matched
+   test fail to say anything about real target motion?
+5. In the mismatched run the filter underestimates process noise. What happens to the
+   covariance, the gain and the NEES?
+
+### Change exercises
+
+1. **Bias correction:** measure the bias of the parabolic estimator as a function of the
+   fractional bin offset and add a correction table; add a test that the corrected
+   error is smaller.
+2. **Other interpolators:** compare interpolation on magnitude, log-magnitude and
+   Jacobsen's complex-ratio estimator for the same Monte Carlo setup.
+3. **Mean-estimate error:** add an estimator for the mean of noisy data and report
+   its variance against `sigma^2 / n`.
+4. **Adaptive noise:** estimate the measurement noise from innovations and feed it
+   back into the filter; test it on a track with a wrong initial `meas_std`.
+5. **Consistency band:** replace the loose NEES interval in the tests with a
+   chi-square confidence interval for the number of runs and steps used.
+6. **C++ port:** port the Kalman filter to `cpp/` with a native test and a parity
+   test against `kalman_cv_filter`.

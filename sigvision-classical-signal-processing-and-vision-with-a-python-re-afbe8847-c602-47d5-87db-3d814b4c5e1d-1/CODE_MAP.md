@@ -48,3 +48,17 @@
 - CFAR window bounds are half-open and clipped at the array ends; a detection also
   requires `x[i] > x[i-1]` and `x[i] >= x[i+1]`.
 - Both sides use the same percentile definition (nearest rank) for p50/p95.
+
+## Estimation extension
+
+| File | Contents |
+| --- | --- |
+| `sigvision/estimation.py` | Noise-variance estimators and theory (`estimate_noise_variance`, `noise_estimator_theory`, `monte_carlo_noise_estimator`), CFAR training-cell check (`monte_carlo_cfar_false_alarm`), tone frequency (`estimate_tone_frequency`, `estimate_tone_frequencies`, `tone_frequency_crb_std_hz`, `monte_carlo_tone_frequency`), constant-velocity Kalman filter (`simulate_cv_track`, `kalman_cv_filter`, `nees`, `monte_carlo_tracking`), suite and CLI (`run_estimation_suite`, `print_estimation_report`, `main`) |
+| `sigvision/experiment.py` | Opt-in `--estimation` flag that appends the estimation suite to the report |
+| `tests/test_estimation.py` | Known values, Monte Carlo agreement with theory, seed dependence, invalid input, Kalman consistency (NEES), mismatched-model detection, CLI and JSON output |
+| `docs/application-94735bca.md` | Requirement mapping, method notes and limits |
+
+Reused from the existing code: `power_spectrum` (Hann + radix-2 FFT), `detect_tones`,
+`cfar_alpha`. Conventions: the state vector is `[x, y, vx, vy]`; process noise comes
+from a discrete white-noise-acceleration model (`Q = sigma_a^2 G G^T`); the tone
+Monte Carlo uses `eta = A^2 / (2 sigma^2)` as the per-sample SNR.

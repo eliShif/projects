@@ -251,6 +251,11 @@ def main(argv: Optional[List[str]] = None) -> int:
         "--require-cpp", action="store_true", help="exit with status 2 if the C++ core is unusable"
     )
     parser.add_argument("--json", type=Path, default=None, help="also write the report as JSON")
+    parser.add_argument(
+        "--estimation",
+        action="store_true",
+        help="also run the statistical-estimation experiments (sigvision.estimation)",
+    )
     args = parser.parse_args(argv)
 
     spectral_trials, vision_trials, repeats = (10, 5, 5) if args.quick else (100, 40, 30)
@@ -282,7 +287,13 @@ def main(argv: Optional[List[str]] = None) -> int:
     else:
         report["timing"] = run_timing(None, repeats, args.seed)
 
+    if args.estimation:
+        from .estimation import print_estimation_report, run_estimation_suite
+
+        report["estimation"] = run_estimation_suite(bool(args.quick), args.seed)
     _print_report(report)
+    if args.estimation:
+        print_estimation_report(report["estimation"])
     if args.json is not None:
         args.json.write_text(json.dumps(report, indent=2, default=float) + "\n")
     parity = report.get("parity")

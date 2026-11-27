@@ -93,3 +93,51 @@ C++-dependent tests are skipped if make or g++ is missing. The smoke command fai
 [Technical guide and current validation](DOCUMENTATION.md) · [Code map](CODE_MAP.md) · [Walkthrough](EXERCISES.md)
 
 [Historical and supporting records](HISTORY.md) retain earlier reports and validation records. Earlier published versions remain available through Git history.
+
+## Statistical estimation extension
+
+`sigvision/estimation.py` adds seeded, synthetic-data estimation experiments with explicit error analysis. It reuses the existing Hann window, FFT, CA-CFAR and experiment CLI:
+
+- noise-power estimators (mean-square and sample variance) with Monte Carlo bias, variance and RMSE against the analytic values, plus the CA-CFAR training-cell noise estimate and its false-alarm rate;
+- sub-bin tone-frequency estimation (Hann FFT with parabolic interpolation) compared with the Cramer-Rao bound across SNR levels;
+- a constant-velocity Kalman filter on synthetic 2-D tracks, scored by position RMSE against raw measurements and by NEES, including a deliberately mismatched process model.
+
+Setup and run (NumPy only; the C++ build is needed only for the existing parity tests):
+
+```sh
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+make build
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python -m sigvision.estimation --quick
+.venv/bin/python -m sigvision.experiment --quick --require-cpp --estimation
+```
+
+Figures from the latest quick estimation run (`python -m sigvision.estimation --quick`) are recorded in [docs/application-94735bca.md](docs/application-94735bca.md), with the scope of that run. The Results section above records an earlier, separate run (`sigvision.experiment --quick --require-cpp`) that was not repeated in the latest validation, so its latency, parity and detection figures are not part of that validation. Likewise, the combined `--require-cpp --estimation` command has not been run as part of the latest validation. Rerunning the commands regenerates all figures. The data is synthetic, the estimators are textbook methods, and no estimation kernel has been ported to C++. Method notes and limits are in the same document.
+
+## Current verified documentation (this version)
+
+- [README.md](README.verified-2e6c994d4a72.md)
+- [docs/application-94735bca.md](docs/application-94735bca.verified-5c717a396fa5.md)
+- [VALIDATION.md](VALIDATION.verified-754fd3708fc4.md)
+
+## Current verified documentation (this version)
+
+- [VALIDATION.md](VALIDATION.verified-061dd668f5eb.md)
+
+## Current version
+
+The current version of this document is [README.verified-c5cd811cee2c.md](README.verified-c5cd811cee2c.md).
+
+## Current verified documentation (this version)
+
+- [README.md](README.verified-5310fab634cf.md)
+- [VALIDATION.md](VALIDATION.verified-107096347a95.md)
+
+## Current verified documentation (this version)
+
+- [VALIDATION.md](VALIDATION.verified-9d124bc56ec7.md)
+
+## Current version
+
+The current version of this document is [README.verified-21a21f0d16c7.md](README.verified-21a21f0d16c7.md).
